@@ -9,7 +9,7 @@
 //   import './css/pages/materiview.css';
 
   export default {
-    name: 'LoginView',
+    name: 'MateriView',
   };
   </script>
   

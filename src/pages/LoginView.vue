@@ -55,6 +55,6 @@
 // import './css/pages/loginview.css';
 
 export default {
-  name: 'LoginPage'
+  name: 'LoginView'
 }
 </script>

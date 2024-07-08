@@ -9,7 +9,7 @@
 //   import './css/pages/landingview.css';
 
   export default {
-    name: 'LoginView',
+    name: 'LandingView',
   };
   </script>
   
