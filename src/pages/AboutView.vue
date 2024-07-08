@@ -6,6 +6,8 @@
   </template>
   
   <script>
+  import './css/pages/aboutview.css';
+
   export default {
     name: 'LoginView',
   };
