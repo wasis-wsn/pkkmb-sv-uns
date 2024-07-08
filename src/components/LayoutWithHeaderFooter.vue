@@ -10,7 +10,7 @@
   </template>
   
   <script>
-import HeaderView from './HeaderView.vue';
+import HeaderView from './NavbarView.vue';
 import FooterView from './FooterView.vue';
   
   export default {
