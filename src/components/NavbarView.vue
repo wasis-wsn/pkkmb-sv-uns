@@ -13,9 +13,9 @@
       <router-link to="/kelompok" class="nav-link">KELOMPOK</router-link>
       <router-link to="/galeri" class="nav-link">GALERI</router-link>
       <router-link to="/tentang" class="nav-link">TENTANG</router-link>
-      <button class="login-button justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
+      <router-link to="/login" class="login-button justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
         Login
-      </button>
+      </router-link>
     </nav>
 
     <div class="relative md:hidden">
@@ -30,9 +30,9 @@
           <router-link to="/kelompok" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">KELOMPOK</router-link>
           <router-link to="/galeri" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">GALERI</router-link>
           <router-link to="/tentang" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">TENTANG</router-link>
-          <button class="block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors rounded-b-md">
+          <router-link to="/login" class="block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors rounded-b-md">
             Login
-          </button>
+          </router-link>
         </div>
       </transition>
     </div>
