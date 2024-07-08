@@ -3,7 +3,7 @@
       <HeaderView />
       
       <!-- Konten dari halaman yang menggunakan layout ini -->
-      <slot></slot>
+      <router-view></router-view>
       
       <FooterView />
     </div>
