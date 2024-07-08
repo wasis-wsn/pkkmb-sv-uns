@@ -6,7 +6,7 @@
   </template>
   
   <script>
-  import './css/pages/kelompokview.css';
+//   import './css/pages/kelompokview.css';
 
   export default {
     name: 'LoginView',

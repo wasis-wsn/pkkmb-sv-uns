@@ -6,7 +6,7 @@
   </template>
   
   <script>
-  import './css/pages/materiview.css';
+//   import './css/pages/materiview.css';
 
   export default {
     name: 'LoginView',
