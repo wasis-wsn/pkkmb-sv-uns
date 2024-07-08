@@ -1,10 +1,10 @@
 <template>
   <main class="flex gap-5 w-full capitalize max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
     <section
-      class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full">
-      <div v-for="index in 5" :key="index"
-        class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[187px]"
-        :class="{ 'mt-20 max-md:mt-10': index === 1 }"></div>
+      class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-r-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full relative overflow-hidden">
+      <div v-for="(width, index) in [160, 130, 150, 120, 140]" :key="index"
+        class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px]"
+        :class="{ 'mt-20 max-md:mt-10': index === 0 }" :style="{ width: width + 'px' }"></div>
       <h1
         class="self-stretch pl-8 mt-36 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full">
         <span class="font-semibold">Selamat Datang di </span>
@@ -27,7 +27,7 @@
   </main>
   <main>
     <div class="justify-center">
-      <section class="flex ustify-center flex-col items-center px-5 font-bold text-center leading-[150%] max-w-[764px]">
+      <section class="flex justify-center flex-col items-center px-5 font-bold text-center leading-[150%] max-w-[764px]">
         <h1 class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl">
           Askara Muda 2024!
         </h1>
@@ -115,14 +115,14 @@
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5  capitalize">
                   <div
-                    class="justify-center items-center px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]">
+                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]">
                     2
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 2</h3>
                 </div>
                 <p class="mt-10 text-sm text-neutral-600">
-                  Then, you can send us your inventory and the fun begins. We'll choose a delivery day together so your
-                  fulfilment is not interrupted.
+                  You're currently running your store on Shopify, WooCommerce, or any other platform. As a first step,
+                  you'll connect your store with our platform.
                 </p>
               </div>
             </div>
@@ -130,76 +130,38 @@
         </div>
         <div class="mt-12 max-md:pr-5 max-md:mt-10 max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex items-center w-[43%] max-md:ml-0 max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
-                <div class="flex gap-5  capitalize">
+                <div class="flex gap-5 items-center capitalize">
                   <div
-                    class="justify-center items-center px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]">
+                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]">
                     3
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 3</h3>
                 </div>
                 <p class="mt-10 text-sm text-neutral-600">
-                  We pick, pack and ship all incoming orders directly from our own warehouse until 12pm on the same day,
+                  You're currently running your store on Shopify, WooCommerce, or any other platform. As a first step,
+                  you'll connect your store with our platform.
                 </p>
               </div>
             </div>
-            <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+            <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
               <img loading="lazy" src="@/assets/day 3.png" alt="Day 3 illustration"
-                class="w-full aspect-square max-md:mt-10" />
+                class="grow w-full aspect-[1.49] max-md:mt-10 max-md:max-w-full" />
             </div>
-          </div>
-        </div>
-        <div class="flex gap-5  mt-11 max-md:flex-wrap max-md:pr-5 max-md:mt-10 max-md:max-w-full">
-          <img loading="lazy" src="@/assets/day 4.png" alt="Day 4 illustration" class="w-full aspect-square" />
-          <div class="flex flex-col my-auto">
-            <div class="flex gap-5  capitalize">
-              <div
-                class="justify-center items-center px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]">
-                4
-              </div>
-              <h3 class="text-4xl font-black text-red-400">Day 4</h3>
-            </div>
-            <p class="mt-10 text-sm text-neutral-600">
-              Then, you can send us your inventory and the fun begins. We'll choose a delivery day together so your
-              fulfilment is not interrupted.
-            </p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- <section
-      class="flex flex-col items-center px-16 pt-3.5 mt-5 w-full text-2xl font-medium text-black capitalize bg-violet-100 max-md:px-5 max-md:max-w-full">
-      <div class="flex flex-col max-w-full w-[597px]">
-        <h3 class="self-center">SPONSORED BY :</h3>
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/20f49a9641eea88cc8f29e51d23abe232378f2eb36cb50cf94a419c062697a09?apiKey=500874f732b04a0f9d2a6b3345b9b032&"
-          alt="Sponsor logos" class="mt-5 w-full aspect-[2.56] max-md:max-w-full" />
-      </div>
-    </section> -->
   </main>
 </template>
 
-<script>
-  // import './css/pages/landingview.css';
-  import {
-    ClipboardIcon,
-    UserGroupIcon
-  } from '@heroicons/vue/24/solid'
-  // import {
-  //   UserGroupIcon
-  // } from '@heroicons/vue/24/solid'
-  export default {
-    name: 'LandingView',
-    components: {
-      ClipboardIcon,
-      UserGroupIcon,
-    }
-  }
+<script setup>
+import { ClipboardIcon, UserGroupIcon } from '@heroicons/vue/24/solid';
 </script>
+
 <style scoped>
-  .inset-shadow {
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-  }
+.section-rounded {
+  clip-path: ellipse(100% 50% at 100% 50%);
+}
 </style>
