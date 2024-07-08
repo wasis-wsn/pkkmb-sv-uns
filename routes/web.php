@@ -14,10 +14,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('HomeView');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('HomeView');
 })->name('dashboard');
