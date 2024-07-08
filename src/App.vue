@@ -1,10 +1,15 @@
 <template>
   <div id="app">
-    <router-view />
+    
+    <!-- Router view untuk konten halaman -->
+    <router-view></router-view>
+    
   </div>
 </template>
 
 <script>
+
+
 export default {
   name: 'App',
 };
