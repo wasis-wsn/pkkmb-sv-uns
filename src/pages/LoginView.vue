@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import './css/pages/loginview.css';
+
 export default {
   name: 'LoginPage'
 }
