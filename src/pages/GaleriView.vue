@@ -15,9 +15,9 @@
       <main class="container mx-auto">
         <div class="galeri-1">
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-9"
+            class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9"
           >
-            <div class="sm:row-span-2 lg:row-span-3">
+            <div class="row-span-2 sm:row-span-2 lg:row-span-3">
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
@@ -38,7 +38,7 @@
                 class="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div class="sm:row-span-2 lg:row-span-3">
+            <div class="row-span-2 sm:row-span-2 lg:row-span-3">
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
@@ -63,9 +63,9 @@
         </div>
         <div class="galeri-2 mt-5">
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-9"
+            class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9"
           >
-            <div class="sm:row-span-2 lg:row-span-3">
+            <div class="row-span-2 sm:row-span-2 lg:row-span-3">
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
@@ -79,7 +79,7 @@
                 class="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div class="sm:row-span-2 lg:row-span-3 col-end">
+            <div class="row-span-2 sm:row-span-2 lg:row-span-3 col-end">
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
@@ -122,7 +122,7 @@
         <!-- Slider Acara -->
         <div class="slider-acara mt-5">
           <!-- Trending Section -->
-          <section class="trending" id="trending">
+          <section class="acara" id="acara">
             <div class="container mx-auto p-4">
               <div class="judul mb-3 text-center">
                 <h1
@@ -136,10 +136,11 @@
                   Mahasiswa Baru di Sekolah Vokasi UNS. Selamat menikmati!
                 </p>
               </div>
-              <div class="swiper mb-2">
-                <!-- Slides -->
+              <div class="container swiper mb-2">
+                <!-- Swiper Wrapper -->
                 <div class="swiper-wrapper flex">
-                  <div class="swiper-slide flex-shrink-0 grow">
+                  <!-- Swipper Slide -->
+                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
                     <div
                       class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
                     >
@@ -152,13 +153,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p class="mt-5 text-base">
+                      <p
+                        class="mt-5 text-base flex flex-col justify-between flex-grow"
+                      >
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow">
+                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
                     <div
                       class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
                     >
@@ -171,13 +174,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p class="mt-5 text-base">
+                      <p
+                        class="mt-5 text-base flex flex-col justify-between flex-grow"
+                      >
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow">
+                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
                     <div
                       class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
                     >
@@ -190,13 +195,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p class="mt-5 text-base">
+                      <p
+                        class="mt-5 text-base flex flex-col justify-between flex-grow"
+                      >
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow">
+                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
                     <div
                       class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
                     >
@@ -209,13 +216,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p class="mt-5 text-base">
+                      <p
+                        class="mt-5 text-base flex flex-col justify-between flex-grow"
+                      >
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow">
+                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
                     <div
                       class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
                     >
@@ -228,13 +237,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p class="mt-5 text-base">
+                      <p
+                        class="mt-5 text-base flex flex-col justify-between flex-grow"
+                      >
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow">
+                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
                     <div
                       class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
                     >
@@ -247,40 +258,43 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p class="mt-5 text-base">
+                      <p
+                        class="mt-5 text-base flex flex-col justify-between flex-grow"
+                      >
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
+                  <!-- Swipper Slide End -->
                 </div>
-                <!-- Swiper end -->
+                <!-- Swipper Wrapper End -->
               </div>
             </div>
           </section>
-          <!-- Trending Section Ends -->
-
-          <!-- After Movie -->
-          <section
-            class="flex flex-col items-center px-5 text-4xl font-bold capitalize text-neutral-900"
-          >
-            <h1 class="max-md:max-w-full text-center">
-              AFTER MOVIE PKKMB SV UNS 2024
-            </h1>
-            <div
-              class="shrink-0 mt-2.5 max-w-full h-1 bg-red-400 w-[630px]"
-              aria-hidden="true"
-            ></div>
-            <div class="image mt-3">
-              <img
-                loading="lazy"
-                src="@/assets/galeri/after-movie.png"
-                alt="After Movie PKKMB SV UNS 2024"
-                class="object-cover"
-              />
-            </div>
-          </section>
         </div>
+        <!-- Trending Section Ends -->
+
+        <!-- After Movie -->
+        <section
+          class="flex flex-col items-center px-5 text-4xl font-bold capitalize text-neutral-900"
+        >
+          <h1 class="max-md:max-w-full text-center">
+            AFTER MOVIE PKKMB SV UNS 2024
+          </h1>
+          <div
+            class="shrink-0 mt-2.5 max-w-full h-1 bg-red-400 w-[630px]"
+            aria-hidden="true"
+          ></div>
+          <div class="image mt-3">
+            <img
+              loading="lazy"
+              src="@/assets/galeri/after-movie.png"
+              alt="After Movie PKKMB SV UNS 2024"
+              class="object-cover"
+            />
+          </div>
+        </section>
       </main>
     </div>
   </div>
