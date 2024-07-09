@@ -3,7 +3,6 @@
     class="flex gap-5 w-full capitalize max-md:flex-wrap max-md:pr-5 max-md:max-w-full"
   >
     <section
-<<<<<<< HEAD
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
     >
       <div
@@ -12,12 +11,6 @@
         class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[187px]"
         :class="{ 'mt-20 max-md:mt-10': index === 1 }"
       ></div>
-=======
-      class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-r-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full relative overflow-hidden">
-      <div v-for="(width, index) in [160, 130, 150, 120, 140]" :key="index"
-        class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px]"
-        :class="{ 'mt-20 max-md:mt-10': index === 0 }" :style="{ width: width + 'px' }"></div>
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
       <h1
         class="self-stretch pl-8 mt-36 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full"
       >
@@ -53,15 +46,10 @@
     />
   </main>
   <main>
-<<<<<<< HEAD
     <div class="flex justify-center items-center min-h-screen">
       <section
         class="flex justify-center flex-col items-center px-5 font-bold text-center leading-[150%] max-w-[764px] mt-[180px]"
       >
-=======
-    <div class="justify-center">
-      <section class="flex justify-center flex-col items-center px-5 font-bold text-center leading-[150%] max-w-[764px]">
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
         <h1 class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl">
           Askara Muda 2024!
         </h1>
@@ -188,25 +176,16 @@
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
-<<<<<<< HEAD
                     class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
                   >
-=======
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]">
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
                     2
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 2</h3>
                 </div>
                 <p class="mt-10 text-sm text-neutral-600">
-<<<<<<< HEAD
                   You're currently running your store on Shopify, WooCommerce, or any
                   other platform. As a first step, you'll connect your store with our
                   platform.
-=======
-                  You're currently running your store on Shopify, WooCommerce, or any other platform. As a first step,
-                  you'll connect your store with our platform.
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
                 </p>
               </div>
             </div>
@@ -218,46 +197,31 @@
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
-<<<<<<< HEAD
                     class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
                   >
-=======
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]">
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
                     3
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 3</h3>
                 </div>
                 <p class="mt-10 text-sm text-neutral-600">
-<<<<<<< HEAD
                   You're currently running your store on Shopify, WooCommerce, or any
                   other platform. As a first step, you'll connect your store with our
                   platform.
-=======
-                  You're currently running your store on Shopify, WooCommerce, or any other platform. As a first step,
-                  you'll connect your store with our platform.
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
                 </p>
               </div>
             </div>
             <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
-<<<<<<< HEAD
               <img
                 loading="lazy"
                 src="@/assets/day 3.png"
                 alt="Day 3 illustration"
                 class="grow w-full aspect-[1.49] max-md:mt-10"
               />
-=======
-              <img loading="lazy" src="@/assets/day 3.png" alt="Day 3 illustration"
-                class="grow w-full aspect-[1.49] max-md:mt-10 max-md:max-w-full" />
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
             </div>
           </div>
         </div>
       </div>
     </section>
-<<<<<<< HEAD
     <!-- Slider Acara -->
     <div class="slider-acara mt-5">
       <!-- Trending Section -->
@@ -401,17 +365,5 @@ export default {
 .swiper-button-prev {
   left: 0;
   border-radius: 10px 0 0 10px;
-=======
-  </main>
-</template>
-
-<script setup>
-import { ClipboardIcon, UserGroupIcon } from '@heroicons/vue/24/solid';
-</script>
-
-<style scoped>
-.section-rounded {
-  clip-path: ellipse(100% 50% at 100% 50%);
->>>>>>> 48f5d531bc74d8148610631ed1915d88fa34f105
 }
 </style>
