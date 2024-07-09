@@ -274,27 +274,6 @@
           </section>
         </div>
         <!-- Trending Section Ends -->
-
-        <!-- After Movie -->
-        <section
-          class="flex flex-col items-center px-5 text-4xl font-bold capitalize text-neutral-900"
-        >
-          <h1 class="max-md:max-w-full text-center">
-            AFTER MOVIE PKKMB SV UNS 2024
-          </h1>
-          <div
-            class="shrink-0 mt-2.5 max-w-full h-1 bg-red-400 w-[630px]"
-            aria-hidden="true"
-          ></div>
-          <div class="image mt-3">
-            <img
-              loading="lazy"
-              src="@/assets/galeri/after-movie.png"
-              alt="After Movie PKKMB SV UNS 2024"
-              class="object-cover"
-            />
-          </div>
-        </section>
       </main>
     </div>
   </div>
