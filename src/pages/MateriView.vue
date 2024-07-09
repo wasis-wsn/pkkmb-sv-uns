@@ -233,14 +233,15 @@
     <section class="flex gap-5 self-center  mt-[10px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
         <div class="text-center y">
-        <p class="text-2xl font-bold mb-4 text-[30px]" >Download Materi</p>
-        <button class="justify-center items-center font-bold text-[20px] px-10 py-3.5 text-white whitespace-nowrap bg-slate-700 rounded-[25px] max-md:px-5">
-    DISINI!
-  </button>
-      </div>
+          <p class="text-2xl font-bold mb-4 text-[30px]">Download Materi</p>
+          <a
+          href="#" class="justify-center items-center font-bold text-[20px] px-10 py-3.5 text-white whitespace-nowrap bg-slate-700 rounded-[25px] max-md:px-5">
+            DISINI!
+          </a>
+        </div>
       </div>
     </section>
-      
+
 
     <!-- <section class=" mt-16 w-full max-md:mt-10 max-md:max-w-full">
         <div class="flex gap-5 -mt-96 max-md:flex-col max-md:gap-0">
