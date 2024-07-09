@@ -1,9 +1,5 @@
 <template>
-<<<<<<< Updated upstream
-  <nav :class="{ 'shadow-md': isHeaderShadowVisible }" class=" z-30 sticky top-0 flex gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-10">
-=======
-  <nav :class="{ 'shadow-md': isHeaderShadowVisible }" class="sticky top-0 flex gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-20">
->>>>>>> Stashed changes
+  <nav :class="{ 'shadow-md': isHeaderShadowVisible }" class="sticky top-0 flex gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-30">
     <div class="flex items-center gap-2 pr-1.5 font-bold text-center text-black bg-white bg-opacity-0 leading-[150%]">
       <img loading="lazy" src="@/assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[0.99] w-[60px] md:w-[89px]" />
       <div class="flex flex-col">
