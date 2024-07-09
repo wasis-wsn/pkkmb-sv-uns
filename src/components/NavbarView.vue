@@ -1,7 +1,7 @@
 <template>
-  <nav :class="{ 'shadow-md': isHeaderShadowVisible }" class="sticky top-0 flex gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-10">
+  <nav :class="{ 'shadow-md': isHeaderShadowVisible }" class="sticky top-0 flex gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-30">
     <div class="flex items-center gap-2 pr-1.5 font-bold text-center text-black bg-white bg-opacity-0 leading-[150%]">
-      <img loading="lazy" src="@/assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[0.99] w-[60px] md:w-[89px]" />
+      <img loading="lazy" src="@/assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[0.99] h-[83px] w-[93px] md:w-[100px]" />
       <div class="flex flex-col">
         <h1 class="text-xl">A S K A R A</h1>
         <p class="mt-1 text-xs">PKKMB SEKOLAH VOKASI 2024</p>
@@ -120,9 +120,12 @@ export default {
   color: white;
   padding: 20px 40px;
   font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
 .login-button:hover {
-  background-color: #24244a;
+  background-color: white;
+  color: #2C2D5B;
+  border: 2px solid #2C2D5B;
 }
 </style>

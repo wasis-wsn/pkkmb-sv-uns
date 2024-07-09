@@ -37,7 +37,7 @@
                 </div>
                 <div class="flex gap-5 mt-5 w-full text-2xl font-light text-black text-opacity-80 max-md:flex-wrap max-md:mt-10 max-md:max-w-full items-center">
                   <div class="flex items-center gap-2">
-                    <input type="checkbox" id="remember" class="bg-white rounded-full border-2 border-indigo-600 border-solid h-[24px] w-[24px]" />
+                    <input type="checkbox" id="remember" class="h-[24px] w-[24px]" />
                     <label for="remember" class="flex-auto">Remember me</label>
                   </div>
                   <a href="/lupa-password" class="text ml-auto">Lupa password?</a>
@@ -87,12 +87,23 @@ export default {
       console.log('Password:', this.password);
       // Contoh redirect ke halaman setelah login berhasil
       this.$router.push('/dashboard');
+      // Menghapus memori dari username dan password
+      this.username = '';
+      this.password = '';
     }
   }
 }
 </script>
 
 <style scoped>
+/* Impor font Lato */
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;800;900&display=swap'); */
+
+/* Terapkan font Lato */
+* {
+  font-family: 'Lato', sans-serif;
+}
+
 /* Styling untuk animasi dropdown */
 .dropdown-enter-active, .dropdown-leave-active {
   transition: opacity 0.3s ease;
