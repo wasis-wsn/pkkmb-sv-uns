@@ -15,14 +15,19 @@
       <div class="table-container bg-white p-4 rounded-lg shadow-md">
         <form class="search-form flex items-center gap-2 mb-4">
           <div class="relative w-60">
-            <div class="relative">
-              <input type="text" id="groupSearch"
-                class="search-input w-full pl-4 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Masukkan nama anda &#xEF0E;" v-model="searchQuery" />
+            <div
+              class="relative grid grid-cols-[auto_1fr] items-center border border-gray-300 rounded-lg p-1 focus-within:ring-2 focus-within:ring-blue-500">
+              <input type="text" id="groupSearch" class="search-input w-full pl-2 py-2 focus:outline-none"
+              placeholder="Masukkan nama anda" v-model="searchQuery" @input="handleSearch" />
+              <Search v-if="!isSearching"/>
+              <!-- <Camera
+    color="red"
+    :size="32"
+  /> -->
             </div>
           </div>
           <div class="relative">
-            <FunnelIcon class="size-8 w-8 h-8 text-gray-500 cursor-pointer" @click="toggleDropdown" />
+            <Filter @click="toggleDropdown"/>
             <div v-show="showDropdown"
               class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-md">
               <div class="py-2">
@@ -54,103 +59,101 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue';
+import { Search, Filter } from 'lucide-vue-next';
 
-  import {
-    ref,
-    computed
-  } from 'vue';
-  import {
-    FunnelIcon
-  } from '@heroicons/vue/24/solid';
+// Sample data, replace with actual data
+const users = [{
+  id: 1,
+  nama: 'yoga',
+  prodi: 'd3 teknik informatika',
+  kelompok: 'macan aung'
+},
+{
+  id: 2,
+  nama: 'ardya',
+  prodi: 'd3 teknik informatika',
+  kelompok: 'bangau wayaw'
+},
+{
+  id: 3,
+  nama: 'mamat',
+  prodi: 'd3 teknik informatika',
+  kelompok: 'elang putra'
+},
+{
+  id: 4,
+  nama: 'mamat',
+  prodi: 'd3 teknik informatika',
+  kelompok: 'elang putra'
+},
+{
+  id: 5,
+  nama: 'mamat',
+  prodi: 'd3 teknik informatika',
+  kelompok: 'elang putra'
+},
+{
+  id: 6,
+  nama: 'mamat',
+  prodi: 'd3 teknik informatika',
+  kelompok: 'elang putra'
+},
+{
+  id: 7,
+  nama: 'mamat',
+  prodi: 'd3 teknik informatika',
+  kelompok: 'elang putra'
+},
+];
 
-  // Sample data, replace with actual data
-  const users = [{
-      id: 1,
-      nama: 'yoga',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'macan aung'
-    },
-    {
-      id: 2,
-      nama: 'ardya',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'bangau wayaw'
-    },
-    {
-      id: 3,
-      nama: 'mamat',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'elang putra'
-    },
-    {
-      id: 4,
-      nama: 'mamat',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'elang putra'
-    },
-    {
-      id: 5,
-      nama: 'mamat',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'elang putra'
-    },
-    {
-      id: 6,
-      nama: 'mamat',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'elang putra'
-    },
-    {
-      id: 7,
-      nama: 'mamat',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'elang putra'
-    },
-  ];
+const kelompok = [{
+  id: 1,
+  kelompok: 'macan aung'
+},
+{
+  id: 2,
+  kelompok: 'bangau wayaw'
+},
+{
+  id: 3,
+  kelompok: 'elang putra'
+},
+];
 
-  const kelompok = [{
-      id: 1,
-      kelompok: 'macan aung'
-    },
-    {
-      id: 2,
-      kelompok: 'bangau wayaw'
-    },
-    {
-      id: 3,
-      kelompok: 'elang putra'
-    },
-  ];
+const searchQuery = ref('');
+const selectedKelompok = ref('');
+const showDropdown = ref(false);
+const isSearching = ref(false);
 
-  const searchQuery = ref('');
-  const selectedKelompok = ref('');
-  const showDropdown = ref(false);
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
+};
 
-  const toggleDropdown = () => {
-    showDropdown.value = !showDropdown.value;
-  };
+const filterByKelompok = (kel) => {
+  selectedKelompok.value = kel;
+  showDropdown.value = false;
+};
 
-  const filterByKelompok = (kel) => {
-    selectedKelompok.value = kel;
-    showDropdown.value = false;
-  };
+const handleSearch = () => {
+  isSearching.value = searchQuery.value.length > 0;
+};
 
-  const filteredUsers = computed(() => {
-    let result = users;
-    if (searchQuery.value) {
-      const lowercasedQuery = searchQuery.value.toLowerCase();
-      result = result.filter(user =>
-        user.nama.toLowerCase().includes(lowercasedQuery) ||
-        user.prodi.toLowerCase().includes(lowercasedQuery) ||
-        user.kelompok.toLowerCase().includes(lowercasedQuery)
-      );
-    }
-    if (selectedKelompok.value) {
-      result = result.filter(user => user.kelompok === selectedKelompok.value);
-    }
-    return result;
-  });
+const filteredUsers = computed(() => {
+  let result = users;
+  if (searchQuery.value) {
+    const lowercasedQuery = searchQuery.value.toLowerCase();
+    result = result.filter(user =>
+      user.nama.toLowerCase().includes(lowercasedQuery) ||
+      user.prodi.toLowerCase().includes(lowercasedQuery) ||
+      user.kelompok.toLowerCase().includes(lowercasedQuery)
+    );
+  }
+  if (selectedKelompok.value) {
+    result = result.filter(user => user.kelompok === selectedKelompok.value);
+  }
+  return result;
+});
 </script>
 
-<style>
-</style>
+<style></style>
