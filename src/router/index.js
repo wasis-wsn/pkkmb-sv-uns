@@ -14,10 +14,10 @@ const routes = [
     component: LayoutWithHeaderFooter,
     children: [
       { path: "", component: LandingView },
-      { path: "/about", component: AboutView },
+      { path: "/tentang", component: AboutView },
       { path: "/kelompok", component: KelompokView },
-      { path: "/Materi", component: MateriView },
-      { path: "/Galeri", component: GaleriView },
+      { path: "/materi", component: MateriView },
+      { path: "/galeri", component: GaleriView },
     ],
   },
   {
