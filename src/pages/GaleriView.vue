@@ -267,7 +267,7 @@
             <h1 class="max-md:max-w-full text-center">
               AFTER MOVIE PKKMB SV UNS 2024
             </h1>
-            <div
+         <div
               class="shrink-0 mt-2.5 max-w-full h-1 bg-red-400 w-[630px]"
               aria-hidden="true"
             ></div>
