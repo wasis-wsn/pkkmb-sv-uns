@@ -1,26 +1,6 @@
 <template>
-  <div class="flex flex-col bg-white">
-    <section class="flex gap-5 w-full flex-wrap md:pr-5 md:max-w-full">
-      <div
-        class="flex flex-col flex-1 py-20 rounded-full border border-solid border-violet-300 border-opacity-50 md:max-w-full">
-        <div class="flex flex-col mt-20 max-w-full w-[200px] md:mt-10">
-          <div class="shrink-0 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px]"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px]"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px]"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px]"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px]"></div>
-        </div>
-        <h1
-          class="flex flex-col ml-10 justify-center self-end mt-24 text-5xl font-bold text-red-400 capitalize leading-[72px] md:mt-10 md:max-w-full md:text-4xl md:leading-[67px]">
-          MATERI <br />PKKMB SV UNS 2024
-        </h1>
-      </div>
-      <img loading="lazy" src="../assets/Materi/LOGO-COLOR 2.png" alt="PKKMB SV UNS 2024 illustration"
-        class="flex-1 my-auto w-full aspect-[0.96] md:max-w-full" />
-    </section>
-
     <main>
-      <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-md:mt-10">
+      <section class="container mx-auto bg-white p-3">
         <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
           <h2
             class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[630px] max-md:w-full">
@@ -147,7 +127,6 @@
 
     </main>
 
-  </div>
 </template>
 
 <script>
