@@ -1,0 +1,72 @@
+/* headerview.css */
+.header {
+    background-color: white;
+    background-opacity: 0.9;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header .logo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding-right: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+  }
+  
+  .header .logo img {
+    width: 60px;
+  }
+  
+  .header .logo h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header .logo p {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .header .nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: medium;
+    text-transform: capitalize;
+    /* Sembunyikan nav saat sidebar terbuka */
+    display: flex;
+  }
+  
+  .header .nav a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .header .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .header .nav .login-btn {
+    padding: 0.625rem 1.25rem;
+    background-color: #2c2d5b;
+    color: white;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .header .nav .login-btn:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .header-title {
+      font-size: 1.25rem;
+    }
+    .header-subtitle {
+      margin-top: 0.25rem;
+    }
+  }
+  
