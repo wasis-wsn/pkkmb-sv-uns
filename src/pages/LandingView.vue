@@ -20,21 +20,23 @@
       <div
         class="flex gap-5 justify-between self-end mt-11 font-extrabold text-center max-md:mt-10 max-md:mr-2.5"
       >
-        <button
-          class="justify-center px-10 py-5 text-sm text-white rounded-xl bg-slate-700 max-md:px-5"
+        <router-link
+          to="/kelompok"
+          class="btn-outline justify-center px-10 py-5 text-sm text-white rounded-xl bg-slate-700 max-md:px-5 hover:text-slate-700 hover:bg-white hover:border-slate-700"
         >
           Cari Kelompok
-        </button>
+        </router-link>
         <div
           class="flex flex-col justify-center text-lg leading-5 whitespace-nowrap text-slate-700"
         >
-          <a
+          <router-link
+            to="/materi"
             href=""
-            class="flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light"
+            class="btn-outline flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light hover:bg-slate-700 hover:text-white hover:border-white"
           >
             <ClipboardIcon loading="lazy" alt="" class="size-6" />
             <span class="my-auto">Materi</span>
-          </a>
+          </router-link>
         </div>
       </div>
     </section>
@@ -110,11 +112,12 @@
             </article>
           </div>
         </div>
-        <button
-          class="justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl bg-slate-700 w-[250px] max-md:px-5 max-md:mt-10"
+        <router-link
+          to="/kelompok"
+          class="btn-outline justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl bg-slate-700 w-[250px] max-md:px-5 max-md:mt-10 hover:text-slate-700 hover:bg-white hover:border-slate-700"
         >
           Check
-        </button>
+        </router-link>
       </div>
     </section>
 
@@ -137,9 +140,9 @@
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex items-center w-[43%] max-md:ml-0 max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
-                <div class="flex gap-5 items-center capitalize">
+                <div class="flex gap-5 capitalize">
                   <div
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
+                    class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
                   >
                     1
                   </div>
@@ -176,7 +179,7 @@
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
+                    class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
                   >
                     2
                   </div>
@@ -197,7 +200,7 @@
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
+                    class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
                   >
                     3
                   </div>
@@ -226,20 +229,20 @@
     <div class="slider-acara mt-5">
       <!-- Trending Section -->
       <section class="acara" id="acara">
-        <div class="container mx-auto p-4">
+        <div class="background">
           <div class="mb-3 text-center">
             <h1 class="text-3xl font-bold inline-block border-b-4 border-[#F67366]">
-              DOKUMENTASI ACARA
+              SPONSORED BY :
             </h1>
-            <p class="text-lg mt-4">
-              Hallo Vocazens!, Galeri ini berisi dokumentasi setiap acara yang terjadi
-              selama kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru di Sekolah
-              Vokasi UNS. Selamat menikmati!
-            </p>
+            <div class="image-container">
+              <img src="@/assets/telkom.png" alt="Telkom" />
+              <img src="@/assets/bca.png" alt="BCA" />
+              <img src="@/assets/mandiri.png" alt="Mandiri" />
+              <img src="@/assets/bri.png" alt="BRI" />
+            </div>
           </div>
-          <div class="container swiper mb-2">
+          <div class="background container swiper mt-5">
             <!-- Slides -->
-
             <div class="swiper-wrapper flex mx-auto">
               <div class="swiper-slide slide" style="max-width: 100px; max-height: 100px">
                 <img
@@ -298,6 +301,7 @@
               </div>
             </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-autoplay"></div>
             <!-- Swiper end -->
           </div>
         </div>
@@ -311,6 +315,7 @@
 import { ClipboardIcon, UserGroupIcon } from "@heroicons/vue/24/solid";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
+
 export default {
   name: "LandingView",
   components: {
@@ -322,15 +327,13 @@ export default {
       loop: true,
       slidesPerView: 15,
       spaceBetween: 10,
-
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
-      },
-
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
       },
     });
   },
@@ -341,6 +344,7 @@ export default {
 .inset-shadow {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 .swiper-button-next,
 .swiper-button-prev {
   position: absolute;
@@ -365,5 +369,31 @@ export default {
 .swiper-button-prev {
   left: 0;
   border-radius: 10px 0 0 10px;
+}
+
+.btn-outline {
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: currentColor;
+}
+
+.background {
+  background-color: #89a4f1;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.image-container img {
+  max-width: 100px;
+  height: auto;
 }
 </style>
