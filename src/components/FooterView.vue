@@ -132,4 +132,6 @@ import { RiTiktokLine, RiFacebookFill, RiInstagramLine, RiTwitterXFill } from "@
   color: #2C2D5B;
   font-size: 24px;
 }
+
+
 </style>

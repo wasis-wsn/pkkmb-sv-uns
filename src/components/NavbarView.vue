@@ -13,7 +13,7 @@
       <router-link to="/kelompok" class="nav-link">KELOMPOK</router-link>
       <router-link to="/galeri" class="nav-link">GALERI</router-link>
       <router-link to="/tentang" class="nav-link">TENTANG</router-link>
-      <router-link to="/login" class="login-button justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
+      <router-link to="/login" class="button-biru hover:border-blue-500 justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
         Login
       </router-link>
     </nav>
@@ -114,18 +114,13 @@ export default {
   width: 100%;
 }
 
-/* Styling for login button */
-.login-button {
-  background-color: #2C2D5B;
-  color: white;
+.button-login {
   padding: 20px 40px;
-  font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-.login-button:hover {
-  background-color: white;
-  color: #2C2D5B;
-  border: 2px solid #2C2D5B;
+.button-login:hover {
+  padding: 18.5px 38.5px;
 }
+
+@import '../css/pages/_button.css';
 </style>
