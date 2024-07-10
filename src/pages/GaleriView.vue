@@ -268,8 +268,43 @@
                   </div>
                   <!-- Swipper Slide End -->
                 </div>
+                <!-- Swiper Navigation Buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
                 <!-- Swipper Wrapper End -->
               </div>
+            </div>
+          </section>
+          <!-- Trending Section Ends -->
+
+          <!-- After Movie -->
+          <section
+            class="flex flex-col items-center px-5 font-bold capitalize text-neutral-900"
+          >
+            <h1 class="text-center text-3xl">AFTER MOVIE PKKMB SV UNS 2024</h1>
+            <div
+              class="shrink-0 mt-2.5 max-w-full h-1 bg-red-400 w-full sm:w-[630px]"
+              aria-hidden="true"
+            ></div>
+            <p
+              class="mt-3 text-base sm:text-lg md:text-xl text-center font-normal"
+            >
+              Saksikan momen-momen terbaik kalian selama PKKMB SV UNS 2024 dalam
+              "After Movie" berikut ini!
+            </p>
+            <div class="image mt-3">
+              <a
+                href="https://youtu.be/ySsWXVGp7_o?si=3tNFjNk-fxS31uU0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/ySsWXVGp7_o/maxresdefault.jpg"
+                  alt="After Movie PKKMB SV UNS 2024"
+                  class="object-cover w-3/4 lg:w-1/2 mx-auto rounded-xl"
+                />
+              </a>
             </div>
           </section>
         </div>
@@ -324,4 +359,8 @@ export default {
 
 <style scoped>
 /* Custom styles if needed */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000; /* Change the color to match your design */
+}
 </style>
