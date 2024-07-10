@@ -86,7 +86,7 @@ export default {
       console.log('Username:', this.username);
       console.log('Password:', this.password);
       // Contoh redirect ke halaman setelah login berhasil
-      this.$router.push('/dashboard');
+      this.$router.push('/');
       // Menghapus memori dari username dan password
       this.username = '';
       this.password = '';

@@ -3,7 +3,7 @@
     <section class="flex flex-col items-center self-stretch px-16 pt-12 pb-20 w-full text-4xl font-bold capitalize bg-slate-100 text-neutral-900 max-md:px-5 max-md:mt-10 max-md:max-w-full">
       <div class="flex flex-col items-center w-full max-w-[1196px] max-md:max-w-full">
         <h2>Tujuan PKKMB</h2>
-        <div class="shrink-0 mt-1 h-1 bg-red-400 w-[132px]"></div>
+        <div class="shrink-0 mt-1 h-1 bg-red-500 w-[200px]"></div>
       </div>
     </section>  
     <div class="line" aria-hidden="true"></div>
