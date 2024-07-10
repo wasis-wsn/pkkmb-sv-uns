@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="flex gap-5 self-center  mt-[50px] max-md:flex-wrap max-md:mt-10">
+    <section class="flex gap-5 self-center  mt-[45px] max-md:flex-wrap max-md:mt-10 ">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
         <h2
           class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[650px] max-md:w-full">
@@ -24,8 +24,8 @@
         class="absolute top-0 left-0 z-0 w-full h-auto max-w-full max-h-full" />
 
       <div
-        class="relative z-20 flex justify-center mt-10 md:mt-36 px-8 pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
-        <div class="w-full max-md:px-5 -mt-[50px]">
+        class="relative z-20 flex justify-center mt-5 md:mt-36 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+        <div class="w-full max-md:px-5 top-[50px]">
           <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
           <ul class="list-disc list-inside text-[16px] md:text-[20px]">
             <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
@@ -58,7 +58,7 @@
         </div>
       </div>
       <img loading="lazy" src="../assets/Materi/twibbon.png" alt="Decorative gradient"
-        class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[60px] lg:bottom-[-180px] md:bottom-[20px]" />
+        class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[70px] lg:bottom-[-110px] md:bottom-[20px]" />
 
 
     </section>
@@ -83,8 +83,8 @@
       class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
       <!-- Background Image -->
       <div
-        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
-        <div class="w-full max-md:px-5 -mt-[50px]">
+        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+        <div class="w-full max-md:px-5 top-[50px]">
           <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
           <ul class="list-disc list-inside text-[16px] md:text-[20px]">
             <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
@@ -117,7 +117,7 @@
         </div>
       </div>
       <img loading="lazy" src="../assets/Materi/Co-Card.png" alt="Decorative gradient"
-        class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[40px] lg:bottom-[-210px] md:bottom-[20px]" />
+        class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[50px] lg:bottom-[-180px] md:bottom-[20px]" />
     </section>
 
     <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
@@ -139,8 +139,8 @@
       class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
       <!-- Background Image -->
       <div
-        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
-        <div class="w-full max-md:px-5 -mt-[50px]">
+        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+        <div class="w-full max-md:px-5 top-[50px]">
           <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
           <ul class="list-disc list-inside text-[16px] md:text-[20px]">
             <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
@@ -173,7 +173,7 @@
         </div>
       </div>
       <img loading="lazy" src="../assets/Materi/banggaVokasi.png" alt="Decorative gradient"
-        class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[2px] lg:bottom-[-350px] md:bottom-[20px]" />
+        class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[5px] lg:bottom-[-320px] md:bottom-[20px]" />
     </section>
 
     <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
@@ -195,8 +195,8 @@
       class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
       <!-- Background Image -->
       <div
-        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
-        <div class="w-full max-md:px-5 -mt-[50px]">
+        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+        <div class="w-full max-md:px-5 top-[50px]">
           <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
           <ul class="list-disc list-inside text-[16px] md:text-[20px]">
             <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
