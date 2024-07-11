@@ -8,12 +8,12 @@
       </div>
     </div>
     <nav class="hidden md:flex gap-5 items-center text-sm font-medium capitalize whitespace-nowrap text-neutral-900 flex flex-grow">
-      <router-link to="/" class="nav-link ml-auto">HOME</router-link>
+      <router-link to="/" class="nav-link ml-auto">BERANDA</router-link>
       <router-link to="/materi" class="nav-link">MATERI</router-link>
       <router-link to="/kelompok" class="nav-link">KELOMPOK</router-link>
       <router-link to="/galeri" class="nav-link">GALERI</router-link>
       <router-link to="/tentang" class="nav-link">TENTANG</router-link>
-      <router-link to="/login" class="button-biru hover:border-blue-500 justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
+      <router-link to="/login" class="button-biru justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
         Login
       </router-link>
     </nav>
@@ -25,7 +25,7 @@
       </button>
       <transition name="dropdown">
         <div v-if="isDropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-          <router-link to="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">HOME</router-link>
+          <router-link to="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BERANDA</router-link>
           <router-link to="/materi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">MATERI</router-link>
           <router-link to="/kelompok" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">KELOMPOK</router-link>
           <router-link to="/galeri" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">GALERI</router-link>
@@ -112,14 +112,6 @@ export default {
 
 .nav-link:hover::after {
   width: 100%;
-}
-
-.button-login {
-  padding: 20px 40px;
-}
-
-.button-login:hover {
-  padding: 18.5px 38.5px;
 }
 
 @import '../css/pages/_button.css';
