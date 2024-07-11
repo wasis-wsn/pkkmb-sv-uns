@@ -64,7 +64,7 @@
           <iframe
             loading="lazy"
             alt="After Movie PKKMB SV UNS 2024"
-            class="mx-auto rounded-xl mt-3"
+            class="rounded-iframe"
             src="https://www.youtube.com/embed/CoTPJXtsH3E?si=I1aetGJA8GqErgRU"
             title="YouTube video player"
             frameborder="0"
