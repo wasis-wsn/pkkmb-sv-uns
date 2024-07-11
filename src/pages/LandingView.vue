@@ -14,7 +14,7 @@
       <h1
         class="self-stretch pl-8 mt-36 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full"
       >
-        <span class="font-semibold text-[#2C2D5B]">Selamat Datang di </span>
+        <span class="font-semibold">Selamat Datang di </span>
         <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
       </h1>
       <div
@@ -126,7 +126,7 @@
         class="flex flex-col mt-20 w-full max-w-[1151px] max-md:mt-10 max-md:max-w-full"
       >
         <h1
-          class="self-center text-5xl text-[#2C2D5B] font-semibold text-center capitalize leading-[69px] text-neutral-900 max-md:text-4xl"
+          class="self-center text-5xl font-semibold text-center capitalize leading-[69px] text-neutral-900 max-md:text-4xl"
         >
           Timeline!
         </h1>
@@ -231,9 +231,7 @@
       <section class="acara" id="acara">
         <div class="background">
           <div class="mb-3 text-center">
-            <h1
-              class="text-3xl text-[#2C2D5B] font-bold inline-block border-b-4 border-[#F67366] mt-5"
-            >
+            <h1 class="text-3xl font-bold inline-block border-b-4 border-[#F67366] mt-5">
               SPONSORED BY :
             </h1>
             <div class="image-container">
@@ -365,10 +363,8 @@
 
 <script>
 import { ClipboardIcon, UserGroupIcon } from "@heroicons/vue/24/solid";
-import Swiper from "swiper/bundle";
-import { register } from "swiper/element/bundle";
-
-register();
+import Swiper from "swiper";
+import "swiper/swiper-bundle.css";
 
 export default {
   name: "LandingView",
@@ -376,11 +372,10 @@ export default {
     ClipboardIcon,
     UserGroupIcon,
   },
-
   mounted() {
     new Swiper(".swiper", {
       loop: true,
-      slidesPerView: 7,
+      slidesPerView: 10,
       spaceBetween: 10,
       pagination: {
         el: ".swiper-pagination",
@@ -390,21 +385,23 @@ export default {
         delay: 1000,
         disableOnInteraction: false,
       },
-      480: {
-        slidesPerView: 4,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 5,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 6,
-        spaceBetween: 40,
-      },
-      1280: {
-        slidesPerView: 7,
-        spaceBetween: 50,
+      breakpoints: {
+        480: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 40,
+        },
+        1280: {
+          slidesPerView: 7,
+          spaceBetween: 50,
+        },
       },
     });
   },
@@ -414,6 +411,32 @@ export default {
 <style scoped>
 .inset-shadow {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  width: 27px;
+  height: 44px;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 0 10px 10px 0;
+  text-align: center;
+  line-height: 44px;
+}
+
+.swiper-button-next {
+  right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.swiper-button-prev {
+  left: 0;
+  border-radius: 10px 0 0 10px;
 }
 
 .btn-outline {
@@ -433,34 +456,26 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  /* Allow wrapping */
+  flex-wrap: wrap; /* Allow wrapping */
   gap: 50px;
   margin-top: 20px;
   width: 100%;
-  background-color: #89a4f1;
-  /* Ensure the background color */
-  padding: 20px;
-  /* Add padding to contain logos within the background */
-  box-sizing: border-box;
-  /* Ensure padding is included in the width */
+  background-color: #89a4f1; /* Ensure the background color */
+  padding: 20px; /* Add padding to contain logos within the background */
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .image-container img {
-  max-width: 100%;
-  /* Ensure images do not exceed container width */
+  max-width: 100%; /* Ensure images do not exceed container width */
   height: auto;
 }
 
 @media (max-width: 700px) {
   .image-container {
-    gap: 10px;
-    /* Adjust gap for smaller screens */
+    gap: 10px; /* Adjust gap for smaller screens */
   }
-
   .image-container img {
-    max-width: 50%;
-    /* Adjust image width for smaller screens */
+    max-width: 50%; /* Adjust image width for smaller screens */
   }
 }
 
