@@ -231,7 +231,9 @@
       <section class="acara" id="acara">
         <div class="background">
           <div class="mb-3 text-center">
-            <h1 class="text-3xl font-bold inline-block border-b-4 border-[#F67366] mt-5">
+            <h1
+              class="text-3xl text-[#2C2D5B] font-bold inline-block border-b-4 border-[#F67366] mt-5"
+            >
               SPONSORED BY :
             </h1>
             <div class="image-container">
