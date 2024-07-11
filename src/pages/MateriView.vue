@@ -319,10 +319,12 @@
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
         <div class="text-center y">
           <p class="text-2xl font-bold mb-4 text-[30px]">Download Materi</p>
-          <router-link to="/materi"
+          <button
             class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5">
-            Disini!
-          </router-link>
+            <a href="https://youtu.be/nwuW98yLsgY?si=6D4JnXuZ_UEfNCF-" target="_blank">
+              Disini!
+            </a>
+          </button>
         </div>
       </div>
     </section>
