@@ -1,5 +1,5 @@
 <template>
-<div class="flex flex-col bg-white">
+  <div class="flex flex-col bg-white">
     <header class="flex gap-5 max-md:flex-col max-md:gap-0">
       <section
         class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
@@ -132,10 +132,17 @@
             <article class="flex flex-col max-w-[192px] mx-auto">
               <div class="relative mt-5">
                 <!-- Lingkaran luar dengan bayangan -->
-                <div class="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] bg-slate-100 rounded-full shadow-md inset-shadow"></div>
+                <div
+                  class="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] bg-slate-100 rounded-full shadow-md inset-shadow"
+                ></div>
                 <!-- Lingkaran putih untuk icon -->
-                <div class="relative z-10 flex items-center justify-center bg-white h-[150px] w-[150px] rounded-full shadow-md">
-                  <UserGroupIcon class="aspect-square w-12 h-12 text-red-400" alt="Profile icon" />
+                <div
+                  class="relative z-10 flex items-center justify-center bg-white h-[150px] w-[150px] rounded-full shadow-md"
+                >
+                  <UserGroupIcon
+                    class="aspect-square w-12 h-12 text-red-400"
+                    alt="Profile icon"
+                  />
                 </div>
               </div>
             </article>
@@ -530,5 +537,5 @@ export default {
   height: 100%;
 }
 
-@import '../css/pages/_button.css';
+@import "../css/pages/_button.css";
 </style>
