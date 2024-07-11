@@ -37,7 +37,7 @@
                 </div>
                 <div class="flex gap-5 mt-5 w-full text-2xl font-light text-black text-opacity-80 max-md:flex-wrap max-md:mt-10 max-md:max-w-full items-center">
                   <div class="flex items-center gap-2">
-                    <input type="checkbox" id="remember" class="bgh-[24px] w-[24px]" />
+                    <input type="checkbox" id="remember" class="h-[24px] w-[24px]" />
                     <label for="remember" class="flex-auto">Remember me</label>
                   </div>
                   <a href="/lupa-password" class="text ml-auto">Lupa password?</a>
