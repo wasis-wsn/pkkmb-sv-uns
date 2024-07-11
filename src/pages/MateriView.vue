@@ -28,6 +28,13 @@
       </div>
     </div>
   <main>
+      <div class="" >
+        <button class=" scroll-smooth z-20 w-8 h-8 rounded-[10px] flex fixed bottom-5 right-5 cursor-pointer button-biru">
+          <a href="#" class=" scroll-smooth z-20 w-8 h-8 rounded-[10px] flex fixed bottom-5 right-5 cursor-pointer ">
+            <ChevronUpIcon class="w-6 h-6 m-auto " />
+          </a>
+      </button>
+    </div>
     <!-- BUKU IMPLEMENTASI -->
     <section class="flex gap-5 self-center  mt-[45px] max-md:flex-wrap max-md:mt-10 ">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
@@ -45,12 +52,12 @@
         </p>
       </div>
     </section>
-
+    
     <section
-      class="relative flex justify-center items-center pt-16 pb-32 w-full text-2xl font-bold text-black bg-white">
-      <!-- Background Image -->
-      <img loading="lazy" src="../assets/Materi/ImplementasiWave.png" alt="Decorative gradient"
-        class="absolute top-0 left-0 z-0 w-full h-auto max-w-full max-h-full" />
+    class="relative flex justify-center items-center pt-16 pb-32 w-full text-2xl font-bold text-black bg-white">
+    <!-- Background Image -->
+    <img loading="lazy" src="../assets/Materi/ImplementasiWave.png" alt="Decorative gradient"
+    class="absolute top-0 left-0 z-0 w-full h-auto max-w-full max-h-full" />
 
       <div
         class="relative z-20 flex justify-center mt-5 md:mt-36 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
@@ -77,10 +84,10 @@
             <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
             <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
               2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+              <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
             <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+              <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
             <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
             <li>Askara Muda wajib mempunyai akun Instagram.</li>
           </ul>
@@ -107,20 +114,20 @@
         </p>
       </div>
     </section>
-
+    
     <section
-      class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
-      <!-- Background Image -->
-      <div
-        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
-        <div class="w-full max-md:px-5 top-[50px]">
-          <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
-          <ul class="list-disc list-inside text-[16px] md:text-[20px]">
-            <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
+    class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
+    <!-- Background Image -->
+    <div
+    class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+    <div class="w-full max-md:px-5 top-[50px]">
+      <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
+      <ul class="list-disc list-inside text-[16px] md:text-[20px]">
+        <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
             <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
             <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
               2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+              <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
             <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
             <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
@@ -129,11 +136,11 @@
             <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
             <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
-            <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
-            <li>Askara Muda wajib mempunyai akun Instagram.</li>
-            <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
-            <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
+              <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+              <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
+              <li>Askara Muda wajib mempunyai akun Instagram.</li>
+              <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
+              <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
             <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
               2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
             <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
@@ -147,8 +154,8 @@
       </div>
       <img loading="lazy" src="../assets/Materi/Co-Card.png" alt="Decorative gradient"
         class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[50px] lg:bottom-[-180px] md:bottom-[20px]" />
-    </section>
-
+      </section>
+      
     <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
         <h2
@@ -165,9 +172,9 @@
       </div>
     </section>
     <section
-      class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
-      <!-- Background Image -->
-      <div
+    class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
+    <!-- Background Image -->
+    <div
         class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
         <div class="w-full max-md:px-5 top-[50px]">
           <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
@@ -176,18 +183,18 @@
             <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
             <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
               2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
-            <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
-              dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
-            <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
-            <li>Askara Muda wajib mempunyai akun Instagram.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
-            <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
-              dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
-            <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
-            <li>Askara Muda wajib mempunyai akun Instagram.</li>
+              <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+              <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
+                dalam sertifikat PKKMB SV UNS 2023.</li>
+                <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+                <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
+                <li>Askara Muda wajib mempunyai akun Instagram.</li>
+                <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+                <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
+                  dalam sertifikat PKKMB SV UNS 2023.</li>
+                  <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+                  <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
+                  <li>Askara Muda wajib mempunyai akun Instagram.</li>
             <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
             <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
             <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
@@ -195,16 +202,16 @@
             <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
             <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
-            <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
-            <li>Askara Muda wajib mempunyai akun Instagram.</li>
-          </ul>
-        </div>
+              <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+              <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
+              <li>Askara Muda wajib mempunyai akun Instagram.</li>
+            </ul>
+          </div>
       </div>
       <img loading="lazy" src="../assets/Materi/banggaVokasi.png" alt="Decorative gradient"
-        class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[5px] lg:bottom-[-320px] md:bottom-[20px]" />
+      class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[5px] lg:bottom-[-320px] md:bottom-[20px]" />
     </section>
-
+    
     <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
         <h2
@@ -221,35 +228,35 @@
       </div>
     </section>
     <section
-      class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
-      <!-- Background Image -->
+    class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
+    <!-- Background Image -->
       <div
-        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
-        <div class="w-full max-md:px-5 top-[50px]">
-          <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
+      class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+      <div class="w-full max-md:px-5 top-[50px]">
+        <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
           <ul class="list-disc list-inside text-[16px] md:text-[20px]">
             <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
             <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
             <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
               2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+              <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+              <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
+                dalam sertifikat PKKMB SV UNS 2023.</li>
+                <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+                <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
+                <li>Askara Muda wajib mempunyai akun Instagram.</li>
+                <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
             <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
-            <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
-            <li>Askara Muda wajib mempunyai akun Instagram.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
-            <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
-              dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
-            <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
+              <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+              <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
             <li>Askara Muda wajib mempunyai akun Instagram.</li>
             <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
             <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
             <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
               2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
-            <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
+              <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+              <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
             <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
             <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
@@ -260,15 +267,15 @@
       <img loading="lazy" src="../assets/Materi/ringkasan.png" alt="Decorative gradient"
         class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[5px] lg:bottom-[-240px] md:bottom-[20px]" />
     </section>
-
+    
     <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
         <h2
-          class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[300px] max-md:w-full">
-          <span class="max-md:max-w-full">
-            RINGKASAN MATERI<br />PKKMB SV UNS 2024
-          </span>
-          <div class="shrink-0 mt-2.5 h-1 bg-red-400 max-md:max-w-full"></div>
+        class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[300px] max-md:w-full">
+        <span class="max-md:max-w-full">
+          RINGKASAN MATERI<br />PKKMB SV UNS 2024
+        </span>
+        <div class="shrink-0 mt-2.5 h-1 bg-red-400 max-md:max-w-full"></div>
         </h2>
         <p class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px] md:text-[24px] ">
           Hallo Vocazens! Materi yang keempat berisi<br />Tugas merangkum pembicara dalam
@@ -280,16 +287,16 @@
       class="relative flex justify-center items-center -mt-[100px] pb-32 w-full text-2xl font-bold text-black bg-white">
       <!-- Background Image -->
       <div
-        class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
-        <div class="w-full max-md:px-5 top-[50px]">
-          <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
-          <ul class="list-disc list-inside text-[16px] md:text-[20px]">
-            <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
-            <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
-            <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
+      class="relative z-20 flex justify-center mt-[150px] md:mt-44 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+      <div class="w-full max-md:px-5 top-[50px]">
+        <h3 class="text-[16px] md:text-[20px]">Petunjuk Umum Implementasi Nilai :</h3>
+        <ul class="list-disc list-inside text-[16px] md:text-[20px]">
+          <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
+          <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
+          <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
               2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
-            <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
+              <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+              <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
             <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
             <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
@@ -297,15 +304,15 @@
             <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
             <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
-            <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
-            <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
-            <li>Askara Muda wajib mempunyai akun Instagram.</li>
-            <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
-            <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
-            <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
-              2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
-            <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
-            <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
+              <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
+              <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
+              <li>Askara Muda wajib mempunyai akun Instagram.</li>
+              <li>Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.</li>
+              <li>Seluruh Implementasi Nilai bersifat WAJIB.</li>
+              <li>Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS
+                2023, yaitu Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia.</li>
+                <li>Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru.</li>
+                <li>Implementasi nilai menjadi salah satu syarat pokok untuk mendapatkan penilaian yang akan dicantumkan
               dalam sertifikat PKKMB SV UNS 2023.</li>
             <li>Sertifikat PKKMB SV UNS 2023 nantinya akan digunakan sebagai salah satu syarat kelulusan.</li>
             <li>Implementasi nilai tidak boleh dihapus atau diarsip sampai mendapat arahan dari gardana.</li>
@@ -313,7 +320,7 @@
           </ul>
         </div>
       </div>
-
+      
     </section>
     <section class="flex gap-5 self-center  mt-[10px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
@@ -328,14 +335,21 @@
         </div>
       </div>
     </section>
-
+    
   </main>
 
 </template>
 
 <script>
+  import {
+    ChevronUpIcon
+  } from '@heroicons/vue/24/solid';
+  
   export default {
     name: 'MateriView',
+    components: {
+      ChevronUpIcon
+    }
   };
 </script>
 

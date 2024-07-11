@@ -60,12 +60,17 @@
         >
           "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia"
         </p>
-        <img
-          loading="lazy"
-          src="@/assets/vidio yt.png"
-          alt="Askara Muda 2024 event illustration"
-          class="mt-10 w-full aspect-[1.89] max-w-[682px] max-md:max-w-full"
-        />
+        <iframe
+          class="rounded-iframe"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/CoTPJXtsH3E?si=X1CEFGQIyZdmbkfe"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </section>
     </div>
 
@@ -231,7 +236,9 @@
       <section class="acara" id="acara">
         <div class="background">
           <div class="mb-3 text-center">
-            <h1 class="text-3xl font-bold inline-block border-b-4 border-[#F67366]">
+            <h1
+              class="text-3xl text-[#2C2D5B] font-bold inline-block border-b-4 border-[#F67366] mt-5"
+            >
               SPONSORED BY :
             </h1>
             <div class="image-container">
@@ -243,65 +250,115 @@
           </div>
           <div class="background container swiper mt-5">
             <!-- Slides -->
-            <div class="swiper-wrapper flex mx-auto">
-              <div class="swiper-slide slide" style="max-width: 100px; max-height: 100px">
+            <div class="swiper-wrapper flex mx-auto mb-5">
+              <div
+                class="swiper-slide slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img
                   src="@/assets/logo_hima/hima_sv.png"
                   alt="PKKMB SV UNS 2024 Seminar"
                   class="object-cover"
                 />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himakesja.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himama.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/emailkom.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himapsdku.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himafarma.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/hmps.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himavida.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/fondasi.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/HMB.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himaagrib.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himapertanian.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himamanajemen.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/formadasi.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himaakuntansi.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/chinese.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himaupw.png" class="object-cover" />
               </div>
             </div>
             <div class="swiper-pagination"></div>
-            <div class="swiper-autoplay"></div>
             <!-- Swiper end -->
           </div>
         </div>
@@ -325,15 +382,33 @@ export default {
   mounted() {
     new Swiper(".swiper", {
       loop: true,
-      slidesPerView: 15,
+      slidesPerView: 10,
       spaceBetween: 10,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
+      },
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        480: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 40,
+        },
+        1280: {
+          slidesPerView: 7,
+          spaceBetween: 50,
+        },
       },
     });
   },
@@ -388,12 +463,37 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 50px;
   margin-top: 20px;
+  width: 100%;
+  background-color: #89a4f1; /* Ensure the background color */
+  padding: 20px; /* Add padding to contain logos within the background */
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .image-container img {
-  max-width: 100px;
+  max-width: 100%; /* Ensure images do not exceed container width */
   height: auto;
+}
+
+@media (max-width: 700px) {
+  .image-container {
+    gap: 10px; /* Adjust gap for smaller screens */
+  }
+  .image-container img {
+    max-width: 50%; /* Adjust image width for smaller screens */
+  }
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rounded-iframe {
+  border-radius: 15px; /* Adjust the value as needed */
+  overflow: hidden; /* Ensures content inside iframe is clipped to the rounded border */
 }
 </style>
