@@ -8,7 +8,7 @@
       </div>
     </section>
     <div class="line" aria-hidden="true"></div>
-    <div class="space-y-8 mx-auto bg-white bg-opacity-0">
+    <div class="mt-12 w-full max-md:pr-5 max-md:mt-10 max-md:max-w-full">
       <div class="timeline container mx-auto p-4">
         <!-- Day 1 -->
         <div
@@ -64,41 +64,37 @@
           </div>
         </div>
       </div>
-
-    </div>
-
-    <div class="dev flex flex-wrap justify-center items-center text-center mx-auto">
-      <div class="developer m-2 flex flex-col items-center">
-        <img src="@/assets/dev(ardya)/chamber.png" alt="Wasis Wicaksono"
-          class="foto1 bg-gray-200 w-16 h-16 rounded-full mb-2">
-        <div class="nama">Wasis Wicaksono</div>
-      </div>
-      <div class="developer m-2 flex flex-col items-center">
-        <img src="@/assets/dev(ardya)/raze.png" alt="Ardya Pusaka"
-          class="foto1 bg-gray-200 w-16 h-16 rounded-full mb-2">
-        <div class="nama">Ardya Pusaka</div>
-      </div>
-      <div class="developer m-2 flex flex-col items-center">
-        <img src="@/assets/dev(ardya)/sova.png" alt="Muhammad Raihan"
-          class="foto1 bg-gray-200 w-16 h-16 rounded-full mb-2">
-        <div class="nama">Muhammad Raihan</div>
-      </div>
-      <div class="developer m-2 flex flex-col items-center">
-        <img src="@/assets/dev(ardya)/reyna.png" alt="Michael Jamie"
-          class="foto1 bg-gray-200 w-16 h-16 rounded-full mb-2">
-        <div class="nama">Michael Jamie</div>
-      </div>
-      <div class="developer m-2 flex flex-col items-center">
-        <img src="@/assets/dev(ardya)/chyper.png" alt="Muhamad Prayoga"
-          class="foto1 bg-gray-200 w-16 h-16 rounded-full mb-2">
-        <div class="nama">Muhamad Prayoga</div>
-      </div>
-      <div class="developer m-2 flex flex-col items-center">
-        <img src="@/assets/dev(ardya)/Sage.png" alt="Ariel Wage" class="foto1 bg-gray-200 w-16 h-16 rounded-full mb-2">
-        <div class="nama">Ariel Wage</div>
-      </div>
     </div>
   </div>
+  <div class="container mx-auto py-10">
+        <h2 class="text-3xl font-bold text-center mb-6">Our Developers</h2>
+        <div class="flex flex-wrap justify-center items-center text-center mx-auto">
+            <div class="developer m-4 flex flex-col items-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="@/assets/dev(ardya)/chamber.png" alt="Wasis Wicaksono" class="foto1 bg-gray-200 w-24 h-24 rounded-full mb-4">
+                <div class="nama text-lg font-medium">Wasis Wicaksono</div>
+            </div>
+            <div class="developer m-4 flex flex-col items-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="@/assets/dev(ardya)/raze.png" alt="Ardya Pusaka" class="foto1 bg-gray-200 w-24 h-24 rounded-full mb-4">
+                <div class="nama text-lg font-medium">Ardya Pusaka</div>
+            </div>
+            <div class="developer m-4 flex flex-col items-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="@/assets/dev(ardya)/sova.png" alt="Muhammad Raihan" class="foto1 bg-gray-200 w-24 h-24 rounded-full mb-4">
+                <div class="nama text-lg font-medium">Muhammad Raihan</div>
+            </div>
+            <div class="developer m-4 flex flex-col items-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="@/assets/dev(ardya)/reyna.png" alt="Michael Jamie" class="foto1 bg-gray-200 w-24 h-24 rounded-full mb-4">
+                <div class="nama text-lg font-medium">Michael Jamie</div>
+            </div>
+            <div class="developer m-4 flex flex-col items-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="@/assets/dev(ardya)/chyper.png" alt="Muhamad Prayoga" class="foto1 bg-gray-200 w-24 h-24 rounded-full mb-4">
+                <div class="nama text-lg font-medium">Muhamad Prayoga</div>
+            </div>
+            <div class="developer m-4 flex flex-col items-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="@/assets/dev(ardya)/Sage.png" alt="Ariel Wage" class="foto1 bg-gray-200 w-24 h-24 rounded-full mb-4">
+                <div class="nama text-lg font-medium">Ariel Wage</div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -108,5 +104,43 @@
 </script>
 
 <style scoped>
-  /* @import '../css/pages/aboutview.css'; */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Responsif untuk layar yang lebih kecil */
+  @media (max-width: 768px) {
+    .flex {
+      flex-direction: column;
+    }
+
+    .ml-5 {
+      margin-left: 0;
+    }
+
+    .mt-64 {
+      margin-top: 10rem;
+      /* Sesuaikan dengan kebutuhan */
+    }
+
+    .mt-12,
+    .mt-16 {
+      margin-top: 2.5rem;
+      /* Sesuaikan dengan kebutuhan */
+    }
+
+    .max-md\:mt-10 {
+      margin-top: 2.5rem;
+      /* Sesuaikan dengan kebutuhan */
+    }
+
+    .max-md\:w-full {
+      width: 100%;
+    }
+
+    .max-md\:ml-0 {
+      margin-left: 0;
+    }
+  }
 </style>
