@@ -173,8 +173,8 @@
         </h2>
         <div class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"></div>
         <div class="max-md:max-w-full">
-          <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div class="flex items-center w-[43%] max-md:ml-0 max-md:w-full">
+          <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
+            <div class="flex items-center w-[43%] max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 capitalize">
                   <div
@@ -202,8 +202,8 @@
           </div>
         </div>
         <div class="mt-12 max-md:pr-5 max-md:mt-10 max-md:max-w-full">
-          <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div class="flex flex-col w-[65%] max-md:ml-0 max-md:w-full">
+          <div class="flex gap-5 max-md:flex-col max-md:gap-0 max-md:flex-col">
+            <div class="flex flex-col w-[65%] max-md:w-full">
               <img
                 loading="lazy"
                 src="@/assets/day 2.png"
@@ -231,8 +231,8 @@
           </div>
         </div>
         <div class="mt-12 max-md:mt-10 max-md:max-w-full">
-          <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div class="flex items-center w-[43%] max-md:ml-0 max-md:w-full">
+          <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
+            <div class="flex items-center w-[43%] max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
@@ -261,6 +261,7 @@
         </div>
       </div>
     </section>
+
     <!-- Slider Acara -->
     <div class="slider-acara mt-5">
       <!-- Trending Section -->
@@ -414,7 +415,7 @@ export default {
     new Swiper(".swiper", {
       loop: true,
       slidesPerView: 10,
-      spaceBetween: 10,
+      spaceBetween: 5,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -424,21 +425,25 @@ export default {
         disableOnInteraction: false,
       },
       breakpoints: {
+        300: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
         480: {
           slidesPerView: 4,
-          spaceBetween: 20,
+          spaceBetween: 10,
         },
         768: {
           slidesPerView: 5,
-          spaceBetween: 30,
+          spaceBetween: 10,
         },
         1024: {
           slidesPerView: 6,
-          spaceBetween: 40,
+          spaceBetween: 10,
         },
         1280: {
           slidesPerView: 7,
-          spaceBetween: 50,
+          spaceBetween: 10,
         },
       },
     });
@@ -499,26 +504,41 @@ export default {
 }
 
 .image-container img {
-  max-width: 100%;
-  /* Ensure images do not exceed container width */
+  max-width: 50%; /* Menyesuaikan ukuran gambar */
   height: auto;
 }
 
 @media (max-width: 700px) {
   .image-container {
-    gap: 10px;
-    /* Adjust gap for smaller screens */
+    gap: 5px; /* Sesuaikan gap untuk layar kecil */
   }
 
   .image-container img {
-    max-width: 50%;
-    /* Adjust image width for smaller screens */
+    max-width: 70%; /* Menyesuaikan ukuran gambar untuk layar kecil */
   }
 }
 
+@media (max-width: 768px) {
+  .max-md\\:order-first {
+    order: -1;
+  }
+}
+
+.swiper-wrapper {
+  display: flex;
+  gap: 10px; /* Sesuaikan gap untuk memperdekat foto */
+  margin-bottom: 5px; /* Sesuaikan margin-bottom untuk memperdekat foto */
+}
+
+.swiper-slide {
+  max-width: 200px;
+  max-height: 200px;
+  margin: 0 5px; /* Kurangi margin untuk memperdekat foto */
+}
+
 .swiper-slide img {
-  width: 100%;
-  height: 100%;
+  width: 50%; /* Pastikan gambar mengisi slide */
+  height: auto;
   object-fit: contain;
 }
 
