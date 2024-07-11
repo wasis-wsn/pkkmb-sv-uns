@@ -60,12 +60,17 @@
         >
           "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia"
         </p>
-        <img
-          loading="lazy"
-          src="@/assets/vidio yt.png"
-          alt="Askara Muda 2024 event illustration"
-          class="mt-10 w-full aspect-[1.89] max-w-[682px] max-md:max-w-full"
-        />
+        <iframe
+          class="rounded-iframe"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/CoTPJXtsH3E?si=X1CEFGQIyZdmbkfe"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </section>
     </div>
 
@@ -485,5 +490,10 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.rounded-iframe {
+  border-radius: 15px; /* Adjust the value as needed */
+  overflow: hidden; /* Ensures content inside iframe is clipped to the rounded border */
 }
 </style>
