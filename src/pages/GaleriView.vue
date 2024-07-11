@@ -88,10 +88,10 @@
         ></div>
       </div>
     </div>
-    <div class="mx-auto bg-white p-3">
+    <div class="mx-auto bg-white">
       <div class="min-h-screen">
         <div class="galeri w-full bg-slate-100 pb-5" data-aos="fade-up">
-          <header class="text-center py-8">
+          <header class="text-center py-10">
             <h1
               class="text-3xl font-bold inline-block border-b-4 border-[#F67366]"
               data-aos="fade-up"
@@ -226,7 +226,7 @@
 
           <!-- After Movie -->
           <section
-            class="flex flex-col items-center px-5 font-bold capitalize text-neutral-900"
+            class="flex flex-col items-center px-5 py-5 font-bold capitalize text-neutral-900"
             data-aos="fade-up"
           >
             <h1 class="text-center text-3xl" data-aos="fade-up">

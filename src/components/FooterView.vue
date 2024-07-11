@@ -52,6 +52,7 @@
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/77e238def65e87197f00e69693e8ace539175c95380f91b28eeb6166dceed10c?"
                       class="shrink-0 aspect-[1.06] w-[18px]"
+                      alt=""
                     />
                     <div class="flex-auto">
                       Jl. Kolonel Sutarto 150 K, Jebres, Surakarta
@@ -62,6 +63,7 @@
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/9adce307add65ea368ba29319356925668fe7a9f31cbb5c1c9aa160cbfae59d2?"
                       class="shrink-0 self-start w-5 aspect-square"
+                      alt=""
                     />
                     <div class="flex-auto">pkkmbsekolahvokasiuns@gmail.com</div>
                   </div>
@@ -70,13 +72,14 @@
                       loading="lazy"
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/f304f18dd3b166c7a3b3e94bb1144648292fb0126db22904bba4f5b0c3d9acba?"
                       class="shrink-0 self-start w-5 aspect-square"
+                      alt=""
                     />
                     <div class="flex-auto underline">
-                      0812-3456-7890<a
+                      <a
                         href="https://chat.whatsapp.com/Fr3bT6kNhUo0Lcvescpi5y"
                         target="_blank"
                       >
-                        (PUBIT)</a
+                      0812-3456-7890(PUBIT)</a
                       >
                     </div>
                   </div>

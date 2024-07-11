@@ -80,7 +80,7 @@
   <main>
     <div class="flex justify-center items-center">
       <section
-        class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px] pb-10"
+        class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px] pb-10 pl-5 pr-5"
       >
         <h1 class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl">
           Askara Muda 2024!
