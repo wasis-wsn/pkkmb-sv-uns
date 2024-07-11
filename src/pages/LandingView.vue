@@ -62,8 +62,8 @@
         </p>
         <iframe
           class="rounded-iframe"
-          width="560"
-          height="315"
+          width="1120"
+          height="630"
           src="https://www.youtube.com/embed/CoTPJXtsH3E?si=X1CEFGQIyZdmbkfe"
           title="YouTube video player"
           frameborder="0"
