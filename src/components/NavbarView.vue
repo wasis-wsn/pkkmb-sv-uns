@@ -41,7 +41,7 @@
 
 <script>
 import { ref } from 'vue';
-import {  Bars3BottomRightIcon, XMarkIcon } from '@heroicons/vue/24/solid';
+import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/vue/24/solid';
 
 export default {
   name: 'HeaderView',
@@ -110,7 +110,8 @@ export default {
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.router-link-exact-active.nav-link::after {
   width: 100%;
 }
 

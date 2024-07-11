@@ -22,17 +22,17 @@
       >
         <router-link
           to="/kelompok"
-          class="btn-outline justify-center px-10 py-5 text-sm text-white rounded-xl bg-slate-700 max-md:px-5 hover:text-slate-700 hover:bg-white hover:border-slate-700"
+          class="button-biru justify-center px-10 py-5 text-sm text-white rounded-xl max-md:px-5"
         >
           Cari Kelompok
         </router-link>
         <div
-          class="flex flex-col justify-center text-lg leading-5 whitespace-nowrap text-slate-700"
+          class="flex flex-col justify-center text-lg leading-5 whitespace-nowrap"
         >
           <router-link
             to="/materi"
             href=""
-            class="btn-outline flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light hover:bg-slate-700 hover:text-white hover:border-white"
+            class="button-putih flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light"
           >
             <ClipboardIcon loading="lazy" alt="" class="size-6" />
             <span class="my-auto">Materi</span>
@@ -50,7 +50,7 @@
   <main>
     <div class="flex justify-center items-center min-h-screen">
       <section
-        class="flex justify-center flex-col items-center px-5 font-bold text-center leading-[150%] max-w-[764px] mt-[180px]"
+        class="flex justify-center flex-col items-center px-5 font-bold text-center leading-[150%] max-w-[900px] mt-[180px]"
       >
         <h1 class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl">
           Askara Muda 2024!
@@ -63,11 +63,10 @@
         <div class="video-container">
           <iframe
             loading="lazy"
-            alt="After Movie PKKMB SV UNS 2024"
+            alt="Coming Soon PKKMB SV UNS 2024"
             class="rounded-iframe"
-            src="https://www.youtube.com/embed/CoTPJXtsH3E?si=I1aetGJA8GqErgRU"
+            src="https://www.youtube.com/embed/ySsWXVGp7_o?si=BgW2ZuraVzfWmmrN"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
@@ -100,27 +99,21 @@
                 <div class="shrink-0 mt-3.5 h-1 bg-red-400 w-[130px]"></div>
               </div>
             </div>
-            <article class="flex flex-col max-w-[192px]">
-              <div
-                class="shrink-0 self-end bg-slate-100 h-[150px] rounded-[100px] w-[150px] shadow-md inset-shadow"
-                role="img"
-                aria-label="Profile background"
-              ></div>
-              <div
-                class="flex z-10 flex-col justify-center items-start p-11 -mt-24 w-full bg-white rounded-[100px]"
-              >
-                <UserGroupIcon
-                  loading="lazy"
-                  class="aspect-square w-[60px] text-red-400"
-                  alt="Profile icon"
-                />
+            <article class="flex flex-col max-w-[192px] mx-auto">
+              <div class="relative mt-5">
+                <!-- Lingkaran luar dengan bayangan -->
+                <div class="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] bg-slate-100 rounded-full shadow-md inset-shadow"></div>
+                <!-- Lingkaran putih untuk icon -->
+                <div class="relative z-10 flex items-center justify-center bg-white h-[150px] w-[150px] rounded-full shadow-md">
+                  <UserGroupIcon class="aspect-square w-12 h-12 text-red-400" alt="Profile icon" />
+                </div>
               </div>
             </article>
           </div>
         </div>
         <router-link
           to="/kelompok"
-          class="btn-outline justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl bg-slate-700 w-[250px] max-md:px-5 max-md:mt-10 hover:text-slate-700 hover:bg-white hover:border-slate-700"
+          class="button-biru justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl w-[250px] max-md:px-5 max-md:mt-10"
         >
           Check
         </router-link>
@@ -447,15 +440,6 @@ export default {
   border-radius: 10px 0 0 10px;
 }
 
-.btn-outline {
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.btn-outline:hover {
-  border-color: currentColor;
-}
-
 .background {
   background-color: #89a4f1;
 }
@@ -522,4 +506,6 @@ export default {
   width: 100%;
   height: 100%;
 }
+
+@import '../css/pages/_button.css';
 </style>
