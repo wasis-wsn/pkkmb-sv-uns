@@ -27,7 +27,7 @@
                   <p class="text-sm text-gray-700">{{ message.text }}</p>
                   <span class="text-xs text-gray-500">{{ message.time }}</span>
                 </div>
-                <UserCircleIcon class="h-6 w-6 text-blue-500 ml-2" />
+                <UserCircleIcon class="h-6 w-6 text-red-500 ml-2" />
               </div>
             </template>
           </div>

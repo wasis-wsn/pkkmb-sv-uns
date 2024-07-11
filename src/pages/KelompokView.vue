@@ -43,9 +43,9 @@
             <div class="relative flex items-center border border-gray-300 rounded-lg p-1 focus-within:ring-2 focus-within:ring-blue-500">
               <input type="text" id="groupSearch" class="search-input w-full pl-3 py-2 focus:outline-none" placeholder="Cari dirimu" v-model="searchQuery" @input="handleSearch" />
             </div>
-            <div class="relative">
+            <div class="relative cursor-pointer">
               <RiEqualizerLine class="h-5 w-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2" />              
-              <select v-model="selectedKelompok" @change="filterByKelompok" class="block appearance-none w-full bg-white border border-gray-300 rounded-lg shadow-md py-2 pl-3 pr-10 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select v-model="selectedKelompok" @change="filterByKelompok" class="cursor-pointer block appearance-none w-full bg-white border border-gray-300 rounded-lg shadow-md py-2 pl-3 pr-10 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 <option value="">Select All</option>
                 <option v-for="kel in kelompokList" :key="kel.id" :value="kel.kelompok">{{ kel.kelompok }}</option>
               </select>
