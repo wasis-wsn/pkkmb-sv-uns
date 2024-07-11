@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center">
-    <div class="flex justify-center items-center px-16 py-10 w-full bg-custom-background max-md:px-5 max-md:max-w-full">
+    <div class="flex justify-center items-center px-16 py-10 w-full bg-primary max-md:px-5 max-md:max-w-full">
       <div class="flex flex-col w-full max-w-[1920px] max-md:max-w-full">
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
@@ -19,8 +19,6 @@
                   class="rounded-2xl w-full max-w-4xl"
                   title="map"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7910.283819674678!2d110.83837400000002!3d-7.559502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1748cf551e55%3A0x54f8a762c0623225!2sSekolah%20Vokasi%20UNS!5e0!3m2!1sen!2sus!4v1720696547365!5m2!1sen!2sus" 
-                  width="450" 
-                  height="200" 
                   style="border:0;" 
                   allowfullscreen="" 
                   loading="lazy" 
@@ -108,9 +106,9 @@
           </div>
         </div>
         <div
-          class="shrink-0 mt-12 h-px border-2 border-solid bg-neutral-200 bg-opacity-40 border-neutral-200 border-opacity-40 max-md:mt-10 max-md:max-w-full"
+          class="shrink-0 mt-5 h-px border-2 border-solid bg-neutral-200 bg-opacity-40 border-neutral-200 border-opacity-40 max-md:mt-10 max-md:max-w-full"
         ></div>
-        <div class="self-center mt-9 text-xl text-white">
+        <div class="self-center mt-5 text-xl text-white">
           PKKMB SV UNS 2024. All Rights Reserved.
         </div>
       </div>
@@ -124,9 +122,6 @@ import { RiTiktokLine, RiInstagramLine, RiTwitterXFill, RiYoutubeFill } from "@r
 </script>
 
 <style scoped>
-.bg-custom-background {
-  background-color: #2C2D5B;
-}
 
 .logo {
   width: 100%;

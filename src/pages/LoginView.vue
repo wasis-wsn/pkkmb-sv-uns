@@ -27,17 +27,17 @@
                 Halo Vocazens!
               </h2>
               <form @submit.prevent="handleSubmit">
-                <div class="mt-20 text-4xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
+                <div class="mt-20 text-2xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
                   <label for="username" class="sr-only">Username</label>
                   <input v-model="username" type="text" id="username" placeholder="Username" class="w-full bg-transparent border-b-2 border-black outline-none" />
                 </div>
-                <div class="mt-20 text-4xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
+                <div class="mt-20 text-2xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
                   <label for="password" class="sr-only">Password</label>
                   <input v-model="password" type="password" id="password" placeholder="Password" class="w-full bg-transparent border-b-2 border-black outline-none" />
                 </div>
                 <div class="flex gap-5 mt-5 w-full text-2xl font-light text-black text-opacity-80 max-md:flex-wrap max-md:mt-10 max-md:max-w-full items-center">
                   <div class="flex items-center gap-2">
-                    <input type="checkbox" id="remember" class="h-[24px] w-[24px]" />
+                    <input type="checkbox" id="remember" class="bgh-[24px] w-[24px]" />
                     <label for="remember" class="flex-auto">Remember me</label>
                   </div>
                   <a href="/lupa-password" class="text ml-auto">Lupa password?</a>
