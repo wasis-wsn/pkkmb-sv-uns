@@ -80,7 +80,7 @@
   <main>
     <div class="flex justify-center items-center">
       <section
-        class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px]"
+        class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px] pb-10"
       >
         <h1 class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl">
           Askara Muda 2024!
@@ -94,7 +94,7 @@
           <iframe
             loading="lazy"
             alt="Coming Soon PKKMB SV UNS 2024"
-            class="rounded-iframe"
+            class="rounded-3xl w-full max-w-4xl"
             src="https://www.youtube.com/embed/ySsWXVGp7_o?si=BgW2ZuraVzfWmmrN"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -540,13 +540,6 @@ export default {
   width: 50%; /* Pastikan gambar mengisi slide */
   height: auto;
   object-fit: contain;
-}
-
-.rounded-iframe {
-  border-radius: 15px;
-  /* Adjust the value as needed */
-  overflow: hidden;
-  /* Ensures content inside iframe is clipped to the rounded border */
 }
 
 .video-container {

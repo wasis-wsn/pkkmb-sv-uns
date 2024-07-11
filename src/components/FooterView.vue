@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center">
-    <div class="flex justify-center items-center px-16 py-16 w-full bg-custom-background max-md:px-5 max-md:max-w-full">
-      <div class="flex flex-col w-full max-w-[1216px] max-md:max-w-full">
+    <div class="flex justify-center items-center px-16 py-10 w-full bg-custom-background max-md:px-5 max-md:max-w-full">
+      <div class="flex flex-col w-full max-w-[1920px] max-md:max-w-full">
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex flex-col w-[34%] max-md:ml-0 max-md:w-full">
@@ -15,6 +15,17 @@
                     Website PKKMB SV 2024 Dipergunakan Untuk Jembatan Informasi
                     Kepada Mahasiswa Baru Sekolah Vokasi UNS 2024.
                   </div>
+                  <iframe 
+                  class="rounded-2xl w-full max-w-4xl"
+                  title="map"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7910.283819674678!2d110.83837400000002!3d-7.559502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1748cf551e55%3A0x54f8a762c0623225!2sSekolah%20Vokasi%20UNS!5e0!3m2!1sen!2sus!4v1720696547365!5m2!1sen!2sus" 
+                  width="450" 
+                  height="200" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
                 </div>
               </div>
             </div>
