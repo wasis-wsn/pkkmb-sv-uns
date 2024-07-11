@@ -6,57 +6,65 @@
           DOKUMENTASI PKKMB SV UNS 2024
         </h1>
         <p class="text-lg mt-4">
-          Hallo Vocazens!, Galeri ini berisi dokumentasi setiap acara yang
-          terjadi selama kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa
-          Baru di Sekolah Vokasi UNS. Selamat menikmati!
+          Halo, Vocazens! Selamat datang di galeri dokumentasi kegiatan
+          Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) Sekolah Vokasi
+          Universitas Sebelas Maret tahun 2024. Galeri ini menyajikan berbagai
+          momen berharga dan kenangan tak terlupakan dari setiap acara yang
+          diadakan selama PKKMB. Setiap momen ini telah diabadikan untuk
+          mengenang semangat dan kebersamaan yang kita rasakan selama menjalani
+          PKKMB. Semoga dokumentasi ini dapat memberikan gambaran yang lebih
+          jelas tentang betapa serunya pengalaman PKKMB, serta memperkuat ikatan
+          kita sebagai bagian dari keluarga besar Sekolah Vokasi UNS. Selamat
+          menikmati galeri PKKMB SV UNS 2024!
         </p>
       </header>
 
       <main class="container mx-auto">
+        <!-- Galeri Start -->
         <div class="galeri-1">
           <div
-            class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9"
+            class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9 rounded-lg"
           >
             <div class="row-span-2 sm:row-span-2 lg:row-span-3">
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-2.png"
                 alt="Image 2"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-3.png"
                 alt="Image 3"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="row-span-2 sm:row-span-2 lg:row-span-3">
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-4.png"
                 alt="Image 4"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-5.png"
                 alt="Image 5"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
           </div>
@@ -69,42 +77,42 @@
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-2.png"
                 alt="Image 2"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="row-span-2 sm:row-span-2 lg:row-span-3 col-end">
               <img
                 src="@/assets/galeri/p-1.png"
                 alt="Image 1"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-3.png"
                 alt="Image 3"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-4.png"
                 alt="Image 4"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
             <div class="col-span-1">
               <img
                 src="@/assets/galeri/p-5.png"
                 alt="Image 5"
-                class="w-full h-auto rounded-lg shadow-lg"
+                class="w-full h-auto rounded-3xl shadow-lg"
               />
             </div>
           </div>
@@ -112,13 +120,13 @@
         <div
           class="download-button text-center mt-7 sm:mt-7 md:mt-7 lg:mt-6 xl:mt-2"
         >
-          <a
-            href="#"
-            class="bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-red-600"
+          <button
+            class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5"
           >
-            DOWNLOAD DISINI!
-          </a>
+            <a href="#" target="_blank"> DOWNLOAD DISINI! </a>
+          </button>
         </div>
+        <!-- Galeri Ends -->
         <!-- Slider Acara -->
         <div class="slider-acara mt-5">
           <!-- Trending Section -->
@@ -131,18 +139,23 @@
                   DOKUMENTASI ACARA
                 </h1>
                 <p class="text-lg mt-4">
-                  Hallo Vocazens!, Galeri ini berisi dokumentasi setiap acara
-                  yang terjadi selama kegiatan Pengenalan Kehidupan Kampus bagi
-                  Mahasiswa Baru di Sekolah Vokasi UNS. Selamat menikmati!
+                  Hallo Vocazens!, Bagian ini khusus berisi highlight foto-foto
+                  dari setiap acara yang diadakan, menampilkan berbagai kegiatan
+                  penting dan menarik yang telah kita jalani bersama. Dari sesi
+                  pembukaan yang megah dan penuh semangat, hingga kuliah umum
+                  yang inspiratif dan memberikan wawasan baru. Tidak hanya itu,
+                  berbagai pelatihan keterampilan yang bermanfaat dan kegiatan
+                  sosial yang menyenangkan juga diabadikan dalam potret-potret
+                  indah.
                 </p>
               </div>
               <div class="container swiper mb-2">
                 <!-- Swiper Wrapper -->
-                <div class="swiper-wrapper flex">
-                  <!-- Swipper Slide -->
-                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
+                <div class="swiper-wrapper flex items-stretch">
+                  <!-- Swiper Slide -->
+                  <div class="swiper-slide">
                     <div
-                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
+                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
                     >
                       <img
                         src="@/assets/galeri/acara-1.png"
@@ -153,17 +166,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p
-                        class="mt-5 text-base flex flex-col justify-between flex-grow"
-                      >
+                      <p class="mt-5 text-base justify-between">
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
+                  <div class="swiper-slide">
                     <div
-                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
+                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
                     >
                       <img
                         src="@/assets/galeri/acara-1.png"
@@ -174,17 +185,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p
-                        class="mt-5 text-base flex flex-col justify-between flex-grow"
-                      >
+                      <p class="mt-5 text-base justify-between">
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
+                  <div class="swiper-slide">
                     <div
-                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
+                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
                     >
                       <img
                         src="@/assets/galeri/acara-1.png"
@@ -195,17 +204,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p
-                        class="mt-5 text-base flex flex-col justify-between flex-grow"
-                      >
+                      <p class="mt-5 text-base justify-between">
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
+                  <div class="swiper-slide">
                     <div
-                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
+                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
                     >
                       <img
                         src="@/assets/galeri/acara-1.png"
@@ -216,17 +223,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p
-                        class="mt-5 text-base flex flex-col justify-between flex-grow"
-                      >
+                      <p class="mt-5 text-base justify-between">
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
+                  <div class="swiper-slide">
                     <div
-                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
+                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
                     >
                       <img
                         src="@/assets/galeri/acara-1.png"
@@ -237,17 +242,15 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p
-                        class="mt-5 text-base flex flex-col justify-between flex-grow"
-                      >
+                      <p class="mt-5 text-base justify-between">
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <div class="swiper-slide flex-shrink-0 grow h-full flex-col">
+                  <div class="swiper-slide">
                     <div
-                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm flex flex-col"
+                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
                     >
                       <img
                         src="@/assets/galeri/acara-1.png"
@@ -258,20 +261,18 @@
                       <h2 class="mt-3 text-2xl uppercase">
                         Seminar Inspiratif
                       </h2>
-                      <p
-                        class="mt-5 text-base flex flex-col justify-between flex-grow"
-                      >
+                      <p class="mt-5 text-base justify-between">
                         Mendengarkan paparan dari tokoh-tokoh inspiratif yang
                         berbagi pengalaman dan pengetahuan mereka.
                       </p>
                     </div>
                   </div>
-                  <!-- Swipper Slide End -->
+                  <!-- Swiper Slide End -->
                 </div>
                 <!-- Swiper Navigation Buttons -->
                 <div class="swiper-button-next text-lg"></div>
                 <div class="swiper-button-prev text-lg"></div>
-                <!-- Swipper Wrapper End -->
+                <!-- Swiper Wrapper End -->
               </div>
             </div>
           </section>
@@ -302,7 +303,7 @@
                   loading="lazy"
                   src="https://img.youtube.com/vi/ySsWXVGp7_o/maxresdefault.jpg"
                   alt="After Movie PKKMB SV UNS 2024"
-                  class="object-cover w-3/4 lg:w-1/2 mx-auto rounded-xl"
+                  class="object-cover w-3/4 lg:w-1/2 mx-auto rounded-3xl"
                 />
               </a>
             </div>
@@ -315,6 +316,7 @@
 </template>
 
 <script>
+import "../css/pages/_button.css";
 import Swiper from "swiper";
 // import function to register Swiper custom elements
 import { register } from "swiper/element/bundle";
