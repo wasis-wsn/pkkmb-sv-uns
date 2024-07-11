@@ -70,22 +70,22 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col items-start max-md:w-full">
                   <div class="text-lg font-bold text-white capitalize">
                     Sosial Media
                   </div>
-                  <div class="flex gap-5 mt-5">
-                    <a href="https://www.facebook.com" target="_blank" class="social-icon">
-                      <RiFacebookFill size="36px" color="black" />
-                    </a>
-                    <a href="https://twitter.com" target="_blank" class="social-icon">
+                  <div class="flex flex-wrap gap-5 mt-5">
+                    <a href="https://x.com/pkkmbsvuns" target="_blank" class="social-icon">
                       <RiTwitterXFill size="36px" color="black" />
                     </a>
-                    <a href="https://www.tiktok.com" target="_blank" class="social-icon">
+                    <a href="https://www.tiktok.com/@pkkmbsvuns" target="_blank" class="social-icon">
                       <RiTiktokLine size="36px" color="black" />
                     </a>
-                    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                    <a href="https://www.instagram.com/pkkmbsvuns" target="_blank" class="social-icon">
                       <RiInstagramLine size="36px" color="black" />
+                    </a>
+                    <a href="https://www.youtube.com/@pkkmbsvuns6317" target="_blank" class="social-icon">
+                      <RiYoutubeFill size="36px" color="black" />
                     </a>
                   </div>
                 </div>
@@ -106,8 +106,7 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import { RiTiktokLine, RiFacebookFill, RiInstagramLine, RiTwitterXFill } from "@remixicon/vue";
-
+import { RiTiktokLine, RiInstagramLine, RiTwitterXFill, RiYoutubeFill } from "@remixicon/vue";
 </script>
 
 <style scoped>
@@ -129,9 +128,16 @@ import { RiTiktokLine, RiFacebookFill, RiInstagramLine, RiTwitterXFill } from "@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #2C2D5B;
   font-size: 24px;
 }
 
+@media (max-width: 970px) {
+  .social-icon {
+    margin-bottom: 10px;
+  }
 
+  .flex.flex-wrap {
+    justify-content: center;
+  }
+}
 </style>

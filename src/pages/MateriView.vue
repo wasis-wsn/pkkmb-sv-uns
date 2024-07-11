@@ -9,7 +9,7 @@
             <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"></div>
             <div class="self-end mt-1 mb-0 max-md:max-w-full">
                 <h1 class="self-stretch pl-8 mt-5 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full">
-                    <span class="font-semibold">Materi di </span></h1>
+                    <span class="font-semibold">MATERI</span></h1>
                 <h1 class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full">
                     <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
                 </h1>
@@ -28,13 +28,6 @@
       </div>
     </div>
   <main>
-      <div class="" >
-        <button class=" scroll-smooth z-20 w-8 h-8 rounded-[10px] flex fixed bottom-5 right-5 cursor-pointer button-biru">
-          <a href="#" class=" scroll-smooth z-20 w-8 h-8 rounded-[10px] flex fixed bottom-5 right-5 cursor-pointer ">
-            <ChevronUpIcon class="w-6 h-6 m-auto " />
-          </a>
-      </button>
-    </div>
     <!-- BUKU IMPLEMENTASI -->
     <section class="flex gap-5 self-center  mt-[45px] max-md:flex-wrap max-md:mt-10 ">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
@@ -327,7 +320,7 @@
         <div class="text-center y">
           <p class="text-2xl font-bold mb-4 text-[30px]">Download Materi</p>
           <button
-            class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5">
+            class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap rounded-[15px] max-md:px-5">
             <a href="https://youtu.be/nwuW98yLsgY?si=6D4JnXuZ_UEfNCF-" target="_blank">
               Disini!
             </a>
@@ -341,15 +334,10 @@
 </template>
 
 <script>
-  import {
-    ChevronUpIcon
-  } from '@heroicons/vue/24/solid';
   
   export default {
     name: 'MateriView',
-    components: {
-      ChevronUpIcon
-    }
+
   };
 </script>
 

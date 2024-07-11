@@ -9,7 +9,7 @@
         <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"></div>
         <div class="self-end mt-1 mb-0 max-md:max-w-full">
           <h1 class="self-stretch pl-8 mt-5 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full">
-            <span class="font-semibold">Kelompok di </span></h1>
+            <span class="font-semibold">KELOMPOK </span></h1>
           <h1 class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full">
             <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
           </h1>
@@ -296,8 +296,7 @@ const nextPage = () => {
     white-space: nowrap;
   }
   
-  .group-table th,
-  .group-table td {
+  .group-table th,td {
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 150px; /* Adjust as needed */

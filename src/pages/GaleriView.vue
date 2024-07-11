@@ -59,7 +59,7 @@
       ></div>
     </div>
   </div>
-  <div class="mx-auto bg-white p-3">
+  <div class="mx-auto bg-white">
     <div class="min-h-screen">
       <div class="galeri w-full bg-slate-100 pb-5">
         <header class="text-center py-8">
@@ -69,16 +69,7 @@
             DOKUMENTASI PKKMB SV UNS 2024
           </h1>
           <p class="text-lg mt-4 container mx-auto">
-            Halo, Vocazens! Selamat datang di galeri dokumentasi kegiatan
-            Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) Sekolah
-            Vokasi Universitas Sebelas Maret tahun 2024. Galeri ini menyajikan
-            berbagai momen berharga dan kenangan tak terlupakan dari setiap
-            acara yang diadakan selama PKKMB. Setiap momen ini telah diabadikan
-            untuk mengenang semangat dan kebersamaan yang kita rasakan selama
-            menjalani PKKMB. Semoga dokumentasi ini dapat memberikan gambaran
-            yang lebih jelas tentang betapa serunya pengalaman PKKMB, serta
-            memperkuat ikatan kita sebagai bagian dari keluarga besar Sekolah
-            Vokasi UNS. Selamat menikmati galeri PKKMB SV UNS 2024!
+            Halo, Vocazens! Berikut adalah dokumentasi PKKMB SV UNS 2024. Selamat menonton!
           </p>
         </header>
         <!-- Galeri Start -->
@@ -92,42 +83,42 @@
               <div class="row-span-2 sm:row-span-2 lg:row-span-3">
                 <img
                   src="@/assets/galeri/p-1.png"
-                  alt="Image 1"
+                  alt="1"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-2.png"
-                  alt="Image 2"
+                  alt="2"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-3.png"
-                  alt="Image 3"
+                  alt="3"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="row-span-2 sm:row-span-2 lg:row-span-3">
                 <img
                   src="@/assets/galeri/p-1.png"
-                  alt="Image 1"
+                  alt="1"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-4.png"
-                  alt="Image 4"
+                  alt="4"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-5.png"
-                  alt="Image 5"
+                  alt="5"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
@@ -140,42 +131,42 @@
               <div class="row-span-2 sm:row-span-2 lg:row-span-3">
                 <img
                   src="@/assets/galeri/p-1.png"
-                  alt="Image 1"
+                  alt="1"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-2.png"
-                  alt="Image 2"
+                  alt="2"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="row-span-2 sm:row-span-2 lg:row-span-3 col-end">
                 <img
                   src="@/assets/galeri/p-1.png"
-                  alt="Image 1"
+                  alt="1"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-3.png"
-                  alt="Image 3"
+                  alt="3"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-4.png"
-                  alt="Image 4"
+                  alt="4"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
               <div class="col-span-1">
                 <img
                   src="@/assets/galeri/p-5.png"
-                  alt="Image 5"
+                  alt="5"
                   class="w-full h-auto rounded-3xl shadow-lg"
                 />
               </div>
@@ -185,7 +176,7 @@
             class="download-button text-center mt-7 sm:mt-7 md:mt-7 lg:mt-6 xl:mt-2"
           >
             <button
-              class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5"
+              class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 whitespace-nowrap rounded-[15px] max-md:px-5"
             >
               <a href="#" target="_blank"> DOWNLOAD DISINI! </a>
             </button>
@@ -206,14 +197,9 @@
                 DOKUMENTASI ACARA
               </h1>
               <p class="text-lg mt-4">
-                Hallo Vocazens!, Bagian ini khusus berisi highlight foto-foto
+                Bagian ini berisi highlight foto-foto
                 dari setiap acara yang diadakan, menampilkan berbagai kegiatan
-                penting dan menarik yang telah kita jalani bersama. Dari sesi
-                pembukaan yang megah dan penuh semangat, hingga kuliah umum yang
-                inspiratif dan memberikan wawasan baru. Tidak hanya itu,
-                berbagai pelatihan keterampilan yang bermanfaat dan kegiatan
-                sosial yang menyenangkan juga diabadikan dalam potret-potret
-                indah.
+                penting dan menarik yang telah kita jalani bersama.
               </p>
             </div>
             <div class="container swiper mb-2">
@@ -348,13 +334,12 @@
             Saksikan momen-momen terbaik kalian selama PKKMB SV UNS 2024 dalam
             "After Movie" berikut ini!
           </p>
-          <div class="image mt-3 flex justify-center w-full">
+          <div class="image mt-3 mb-5 flex justify-center w-full">
             <iframe
               width="853"
               height="480"
               src="https://www.youtube.com/embed/ySsWXVGp7_o"
               title="After Movie PKKMB SV UNS 2024"
-              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
               class="rounded-3xl w-full max-w-4xl"
@@ -369,51 +354,52 @@
 <script>
 import "../css/pages/_button.css";
 import Swiper from "swiper";
-// import function to register Swiper custom elements
+import "swiper/swiper-bundle.css";
 import { register } from "swiper/element/bundle";
-// register Swiper custom elements
 register();
 
 export default {
   name: "GaleriView",
   mounted() {
-    new Swiper(".swiper", {
-      loop: true,
-      direction: "horizontal",
-      slidesPerView: 1,
-      spaceBetween: 10,
-      autoplay: {
-        delay: 2000, // Time between slides in milliseconds (3 seconds in this case)
-        disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+  console.log('Initializing Swiper...');
+  const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    direction: 'horizontal',
+    slidesPerView: 1,
+    spaceBetween: 10,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
       },
-      breakpoints: {
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 40,
-        },
-        1280: {
-          slidesPerView: 4,
-          spaceBetween: 40,
-        },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 40,
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+      1280: {
+        slidesPerView: 4,
+        spaceBetween: 40,
       },
-    });
-  },
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+  console.log('Swiper initialized:', swiper);
+}
 };
 </script>
 
@@ -421,6 +407,6 @@ export default {
 /* Custom styles if needed */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000; /* Change the color to match your design */
+  color: #000;
 }
 </style>
