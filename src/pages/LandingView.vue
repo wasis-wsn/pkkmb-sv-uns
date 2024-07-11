@@ -56,16 +56,22 @@
           Askara Muda 2024!
         </h1>
         <p
-          class="self-stretch mt-14 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
+          class="self-stretch mt-9 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
         >
           "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia"
         </p>
-        <img
-          loading="lazy"
-          src="@/assets/vidio yt.png"
-          alt="Askara Muda 2024 event illustration"
-          class="mt-10 w-full aspect-[1.89] max-w-[682px] max-md:max-w-full"
-        />
+        <div class="video-container">
+          <iframe
+            loading="lazy"
+            alt="After Movie PKKMB SV UNS 2024"
+            class="mx-auto rounded-xl mt-3"
+            src="https://www.youtube.com/embed/CoTPJXtsH3E?si=I1aetGJA8GqErgRU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </section>
     </div>
 
@@ -458,26 +464,34 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Allow wrapping */
+  flex-wrap: wrap;
+  /* Allow wrapping */
   gap: 50px;
   margin-top: 20px;
   width: 100%;
-  background-color: #89a4f1; /* Ensure the background color */
-  padding: 20px; /* Add padding to contain logos within the background */
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  background-color: #89a4f1;
+  /* Ensure the background color */
+  padding: 20px;
+  /* Add padding to contain logos within the background */
+  box-sizing: border-box;
+  /* Ensure padding is included in the width */
 }
 
 .image-container img {
-  max-width: 100%; /* Ensure images do not exceed container width */
+  max-width: 100%;
+  /* Ensure images do not exceed container width */
   height: auto;
 }
 
 @media (max-width: 700px) {
   .image-container {
-    gap: 10px; /* Adjust gap for smaller screens */
+    gap: 10px;
+    /* Adjust gap for smaller screens */
   }
+
   .image-container img {
-    max-width: 50%; /* Adjust image width for smaller screens */
+    max-width: 50%;
+    /* Adjust image width for smaller screens */
   }
 }
 
@@ -485,5 +499,27 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.rounded-iframe {
+  border-radius: 15px;
+  /* Adjust the value as needed */
+  overflow: hidden;
+  /* Ensures content inside iframe is clipped to the rounded border */
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Aspect ratio 16:9 */
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
