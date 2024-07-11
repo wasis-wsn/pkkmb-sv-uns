@@ -269,8 +269,8 @@
                   <!-- Swipper Slide End -->
                 </div>
                 <!-- Swiper Navigation Buttons -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next text-lg"></div>
+                <div class="swiper-button-prev text-lg"></div>
                 <!-- Swipper Wrapper End -->
               </div>
             </div>
@@ -316,7 +316,10 @@
 
 <script>
 import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
+// import function to register Swiper custom elements
+import { register } from "swiper/element/bundle";
+// register Swiper custom elements
+register();
 
 export default {
   name: "GaleriView",
@@ -326,6 +329,10 @@ export default {
       direction: "horizontal",
       slidesPerView: 1,
       spaceBetween: 10,
+      autoplay: {
+        delay: 2000, // Time between slides in milliseconds (3 seconds in this case)
+        disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+      },
       breakpoints: {
         640: {
           slidesPerView: 1,
@@ -341,7 +348,7 @@ export default {
         },
         1280: {
           slidesPerView: 4,
-          spaceBetween: 50,
+          spaceBetween: 40,
         },
       },
       pagination: {
