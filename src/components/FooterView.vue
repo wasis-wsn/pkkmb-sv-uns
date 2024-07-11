@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center">
-    <div class="flex justify-center items-center px-16 py-16 w-full bg-custom-background max-md:px-5 max-md:max-w-full">
-      <div class="flex flex-col w-full max-w-[1216px] max-md:max-w-full">
+    <div class="flex justify-center items-center px-16 py-10 w-full bg-custom-background max-md:px-5 max-md:max-w-full">
+      <div class="flex flex-col w-full max-w-[1920px] max-md:max-w-full">
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex flex-col w-[34%] max-md:ml-0 max-md:w-full">
@@ -15,6 +15,17 @@
                     Website PKKMB SV 2024 Dipergunakan Untuk Jembatan Informasi
                     Kepada Mahasiswa Baru Sekolah Vokasi UNS 2024.
                   </div>
+                  <iframe 
+                  class="rounded-2xl w-full max-w-4xl"
+                  title="map"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7910.283819674678!2d110.83837400000002!3d-7.559502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1748cf551e55%3A0x54f8a762c0623225!2sSekolah%20Vokasi%20UNS!5e0!3m2!1sen!2sus!4v1720696547365!5m2!1sen!2sus" 
+                  width="450" 
+                  height="200" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
                 </div>
               </div>
             </div>
@@ -70,22 +81,22 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col items-start max-md:w-full">
                   <div class="text-lg font-bold text-white capitalize">
                     Sosial Media
                   </div>
-                  <div class="flex gap-5 mt-5">
-                    <a href="https://www.facebook.com" target="_blank" class="social-icon">
-                      <RiFacebookFill size="36px" color="black" />
-                    </a>
-                    <a href="https://twitter.com" target="_blank" class="social-icon">
+                  <div class="flex flex-wrap gap-5 mt-5">
+                    <a href="https://x.com/pkkmbsvuns" target="_blank" class="social-icon">
                       <RiTwitterXFill size="36px" color="black" />
                     </a>
-                    <a href="https://www.tiktok.com" target="_blank" class="social-icon">
+                    <a href="https://www.tiktok.com/@pkkmbsvuns" target="_blank" class="social-icon">
                       <RiTiktokLine size="36px" color="black" />
                     </a>
-                    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                    <a href="https://www.instagram.com/pkkmbsvuns" target="_blank" class="social-icon">
                       <RiInstagramLine size="36px" color="black" />
+                    </a>
+                    <a href="https://www.youtube.com/@pkkmbsvuns6317" target="_blank" class="social-icon">
+                      <RiYoutubeFill size="36px" color="black" />
                     </a>
                   </div>
                 </div>
@@ -106,8 +117,7 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import { RiTiktokLine, RiFacebookFill, RiInstagramLine, RiTwitterXFill } from "@remixicon/vue";
-
+import { RiTiktokLine, RiInstagramLine, RiTwitterXFill, RiYoutubeFill } from "@remixicon/vue";
 </script>
 
 <style scoped>
@@ -129,9 +139,16 @@ import { RiTiktokLine, RiFacebookFill, RiInstagramLine, RiTwitterXFill } from "@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #2C2D5B;
   font-size: 24px;
 }
 
+@media (max-width: 970px) {
+  .social-icon {
+    margin-bottom: 10px;
+  }
 
+  .flex.flex-wrap {
+    justify-content: center;
+  }
+}
 </style>

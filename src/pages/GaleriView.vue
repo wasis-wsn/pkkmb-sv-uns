@@ -268,9 +268,8 @@
 <script>
 import "../css/pages/_button.css";
 import Swiper from "swiper";
-// import function to register Swiper custom elements
+import "swiper/swiper-bundle.css";
 import { register } from "swiper/element/bundle";
-// register Swiper custom elements
 register();
 
 import AOS from "aos";
@@ -369,8 +368,8 @@ export default {
       slidesPerView: 1,
       spaceBetween: 10,
       autoplay: {
-        delay: 2000, // Time between slides in milliseconds (3 seconds in this case)
-        disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+        delay: 2000,
+        disableOnInteraction: false,
       },
       breakpoints: {
         640: {
@@ -407,6 +406,6 @@ export default {
 /* Custom styles if needed */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000; /* Change the color to match your design */
+  color: #000;
 }
 </style>
