@@ -96,10 +96,6 @@ export default {
 </script>
 
 <style scoped>
-/* Impor font Lato */
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;800;900&display=swap'); */
-
-/* Terapkan font Lato */
 * {
   font-family: 'Lato', sans-serif;
 }

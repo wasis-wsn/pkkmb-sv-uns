@@ -1,5 +1,5 @@
 <template>
-  <nav :class="{ 'shadow-md': isHeaderShadowVisible }" class="sticky top-0 flex gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-30">
+  <nav :class="{ 'shadow-md': isHeaderShadowVisible }" class="sticky top-0 flex gap-5 justify-between items-center px-8 py-1 bg-white bg-opacity-90 z-30">
     <div class="flex items-center gap-2 pr-1.5 font-bold text-center text-black bg-white bg-opacity-0 leading-[150%]">
       <img loading="lazy" src="@/assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[0.99] h-[83px] w-[93px] md:w-[100px]" />
       <div class="flex flex-col">
