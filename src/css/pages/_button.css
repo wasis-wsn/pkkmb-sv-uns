@@ -1,0 +1,28 @@
+/* Styling for login button */
+.button-biru {
+  background-color: #2C2D5B;
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: 2px solid #2C2D5B;
+}
+
+.button-biru:hover {
+  background-color: white;
+  color: #2C2D5B;
+  border: 2px solid #2C2D5B;
+}
+
+.button-putih {
+  background-color: white;
+  color: #2C2D5B;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: 2px solid #2C2D5B;
+}
+
+.button-putih:hover {
+  background-color: #2C2D5B;
+  color: white;
+  border: 2px solid #2C2D5B;
+}

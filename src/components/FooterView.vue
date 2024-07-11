@@ -26,7 +26,7 @@
                   class="flex flex-col mt-1.5 text-sm font-medium text-white whitespace-nowrap"
                 >
                   <div class="text-lg font-bold capitalize">Menu</div>
-                  <router-link to="/" class="mt-6">Home</router-link>
+                  <router-link to="/" class="mt-6">Beranda</router-link>
                   <router-link to="/materi" class="mt-2.5 capitalize">Materi</router-link>
                   <router-link to="/kelompok" class="mt-2.5">Kelompok</router-link>
                   <router-link to="/galeri" class="mt-2.5">Galeri</router-link>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="flex flex-col">
                   <div class="text-lg font-bold text-white capitalize">
-                    Social Media
+                    Sosial Media
                   </div>
                   <div class="flex gap-5 mt-5">
                     <a href="https://www.facebook.com" target="_blank" class="social-icon">
@@ -132,4 +132,6 @@ import { RiTiktokLine, RiFacebookFill, RiInstagramLine, RiTwitterXFill } from "@
   color: #2C2D5B;
   font-size: 24px;
 }
+
+
 </style>

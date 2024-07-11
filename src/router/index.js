@@ -4,6 +4,7 @@ import AboutView from "../pages/AboutView.vue";
 import MateriView from "../pages/MateriView.vue";
 import GaleriView from "../pages/GaleriView.vue";
 import KelompokView from "../pages/KelompokView.vue";
+import template from "../pages/template.vue";
 import LoginView from "../pages/LoginView.vue";
 import ErrorView from "../views/ErrorView.vue";
 import LayoutWithHeaderFooter from "../components/LayoutWithHeaderFooter.vue";
@@ -18,6 +19,7 @@ const routes = [
       { path: "/kelompok", component: KelompokView },
       { path: "/materi", component: MateriView },
       { path: "/galeri", component: GaleriView },
+      { path: "/template", component: template },
     ],
   },
   {

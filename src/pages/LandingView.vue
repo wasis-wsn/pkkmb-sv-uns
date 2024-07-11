@@ -14,27 +14,29 @@
       <h1
         class="self-stretch pl-8 mt-36 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full"
       >
-        <span class="font-semibold">Selamat Datang di </span>
+        <span class="font-semibold text-[#2C2D5B]">Selamat Datang di </span>
         <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
       </h1>
       <div
         class="flex gap-5 justify-between self-end mt-11 font-extrabold text-center max-md:mt-10 max-md:mr-2.5"
       >
-        <button
-          class="justify-center px-10 py-5 text-sm text-white rounded-xl bg-slate-700 max-md:px-5"
+        <router-link
+          to="/kelompok"
+          class="btn-outline justify-center px-10 py-5 text-sm text-white rounded-xl bg-slate-700 max-md:px-5 hover:text-slate-700 hover:bg-white hover:border-slate-700"
         >
           Cari Kelompok
-        </button>
+        </router-link>
         <div
           class="flex flex-col justify-center text-lg leading-5 whitespace-nowrap text-slate-700"
         >
-          <a
+          <router-link
+            to="/materi"
             href=""
-            class="flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light"
+            class="btn-outline flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light hover:bg-slate-700 hover:text-white hover:border-white"
           >
             <ClipboardIcon loading="lazy" alt="" class="size-6" />
             <span class="my-auto">Materi</span>
-          </a>
+          </router-link>
         </div>
       </div>
     </section>
@@ -110,11 +112,12 @@
             </article>
           </div>
         </div>
-        <button
-          class="justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl bg-slate-700 w-[250px] max-md:px-5 max-md:mt-10"
+        <router-link
+          to="/kelompok"
+          class="btn-outline justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl bg-slate-700 w-[250px] max-md:px-5 max-md:mt-10 hover:text-slate-700 hover:bg-white hover:border-slate-700"
         >
           Check
-        </button>
+        </router-link>
       </div>
     </section>
 
@@ -123,7 +126,7 @@
         class="flex flex-col mt-20 w-full max-w-[1151px] max-md:mt-10 max-md:max-w-full"
       >
         <h1
-          class="self-center text-5xl font-semibold text-center capitalize leading-[69px] text-neutral-900 max-md:text-4xl"
+          class="self-center text-5xl text-[#2C2D5B] font-semibold text-center capitalize leading-[69px] text-neutral-900 max-md:text-4xl"
         >
           Timeline!
         </h1>
@@ -137,9 +140,9 @@
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex items-center w-[43%] max-md:ml-0 max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
-                <div class="flex gap-5 items-center capitalize">
+                <div class="flex gap-5 capitalize">
                   <div
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
+                    class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
                   >
                     1
                   </div>
@@ -176,7 +179,7 @@
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
+                    class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
                   >
                     2
                   </div>
@@ -197,7 +200,7 @@
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
-                    class="justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
+                    class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-[100px] w-[50px]"
                   >
                     3
                   </div>
@@ -226,74 +229,127 @@
     <div class="slider-acara mt-5">
       <!-- Trending Section -->
       <section class="acara" id="acara">
-        <div class="container mx-auto p-4">
+        <div class="background">
           <div class="mb-3 text-center">
-            <h1 class="text-3xl font-bold inline-block border-b-4 border-[#F67366]">
-              DOKUMENTASI ACARA
+            <h1
+              class="text-3xl text-[#2C2D5B] font-bold inline-block border-b-4 border-[#F67366] mt-5"
+            >
+              SPONSORED BY :
             </h1>
-            <p class="text-lg mt-4">
-              Hallo Vocazens!, Galeri ini berisi dokumentasi setiap acara yang terjadi
-              selama kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru di Sekolah
-              Vokasi UNS. Selamat menikmati!
-            </p>
+            <div class="image-container">
+              <img src="@/assets/telkom.png" alt="Telkom" />
+              <img src="@/assets/bca.png" alt="BCA" />
+              <img src="@/assets/mandiri.png" alt="Mandiri" />
+              <img src="@/assets/bri.png" alt="BRI" />
+            </div>
           </div>
-          <div class="container swiper mb-2">
+          <div class="background container swiper mt-5">
             <!-- Slides -->
-
-            <div class="swiper-wrapper flex mx-auto">
-              <div class="swiper-slide slide" style="max-width: 100px; max-height: 100px">
+            <div class="swiper-wrapper flex mx-auto mb-5">
+              <div
+                class="swiper-slide slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img
                   src="@/assets/logo_hima/hima_sv.png"
                   alt="PKKMB SV UNS 2024 Seminar"
                   class="object-cover"
                 />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himakesja.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himama.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/emailkom.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himapsdku.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himafarma.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/hmps.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himavida.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/fondasi.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/HMB.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himaagrib.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himapertanian.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himamanajemen.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/formadasi.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himaakuntansi.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/chinese.png" class="object-cover" />
               </div>
-              <div class="swiper-slide" style="max-width: 100px; max-height: 100px">
+              <div
+                class="swiper-slide"
+                style="max-width: 200px; max-height: 200px; margin: 0 0px"
+              >
                 <img src="@/assets/logo_hima/himaupw.png" class="object-cover" />
               </div>
             </div>
@@ -309,28 +365,46 @@
 
 <script>
 import { ClipboardIcon, UserGroupIcon } from "@heroicons/vue/24/solid";
-import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
+import Swiper from "swiper/bundle";
+import { register } from "swiper/element/bundle";
+
+register();
+
 export default {
   name: "LandingView",
   components: {
     ClipboardIcon,
     UserGroupIcon,
   },
+
   mounted() {
     new Swiper(".swiper", {
       loop: true,
-      slidesPerView: 15,
+      slidesPerView: 7,
       spaceBetween: 10,
-
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
       },
-
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      },
+      480: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 5,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 40,
+      },
+      1280: {
+        slidesPerView: 7,
+        spaceBetween: 50,
       },
     });
   },
@@ -341,29 +415,58 @@ export default {
 .inset-shadow {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.swiper-button-next,
-.swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  width: 27px;
-  height: 44px;
-  margin-top: -22px;
-  z-index: 10;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border-radius: 0 10px 10px 0;
-  text-align: center;
-  line-height: 44px;
+
+.btn-outline {
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.swiper-button-next {
-  right: 0;
-  border-radius: 10px 0 0 10px;
+.btn-outline:hover {
+  border-color: currentColor;
 }
 
-.swiper-button-prev {
-  left: 0;
-  border-radius: 10px 0 0 10px;
+.background {
+  background-color: #89a4f1;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Allow wrapping */
+  gap: 50px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #89a4f1;
+  /* Ensure the background color */
+  padding: 20px;
+  /* Add padding to contain logos within the background */
+  box-sizing: border-box;
+  /* Ensure padding is included in the width */
+}
+
+.image-container img {
+  max-width: 100%;
+  /* Ensure images do not exceed container width */
+  height: auto;
+}
+
+@media (max-width: 700px) {
+  .image-container {
+    gap: 10px;
+    /* Adjust gap for smaller screens */
+  }
+
+  .image-container img {
+    max-width: 50%;
+    /* Adjust image width for smaller screens */
+  }
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 </style>

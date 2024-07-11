@@ -268,6 +268,9 @@
                   </div>
                   <!-- Swipper Slide End -->
                 </div>
+                <!-- Swiper Navigation Buttons -->
+                <div class="swiper-button-next text-lg"></div>
+                <div class="swiper-button-prev text-lg"></div>
                 <!-- Swipper Wrapper End -->
               </div>
             </div>
@@ -276,22 +279,32 @@
 
           <!-- After Movie -->
           <section
-            class="flex flex-col items-center px-5 text-4xl font-bold capitalize text-neutral-900"
+            class="flex flex-col items-center px-5 font-bold capitalize text-neutral-900"
           >
-            <h1 class="max-md:max-w-full text-center">
-              AFTER MOVIE PKKMB SV UNS 2024
-            </h1>
-         <div
-              class="shrink-0 mt-2.5 max-w-full h-1 bg-red-400 w-[630px]"
+            <h1 class="text-center text-3xl">AFTER MOVIE PKKMB SV UNS 2024</h1>
+            <div
+              class="shrink-0 mt-2.5 max-w-full h-1 bg-red-400 w-full sm:w-[630px]"
               aria-hidden="true"
             ></div>
+            <p
+              class="mt-3 text-base sm:text-lg md:text-xl text-center font-normal"
+            >
+              Saksikan momen-momen terbaik kalian selama PKKMB SV UNS 2024 dalam
+              "After Movie" berikut ini!
+            </p>
             <div class="image mt-3">
-              <img
-                loading="lazy"
-                src="@/assets/galeri/after-movie.png"
-                alt="After Movie PKKMB SV UNS 2024"
-                class="object-cover"
-              />
+              <a
+                href="https://youtu.be/ySsWXVGp7_o?si=3tNFjNk-fxS31uU0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/ySsWXVGp7_o/maxresdefault.jpg"
+                  alt="After Movie PKKMB SV UNS 2024"
+                  class="object-cover w-3/4 lg:w-1/2 mx-auto rounded-xl"
+                />
+              </a>
             </div>
           </section>
         </div>
@@ -303,7 +316,10 @@
 
 <script>
 import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
+// import function to register Swiper custom elements
+import { register } from "swiper/element/bundle";
+// register Swiper custom elements
+register();
 
 export default {
   name: "GaleriView",
@@ -313,6 +329,10 @@ export default {
       direction: "horizontal",
       slidesPerView: 1,
       spaceBetween: 10,
+      autoplay: {
+        delay: 2000, // Time between slides in milliseconds (3 seconds in this case)
+        disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+      },
       breakpoints: {
         640: {
           slidesPerView: 1,
@@ -328,7 +348,7 @@ export default {
         },
         1280: {
           slidesPerView: 4,
-          spaceBetween: 50,
+          spaceBetween: 40,
         },
       },
       pagination: {
@@ -346,4 +366,8 @@ export default {
 
 <style scoped>
 /* Custom styles if needed */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000; /* Change the color to match your design */
+}
 </style>
