@@ -1,8 +1,7 @@
 <template>
     <div class="flex flex-col pb-20 bg-white">
       <header class="flex gap-5 max-md:flex-col max-md:gap-0">
-        <section class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-          <div class="flex flex-col items-start pt-16 pb-52 pl-1 max-w-full rounded-full border border-solid border-violet-300 border-opacity-50 w-[1025px] max-md:pr-5">
+        <section class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"          >
             <div class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"></div>
             <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"></div>
             <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]"></div>
@@ -11,11 +10,10 @@
             <div class="self-end mt-1 mb-0 max-md:max-w-full">
                 <h1 class="self-stretch pl-8 mt-5 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full">
                     <span class="font-semibold">Selamat Datang di </span></h1>
-                <h1 class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full">
+                <h1 class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full">
                     <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
                 </h1>
             </div>
-          </div>
         </section>
         <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
             <img loading="lazy" src="@/assets/logo_besar.png" alt="" class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
