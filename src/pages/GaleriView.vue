@@ -98,23 +98,18 @@
             >
               DOKUMENTASI PKKMB SV UNS 2024
             </h1>
-            <p class="text-lg mt-4 container mx-auto" data-aos="fade-up">
+            <p class="text-lg mt-4 container mx-auto px-4" data-aos="fade-up">
               Halo, Vocazens! Selamat datang di galeri dokumentasi kegiatan
               Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) Sekolah
               Vokasi Universitas Sebelas Maret tahun 2024. Galeri ini menyajikan
               berbagai momen berharga dan kenangan tak terlupakan dari setiap
-              acara yang diadakan selama PKKMB. Setiap momen ini telah
-              diabadikan untuk mengenang semangat dan kebersamaan yang kita
-              rasakan selama menjalani PKKMB. Semoga dokumentasi ini dapat
-              memberikan gambaran yang lebih jelas tentang betapa serunya
-              pengalaman PKKMB, serta memperkuat ikatan kita sebagai bagian dari
-              keluarga besar Sekolah Vokasi UNS. Selamat menikmati galeri PKKMB
+              acara yang diadakan selama PKKMB. Selamat menikmati galeri PKKMB
               SV UNS 2024!
             </p>
           </header>
 
           <!-- Galeri Start -->
-          <div class="container mx-auto">
+          <div class="container px-4 lg:px-8 md:px-6 sm:px-6 mx-auto">
             <div class="galeri-1" data-aos="fade-up">
               <div
                 class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9 rounded-lg"
