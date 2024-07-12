@@ -82,7 +82,9 @@
       <section
         class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px] pb-10 pl-5 pr-5"
       >
-        <h1 class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl">
+        <h1
+          class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl"
+        >
           Askara Muda 2024!
         </h1>
         <p
@@ -113,7 +115,9 @@
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex flex-col w-[77%] max-md:ml-0 max-md:w-full">
-              <div class="flex flex-col capitalize max-md:mt-10 max-md:max-w-full">
+              <div
+                class="flex flex-col capitalize max-md:mt-10 max-md:max-w-full"
+              >
                 <div class="flex items-center">
                   <h2
                     class="self-end text-5xl font-bold text-red-400 leading-[69px] text-center max-md:text-4xl"
@@ -124,7 +128,8 @@
                 <p
                   class="mt-6 mr-11 text-4xl text-neutral-900 max-md:mr-2.5 max-md:max-w-full"
                 >
-                  Ayo cari tahu kelompok kamu <br />selama PKKMB SV UNS berlangsung!
+                  Ayo cari tahu kelompok kamu <br />selama PKKMB SV UNS
+                  berlangsung!
                 </p>
                 <div class="shrink-0 mt-3.5 h-1 bg-red-400 w-[130px]"></div>
               </div>
@@ -150,7 +155,9 @@
       </div>
     </section>
 
-    <section class="flex justify-center items-center px-16 py-20 bg-white max-md:px-5">
+    <section
+      class="flex justify-center items-center px-16 py-20 bg-white max-md:px-5"
+    >
       <div
         class="flex flex-col mt-20 w-full max-w-[1151px] max-md:mt-10 max-md:max-w-full"
       >
@@ -164,7 +171,9 @@
         >
           Lihat Timeline PKKMB SV UNS 2024!
         </h2>
-        <div class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"></div>
+        <div
+          class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"
+        ></div>
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
             <div class="flex items-center w-[43%] max-md:w-full">
@@ -177,10 +186,14 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 1</h3>
                 </div>
-                <p class="mt-10 text-sm text-neutral-600">
-                  You're currently running your store on Shopify, WooCommerce, or any
-                  other platform. As a first step, you'll connect your store with our
-                  platform.
+                <p class="mt-10 text-2xl font-bold text-neutral-600">
+                  Opening Ceremony.
+                </p>
+                <p class="mt-5 text-lg text-neutral-600">
+                  Pada hari pertama, secara garis besar akan diisi dengan sesi
+                  pemaparan materi. Acara ini mencakup talkshow dengan materi
+                  tentang entrepreneur dan talkshow dengan materi tentang cara
+                  bertahan hidup di kehidupan kampus.
                 </p>
               </div>
             </div>
@@ -201,7 +214,7 @@
                 loading="lazy"
                 src="@/assets/day 2.png"
                 alt="Day 2 illustration"
-                class="w-full aspect-square max-md:mt-10"
+                class="grow w-full max-md:mt-10 max-md:max-w-full"
               />
             </div>
             <div class="flex flex-col ml-5 w-[35%] max-md:ml-0 max-md:w-full">
@@ -214,10 +227,14 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 2</h3>
                 </div>
-                <p class="mt-10 text-sm text-neutral-600">
-                  You're currently running your store on Shopify, WooCommerce, or any
-                  other platform. As a first step, you'll connect your store with our
-                  platform.
+                <p class="mt-10 text-2xl font-bold text-neutral-600">
+                  Prodi's Time
+                </p>
+                <p class="mt-5 text-lg text-neutral-600">
+                  Dalam kegiatan PKKMB (Pengenalan Kehidupan Kampus bagi
+                  Mahasiswa Baru) Prodi's Time adalah sesi khusus yang diadakan
+                  untuk memperkenalkan mahasiswa baru kepada program studi
+                  (prodi) yang kalian pilih.
                 </p>
               </div>
             </div>
@@ -235,10 +252,12 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 3</h3>
                 </div>
-                <p class="mt-10 text-sm text-neutral-600">
-                  You're currently running your store on Shopify, WooCommerce, or any
-                  other platform. As a first step, you'll connect your store with our
-                  platform.
+                <p class="mt-10 text-2xl font-bold text-neutral-600">
+                  Closing Ceremony
+                </p>
+                <p class="mt-5 text-lg text-neutral-600">
+                  Di pagi hari, kita akan melakukan sesi Mind Mapping, dan pada
+                  siang harinya dilanjutkan dengan apresiasi Mahasiswa Baru.
                 </p>
               </div>
             </div>
@@ -247,7 +266,7 @@
                 loading="lazy"
                 src="@/assets/day 3.png"
                 alt="Day 3 illustration"
-                class="grow w-full aspect-[1.49] max-md:mt-10"
+                class="grow w-full max-md:mt-10 max-md:max-w-full"
               />
             </div>
           </div>
@@ -290,7 +309,10 @@
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himakesja.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himakesja.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
@@ -302,19 +324,28 @@
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/emailkom.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/emailkom.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himapsdku.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himapsdku.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himafarma.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himafarma.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
@@ -326,13 +357,19 @@
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himavida.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himavida.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/fondasi.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/fondasi.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
@@ -344,43 +381,64 @@
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himaagrib.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himaagrib.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himapertanian.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himapertanian.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himamanajemen.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himamanajemen.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/formadasi.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/formadasi.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himaakuntansi.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himaakuntansi.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/chinese.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/chinese.png"
+                  class="object-cover"
+                />
               </div>
               <div
                 class="swiper-slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
               >
-                <img src="@/assets/logo_hima/himaupw.png" class="object-cover" />
+                <img
+                  src="@/assets/logo_hima/himaupw.png"
+                  class="object-cover"
+                />
               </div>
             </div>
             <div class="swiper-pagination"></div>
