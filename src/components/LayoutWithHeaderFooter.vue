@@ -3,10 +3,16 @@
     <HeaderView />
     <router-view></router-view>
     <div>
-      <button @click="scrollToTop" class="button-biru fixed bottom-10 right-4 py-3 px-3 rounded-full shadow-md">
+      <button
+        @click="scrollToTop"
+        class="z-30 button-biru fixed bottom-10 right-4 py-3 px-3 rounded-full shadow-md"
+      >
         <ChevronDoubleUpIcon loading="lazy" alt="scrollup" class="size-6" />
       </button>
-      <button @click="toggleChat" class="chat-button button-biru right-4 py-3 px-3 rounded-full shadow-md">
+      <button
+        @click="toggleChat"
+        class="chat-button button-biru right-4 py-3 px-3 rounded-full shadow-md"
+      >
         <ChatBubbleLeftRightIcon loading="lazy" alt="openchat" class="size-6" />
       </button>
     </div>
@@ -16,10 +22,13 @@
 </template>
 
 <script>
-import HeaderView from './NavbarView.vue';
-import FooterView from './FooterView.vue';
-import { ChevronDoubleUpIcon, ChatBubbleLeftRightIcon } from "@heroicons/vue/24/solid";
-import ChatView from './ChatView.vue';
+import HeaderView from "./NavbarView.vue";
+import FooterView from "./FooterView.vue";
+import {
+  ChevronDoubleUpIcon,
+  ChatBubbleLeftRightIcon,
+} from "@heroicons/vue/24/solid";
+import ChatView from "./ChatView.vue";
 
 export default {
   components: {
@@ -38,7 +47,7 @@ export default {
     scrollToTop() {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     },
     toggleChat() {
@@ -46,8 +55,8 @@ export default {
     },
     closeChat() {
       this.isChatOpen = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
