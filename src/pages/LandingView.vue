@@ -69,7 +69,7 @@
       </section>
       <section
         class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full"
-        data-aos="fade-left"
+        data-aos="fade-up"
       >
         <img
           loading="lazy"
@@ -216,10 +216,13 @@
         >
           Lihat Timeline PKKMB SV UNS 2024!
         </h2>
-        <div class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"></div>
+        <div
+          class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"
+          data-aos="fade-up"
+        ></div>
         <div class="max-md:max-w-full">
-          <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
-            <div class="flex items-center w-[43%] max-md:w-full" data-aos="fade-right">
+          <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0" data-aos="fade-up">
+            <div class="flex items-center w-[43%] max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 capitalize">
                   <div
@@ -238,10 +241,7 @@
                 </p>
               </div>
             </div>
-            <div
-              class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full"
-              data-aos="fade-left"
-            >
+            <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
                 src="@/assets/day 1.png"
@@ -251,9 +251,12 @@
             </div>
           </div>
         </div>
-        <div class="mt-12 max-md:pr-5 max-md:mt-10 max-md:max-w-full">
-          <div class="flex gap-5 max-md:flex-col max-md:gap-0 max-md:flex-col">
-            <div class="flex flex-col w-[65%] max-md:w-full" data-aos="fade-right">
+        <div class="mt-12 max-md:pr-5 max-md:mt-10 max-md:max-w-full" data-aos="fade-up">
+          <div
+            class="flex gap-5 max-md:flex-col max-md:gap-0 max-md:flex-col"
+            data-aos="fade-up"
+          >
+            <div class="flex flex-col w-[65%] max-md:w-full">
               <img
                 loading="lazy"
                 src="@/assets/day 2.png"
@@ -261,10 +264,7 @@
                 class="grow w-full max-md:mt-10 max-md:max-w-full"
               />
             </div>
-            <div
-              class="flex flex-col ml-5 w-[35%] max-md:ml-0 max-md:w-full"
-              data-aos="fade-left"
-            >
+            <div class="flex flex-col ml-5 w-[35%] max-md:ml-0 max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
@@ -284,9 +284,9 @@
             </div>
           </div>
         </div>
-        <div class="mt-12 max-md:mt-10 max-md:max-w-full">
-          <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
-            <div class="flex items-center w-[43%] max-md:w-full" data-aos="fade-right">
+        <div class="mt-12 max-md:mt-10 max-md:max-w-full" data-aos="fade-up">
+          <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0" data-aos="fade-up">
+            <div class="flex items-center w-[43%] max-md:w-full">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
@@ -303,10 +303,7 @@
                 </p>
               </div>
             </div>
-            <div
-              class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full"
-              data-aos="fade-left"
-            >
+            <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
                 src="@/assets/day 3.png"
@@ -327,7 +324,7 @@
           <div class="mb-3 text-center">
             <h1
               class="text-3xl text-white font-bold inline-block border-b-4 border-[#F67366] mt-5"
-              data-aos="fade-down"
+              data-aos="fade-up"
             >
               SPONSORED BY :
             </h1>

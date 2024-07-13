@@ -16,6 +16,16 @@
       <router-link to="/login" class="button-biru justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
         Login
       </router-link>
+      <div class="relative ml-3">
+        <button @click="toggleProfileDropdown" class="flex items-center">
+          <UserCircleIcon class="w-10 h-10 text-black" />
+        </button>
+        <transition name="dropdown">
+          <div v-if="isProfileDropdownOpen" class="absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg py-1 z-20 border">
+            <ProfileView @close="toggleProfileDropdown" />
+          </div>
+        </transition>
+      </div>
     </nav>
 
     <div class="relative md:hidden">
@@ -41,23 +51,30 @@
 
 <script>
 import { ref } from 'vue';
-import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/vue/24/solid';
+import { Bars3BottomRightIcon, XMarkIcon, UserCircleIcon } from '@heroicons/vue/24/solid';
+import ProfileView from './ProfileView.vue';
 
 export default {
   name: 'HeaderView',
   components: {
     Bars3BottomRightIcon,
-    XMarkIcon
+    XMarkIcon,
+    UserCircleIcon,
+    ProfileView
   },
   setup() {
     const isDropdownOpen = ref(false);
+    const isProfileDropdownOpen = ref(false);
     const isHeaderShadowVisible = ref(false);
 
     function toggleDropdown() {
       isDropdownOpen.value = !isDropdownOpen.value;
     }
 
-    // Tambahkan event listener untuk mendeteksi scroll
+    function toggleProfileDropdown() {
+      isProfileDropdownOpen.value = !isProfileDropdownOpen.value;
+    }
+
     window.addEventListener('scroll', () => {
       isHeaderShadowVisible.value = window.scrollY > 0;
     });
@@ -65,6 +82,8 @@ export default {
     return {
       isDropdownOpen,
       toggleDropdown,
+      isProfileDropdownOpen,
+      toggleProfileDropdown,
       isHeaderShadowVisible
     };
   }
@@ -72,32 +91,18 @@ export default {
 </script>
 
 <style scoped>
-/* Styling untuk animasi dropdown */
 .dropdown-enter-active, .dropdown-leave-active {
   transition: opacity 0.3s ease;
 }
 .dropdown-enter, .dropdown-leave-to {
   opacity: 0;
 }
-
-/* Styling untuk memastikan tampilan konsisten pada mobile */
-@media (max-width: 768px) {
-  .header-title {
-    font-size: 1.25rem;
-  }
-  .header-subtitle {
-    margin-top: 0.25rem;
-  }
-}
-
-/* Styling untuk efek hover */
 .nav-link {
   position: relative;
   color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 .nav-link::after {
   content: '';
   display: block;
@@ -109,11 +114,9 @@ export default {
   left: 0;
   transition: width 0.3s ease;
 }
-
 .nav-link:hover::after,
 .router-link-exact-active.nav-link::after {
   width: 100%;
 }
-
 @import '../css/pages/_button.css';
 </style>
