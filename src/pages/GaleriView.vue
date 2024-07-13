@@ -99,12 +99,11 @@
               DOKUMENTASI PKKMB SV UNS 2024
             </h1>
             <p class="text-lg mt-4 container mx-auto px-4" data-aos="fade-up">
-              Halo, Vocazens! Selamat datang di galeri dokumentasi kegiatan
-              Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) Sekolah
-              Vokasi Universitas Sebelas Maret tahun 2024. Galeri ini menyajikan
-              berbagai momen berharga dan kenangan tak terlupakan dari setiap
-              acara yang diadakan selama PKKMB. Selamat menikmati galeri PKKMB
-              SV UNS 2024!
+              Halo, Vocazens! Selamat datang di galeri dokumentasi kegiatan Pengenalan
+              Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) Sekolah Vokasi Universitas
+              Sebelas Maret tahun 2024. Galeri ini menyajikan berbagai momen berharga dan
+              kenangan tak terlupakan dari setiap acara yang diadakan selama PKKMB.
+              Selamat menikmati galeri PKKMB SV UNS 2024!
             </p>
           </header>
 
@@ -171,14 +170,13 @@
                   DOKUMENTASI ACARA
                 </h1>
                 <p class="text-lg mt-4" data-aos="fade-up">
-                  Hallo Vocazens!, Bagian ini khusus berisi highlight foto-foto
-                  dari setiap acara yang diadakan, menampilkan berbagai kegiatan
-                  penting dan menarik yang telah kita jalani bersama. Dari sesi
-                  pembukaan yang megah dan penuh semangat, hingga kuliah umum
-                  yang inspiratif dan memberikan wawasan baru. Tidak hanya itu,
-                  berbagai pelatihan keterampilan yang bermanfaat dan kegiatan
-                  sosial yang menyenangkan juga diabadikan dalam potret-potret
-                  indah.
+                  Hallo Vocazens!, Bagian ini khusus berisi highlight foto-foto dari
+                  setiap acara yang diadakan, menampilkan berbagai kegiatan penting dan
+                  menarik yang telah kita jalani bersama. Dari sesi pembukaan yang megah
+                  dan penuh semangat, hingga kuliah umum yang inspiratif dan memberikan
+                  wawasan baru. Tidak hanya itu, berbagai pelatihan keterampilan yang
+                  bermanfaat dan kegiatan sosial yang menyenangkan juga diabadikan dalam
+                  potret-potret indah.
                 </p>
               </div>
               <div class="container swiper mb-2">
@@ -191,9 +189,7 @@
                     data-aos="fade-up"
                     data-aos-delay="200"
                   >
-                    <div
-                      class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
-                    >
+                    <div class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm">
                       <img
                         :src="slide.imgSrc"
                         :alt="slide.alt"
@@ -239,10 +235,7 @@
             >
               {{ movie.deskripsi }}
             </p>
-            <div
-              class="image mt-3 flex justify-center w-full"
-              data-aos="fade-up"
-            >
+            <div class="image mt-3 flex justify-center w-full" data-aos="fade-up">
               <iframe
                 width="853"
                 height="480"
@@ -359,7 +352,7 @@ export default {
           title: "AFTER MOVIE PKKMB SV UNS 2024",
           deskripsi:
             'Saksikan momen-momen terbaik kalian selama PKKMB SV UNS 2024 dalam "After Movie" berikut ini!',
-          videoSrc: "https://www.youtube.com/embed/ySsWXVGp7_o",
+          videoSrc: "https://www.youtube.com/embed/CoTPJXtsH3E?si=YFeI5igbxu-j6b3a",
         },
       ],
     };

@@ -9,10 +9,10 @@
       <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"></div>
       <div class="self-end mt-1 mb-0 max-md:max-w-full">
         <h1
-          class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full">
+          class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full" data-aos="fade-right">
           <span class="text-5xl text-red-400">Apa sih PKKMB itu?</span>
         </h1>
-        <h1 class="self-stretch pl-8 mt-5 -mr-1 ml-8 font-bold leading-[20px] text-neutral-900" data-aos="fade-left">
+        <h1 class="self-stretch pl-8 mt-5 -mr-1 ml-8 font-bold leading-[20px] text-neutral-900" data-aos="fade-right" data-aos-delay="700">
           <span class="font-semibold" >PKKMB (Pengenalan Kehidupan Kampus bagi Mahasiswa Baru) di Universitas
             Sebelas Maret (UNS) adalah program orientasi untuk mahasiswa baru yang
             bertujuan memperkenalkan mereka pada lingkungan kampus, sistem pendidikan, dan
@@ -24,7 +24,7 @@
         </h1>
       </div>
     </section>
-    <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+    <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-left">
       <img loading="lazy" src="@/assets/logo_besar.png" alt=""
         class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
     </section>
