@@ -110,10 +110,10 @@
           <span class="max-md:max-w-full">PENGUMPULAN TUGAS <br> PKKMB SV UNS 2024</span>
           <div class="shrink-0 mt-2.5 h-1 bg-red-400 max-md:max-w-full"></div>
         </h2>
-        <div class="bg-white p-4 mt-8 rounded-lg shadow-md overflow-x-auto">
-        <h1 class="text-gray-600 text-lg text-left mb-4">
-        Tolong untuk menginputkan tugas disini ya adick-adick
-        </h1>
+        <div class="bg-white p-4 mt-8 rounded-lg shadow-md overflow-x-auto" data-aos="fade-down">
+          <h1 class="text-gray-600 text-lg text-left mb-4">
+            Tolong untuk menginputkan tugas disini ya adick-adick
+          </h1>
           <form id="file-upload-form"
             class="w-full flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg py-12"
             ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
@@ -128,10 +128,10 @@
           </form>
           <div class="left-7 flex w-full pt-5 ">
             <p class="font-normal font text-sm text-left text-gray-500">
-            Accepted File Types : <br>
-            Archive (Zip) <br>
-            Archive files .7z .bdoc .cdoc .ddoc .gtar .gz .gzip .hqx .rar .sit .tar .tgz .zip
-          </p>
+              Accepted File Types : <br>
+              Archive (Zip) <br>
+              Archive files .7z .bdoc .cdoc .ddoc .gtar .gz .gzip .hqx .rar .sit .tar .tgz .zip
+            </p>
           </div>
         </div>
       </div>
