@@ -3,35 +3,52 @@
     <header class="flex gap-5 max-md:flex-col max-md:gap-0">
       <section
         class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
+        data-aos="fade-right"
       >
         <div
           class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"
+          data-aos="fade-right"
+          data-aos-delay="100"
         ></div>
         <div
           class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"
+          data-aos="fade-right"
+          data-aos-delay="200"
         ></div>
         <div
           class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]"
+          data-aos="fade-right"
+          data-aos-delay="300"
         ></div>
         <div
           class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]"
+          data-aos="fade-right"
+          data-aos-delay="400"
         ></div>
         <div
           class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"
+          data-aos="fade-right"
+          data-aos-delay="500"
         ></div>
         <div class="self-end mt-1 mb-0 max-md:max-w-full">
           <h1
             class="self-stretch pl-8 mt-5 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full"
+            data-aos="fade-right"
+            data-aos-delay="600"
           >
             <span class="font-semibold">Selamat Datang di</span>
           </h1>
           <h1
             class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full"
+            data-aos="fade-right"
+            data-aos-delay="700"
           >
             <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
           </h1>
           <div
             class="flex justify-end gap-5 font-extrabold text-center max-md:mt-10 max-md:mr-2.5"
+            data-aos="fade-right"
+            data-aos-delay="800"
           >
             <router-link
               to="/kelompok"
@@ -50,7 +67,10 @@
           </div>
         </div>
       </section>
-      <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+      <section
+        class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full"
+        data-aos="fade-left"
+      >
         <img
           loading="lazy"
           src="@/assets/logo_besar.png"
@@ -80,24 +100,29 @@
   <main>
     <div class="flex justify-center items-center">
       <section
+        v-for="(movie, index) in comingSoon"
+        :key="'comingSoon' + index"
+        data-aos="fade-up"
         class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px] pb-10 pl-5 pr-5"
       >
         <h1
           class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl"
+          data-aos="fade-up"
         >
-          Askara Muda 2024!
+          {{ movie.title }}
         </h1>
         <p
           class="self-stretch mt-9 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
+          data-aos="fade-up"
         >
-          "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia"
+          "{{ movie.deskripsi }}"
         </p>
         <div class="video-container">
           <iframe
             loading="lazy"
             alt="Coming Soon PKKMB SV UNS 2024"
             class="rounded-3xl w-full max-w-4xl"
-            src="https://www.youtube.com/embed/ySsWXVGp7_o?si=BgW2ZuraVzfWmmrN"
+            :src="movie.videoSrc"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -115,9 +140,7 @@
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex flex-col w-[77%] max-md:ml-0 max-md:w-full">
-              <div
-                class="flex flex-col capitalize max-md:mt-10 max-md:max-w-full"
-              >
+              <div class="flex flex-col capitalize max-md:mt-10 max-md:max-w-full">
                 <div class="flex items-center">
                   <h2
                     class="self-end text-5xl font-bold text-red-400 leading-[69px] text-center max-md:text-4xl"
@@ -128,8 +151,7 @@
                 <p
                   class="mt-6 mr-11 text-4xl text-neutral-900 max-md:mr-2.5 max-md:max-w-full"
                 >
-                  Ayo cari tahu kelompok kamu <br />selama PKKMB SV UNS
-                  berlangsung!
+                  Ayo cari tahu kelompok kamu <br />selama PKKMB SV UNS berlangsung!
                 </p>
                 <div class="shrink-0 mt-3.5 h-1 bg-red-400 w-[130px]"></div>
               </div>
@@ -155,9 +177,7 @@
       </div>
     </section>
 
-    <section
-      class="flex justify-center items-center px-16 py-20 bg-white max-md:px-5"
-    >
+    <section class="flex justify-center items-center px-16 py-20 bg-white max-md:px-5">
       <div
         class="flex flex-col mt-20 w-full max-w-[1151px] max-md:mt-10 max-md:max-w-full"
       >
@@ -171,9 +191,7 @@
         >
           Lihat Timeline PKKMB SV UNS 2024!
         </h2>
-        <div
-          class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"
-        ></div>
+        <div class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"></div>
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
             <div class="flex items-center w-[43%] max-md:w-full">
@@ -186,14 +204,12 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 1</h3>
                 </div>
-                <p class="mt-10 text-2xl font-bold text-neutral-600">
-                  Opening Ceremony.
-                </p>
+                <p class="mt-10 text-2xl font-bold text-neutral-600">Opening Ceremony.</p>
                 <p class="mt-5 text-lg text-neutral-600">
-                  Pada hari pertama, secara garis besar akan diisi dengan sesi
-                  pemaparan materi. Acara ini mencakup talkshow dengan materi
-                  tentang entrepreneur dan talkshow dengan materi tentang cara
-                  bertahan hidup di kehidupan kampus.
+                  Pada hari pertama, secara garis besar akan diisi dengan sesi pemaparan
+                  materi. Acara ini mencakup talkshow dengan materi tentang entrepreneur
+                  dan talkshow dengan materi tentang cara bertahan hidup di kehidupan
+                  kampus.
                 </p>
               </div>
             </div>
@@ -227,14 +243,11 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 2</h3>
                 </div>
-                <p class="mt-10 text-2xl font-bold text-neutral-600">
-                  Prodi's Time
-                </p>
+                <p class="mt-10 text-2xl font-bold text-neutral-600">Prodi's Time</p>
                 <p class="mt-5 text-lg text-neutral-600">
-                  Dalam kegiatan PKKMB (Pengenalan Kehidupan Kampus bagi
-                  Mahasiswa Baru) Prodi's Time adalah sesi khusus yang diadakan
-                  untuk memperkenalkan mahasiswa baru kepada program studi
-                  (prodi) yang kalian pilih.
+                  Dalam kegiatan PKKMB (Pengenalan Kehidupan Kampus bagi Mahasiswa Baru)
+                  Prodi's Time adalah sesi khusus yang diadakan untuk memperkenalkan
+                  mahasiswa baru kepada program studi (prodi) yang kalian pilih.
                 </p>
               </div>
             </div>
@@ -252,12 +265,10 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 3</h3>
                 </div>
-                <p class="mt-10 text-2xl font-bold text-neutral-600">
-                  Closing Ceremony
-                </p>
+                <p class="mt-10 text-2xl font-bold text-neutral-600">Closing Ceremony</p>
                 <p class="mt-5 text-lg text-neutral-600">
-                  Di pagi hari, kita akan melakukan sesi Mind Mapping, dan pada
-                  siang harinya dilanjutkan dengan apresiasi Mahasiswa Baru.
+                  Di pagi hari, kita akan melakukan sesi Mind Mapping, dan pada siang
+                  harinya dilanjutkan dengan apresiasi Mahasiswa Baru.
                 </p>
               </div>
             </div>
@@ -285,11 +296,15 @@
             >
               SPONSORED BY :
             </h1>
-            <div class="image-container">
-              <img src="@/assets/telkom.png" alt="Telkom" />
-              <img src="@/assets/bca.png" alt="BCA" />
-              <img src="@/assets/mandiri.png" alt="Mandiri" />
-              <img src="@/assets/bri.png" alt="BRI" />
+            <div class="grid-container">
+              <div
+                class="image-container flex justify-center items-center w-1/2 md:w-1/4"
+                v-for="(sponsor, index) in sponsor"
+                :key="'sponsor' + index"
+                data-aos="fade-up"
+              >
+                <img :src="sponsor.imgSrc" :alt="sponsor.alt" />
+              </div>
             </div>
           </div>
           <div class="background container swiper mt-5">
@@ -298,151 +313,14 @@
               <div
                 class="swiper-slide slide"
                 style="max-width: 200px; max-height: 200px; margin: 0 0px"
+                v-for="(slides, index) in slides"
+                :key="'slides-' + index"
+                data-aos="fade-up"
               >
-                <img
-                  src="@/assets/logo_hima/hima_sv.png"
-                  alt="PKKMB SV UNS 2024 Seminar"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himakesja.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img src="@/assets/logo_hima/himama.png" class="object-cover" />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/emailkom.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himapsdku.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himafarma.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img src="@/assets/logo_hima/hmps.png" class="object-cover" />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himavida.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/fondasi.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img src="@/assets/logo_hima/HMB.png" class="object-cover" />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himaagrib.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himapertanian.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himamanajemen.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/formadasi.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himaakuntansi.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/chinese.png"
-                  class="object-cover"
-                />
-              </div>
-              <div
-                class="swiper-slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-              >
-                <img
-                  src="@/assets/logo_hima/himaupw.png"
-                  class="object-cover"
-                />
+                <img :src="slides.imgSrc" class="object-cover" />
               </div>
             </div>
             <div class="swiper-pagination"></div>
-            <!-- Swiper end -->
           </div>
         </div>
       </section>
@@ -453,6 +331,8 @@
 
 <script>
 import { ClipboardIcon, UserGroupIcon } from "@heroicons/vue/24/solid";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 
@@ -462,7 +342,79 @@ export default {
     ClipboardIcon,
     UserGroupIcon,
   },
+  data() {
+    return {
+      sponsor: [
+        { imgSrc: require("@/assets/telkom.png"), alt: "Telkom" },
+        { imgSrc: require("@/assets/bca.png"), alt: "BCA" },
+        { imgSrc: require("@/assets/mandiri.png"), alt: "Mandiri" },
+        { imgSrc: require("@/assets/bri.png"), alt: "BRI" },
+      ],
+      slides: [
+        {
+          imgSrc: require("@/assets/logo_hima/hima_sv.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himakesja.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himama.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/emailkom.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himapsdku.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himafarma.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/hmps.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himavida.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/HMB.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himaagrib.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himapertanian.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himamanajemen.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/formadasi.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/fondasi.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himaakuntansi.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/chinese.png"),
+        },
+        {
+          imgSrc: require("@/assets/logo_hima/himaupw.png"),
+        },
+        // Add more slides here...
+      ],
+      comingSoon: [
+        {
+          title: "Askara Muda 2024!",
+          deskripsi: "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia",
+          videoSrc: "https://www.youtube.com/embed/ySsWXVGp7_o?si=X1SEIQDeQYOS4lZN",
+        },
+      ],
+    };
+  },
   mounted() {
+    AOS.init();
     new Swiper(".swiper", {
       loop: true,
       slidesPerView: 10,
@@ -537,31 +489,34 @@ export default {
   background-color: #89a4f1;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 0;
+}
+
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* Allow wrapping */
   gap: 50px;
   margin-top: 20px;
   width: 100%;
   background-color: #89a4f1;
-  /* Ensure the background color */
   padding: 20px;
-  /* Add padding to contain logos within the background */
   box-sizing: border-box;
-  /* Ensure padding is included in the width */
 }
 
 .image-container img {
-  max-width: 50%; /* Menyesuaikan ukuran gambar */
+  max-width: 100%;
   height: auto;
 }
 
 @media (max-width: 700px) {
-  .image-container {
-    gap: 5px; /* Sesuaikan gap untuk layar kecil */
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .image-container img {
