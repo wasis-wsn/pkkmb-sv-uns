@@ -5,7 +5,7 @@
     <div>
       <button
         @click="scrollToTop"
-        class="z-30 button-biru fixed bottom-10 right-4 py-3 px-3 rounded-full shadow-md"
+        class="z-25 button-biru fixed bottom-10 right-4 py-3 px-3 rounded-full shadow-md"
       >
         <ChevronDoubleUpIcon loading="lazy" alt="scrollup" class="size-6" />
       </button>
@@ -65,7 +65,7 @@ export default {
   position: fixed; /* Mengambang di posisi tetap di layar */
   bottom: 100px; /* Atur posisi dari bawah */
   right: 20px; /* Atur posisi dari kanan */
-  z-index: 1000; /* Pastikan tombol chat muncul di atas konten lain */
+  z-index: 25; /* Pastikan tombol chat muncul di atas konten lain */
 }
 
 .chat {

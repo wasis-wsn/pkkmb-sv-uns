@@ -17,8 +17,11 @@
         Login
       </router-link>
       <div class="relative ml-3">
-        <button @click="toggleProfileDropdown" class="flex items-center">
-          <UserCircleIcon class="w-10 h-10 text-black" />
+        <button @click="toggleProfileDropdown" @mousedown="isClicked = true" @mouseup="isClicked = false" @mouseleave="isClicked = false" :class="['flex items-center p-2 rounded-full shadow-inner transition-all', { 'bg-gray-200': isClicked, 'hover:bg-gray-100': !isClicked }]" >
+          <div class="relative">
+            <div class="absolute inset-0 rounded-full bg-gray-200 shadow-inner"></div>
+            <UserCircleIcon class="relative w-10 h-10 text-black" />
+          </div>
         </button>
         <transition name="dropdown">
           <div v-if="isProfileDropdownOpen" class="absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg py-1 z-20 border">
@@ -34,16 +37,7 @@
         <XMarkIcon v-else class="w-10 h-10 text-black transition-transform duration-300"/>
       </button>
       <transition name="dropdown">
-        <div v-if="isDropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-          <router-link to="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BERANDA</router-link>
-          <router-link to="/materi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">MATERI</router-link>
-          <router-link to="/kelompok" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">KELOMPOK</router-link>
-          <router-link to="/galeri" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">GALERI</router-link>
-          <router-link to="/tentang" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">TENTANG</router-link>
-          <router-link to="/login" class="block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors rounded-b-md">
-            Login
-          </router-link>
-        </div>
+        <SidebarView :isOpen="isDropdownOpen" />
       </transition>
     </div>
   </nav>
@@ -53,19 +47,22 @@
 import { ref } from 'vue';
 import { Bars3BottomRightIcon, XMarkIcon, UserCircleIcon } from '@heroicons/vue/24/solid';
 import ProfileView from './ProfileView.vue';
+import SidebarView from './SidebarView.vue';
 
 export default {
-  name: 'HeaderView',
+  name: 'NavbarView',
   components: {
     Bars3BottomRightIcon,
     XMarkIcon,
     UserCircleIcon,
-    ProfileView
+    ProfileView,
+    SidebarView
   },
   setup() {
     const isDropdownOpen = ref(false);
     const isProfileDropdownOpen = ref(false);
     const isHeaderShadowVisible = ref(false);
+    const isClicked = ref(false);
 
     function toggleDropdown() {
       isDropdownOpen.value = !isDropdownOpen.value;
@@ -84,7 +81,8 @@ export default {
       toggleDropdown,
       isProfileDropdownOpen,
       toggleProfileDropdown,
-      isHeaderShadowVisible
+      isHeaderShadowVisible,
+      isClicked
     };
   }
 };
