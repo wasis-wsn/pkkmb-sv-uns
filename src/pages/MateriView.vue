@@ -2,36 +2,46 @@
   <div class="main-div scroll-smooth">
     <div class="flex flex-col bg-white">
       <header class="flex gap-5 max-md:flex-col max-md:gap-0">
-        <section
+        <section data-aos="fade-right"
           class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full">
-          <div class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]"></div>
-          <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"></div>
+          <div data-aos="fade-right" data-aos-delay="100"
+            class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"></div>
+          <div data-aos="fade-right" data-aos-delay="200"
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"></div>
+          <div data-aos="fade-right" data-aos-delay="300"
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]"></div>
+          <div data-aos="fade-right" data-aos-delay="400"
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]"></div>
+          <div data-aos="fade-right" data-aos-delay="500"
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"></div>
           <div class="self-end mt-1 mb-0 max-md:max-w-full">
-            <h1
+            <h1 data-aos="fade-right" data-aos-delay="600"
               class="self-stretch pl-8 mt-5 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full">
               <span class="font-semibold">MATERI</span></h1>
-            <h1
+            <h1 data-aos="fade-right" data-aos-delay="700"
               class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full">
               <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
             </h1>
           </div>
         </section>
-        <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+        <section data-aos="fade-left" class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
           <img loading="lazy" src="@/assets/logo_besar.png" alt=""
             class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
         </section>
       </header>
       <div class="flex gap-5 self-end px-5 mt-0 max-md:mt-10">
-        <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-        <div class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10">
+        <div data-aos="fade-up" data-aos-delay="100"
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
+        <div data-aos="fade-up" data-aos-delay="200"
+          class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10">
         </div>
-        <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-        <div class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10">
+        <div data-aos="fade-up" data-aos-delay="300"
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
+        <div data-aos="fade-up" data-aos-delay="400"
+          class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10">
         </div>
-        <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
+        <div data-aos="fade-up" data-aos-delay="500"
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
       </div>
     </div>
     <main>
@@ -54,7 +64,7 @@
         </div>
       </section>
       <!-- ISI MATERI -->
-      <section 
+      <section
         class="relative flex justify-center items-center pt-16 pb-32 w-full text-2xl font-bold text-black bg-white">
         <img loading="lazy" src="../assets/Materi/ImplementasiWave.png" alt="Decorative gradient"
           class="absolute top-0 left-0 z-0 w-full h-auto max-w-full max-h-full" />
@@ -85,7 +95,8 @@
             </span>
             <div class="shrink-0 mt-2.5 h-1 bg-red-400 max-md:max-w-full"></div>
           </h2>
-          <p data-aos="fade-up" class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px] md:text-[24px] ">
+          <p data-aos="fade-up"
+            class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px] md:text-[24px] ">
             Hallo Vocazens! Materi yang pertama berisi<br />Tugas Twibbon sebagai tugas dalam kegiatan<br />PKKMB SV UNS
             2024
           </p>
@@ -121,7 +132,8 @@
             </span>
             <div class="shrink-0 mt-2.5 h-1 bg-red-400 max-md:max-w-full"></div>
           </h2>
-          <p data-aos="fade-up" class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px]  md:text-[24px] ">
+          <p data-aos="fade-up"
+            class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px]  md:text-[24px] ">
             Hallo Vocazens! Materi yang kedua berisi<br />Tugas Co-Card sebagai tugas dalam kegiatan<br />PKKMB SV UNS
             2024
           </p>
@@ -157,7 +169,8 @@
             </span>
             <div class="shrink-0 mt-2.5 h-1 bg-red-400 max-md:max-w-full"></div>
           </h2>
-          <p data-aos="fade-up" class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px] md:text-[24px] ">
+          <p data-aos="fade-up"
+            class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px] md:text-[24px] ">
             Hallo Vocazens! Materi yang ketiga berisi<br />Tugas Vidio Bangga Vokasi sebagai tugas dalam
             kegiatan<br />PKKMB SV UNS 2024
           </p>
@@ -184,7 +197,7 @@
           class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[5px] lg:bottom-[-240px] md:bottom-[20px]" />
       </section>
       <!-- MATERI KEEMPAT -->
-      <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10" >
+      <section class="flex gap-5 self-center  mt-[200px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
         <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
           <h2 data-aos="fade-up"
             class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[300px] max-md:w-full">
@@ -193,7 +206,8 @@
             </span>
             <div class="shrink-0 mt-2.5 h-1 bg-red-400 max-md:max-w-full"></div>
           </h2>
-          <p data-aos="fade-up" class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px] md:text-[24px] ">
+          <p data-aos="fade-up"
+            class="mt-8 z-20 text-2xl text-stone-900 max-md:max-w-full max-md:text-xl text-[18px] md:text-[24px] ">
             Hallo Vocazens! Materi yang keempat berisi<br />Tugas merangkum pembicara dalam
             kegiatan<br />PKKMB SV UNS 2024
           </p>
@@ -218,7 +232,8 @@
         </div>
         <!-- DOWNLOAD MATERI -->
       </section>
-      <section class="flex gap-5 self-center  mt-[10px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10" data-aos="fade-up">
+      <section class="flex gap-5 self-center  mt-[10px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
+        data-aos="fade-up">
         <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
           <div class="text-center y">
             <p class="text-2xl font-bold mb-4 text-[30px]">Download Materi</p>
@@ -272,7 +287,7 @@
             ]
           },
           {
-            judul:"TWIBBON",
+            judul: "TWIBBON",
             materi: "Materi Pertama: Twibbon",
             isi: [
               "Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.",
@@ -300,7 +315,7 @@
             ]
           },
           {
-            judul:"CO-CARD",
+            judul: "CO-CARD",
             materi: "Materi Kedua: Co-Card",
             isi: [
               "Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.",
