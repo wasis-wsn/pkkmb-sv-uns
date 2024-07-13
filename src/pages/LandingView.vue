@@ -82,18 +82,28 @@
     <div class="flex gap-5 self-end px-5 mt-0 max-md:mt-10">
       <div
         class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+        data-aos="fade-up"
+        data-aos-delay="100"
       ></div>
       <div
         class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10"
+        data-aos="fade-up"
+        data-aos-delay="200"
       ></div>
       <div
         class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+        data-aos="fade-up"
+        data-aos-delay="300"
       ></div>
       <div
         class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10"
+        data-aos="fade-up"
+        data-aos-delay="400"
       ></div>
       <div
         class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+        data-aos="fade-up"
+        data-aos-delay="500"
       ></div>
     </div>
   </div>
@@ -141,7 +151,7 @@
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex flex-col w-[77%] max-md:ml-0 max-md:w-full">
               <div class="flex flex-col capitalize max-md:mt-10 max-md:max-w-full">
-                <div class="flex items-center">
+                <div class="flex items-center" data-aos="fade-right">
                   <h2
                     class="self-end text-5xl font-bold text-red-400 leading-[69px] text-center max-md:text-4xl"
                   >
@@ -150,14 +160,19 @@
                 </div>
                 <p
                   class="mt-6 mr-11 text-4xl text-neutral-900 max-md:mr-2.5 max-md:max-w-full"
+                  data-aos="fade-right"
                 >
                   Ayo cari tahu kelompok kamu <br />selama PKKMB SV UNS berlangsung!
                 </p>
-                <div class="shrink-0 mt-3.5 h-1 bg-red-400 w-[130px]"></div>
+                <div
+                  class="shrink-0 mt-3.5 h-1 bg-red-400 w-[130px]"
+                  data-aos="fade-right"
+                  data-aos-delay="100"
+                ></div>
               </div>
             </div>
             <article class="flex flex-col max-w-[192px] mx-auto">
-              <div class="relative mt-5">
+              <div class="relative mt-5" data-aos="fade-left">
                 <!-- Lingkaran luar dengan bayangan -->
                 <div class="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] bg-slate-100 rounded-full shadow-md inset-shadow"></div>
                 <!-- Lingkaran putih untuk icon -->
@@ -171,6 +186,7 @@
         <router-link
           to="/kelompok"
           class="button-biru justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl w-[250px] max-md:px-5 max-md:mt-10"
+          data-aos="fade-up"
         >
           Check
         </router-link>
@@ -183,18 +199,20 @@
       >
         <h1
           class="self-center text-5xl font-semibold text-center capitalize leading-[69px] text-neutral-900 max-md:text-4xl"
+          data-aos="fade-up"
         >
           Timeline!
         </h1>
         <h2
           class="self-center mt-8 text-4xl capitalize text-neutral-900 max-md:max-w-full"
+          data-aos="fade-up"
         >
           Lihat Timeline PKKMB SV UNS 2024!
         </h2>
         <div class="shrink-0 mt-2.5 ml-72 h-1 bg-red-400 w-[130px] max-md:ml-2.5"></div>
         <div class="max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
-            <div class="flex items-center w-[43%] max-md:w-full">
+            <div class="flex items-center w-[43%] max-md:w-full" data-aos="fade-right">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 capitalize">
                   <div
@@ -213,7 +231,10 @@
                 </p>
               </div>
             </div>
-            <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
+            <div
+              class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full"
+              data-aos="fade-left"
+            >
               <img
                 loading="lazy"
                 src="@/assets/day 1.png"
@@ -225,7 +246,7 @@
         </div>
         <div class="mt-12 max-md:pr-5 max-md:mt-10 max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col max-md:gap-0 max-md:flex-col">
-            <div class="flex flex-col w-[65%] max-md:w-full">
+            <div class="flex flex-col w-[65%] max-md:w-full" data-aos="fade-right">
               <img
                 loading="lazy"
                 src="@/assets/day 2.png"
@@ -233,7 +254,10 @@
                 class="grow w-full max-md:mt-10 max-md:max-w-full"
               />
             </div>
-            <div class="flex flex-col ml-5 w-[35%] max-md:ml-0 max-md:w-full">
+            <div
+              class="flex flex-col ml-5 w-[35%] max-md:ml-0 max-md:w-full"
+              data-aos="fade-left"
+            >
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
@@ -255,7 +279,7 @@
         </div>
         <div class="mt-12 max-md:mt-10 max-md:max-w-full">
           <div class="flex gap-5 max-md:flex-col-reverse max-md:gap-0">
-            <div class="flex items-center w-[43%] max-md:w-full">
+            <div class="flex items-center w-[43%] max-md:w-full" data-aos="fade-right">
               <div class="flex flex-col self-stretch my-auto max-md:mt-10">
                 <div class="flex gap-5 items-center capitalize">
                   <div
@@ -272,7 +296,10 @@
                 </p>
               </div>
             </div>
-            <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
+            <div
+              class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full"
+              data-aos="fade-left"
+            >
               <img
                 loading="lazy"
                 src="@/assets/day 3.png"
@@ -293,6 +320,7 @@
           <div class="mb-3 text-center">
             <h1
               class="text-3xl text-white font-bold inline-block border-b-4 border-[#F67366] mt-5"
+              data-aos="fade-down"
             >
               SPONSORED BY :
             </h1>
