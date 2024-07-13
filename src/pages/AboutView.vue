@@ -38,12 +38,32 @@
     </section>
   </header>
   <div class="flex gap-5 self-end px-5 mt-0 max-md:mt-10">
-    <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-    <div class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10"></div>
-    <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-    <div class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10"></div>
-    <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-  </div>
+        <div
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+        <div
+          class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        ></div>
+        <div
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        ></div>
+        <div
+          class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        ></div>
+        <div
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        ></div>
+      </div>
   <div class="bg-gray-100 py-10">
     <section
       class="flex flex-col items-center self-stretch px-16 pt-12 pb-6 w-full text-4xl capitalize bg-slate-100 text-neutral-900 max-md:px-5 max-md:mt-10 max-md:max-w-full">
