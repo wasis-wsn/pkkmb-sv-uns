@@ -90,7 +90,7 @@
     </div>
     <div class="mx-auto bg-white">
       <div class="min-h-screen">
-        <div class="galeri w-full bg-slate-100 pb-5" data-aos="fade-up">
+        <div class="galeri w-full bg-slate-100 pb-5 px-4" data-aos="fade-up">
           <header class="text-center py-10">
             <h1
               class="text-3xl font-bold inline-block border-b-4 border-[#F67366]"
