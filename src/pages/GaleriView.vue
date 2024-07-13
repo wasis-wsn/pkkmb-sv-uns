@@ -50,7 +50,7 @@
         </section>
         <section
           class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full"
-          data-aos="fade-left"
+          data-aos="fade-up"
         >
           <img
             loading="lazy"

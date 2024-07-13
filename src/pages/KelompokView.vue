@@ -27,20 +27,38 @@
           </h1>
         </div>
       </section>
-      <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-left">
+      <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-up">
         <img loading="lazy" src="@/assets/logo_besar.png" alt=""
           class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
       </section>
     </header>
     <div class="flex gap-5 self-end px-5 mt-0 max-md:mt-10">
-      <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-      <div class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10">
+        <div
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+        <div
+          class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        ></div>
+        <div
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        ></div>
+        <div
+          class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        ></div>
+        <div
+          class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        ></div>
       </div>
-      <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-      <div class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10">
-      </div>
-      <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
-    </div>
 
     <section
       class="flex justify-center items-center px-16 py-10 -mt-1 w-full bg-slate-100 max-md:px-5 max-md:mt-10 max-md:max-w-full">
