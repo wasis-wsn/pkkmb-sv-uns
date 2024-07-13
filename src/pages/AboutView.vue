@@ -1,19 +1,35 @@
 <template>
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
-      class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
-      data-aos="fade-right">
-      <div class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"
-        data-aos="fade-right" data-aos-delay="100"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"
-        data-aos="fade-right" data-aos-delay="200"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]" data-aos="fade-right"
-        data-aos-delay="300"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]" data-aos="fade-right"
-        data-aos-delay="400"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]" data-aos="fade-right"
-        data-aos-delay="500"></div>
-      <div class="self-end mt-1 mb-0 max-md:max-w-full">
+          class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
+          data-aos="fade-right"
+        >
+          <div
+            class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          ></div>
+          <div
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          ></div>
+          <div
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          ></div>
+          <div
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]"
+            data-aos="fade-right"
+            data-aos-delay="400"
+          ></div>
+          <div
+            class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"
+            data-aos="fade-right"
+            data-aos-delay="500"
+          ></div>
+          <div class="self-end mt-1 mb-0 max-md:max-w-full">
         <h1
           class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full"
           data-aos="fade-right">
@@ -85,7 +101,7 @@
         <div class="timeline-item flex items-center p-4">
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
-            <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-left">
+            <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-up">
               <img src="@/assets/galeri/p-2.png" alt="Perkenalan Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
@@ -94,12 +110,12 @@
             <div class="flex items-center">
               <div
                 class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
-                data-aos="fade-right">
+                data-aos="fade-up">
                 1
               </div>
-              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-right">PERKENALAN</h3>
+              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-up">PERKENALAN</h3>
             </div>
-            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-right">
+            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-up">
               Perkenalan kehidupan kampus khususnya pengenalan sejarah Vokasi kepada seluruh mahasiswa baru.
             </p>
           </div>
@@ -109,7 +125,7 @@
         <div class="timeline-item flex items-center p-4">
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
-            <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-right">
+            <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-up">
               <img src="@/assets/galeri/p-4.png" alt="Pengamalan Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
@@ -118,12 +134,12 @@
             <div class="flex items-center">
               <div
                 class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
-                data-aos="fade-left">
+                data-aos="fade-up">
                 2
               </div>
-              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-left">PENGALAMAN</h3>
+              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-up">PENGALAMAN</h3>
             </div>
-            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-left">
+            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-up">
               Membekali mahasiswa vokasi yang mampu mengamalkan Pancasila dan Tri Dharma Perguruan Tinggi.
             </p>
           </div>
@@ -133,7 +149,7 @@
         <div class="timeline-item flex items-center p-4">
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
-            <div class="icon-wrapper relative mx-auto" data-aos="fade-left">
+            <div class="icon-wrapper relative mx-auto" data-aos="fade-up">
               <img src="@/assets/galeri/acara.png" alt="Pemimpin Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
@@ -142,12 +158,12 @@
             <div class="flex items-center">
               <div
                 class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
-                data-aos="fade-right">
+                data-aos="fade-up">
                 3
               </div>
-              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-right">PEMIMPIN</h3>
+              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-up">PEMIMPIN</h3>
             </div>
-            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-right">
+            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-up">
               Menjadikan mahasiswa vokasi sebagai pemimpin masa depan bangsa yang cerdas dan berkarakter.
             </p>
           </div>
@@ -157,7 +173,7 @@
         <div class="timeline-item flex items-center p-4">
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
-            <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-right">
+            <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-up">
               <img src="@/assets/galeri/p-3.png" alt="Kompeten Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
@@ -166,12 +182,12 @@
             <div class="flex items-center">
               <div
                 class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
-                data-aos="fade-left">
+                data-aos="fade-up">
                 4
               </div>
-              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-left">KOMPETEN</h3>
+              <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-up">KOMPETEN</h3>
             </div>
-            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-left">
+            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-up">
               Membentuk mahasiswa vokasi yang kompeten dan profesional di bidangnya.
             </p>
           </div>
