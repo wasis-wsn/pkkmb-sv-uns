@@ -27,7 +27,7 @@
           </h1>
         </div>
       </section>
-      <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-left">
+      <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-up">
         <img loading="lazy" src="@/assets/logo_besar.png" alt=""
           class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
       </section>
