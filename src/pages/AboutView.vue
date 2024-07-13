@@ -1,19 +1,27 @@
 <template>
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
-      class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full">
-      <div class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"></div>
+      class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
+      data-aos="fade-right">
+      <div class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"
+        data-aos="fade-right" data-aos-delay="100"></div>
+      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"
+        data-aos="fade-right" data-aos-delay="200"></div>
+      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]" data-aos="fade-right"
+        data-aos-delay="300"></div>
+      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]" data-aos="fade-right"
+        data-aos-delay="400"></div>
+      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]" data-aos="fade-right"
+        data-aos-delay="500"></div>
       <div class="self-end mt-1 mb-0 max-md:max-w-full">
         <h1
-          class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full" data-aos="fade-right">
+          class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full"
+          data-aos="fade-right">
           <span class="text-5xl text-red-400">Apa sih PKKMB itu?</span>
         </h1>
-        <h1 class="self-stretch pl-8 mt-5 -mr-1 ml-8 font-bold leading-[20px] text-neutral-900" data-aos="fade-right" data-aos-delay="700">
-          <span class="font-semibold" >PKKMB (Pengenalan Kehidupan Kampus bagi Mahasiswa Baru) di Universitas
+        <h1 class="self-stretch pl-8 mt-5 -mr-1 ml-8 font-bold leading-[20px] text-neutral-900" data-aos="fade-right"
+          data-aos-delay="700">
+          <span class="font-semibold">PKKMB (Pengenalan Kehidupan Kampus bagi Mahasiswa Baru) di Universitas
             Sebelas Maret (UNS) adalah program orientasi untuk mahasiswa baru yang
             bertujuan memperkenalkan mereka pada lingkungan kampus, sistem pendidikan, dan
             berbagai aspek kehidupan akademik dan non-akademik. Kegiatan ini meliputi
@@ -65,7 +73,8 @@
           <div class="text flex flex-col justify-center w-full sm:w-1/2 sm:pl-8">
             <div class="flex items-center">
               <div
-                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]" data-aos="fade-right">
+                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
+                data-aos="fade-right">
                 1
               </div>
               <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-right">PERKENALAN</h3>
@@ -88,12 +97,13 @@
           <div class="text flex flex-col justify-center w-full sm:w-1/2 sm:pl-8">
             <div class="flex items-center">
               <div
-                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]" data-aos="fade-left">
+                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
+                data-aos="fade-left">
                 2
               </div>
               <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-left">PENGALAMAN</h3>
             </div>
-            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-left"> 
+            <p class="mt-4 text-gray-700 text-lg" data-aos="fade-left">
               Membekali mahasiswa vokasi yang mampu mengamalkan Pancasila dan Tri Dharma Perguruan Tinggi.
             </p>
           </div>
@@ -111,7 +121,8 @@
           <div class="text flex flex-col justify-center w-full sm:w-1/2 sm:pl-8">
             <div class="flex items-center">
               <div
-                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]" data-aos="fade-right">
+                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
+                data-aos="fade-right">
                 3
               </div>
               <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-right">PEMIMPIN</h3>
@@ -134,7 +145,8 @@
           <div class="text flex flex-col justify-center w-full sm:w-1/2 sm:pl-8">
             <div class="flex items-center">
               <div
-                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]" data-aos="fade-left">
+                class="flex justify-center items-center flex-shrink-0 px-5 py-3 text-2xl font-bold text-center text-gray-50 whitespace-nowrap bg-slate-900 h-[50px] rounded-full w-[50px]"
+                data-aos="fade-left">
                 4
               </div>
               <h3 class="ml-4 text-4xl font-black text-red-400" data-aos="fade-left">KOMPETEN</h3>
