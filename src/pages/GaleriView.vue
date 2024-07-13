@@ -1,6 +1,4 @@
-<template>
-  <div class="main-div scroll-smooth">
-    <div class="flex flex-col bg-white">
+<template>    
       <header class="flex gap-5 max-md:flex-col max-md:gap-0">
         <section
           class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
@@ -60,6 +58,7 @@
           />
         </section>
       </header>
+      <div class="flex flex-col bg-white">
       <div class="flex gap-5 self-end px-5 mt-0 max-md:mt-10">
         <div
           class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
@@ -251,7 +250,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

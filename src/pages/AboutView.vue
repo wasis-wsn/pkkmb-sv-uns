@@ -1,4 +1,5 @@
 <template>
+  <div class="flex flex-col bg-white">
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
@@ -50,6 +51,7 @@
     <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]" data-aos="fade-up"
       data-aos-delay="500"></div>
   </div>
+</div>
   <div class="bg-gray-100 py-10">
     <section
       class="flex flex-col items-center self-stretch px-16 pt-12 pb-6 w-full text-4xl capitalize bg-slate-100 text-neutral-900 max-md:px-5 max-md:mt-10 max-md:max-w-full">
