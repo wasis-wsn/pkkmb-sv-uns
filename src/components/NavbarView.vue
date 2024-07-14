@@ -37,7 +37,7 @@
         <XMarkIcon v-else class="w-10 h-10 text-black transition-transform duration-300"/>
       </button>
       <transition name="dropdown">
-        <SidebarView :isOpen="isDropdownOpen" />
+        <SidebarView v-model:isOpen="isDropdownOpen" />
       </transition>
     </div>
   </nav>
