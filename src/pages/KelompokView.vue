@@ -1,5 +1,4 @@
 <template>
-
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
@@ -113,9 +112,8 @@
         </h2>
         <div class="bg-white p-4 mt-8 rounded-lg shadow-md overflow-x-auto" data-aos="fade-down">
           <h1 class="text-gray-600 text-lg text-left mb-4">
-            Tolong untuk menginputkan tugas disini ya adick-adick
+            Tolong untuk upload file tugas kalian disini sesuai dengan kelompok masing-masing. 
           </h1>
-
           <!-- Upload form or uploaded files -->
           <div v-if="uploadedFiles.length === 0">
             <form id="file-upload-form"
@@ -138,18 +136,17 @@
               </p>
             </div>
           </div>
-          <div v-else>
-            <h2 class="text-gray-600 text-lg text-left">Uploaded Files:</h2>
-            <div class="w-full flex flex-col items-center border-2 border-dashed border-gray-300 rounded-lg py-12">
-              <p v-for="file in uploadedFiles" :key="file.name" class="text-gray-800 font text-sm text-left">
-                {{ file.name }}</p>
-            </div>
-            <div class="left-7 flex w-full pt-5">
-              <p class="font-normal font text-sm text-left text-gray-500">
-                Accepted File Types : <br>
-                Archive (Zip) <br>
-                Archive files .7z .bdoc .cdoc .ddoc .gtar .gz .gzip .hqx .rar .sit .tar .tgz .zip
-              </p>
+          <div v-if="previewFiles.length > 0">
+            <h2 class="text-gray-600 text-lg text-left mt-4">Preview Files:</h2>
+            <div class="flex flex-col items-center border-2 border-dashed border-gray-300 rounded-lg py-4">
+              <div v-for="(file, index) in previewFiles" :key="index" class="w-full flex justify-between items-center">
+                <RiFileWordLine class="h-8 w-8 text-primary" />
+                <img v-if="file.type.includes('image')" :src="file.url" :alt="file.name"
+                  class="w-24 h-24 object-cover rounded-md mr-4" />
+                <p class="text-gray-800 font text-sm">{{ file.name }}</p>
+                <button @click="removeFile(index)"
+                  class="text-red-500 font-bold py-1 px-2 rounded hover:bg-red-200"><RiDeleteBinLine class="h-6 w-6" /></button>
+              </div>
             </div>
           </div>
           <button @click="handleFileUpload"
@@ -172,7 +169,9 @@
   } from 'vue';
   import {
     RiEqualizerLine,
-    RiInboxArchiveLine
+    RiInboxArchiveLine,
+    RiFileWordLine,
+    RiDeleteBinLine
   } from "@remixicon/vue";
 
   const users = [{
@@ -214,6 +213,7 @@
   const currentPage = ref(1);
   const itemsPerPage = 20;
   const uploadedFiles = ref([]);
+  const previewFiles = ref([]);
 
   const handleSearch = () => {
     currentPage.value = 1;
@@ -278,11 +278,27 @@
   const handleFiles = (files) => {
     for (let i = 0; i < files.length; i++) {
       uploadedFiles.value.push(files[i]);
+      const file = files[i];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        previewFiles.value.push({
+          name: file.name,
+          url: e.target.result,
+          type: file.type
+        });
+      };
+      reader.readAsDataURL(file);
     }
+  };
+
+  const removeFile = (index) => {
+    uploadedFiles.value.splice(index, 1);
+    previewFiles.value.splice(index, 1);
   };
 
   const handleFileUpload = () => {
     console.log("Upload button clicked");
+    // Implement the upload logic here
   };
 
   onMounted(() => {
