@@ -8,16 +8,16 @@
       </section>
       <dl class="w-full mt-12 px-5">
         <div class="flex gap-2.5 justify-between max-w-full font-medium leading-[155%] text-neutral-900">
-          <dt>Nama</dt>
-          <dd>Felicia Lopez</dd>
+          <dt class="item-label">Nama</dt>
+          <dd class="item-content">Felicia Lopez</dd>
         </div>
         <div class="flex gap-2.5 justify-between mt-4 max-w-full font-medium leading-[155%] text-neutral-900">
-          <dt>Kelompok</dt>
-          <dd>Bangau Merah</dd>
+          <dt class="item-label">Kelompok</dt>
+          <dd class="item-content">Bangau Merah</dd>
         </div>
         <div class="flex gap-2.5 justify-between mt-4 max-w-full font-medium leading-[155%] text-neutral-900">
-          <dt>Program Studi</dt>
-          <dd>D3 Teknik Informatika</dd>
+          <dt class="item-label">Program Studi</dt>
+          <dd class="item-content">D3 Teknik Informatika</dd>
         </div>
       </dl>
     </main>
@@ -64,7 +64,23 @@ export default {
 .dropdown-enter-active, .dropdown-leave-active {
   transition: opacity 0.3s ease;
 }
+
 .dropdown-enter, .dropdown-leave-to {
   opacity: 0;
+}
+
+.item-row {
+  padding: 8px 0;
+}
+
+.item-label {
+  width: 30%;
+  max-width: 30%;
+  padding-right: 10px;
+}
+
+.item-content {
+  flex-grow: 1;
+  padding-left: 10px;
 }
 </style>
