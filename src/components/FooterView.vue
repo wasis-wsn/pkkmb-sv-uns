@@ -35,11 +35,11 @@
                   class="flex flex-col mt-1.5 text-sm font-medium text-white whitespace-nowrap"
                 >
                   <div class="text-lg font-bold capitalize">Menu</div>
-                  <router-link to="/" class="mt-6">Beranda</router-link>
-                  <router-link to="/materi" class="mt-2.5 capitalize">Materi</router-link>
-                  <router-link to="/kelompok" class="mt-2.5">Kelompok</router-link>
-                  <router-link to="/galeri" class="mt-2.5">Galeri</router-link>
-                  <router-link to="/tentang" class="mt-2.5">Tentang</router-link>
+                  <router-link to="/" class="mt-6" @click="openMenu">Beranda</router-link>
+                  <router-link to="/materi" class="mt-2.5 capitalize" @click="openMenu">Materi</router-link>
+                  <router-link to="/kelompok" class="mt-2.5" @click="openMenu">Kelompok</router-link>
+                  <router-link to="/galeri" class="mt-2.5" @click="openMenu">Galeri</router-link>
+                  <router-link to="/tentang" class="mt-2.5" @click="openMenu">Tentang</router-link>
                 </div>
                 <div
                   class="flex flex-col mt-1.5 text-sm font-medium text-white"
@@ -116,9 +116,31 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import { RouterLink } from 'vue-router';
 import { RiTiktokLine, RiInstagramLine, RiTwitterXFill, RiYoutubeFill } from "@remixicon/vue";
+
+export default {
+  name: 'FooterView',
+  components: {
+    RiTiktokLine,
+    RiInstagramLine,
+    RiTwitterXFill,
+    RiYoutubeFill,
+    RouterLink
+  },
+  props: {
+    isOpen: Boolean
+  },
+  methods: {
+    openMenu() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }
+};
 </script>
 
 <style scoped>
