@@ -21,21 +21,18 @@
         </div>
       </dl>
     </main>
-    <router-link to="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BERANDA</router-link>
-    <router-link to="/materi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">MATERI</router-link>
-    <router-link to="/kelompok" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">KELOMPOK</router-link>
-    <router-link to="/galeri" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">GALERI</router-link>
-    <router-link to="/tentang" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">TENTANG</router-link>
-    <!-- <router-link to="/login" class="block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors rounded-b-md">
-      Login
-    </router-link> -->
-    <router-link to="/login" class="mt-2 block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors">
+    <router-link to="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">BERANDA</router-link>
+    <router-link to="/materi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">MATERI</router-link>
+    <router-link to="/kelompok" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">KELOMPOK</router-link>
+    <router-link to="/galeri" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">GALERI</router-link>
+    <router-link to="/tentang" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">TENTANG</router-link>
+    <router-link to="/login" class="mt-2 block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors" @click="closeDropdown">
       <a class="flex items-center justify-between w-full">
         Change Password
         <ChevronRightIcon class="w-5 h-5"/>
       </a>
     </router-link>
-    <router-link to="/login" class="mt-1 block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors rounded-b-md">
+    <router-link to="/login" class="mt-1 block w-full text-left px-4 py-2 text-sm text-white bg-slate-700 hover:bg-slate-600 transition-colors rounded-b-md" @click="closeDropdown">
       <a class="flex items-center justify-between w-full">
         Log out
         <ChevronRightIcon class="w-5 h-5"/>
@@ -54,6 +51,11 @@ export default {
   },
   props: {
     isOpen: Boolean
+  },
+  methods: {
+    closeDropdown() {
+      this.$emit('update:isOpen', false);
+    }
   }
 };
 </script>
