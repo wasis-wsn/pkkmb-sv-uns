@@ -356,6 +356,7 @@ export default {
     };
   },
   mounted() {
+    document.title = "PKKMB SV UNS - GALERI";
     AOS.init();
     new Swiper(".swiper", {
       loop: true,

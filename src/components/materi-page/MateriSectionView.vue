@@ -342,6 +342,7 @@
 
     },
     mounted() {
+      document.title = "PKKMB SV UNS - MATERI";
       AOS.init();
     }
   };

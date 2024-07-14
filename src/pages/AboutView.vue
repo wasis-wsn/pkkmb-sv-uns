@@ -216,6 +216,7 @@
   export default {
     name: "AboutView",
     mounted() {
+      document.title = "PKKMB SV UNS - TENTANG";
       AOS.init();
     }
   }
