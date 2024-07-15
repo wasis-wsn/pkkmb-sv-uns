@@ -2,102 +2,113 @@
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
-      data-aos="fade-right">
-      <div class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"
-        data-aos="fade-right" data-aos-delay="100"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"
-        data-aos="fade-right" data-aos-delay="200"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]" data-aos="fade-right"
-        data-aos-delay="300"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]" data-aos="fade-right"
-        data-aos-delay="400"></div>
-      <div class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]" data-aos="fade-right"
-        data-aos-delay="500"></div>
+      data-aos="fade-right"
+    >
+      <div
+        class="shrink-0 mt-20 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[180px] max-md:mt-10"
+        data-aos="fade-right"
+        data-aos-delay="100"
+      ></div>
+      <div
+        class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[120px] max-md:mt-10"
+        data-aos="fade-right"
+        data-aos-delay="200"
+      ></div>
+      <div
+        class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[190px]"
+        data-aos="fade-right"
+        data-aos-delay="300"
+      ></div>
+      <div
+        class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[150px]"
+        data-aos="fade-right"
+        data-aos-delay="400"
+      ></div>
+      <div
+        class="shrink-0 mt-5 bg-red-300 bg-opacity-20 h-[5px] rounded-[100px] w-[200px]"
+        data-aos="fade-right"
+        data-aos-delay="500"
+      ></div>
       <div class="self-end mt-1 mb-0 max-md:max-w-full">
         <h1
           class="self-stretch pl-8 mt-5 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-10 max-md:max-w-full"
-          data-aos="fade-right" data-aos-delay="600">
+          data-aos="fade-right"
+          data-aos-delay="600"
+        >
           <span class="font-semibold">Selamat Datang di.</span>
         </h1>
         <h1
           class="self-stretch pl-8 -mr-1 ml-8 text-4xl font-bold leading-[60px] text-neutral-900 max-md:mt-0 max-md:max-w-full"
-          data-aos="fade-right" data-aos-delay="700">
+          data-aos="fade-right"
+          data-aos-delay="700"
+        >
           <span class="text-5xl text-red-400">PKKMB SV UNS 2024</span>.
         </h1>
         <div
-            class="flex justify-end gap-5 font-extrabold text-center max-md:mt-10 max-md:mr-2.5"
-            data-aos="fade-right"
-            data-aos-delay="800"
+          class="flex justify-end gap-5 font-extrabold text-center max-md:mt-10 max-md:mr-2.5"
+          data-aos="fade-right"
+          data-aos-delay="800"
+        >
+          <router-link
+            to="/kelompok"
+            class="button-biru justify-center px-10 py-5 text-sm text-white rounded-xl max-md:px-5"
           >
-            <router-link
-              to="/kelompok"
-              class="button-biru justify-center px-10 py-5 text-sm text-white rounded-xl max-md:px-5"
-            >
-              Cari Kelompok
-            </router-link>
-            <router-link
-              to="/materi"
-              href=""
-              class="button-putih flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light"
-            >
-              <ClipboardIcon loading="lazy" alt="" class="size-6" />
-              <span class="my-auto">Materi</span>
-            </router-link>
-          </div>
+            Cari Kelompok
+          </router-link>
+          <router-link
+            to="/materi"
+            href=""
+            class="button-putih flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light"
+          >
+            <ClipboardIcon loading="lazy" alt="" class="size-6" />
+            <span class="my-auto">Materi</span>
+          </router-link>
+        </div>
       </div>
     </section>
-    <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-up">
-      <img loading="lazy" src="@/assets/logo_besar.png" alt=""
-        class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
+    <section
+      class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full"
+      data-aos="fade-up"
+    >
+      <img
+        loading="lazy"
+        src="@/assets/logo_besar.png"
+        alt=""
+        class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]"
+      />
     </section>
   </header>
   <div class="flex flex-col bg-white">
     <div class="flex gap-5 self-end px-5 mt-0 max-md:mt-10">
-      <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]" data-aos="fade-up"
-        data-aos-delay="100"></div>
-      <div class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10"
-        data-aos="fade-up" data-aos-delay="200"></div>
-      <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]" data-aos="fade-up"
-        data-aos-delay="300"></div>
-      <div class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10"
-        data-aos="fade-up" data-aos-delay="400"></div>
-      <div class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]" data-aos="fade-up"
-        data-aos-delay="500"></div>
+      <div
+        class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      ></div>
+      <div
+        class="shrink-0 self-end mt-16 bg-red-300 bg-opacity-20 h-[130px] rounded-[100px] w-[5px] max-md:mt-10"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      ></div>
+      <div
+        class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      ></div>
+      <div
+        class="shrink-0 self-end mt-12 bg-red-300 bg-opacity-20 h-[150px] rounded-[100px] w-[5px] max-md:mt-10"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      ></div>
+      <div
+        class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      ></div>
     </div>
   </div>
   <div class="flex flex-col bg-white">
-    <div class="flex justify-center items-center">
-      <section
-        v-for="(movie, index) in comingSoon"
-        :key="'comingSoon' + index"
-        data-aos="fade-up"
-        class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px] pb-10 pl-5 pr-5"
-      >
-        <h1
-          class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl"
-          data-aos="fade-up"
-        >
-          {{ movie.title }}
-        </h1>
-        <p
-          class="self-stretch mt-9 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
-          data-aos="fade-up"
-        >
-          "{{ movie.deskripsi }}"
-        </p>
-        <div class="video-container">
-          <iframe
-            loading="lazy"
-            alt="Coming Soon PKKMB SV UNS 2024"
-            class="rounded-3xl w-full max-w-4xl"
-            :src="movie.videoSrc"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </section>
-    </div>
+    <VidioSection />
 
     <section
       class="flex justify-center items-center px-16 py-20 mt-10 w-full bg-slate-100 max-md:px-5 max-md:max-w-full"
@@ -131,11 +142,9 @@
             </div>
             <article class="flex flex-col max-w-[192px] mx-auto">
               <div class="relative mt-5" data-aos="fade-left">
-                <!-- Lingkaran luar dengan bayangan -->
                 <div
                   class="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] bg-slate-100 rounded-full shadow-md inset-shadow"
                 ></div>
-                <!-- Lingkaran putih untuk icon -->
                 <div
                   class="relative z-10 flex items-center justify-center bg-white h-[150px] w-[150px] rounded-full shadow-md"
                 >
@@ -273,10 +282,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Slider Acara -->
     <div class="slider-acara mt-5">
-      <!-- Trending Section -->
       <section class="acara" id="acara">
         <div class="background">
           <div class="mb-3 text-center">
@@ -286,36 +292,12 @@
             >
               SPONSORED BY :
             </h1>
-            <div class="grid-container">
-              <div
-                class="image-container flex justify-center items-center w-1/2 md:w-1/4"
-                v-for="(sponsor, index) in sponsor"
-                :key="'sponsor' + index"
-                data-aos="fade-up"
-              >
-                <img :src="sponsor.imgSrc" :alt="sponsor.alt" />
-              </div>
-            </div>
+            <SponsorSection />
           </div>
-          <div class="background container swiper mt-5">
-            <!-- Slides -->
-            <div class="swiper-wrapper flex mx-auto mb-5">
-              <div
-                class="swiper-slide slide"
-                style="max-width: 200px; max-height: 200px; margin: 0 0px"
-                v-for="(slides, index) in slides"
-                :key="'slides-' + index"
-                data-aos="fade-up"
-              >
-                <img :src="slides.imgSrc" class="object-cover" />
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
+          <HimaSection />
         </div>
       </section>
     </div>
-    <!-- Trending Section Ends -->
   </div>
 </template>
 
@@ -325,12 +307,18 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
+import VidioSection from "@/components/landing-page/VidioSection.vue";
+import SponsorSection from "@/components/landing-page/SponsorSection.vue";
+import HimaSection from "@/components/landing-page/HimaSection.vue";
 
 export default {
   name: "LandingView",
   components: {
     ClipboardIcon,
     UserGroupIcon,
+    VidioSection,
+    SponsorSection,
+    HimaSection,
   },
   data() {
     return {
@@ -392,7 +380,6 @@ export default {
         {
           imgSrc: require("@/assets/logo_hima/himaupw.png"),
         },
-        // Add more slides here...
       ],
       comingSoon: [
         {
@@ -511,7 +498,7 @@ export default {
   }
 
   .image-container img {
-    max-width: 70%; /* Menyesuaikan ukuran gambar untuk layar kecil */
+    max-width: 70%;
   }
 }
 
@@ -523,18 +510,18 @@ export default {
 
 .swiper-wrapper {
   display: flex;
-  gap: 10px; /* Sesuaikan gap untuk memperdekat foto */
-  margin-bottom: 5px; /* Sesuaikan margin-bottom untuk memperdekat foto */
+  gap: 10px;
+  margin-bottom: 5px;
 }
 
 .swiper-slide {
   max-width: 200px;
   max-height: 200px;
-  margin: 0 5px; /* Kurangi margin untuk memperdekat foto */
+  margin: 0 5px;
 }
 
 .swiper-slide img {
-  width: 50%; /* Pastikan gambar mengisi slide */
+  width: 50%;
   height: auto;
   object-fit: contain;
 }
@@ -542,7 +529,7 @@ export default {
 .video-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* Aspect ratio 16:9 */
+  padding-top: 56.25%;
   overflow: hidden;
 }
 
