@@ -39,7 +39,8 @@
       <img loading="lazy" src="@/assets/Materi/twibbon.png" alt="Decorative gradient"
         class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[70px] lg:bottom-[-80px] md:bottom-[20px]" />
     </section>
-    <!-- MATERI PERTAMA -->
+
+    <!-- MATERI -->
     <div v-for="item in filteredMateri" :key="item.judul">
       <section class="flex gap-5 self-center  mt-[100px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10">
         <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
