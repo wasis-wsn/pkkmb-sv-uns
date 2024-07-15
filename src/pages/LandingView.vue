@@ -404,6 +404,7 @@ export default {
     };
   },
   mounted() {
+    document.title = "PKKMB SV UNS";
     AOS.init();
     new Swiper(".swiper", {
       loop: true,

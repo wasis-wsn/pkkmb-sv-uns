@@ -55,6 +55,10 @@ export default {
   methods: {
     closeDropdown() {
       this.$emit('update:isOpen', false);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   }
 };

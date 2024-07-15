@@ -302,6 +302,7 @@
   };
 
   onMounted(() => {
+    document.title = "PKKMB SV UNS - KELOMPOK";
     AOS.init();
   });
 </script>

@@ -149,7 +149,7 @@
               <button
                 class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5"
               >
-                <a href="#" target="_blank"> DOWNLOAD DISINI! </a>
+                <a href="https://bit.ly/FotoAskara2022" target="_blank"> DOWNLOAD DISINI! </a>
               </button>
             </div>
           </div>
@@ -356,6 +356,7 @@ export default {
     };
   },
   mounted() {
+    document.title = "PKKMB SV UNS - GALERI";
     AOS.init();
     new Swiper(".swiper", {
       loop: true,
