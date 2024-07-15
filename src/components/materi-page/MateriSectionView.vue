@@ -185,22 +185,6 @@
         </div>
       </div>
     </section> -->
-    
-    <section class="flex gap-5 self-center  mt-[10px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
-      data-aos="fade-up">
-      <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
-        <div class="text-center y">
-          <p class="text-2xl font-bold mb-4 text-[30px]">Download Materi</p>
-          <button
-            class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap rounded-[15px] max-md:px-5">
-            <a href="https://youtu.be/nwuW98yLsgY?si=6D4JnXuZ_UEfNCF-" target="_blank">
-              Disini!
-            </a>
-          </button>
-        </div>
-      </div>
-
-    </section>
   </main>
 </template>
 
