@@ -70,6 +70,7 @@ export default {
     };
   },
   mounted() {
+    document.title = "PKKMB SV UNS - LOGIN";
     // Tambahkan event listener untuk mendeteksi scroll
     window.addEventListener('scroll', this.handleScroll);
   },
