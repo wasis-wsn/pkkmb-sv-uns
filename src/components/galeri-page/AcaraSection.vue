@@ -52,3 +52,122 @@
     </div>
   </section>
 </template>
+
+<script>
+import Swiper from "swiper";
+import "swiper/swiper-bundle.css";
+import { register } from "swiper/element/bundle";
+register();
+
+import "../../css/pages/_button.css";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+export default {
+  name: "GaleriView",
+  data() {
+    return {
+      slides: [
+        {
+          imgSrc: require("@/assets/galeri/acara-1.png"),
+          alt: "PKKMB SV UNS 2024 Seminar",
+          judul: "PKKMB SV UNS 2024",
+          judulAcara: "Seminar Inspiratif",
+          deskripsi:
+            "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
+        },
+        {
+          imgSrc: require("@/assets/galeri/acara-1.png"),
+          alt: "PKKMB SV UNS 2024 Seminar",
+          judul: "PKKMB SV UNS 2024",
+          judulAcara: "Seminar Inspiratif",
+          deskripsi:
+            "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
+        },
+        {
+          imgSrc: require("@/assets/galeri/acara-1.png"),
+          alt: "PKKMB SV UNS 2024 Seminar",
+          judul: "PKKMB SV UNS 2024",
+          judulAcara: "Seminar Inspiratif",
+          deskripsi:
+            "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
+        },
+        {
+          imgSrc: require("@/assets/galeri/acara-1.png"),
+          alt: "PKKMB SV UNS 2024 Seminar",
+          judul: "PKKMB SV UNS 2024",
+          judulAcara: "Seminar Inspiratif",
+          deskripsi:
+            "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
+        },
+        {
+          imgSrc: require("@/assets/galeri/acara-1.png"),
+          alt: "PKKMB SV UNS 2024 Seminar",
+          judul: "PKKMB SV UNS 2024",
+          judulAcara: "Seminar Inspiratif",
+          deskripsi:
+            "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
+        },
+        {
+          imgSrc: require("@/assets/galeri/acara-1.png"),
+          alt: "PKKMB SV UNS 2024 Seminar",
+          judul: "PKKMB SV UNS 2024",
+          judulAcara: "Seminar Inspiratif",
+          deskripsi:
+            "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
+        },
+        // Add more slides here...
+      ],
+    };
+  },
+  mounted() {
+    document.title = "PKKMB SV UNS - GALERI";
+    AOS.init();
+    new Swiper(".swiper", {
+      loop: true,
+      direction: "horizontal",
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  },
+};
+</script>
+
+<style scoped>
+/* Custom styles if needed */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+}
+</style>

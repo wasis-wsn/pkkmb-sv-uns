@@ -33,3 +33,29 @@
     </div>
   </section>
 </template>
+
+<script>
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+export default {
+  name: "GaleriView",
+  data() {
+    return {
+      afterMovie: [
+        {
+          title: "AFTER MOVIE PKKMB SV UNS 2024",
+          deskripsi:
+            'Saksikan momen-momen terbaik kalian selama PKKMB SV UNS 2024 dalam "After Movie" berikut ini!',
+          videoSrc:
+            "https://www.youtube.com/embed/CoTPJXtsH3E?si=YFeI5igbxu-j6b3a",
+        },
+      ],
+    };
+  },
+  mounted() {
+    document.title = "PKKMB SV UNS - GALERI";
+    AOS.init();
+  },
+};
+</script>
