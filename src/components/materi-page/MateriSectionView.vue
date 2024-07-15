@@ -184,8 +184,6 @@
           </ul>
         </div>
       </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
     </section> -->
     
     <section class="flex gap-5 self-center  mt-[10px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
@@ -201,12 +199,7 @@
           </button>
         </div>
       </div>
-=======
-      <!-- DOWNLOAD MATERI -->
->>>>>>> 023656682dc086c70792499142b106c486f28911
-=======
-      <!-- DOWNLOAD MATERI -->
->>>>>>> 023656682dc086c70792499142b106c486f28911
+
     </section>
   </main>
 </template>
