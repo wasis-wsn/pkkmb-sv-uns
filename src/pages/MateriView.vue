@@ -44,7 +44,8 @@
     </div>
   </div>
   <MateriSectionView />
-  <section class="flex gap-5 self-center  mt-[10px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
+  <!-- DOWNLOAD -->
+  <section class="flex gap-5 self-center  mt-[100px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
       data-aos="fade-up">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
         <div class="text-center y">
