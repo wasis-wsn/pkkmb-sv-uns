@@ -112,7 +112,7 @@
         </h2>
         <div class="bg-white p-4 mt-8 rounded-lg shadow-md overflow-x-auto" data-aos="fade-down">
           <h1 class="text-gray-600 text-lg text-left mb-4">
-            Tolong untuk upload file tugas kalian disini sesuai dengan kelompok masing-masing. 
+            Tolong untuk upload file tugas kalian disini sesuai dengan kelompok masing-masing.
           </h1>
           <!-- Upload form or uploaded files -->
           <div v-if="uploadedFiles.length === 0">
@@ -140,12 +140,15 @@
             <h2 class="text-gray-600 text-lg text-left mt-4">Preview Files:</h2>
             <div class="flex flex-col items-center border-2 border-dashed border-gray-300 rounded-lg py-4">
               <div v-for="(file, index) in previewFiles" :key="index" class="w-full flex justify-between items-center">
-                <RiFileWordLine class="h-8 w-8 text-primary" />
-                <img v-if="file.type.includes('image')" :src="file.url" :alt="file.name"
-                  class="w-24 h-24 object-cover rounded-md mr-4" />
+                <template v-if="file.type.includes('image')">
+                  <img :src="file.url" :alt="file.name" class="w-12 h-12 object-cover rounded-md pl-3"/>
+                </template>
+                <template v-else>
+                  <component :is="getIconComponent(file.type)" class="w-10 h-10 object-cover rounded-md pl-3" />
+                </template>
                 <p class="text-gray-800 font text-sm">{{ file.name }}</p>
-                <button @click="removeFile(index)"
-                  class="text-red-500 font-bold py-1 px-2 rounded hover:bg-red-200"><RiDeleteBinLine class="h-6 w-6" /></button>
+                <button @click="removeFile(index)" class="text-red-500 font-bold py-1 px-2 rounded hover:bg-red-200 pr-3">
+                  <RiDeleteBinLine class="h-6 w-6" /></button>
               </div>
             </div>
           </div>
@@ -171,6 +174,7 @@
     RiEqualizerLine,
     RiInboxArchiveLine,
     RiFileWordLine,
+    RiFilePdfLine,
     RiDeleteBinLine
   } from "@remixicon/vue";
 
@@ -294,6 +298,16 @@
   const removeFile = (index) => {
     uploadedFiles.value.splice(index, 1);
     previewFiles.value.splice(index, 1);
+  };
+
+  const getIconComponent = (type) => {
+    if (type.includes('pdf')) {
+      return RiFilePdfLine;
+    } else if (type.includes('word')) {
+      return RiFileWordLine;
+    } else {
+      return RiFileWordLine; // Default icon
+    }
   };
 
   const handleFileUpload = () => {
