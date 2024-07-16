@@ -23,6 +23,7 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
+        "vue-router": "^4.0.13",
         "ziggy-js": "^2.2.1"
     }
 }

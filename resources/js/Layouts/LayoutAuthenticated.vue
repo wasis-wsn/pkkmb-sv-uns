@@ -1,31 +1,31 @@
 <script setup>
-import { router } from '@inertiajs/vue3'
-import { mdiForwardburger, mdiBackburger, mdiMenu } from '@mdi/js'
-import { ref } from 'vue'
+import { router } from "@inertiajs/vue3";
+import { mdiForwardburger, mdiBackburger, mdiMenu } from "@mdi/js";
+import { ref } from "vue";
 // import { useRouter } from 'vue-router'
-import menuAside from '@/menuAside.js'
-import menuNavBar from '@/menuNavBar.js'
-import { useDarkModeStore } from '@/Stores/darkMode.js'
-import BaseIcon from '@/Components/BaseIcon.vue'
-import FormControl from '@/Components/FormControl.vue'
-import NavBar from '@/Components/NavBar.vue'
-import NavBarItemPlain from '@/Components/NavBarItemPlain.vue'
-import AsideMenu from '@/Components/AsideMenu.vue'
-import FooterBar from '@/Components/FooterBar.vue'
+import menuAside from "@/menuAside.js";
+import menuNavBar from "@/menuNavBar.js";
+import { useDarkModeStore } from "@/Stores/darkMode.js";
+import BaseIcon from "@/Components/BaseIcon.vue";
+import FormControl from "@/Components/FormControl.vue";
+import NavBar from "@/Components/NavBar.vue";
+import NavBarItemPlain from "@/Components/NavBarItemPlain.vue";
+import AsideMenu from "@/Components/AsideMenu.vue";
+import FooterBar from "@/Components/FooterBar.vue";
 
-router.on('navigate', () => {
-  isAsideMobileExpanded.value = false
-  isAsideLgActive.value = false
-})
+router.on("navigate", () => {
+  isAsideMobileExpanded.value = false;
+  isAsideLgActive.value = false;
+});
 
-const layoutAsidePadding = 'xl:pl-60'
+const layoutAsidePadding = "xl:pl-60";
 
-const darkModeStore = useDarkModeStore()
+const darkModeStore = useDarkModeStore();
 
 // const router = useRouter()
 
-const isAsideMobileExpanded = ref(false)
-const isAsideLgActive = ref(false)
+const isAsideMobileExpanded = ref(false);
+const isAsideLgActive = ref(false);
 
 // router.beforeEach(() => {
 //   isAsideMobileExpanded.value = false
@@ -34,20 +34,20 @@ const isAsideLgActive = ref(false)
 
 const menuClick = (event, item) => {
   if (item.isToggleLightDark) {
-    darkModeStore.set()
+    darkModeStore.set();
   }
 
   if (item.isLogout) {
     // Add:
-    router.post(route('logout'))
+    router.post(route("logout"));
   }
-}
+};
 </script>
 
 <template>
   <div
     :class="{
-      'overflow-hidden lg:overflow-visible': isAsideMobileExpanded
+      'overflow-hidden lg:overflow-visible': isAsideMobileExpanded,
     }"
   >
     <div
@@ -63,13 +63,24 @@ const menuClick = (event, item) => {
           display="flex lg:hidden"
           @click.prevent="isAsideMobileExpanded = !isAsideMobileExpanded"
         >
-          <BaseIcon :path="isAsideMobileExpanded ? mdiBackburger : mdiForwardburger" size="24" />
+          <BaseIcon
+            :path="isAsideMobileExpanded ? mdiBackburger : mdiForwardburger"
+            size="24"
+          />
         </NavBarItemPlain>
-        <NavBarItemPlain display="hidden lg:flex xl:hidden" @click.prevent="isAsideLgActive = true">
+        <NavBarItemPlain
+          display="hidden lg:flex xl:hidden"
+          @click.prevent="isAsideLgActive = true"
+        >
           <BaseIcon :path="mdiMenu" size="24" />
         </NavBarItemPlain>
         <NavBarItemPlain use-margin>
-          <FormControl placeholder="Search (ctrl+k)" ctrl-k-focus transparent borderless />
+          <FormControl
+            placeholder="Search (ctrl+k)"
+            ctrl-k-focus
+            transparent
+            borderless
+          />
         </NavBarItemPlain>
       </NavBar>
       <AsideMenu

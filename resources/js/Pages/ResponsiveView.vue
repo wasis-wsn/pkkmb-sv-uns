@@ -1,11 +1,14 @@
 <script setup>
-import SectionTitle from '@/Components/SectionTitle.vue'
-import SectionMain from '@/Components/SectionMain.vue'
-import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue'
+import SectionTitle from "@/Components/SectionTitle.vue";
+import SectionMain from "@/Components/SectionMain.vue";
+import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
+import { Head } from "@inertiajs/vue3";
 </script>
 
 <template>
   <LayoutAuthenticated>
+    <Head title="responsive" />
+
     <SectionTitle first>Mobile & Tablet</SectionTitle>
 
     <SectionMain>

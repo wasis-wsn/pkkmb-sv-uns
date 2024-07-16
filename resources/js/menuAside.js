@@ -10,7 +10,9 @@ import {
   mdiTelevisionGuide,
   mdiResponsive,
   mdiPalette,
-  mdiReact
+  mdiReact,
+  mdiHandshakeOutline,
+  mdiBrain 
 } from '@mdi/js'
 
 export default [
@@ -20,45 +22,55 @@ export default [
     label: 'Dashboard'
   },
   {
-    to: '/tables',
+    route: 'tables',
     label: 'Tables',
     icon: mdiTable
   },
   {
-    to: '/forms',
+    route: 'forms',
     label: 'Forms',
     icon: mdiSquareEditOutline
   },
   {
-    to: '/ui',
+    route: 'ui',
     label: 'UI',
     icon: mdiTelevisionGuide
   },
   {
-    to: '/responsive',
+    route: 'responsive',
     label: 'Responsive',
     icon: mdiResponsive
   },
   {
-    to: '/',
+    route: 'styles',
     label: 'Styles',
     icon: mdiPalette
   },
   {
-    to: '/profile',
+    route: 'profiles',
     label: 'Profile',
     icon: mdiAccountCircle
   },
   {
-    to: '/login',
+    route: 'login',
     label: 'Login',
     icon: mdiLock
   },
   {
-    to: '/error',
+    route: 'error',
     label: 'Error',
     icon: mdiAlertCircle
   },
+  {
+    route: 'sponsor',
+    label: 'Sponsor',
+    icon: mdiHandshakeOutline 
+  }, 
+  {
+    route: 'hima',
+    label: 'Hima',
+    icon: mdiBrain 
+  }, 
   {
     label: 'Dropdown',
     icon: mdiViewList,

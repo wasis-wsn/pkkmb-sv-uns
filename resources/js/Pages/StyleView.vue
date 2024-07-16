@@ -1,35 +1,42 @@
 <script setup>
-import { useRouter } from 'vue-router'
-import { useDarkModeStore } from '@/Stores/darkMode.js'
-import { gradientBgPurplePink } from '@/colors.js'
-import SectionMain from '@/Components/SectionMain.vue'
-import CardBox from '@/Components/CardBox.vue'
-import LayoutGuest from '@/Layouts/LayoutGuest.vue'
+import { useRouter } from "vue-router";
+import { useDarkModeStore } from "@/Stores/darkMode.js";
+import { gradientBgPurplePink } from "@/colors.js";
+import SectionMain from "@/Components/SectionMain.vue";
+import CardBox from "@/Components/CardBox.vue";
+import LayoutGuest from "@/Layouts/LayoutGuest.vue";
+import { Head } from "@inertiajs/vue3";
 
-const styles = ['white', 'basic']
+const styles = ["white", "basic"];
 
-const darkModeStore = useDarkModeStore()
+const darkModeStore = useDarkModeStore();
 
-darkModeStore.set(false)
+darkModeStore.set(false);
 
-const router = useRouter()
+const router = useRouter();
 
 const handleStyleChange = (slug) => {
   document.documentElement.classList.forEach((token) => {
-    if (token.indexOf('style') === 0) {
-      document.documentElement.classList.replace(token, `style-${slug}`)
+    if (token.indexOf("style") === 0) {
+      document.documentElement.classList.replace(token, `style-${slug}`);
     }
-  })
+  });
 
-  router.push('/dashboard')
-}
+  router.push("/dashboard");
+};
 </script>
 
 <template>
   <LayoutGuest>
-    <div :class="gradientBgPurplePink" class="flex min-h-screen items-center justify-center">
+    <Head title="style" />
+    <div
+      :class="gradientBgPurplePink"
+      class="flex min-h-screen items-center justify-center"
+    >
       <SectionMain>
-        <h1 class="text-4xl md:text-5xl text-center text-white font-bold mt-12 mb-3 lg:mt-0">
+        <h1
+          class="text-4xl md:text-5xl text-center text-white font-bold mt-12 mb-3 lg:mt-0"
+        >
           Pick a style&hellip;
         </h1>
         <h2 class="text-xl md:text-xl text-center text-white mb-12">

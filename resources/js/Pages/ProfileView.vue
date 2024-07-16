@@ -1,43 +1,51 @@
 <script setup>
-import { reactive } from 'vue'
-import { useMainStore } from '@/Stores/main'
-import { mdiAccount, mdiMail, mdiAsterisk, mdiFormTextboxPassword, mdiGithub } from '@mdi/js'
-import SectionMain from '@/Components/SectionMain.vue'
-import CardBox from '@/Components/CardBox.vue'
-import BaseDivider from '@/Components/BaseDivider.vue'
-import FormField from '@/Components/FormField.vue'
-import FormControl from '@/Components/FormControl.vue'
-import FormFilePicker from '@/Components/FormFilePicker.vue'
-import BaseButton from '@/Components/BaseButton.vue'
-import BaseButtons from '@/Components/BaseButtons.vue'
-import UserCard from '@/Components/UserCard.vue'
-import LayoutAuthenticated from '@//Layouts/LayoutAuthenticated.vue'
-import SectionTitleLineWithButton from '@/Components/SectionTitleLineWithButton.vue'
+import { reactive } from "vue";
+import { useMainStore } from "@/Stores/main";
+import {
+  mdiAccount,
+  mdiMail,
+  mdiAsterisk,
+  mdiFormTextboxPassword,
+  mdiGithub,
+} from "@mdi/js";
+import SectionMain from "@/Components/SectionMain.vue";
+import CardBox from "@/Components/CardBox.vue";
+import BaseDivider from "@/Components/BaseDivider.vue";
+import FormField from "@/Components/FormField.vue";
+import FormControl from "@/Components/FormControl.vue";
+import FormFilePicker from "@/Components/FormFilePicker.vue";
+import BaseButton from "@/Components/BaseButton.vue";
+import BaseButtons from "@/Components/BaseButtons.vue";
+import UserCard from "@/Components/UserCard.vue";
+import LayoutAuthenticated from "@//Layouts/LayoutAuthenticated.vue";
+import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
+import { Head } from "@inertiajs/vue3";
 
-const mainStore = useMainStore()
+const mainStore = useMainStore();
 
 const profileForm = reactive({
   name: mainStore.userName,
-  email: mainStore.userEmail
-})
+  email: mainStore.userEmail,
+});
 
 const passwordForm = reactive({
-  password_current: '',
-  password: '',
-  password_confirmation: ''
-})
+  password_current: "",
+  password: "",
+  password_confirmation: "",
+});
 
 const submitProfile = () => {
-  mainStore.setUser(profileForm)
-}
+  mainStore.setUser(profileForm);
+};
 
 const submitPass = () => {
   //
-}
+};
 </script>
 
 <template>
   <LayoutAuthenticated>
+    <Head title="profiles" />
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
         <BaseButton
