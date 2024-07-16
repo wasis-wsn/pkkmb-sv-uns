@@ -1,4 +1,5 @@
 <template>
+  <LayoutHeaderFooter>
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
@@ -298,6 +299,7 @@
       </section>
     </div>
   </div>
+</LayoutHeaderFooter>
 </template>
 
 <script>
@@ -309,6 +311,7 @@ import "swiper/swiper-bundle.css";
 import VidioSection from "../../Components-landing/landing-page/VidioSection.vue";
 import SponsorSection from "../../Components-landing/landing-page/SponsorSection.vue";
 import HimaSection from "../../Components-landing/landing-page/HimaSection.vue";
+import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
 
 export default {
   name: "LandingView",

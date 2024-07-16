@@ -4,6 +4,10 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from 'ziggy-js'
+import router from './Router';
+createApp(App)
+  .use(router)
+  .mount('#app');
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
 

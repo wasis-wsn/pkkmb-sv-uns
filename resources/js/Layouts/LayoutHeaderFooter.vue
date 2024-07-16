@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import HeaderView from "./NavbarView.vue";
-import FooterView from "./FooterView.vue";
+import HeaderView from "../Components-landing/NavbarView.vue";
+import FooterView from "../Components-landing/FooterView.vue";
 import {
   ChevronDoubleUpIcon,
   ChatBubbleLeftRightIcon,

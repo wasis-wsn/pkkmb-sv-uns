@@ -1,4 +1,5 @@
 <template>
+  <LayoutHeaderFooter>
   <div class="flex flex-col bg-white">
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
@@ -206,12 +207,13 @@
       </div>
     </div>
   </div>
-
+</LayoutHeaderFooter>
 </template>
 
 <script>
   import AOS from "aos";
   import "aos/dist/aos.css";
+  import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
 
   export default {
     name: "AboutView",
