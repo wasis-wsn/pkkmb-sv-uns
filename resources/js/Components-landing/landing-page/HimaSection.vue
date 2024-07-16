@@ -5,7 +5,7 @@
         class="swiper-slide slide"
         style="max-width: 200px; max-height: 200px; margin: 0 0px"
         v-for="(slides, index) in slides"
-        :key="'slides-' + index"
+        :key="'slides' + index"
         data-aos="fade-up"
       >
         <img :src="slides.imgSrc" class="object-cover" />
@@ -14,111 +14,89 @@
     <div class="swiper-pagination"></div>
   </div>
 </template>
-<script>
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
+<script setup>
+import { onMounted, ref } from 'vue';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Swiper from 'swiper';
+import 'swiper/swiper-bundle.css';
+import hima_sv from '../../../assets/logo_hima/hima_sv.png';
+import himakesja from '../../../assets/logo_hima/himakesja.png';
+import himama from '../../../assets/logo_hima/himama.png';
+import emailkom from '../../../assets/logo_hima/emailkom.png';
+import himapsdku from '../../../assets/logo_hima/himapsdku.png';
+import himafarma from '../../../assets/logo_hima/himafarma.png';
+import hmps from '../../../assets/logo_hima/hmps.png';
+import himavida from '../../../assets/logo_hima/himavida.png';
+import HMB from '../../../assets/logo_hima/HMB.png';
+import himaagrib from '../../../assets/logo_hima/himaagrib.png';
+import himapertanian from '../../../assets/logo_hima/himapertanian.png';
+import himamanajemen from '../../../assets/logo_hima/himamanajemen.png';
+import formadasi from '../../../assets/logo_hima/formadasi.png';
+import fondasi from '../../../assets/logo_hima/fondasi.png';
+import himaakuntansi from '../../../assets/logo_hima/himaakuntansi.png';
+import chinese from '../../../assets/logo_hima/chinese.png';
+import himaupw from '../../../assets/logo_hima/himaupw.png';
 
-export default {
-  name: "HimaSection",
-  data() {
-    return {
-      slides: [
-        {
-          imgSrc: require("@/assets/logo_hima/hima_sv.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himakesja.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himama.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/emailkom.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himapsdku.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himafarma.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/hmps.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himavida.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/HMB.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himaagrib.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himapertanian.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himamanajemen.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/formadasi.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/fondasi.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himaakuntansi.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/chinese.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himaupw.png"),
-        },
-      ],
-    };
-  },
-  mounted() {
-    document.title = "PKKMB SV UNS";
-    AOS.init();
-    new Swiper(".swiper", {
-      loop: true,
-      slidesPerView: 10,
-      spaceBetween: 5,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+const slides = ref([
+  { imgSrc: hima_sv },
+  { imgSrc: himakesja },
+  { imgSrc: himama },
+  { imgSrc: emailkom },
+  { imgSrc: himapsdku },
+  { imgSrc: himafarma },
+  { imgSrc: hmps },
+  { imgSrc: himavida },
+  { imgSrc: HMB },
+  { imgSrc: himaagrib },
+  { imgSrc: himapertanian },
+  { imgSrc: himamanajemen },
+  { imgSrc: formadasi },
+  { imgSrc: fondasi },
+  { imgSrc: himaakuntansi },
+  { imgSrc: chinese },
+  { imgSrc: himaupw },
+]);
+
+onMounted(() => {
+  document.title = 'PKKMB SV UNS';
+  AOS.init();
+  new Swiper('.swiper-container', {
+    loop: true,
+    slidesPerView: 10,
+    spaceBetween: 5,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      300: {
+        slidesPerView: 2,
+        spaceBetween: 10,
       },
-      autoplay: {
-        delay: 1000,
-        disableOnInteraction: false,
+      480: {
+        slidesPerView: 4,
+        spaceBetween: 10,
       },
-      breakpoints: {
-        300: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-        },
-        480: {
-          slidesPerView: 4,
-          spaceBetween: 10,
-        },
-        768: {
-          slidesPerView: 5,
-          spaceBetween: 10,
-        },
-        1024: {
-          slidesPerView: 6,
-          spaceBetween: 10,
-        },
-        1280: {
-          slidesPerView: 7,
-          spaceBetween: 10,
-        },
+      768: {
+        slidesPerView: 5,
+        spaceBetween: 10,
       },
-    });
-  },
-};
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 10,
+      },
+      1280: {
+        slidesPerView: 7,
+        spaceBetween: 10,
+      },
+    },
+  });
+});
 </script>
 <style scoped>
 .swiper-button-next,

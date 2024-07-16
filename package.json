@@ -24,7 +24,9 @@
     },
     "dependencies": {
         "@heroicons/vue": "^2.1.5",
+        "@remixicon/vue": "^4.2.0",
         "aos": "^2.3.4",
+        "remixicon": "^4.3.0",
         "swiper": "^11.1.5",
         "vue-router": "^4.0.13",
         "ziggy-js": "^2.2.1"

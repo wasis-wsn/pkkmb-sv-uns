@@ -14,16 +14,20 @@
 <script>
 import AOS from "aos";
 import "aos/dist/aos.css";
+import telkom from "../../../assets/telkom.png";
+import bca from "../../../assets/bca.png";
+import mandiri from "../../../assets/mandiri.png";
+import bri from "../../../assets/bri.png";
 
 export default {
   name: "SponsorSection",
   data() {
     return {
       sponsor: [
-        { imgSrc: require("@/assets/telkom.png"), alt: "Telkom" },
-        { imgSrc: require("@/assets/bca.png"), alt: "BCA" },
-        { imgSrc: require("@/assets/mandiri.png"), alt: "Mandiri" },
-        { imgSrc: require("@/assets/bri.png"), alt: "BRI" },
+        { imgSrc: telkom, alt: "Telkom" },
+        { imgSrc: bca, alt: "BCA" },
+        { imgSrc: mandiri, alt: "Mandiri" },
+        { imgSrc: bri, alt: "BRI" },
       ],
     };
   },

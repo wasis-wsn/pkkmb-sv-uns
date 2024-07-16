@@ -28,7 +28,7 @@ import {
   ChevronDoubleUpIcon,
   ChatBubbleLeftRightIcon,
 } from "@heroicons/vue/24/solid";
-import ChatView from "./ChatView.vue";
+import ChatView from "../Components-landing/ChatView.vue";
 
 export default {
   components: {

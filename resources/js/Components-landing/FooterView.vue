@@ -6,7 +6,7 @@
           <div class="flex gap-5 max-md:flex-col max-md:gap-0">
             <div class="flex flex-col w-[34%] max-md:ml-0 max-md:w-full">
               <div class="flex gap-5 mt-2 max-md:mt-10">
-                <img loading="lazy" src="@/assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[0.99] h-[83px] w-[93px] md:w-[100px]" />
+                <img loading="lazy" src="../../assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[0.99] h-[83px] w-[93px] md:w-[100px]" />
                 <div class="flex flex-col grow shrink-0 basis-0 w-fit">
                   <div class="text-lg font-bold leading-7 text-white">
                     Tentang Website
@@ -116,31 +116,26 @@
   </div>
 </template>
 
-<script>
-import { RouterLink } from 'vue-router';
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { RiTiktokLine, RiInstagramLine, RiTwitterXFill, RiYoutubeFill } from "@remixicon/vue";
 
-export default {
-  name: 'FooterView',
-  components: {
-    RiTiktokLine,
-    RiInstagramLine,
-    RiTwitterXFill,
-    RiYoutubeFill,
-    RouterLink
-  },
-  props: {
-    isOpen: Boolean
-  },
-  methods: {
-    openMenu() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  }
+// Props
+const props = defineProps({
+  isOpen: Boolean
+});
+
+// Methods
+const openMenu = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
+
+// Components
+const RouterLink = useRouter().options.routes;
 </script>
 
 <style scoped>
