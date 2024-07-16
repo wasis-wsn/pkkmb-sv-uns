@@ -1,10 +1,10 @@
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import SectionFullScreen from "@/Components/SectionFullScreen.vue";
 import CardBox from "@/Components/CardBox.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import BaseButtons from "@/Components/BaseButtons.vue";
 import LayoutGuest from "@/Layouts/LayoutGuest.vue";
-import { Head } from "@inertiajs/vue3";
 </script>
 
 <template>

@@ -1,4 +1,5 @@
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import { ref, computed } from "vue";
 import { useDarkModeStore } from "@/Stores/darkMode.js";
 import {
@@ -68,7 +69,7 @@ const darkModeStore = useDarkModeStore();
 
 <template>
   <LayoutAuthenticated>
-    <Head title="ui" />
+    <Head title="Ui" />
     <CardBoxModal
       v-model="modalOneActive"
       title="Please confirm action"

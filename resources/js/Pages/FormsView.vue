@@ -1,4 +1,5 @@
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import { reactive, ref } from "vue";
 import { mdiBallotOutline, mdiAccount, mdiMail, mdiGithub } from "@mdi/js";
 import SectionMain from "@/Components/SectionMain.vue";
@@ -14,7 +15,6 @@ import SectionTitle from "@/Components/SectionTitle.vue";
 import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
 import NotificationBarInCard from "@/Components/NotificationBarInCard.vue";
-import { Head } from "@inertiajs/vue3";
 
 const selectOptions = [
   { id: 1, label: "Business development" },

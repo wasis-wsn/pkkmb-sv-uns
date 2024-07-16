@@ -1,5 +1,3 @@
-import '../css/main.css'
-
 import { createPinia } from 'pinia'
 import { useDarkModeStore } from '@/Stores/darkMode.js'
 import { createApp, h } from 'vue'
@@ -13,8 +11,18 @@ const pinia = createPinia()
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
-  resolve: (name) =>
-    resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
+  resolve: async (name) => {
+    const page = await resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue'))
+
+    // Import CSS based on the page name
+    if (name.startsWith('Views')) {
+      await import('../css/views.css')
+    } else {
+      await import('../css/admin.css')
+    }
+
+    return page
+  },
   setup({ el, App, props, plugin }) {
     return createApp({ render: () => h(App, props) })
       .use(plugin)

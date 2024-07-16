@@ -22,17 +22,17 @@ export default [
     label: 'Dashboard'
   },
   {
-    route: 'tables',
-    label: 'Tables',
+    route: 'table',
+    label: 'Table',
     icon: mdiTable
   },
   {
-    route: 'forms',
-    label: 'Forms',
+    route: 'form',
+    label: 'Form',
     icon: mdiSquareEditOutline
   },
   {
-    route: 'ui',
+    to: 'ui',
     label: 'UI',
     icon: mdiTelevisionGuide
   },
@@ -42,8 +42,8 @@ export default [
     icon: mdiResponsive
   },
   {
-    route: 'styles',
-    label: 'Styles',
+    route: 'style',
+    label: 'Style',
     icon: mdiPalette
   },
   {

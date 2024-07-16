@@ -1,11 +1,11 @@
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import { useRouter } from "vue-router";
 import { useDarkModeStore } from "@/Stores/darkMode.js";
 import { gradientBgPurplePink } from "@/colors.js";
 import SectionMain from "@/Components/SectionMain.vue";
 import CardBox from "@/Components/CardBox.vue";
 import LayoutGuest from "@/Layouts/LayoutGuest.vue";
-import { Head } from "@inertiajs/vue3";
 
 const styles = ["white", "basic"];
 
@@ -28,7 +28,7 @@ const handleStyleChange = (slug) => {
 
 <template>
   <LayoutGuest>
-    <Head title="style" />
+    <Head title="Style" />
     <div
       :class="gradientBgPurplePink"
       class="flex min-h-screen items-center justify-center"

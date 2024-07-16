@@ -1,4 +1,5 @@
 <script setup>
+// import { Head } from '@inertiajs/inertia-vue3'
 import { reactive } from "vue";
 import { useMainStore } from "@/Stores/main";
 import {
@@ -19,7 +20,6 @@ import BaseButtons from "@/Components/BaseButtons.vue";
 import UserCard from "@/Components/UserCard.vue";
 import LayoutAuthenticated from "@//Layouts/LayoutAuthenticated.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
-import { Head } from "@inertiajs/vue3";
 
 const mainStore = useMainStore();
 
@@ -45,7 +45,11 @@ const submitPass = () => {
 
 <template>
   <LayoutAuthenticated>
+    <<<<<<< HEAD
     <Head title="profiles" />
+    =======
+    <Head title="Profile" />
+    >>>>>>> f27382d2ff8393638af9f9c074cb9673d2b1caf8
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
         <BaseButton
