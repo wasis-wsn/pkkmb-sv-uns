@@ -1,4 +1,5 @@
 <template>
+  <LayoutHeaderFooter>
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
@@ -102,6 +103,7 @@
       </div>
     </div>
   </div>
+</LayoutHeaderFooter>
 </template>
 
 <script>
@@ -109,6 +111,7 @@ import "aos/dist/aos.css";
 import GaleriSection from "@/Components/galeri-page/GaleriSection.vue";
 import AfterMovieSection from "@/Components/galeri-page/AfterMovieSection.vue";
 import AcaraSection from "@/Components/galeri-page/AcaraSection.vue";
+import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
 
 export default {
   name: "GaleriView",

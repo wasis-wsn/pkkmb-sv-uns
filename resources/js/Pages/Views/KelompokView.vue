@@ -1,4 +1,5 @@
 <template>
+  <LayoutHeaderFooter>
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full"
@@ -70,11 +71,13 @@
       </div>
     </section>
   </div>
+</LayoutHeaderFooter>
 </template>
 
 <script setup>
   import KelompokSectionView from "@/Components/kelompok-page/KelompokSectionView.vue";
   import UploadTugasView from "@/Components/kelompok-page/UploadTugasView.vue";
+  import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
 
   import AOS from "aos";
   import "aos/dist/aos.css";
