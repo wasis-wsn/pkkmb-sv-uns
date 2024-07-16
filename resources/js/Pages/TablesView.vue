@@ -1,21 +1,21 @@
 <script setup>
-import { Head } from '@inertiajs/vue3'
-import { mdiMonitorCellphone, mdiTableBorder, mdiTableOff, mdiGithub } from '@mdi/js'
-import SectionMain from '@/Components/SectionMain.vue'
-import NotificationBar from '@/Components/NotificationBar.vue'
-import TableSampleClients from '@/Components/TableSampleClients.vue'
-import CardBox from '@/Components/CardBox.vue'
-import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue'
-import SectionTitleLineWithButton from '@/Components/SectionTitleLineWithButton.vue'
-import BaseButton from '@/Components/BaseButton.vue'
-import CardBoxComponentEmpty from '@/Components/CardBoxComponentEmpty.vue'
+import { Head } from "@inertiajs/vue3";
+import { mdiMonitorCellphone, mdiTableBorder, mdiTableOff, mdiGithub } from "@mdi/js";
+import SectionMain from "@/Components/SectionMain.vue";
+import NotificationBar from "@/Components/NotificationBar.vue";
+import TableSampleClients from "@/Components/TableSampleClients.vue";
+import CardBox from "@/Components/CardBox.vue";
+import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
+import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
+import BaseButton from "@/Components/BaseButton.vue";
+import CardBoxComponentEmpty from "@/Components/CardBoxComponentEmpty.vue";
 </script>
 
 <template>
   <LayoutAuthenticated>
     <Head title="Table" />
     <SectionMain>
-      <SectionTitleLineWithButton :icon="mdiTableBorder" title="Tables" main>
+      <SectionTitleLineWithButton :icon="mdiTableBorder" title="tables" main>
         <BaseButton
           href="https://github.com/justboil/admin-one-vue-tailwind"
           target="_blank"

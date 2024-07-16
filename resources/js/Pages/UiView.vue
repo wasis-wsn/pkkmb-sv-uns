@@ -1,7 +1,7 @@
 <script setup>
-import { Head } from '@inertiajs/vue3'
-import { ref, computed } from 'vue'
-import { useDarkModeStore } from '@/Stores/darkMode.js'
+import { Head } from "@inertiajs/vue3";
+import { ref, computed } from "vue";
+import { useDarkModeStore } from "@/Stores/darkMode.js";
 import {
   mdiContrastCircle,
   mdiInformation,
@@ -11,55 +11,60 @@ import {
   mdiOpenInNew,
   mdiClose,
   mdiReload,
-  mdiTrendingUp
-} from '@mdi/js'
-import SectionMain from '@/Components/SectionMain.vue'
-import CardBox from '@/Components/CardBox.vue'
-import BaseButtons from '@/Components/BaseButtons.vue'
-import BaseButton from '@/Components/BaseButton.vue'
-import NotificationBar from '@/Components/NotificationBar.vue'
-import BaseDivider from '@/Components/BaseDivider.vue'
-import CardBoxModal from '@/Components/CardBoxModal.vue'
-import SectionTitle from '@/Components/SectionTitle.vue'
-import FormField from '@/Components/FormField.vue'
-import FormCheckRadioGroup from '@/Components/FormCheckRadioGroup.vue'
-import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue'
-import SectionTitleLineWithButton from '@/Components/SectionTitleLineWithButton.vue'
-import CardBoxComponentEmpty from '@/Components/CardBoxComponentEmpty.vue'
-import CardBoxComponentTitle from '@/Components/CardBoxComponentTitle.vue'
-import PillTag from '@/Components/PillTag.vue'
+  mdiTrendingUp,
+} from "@mdi/js";
+import SectionMain from "@/Components/SectionMain.vue";
+import CardBox from "@/Components/CardBox.vue";
+import BaseButtons from "@/Components/BaseButtons.vue";
+import BaseButton from "@/Components/BaseButton.vue";
+import NotificationBar from "@/Components/NotificationBar.vue";
+import BaseDivider from "@/Components/BaseDivider.vue";
+import CardBoxModal from "@/Components/CardBoxModal.vue";
+import SectionTitle from "@/Components/SectionTitle.vue";
+import FormField from "@/Components/FormField.vue";
+import FormCheckRadioGroup from "@/Components/FormCheckRadioGroup.vue";
+import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
+import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
+import CardBoxComponentEmpty from "@/Components/CardBoxComponentEmpty.vue";
+import CardBoxComponentTitle from "@/Components/CardBoxComponentTitle.vue";
+import PillTag from "@/Components/PillTag.vue";
+import { Head } from "@inertiajs/vue3";
 
-const modalOneActive = ref(false)
+const modalOneActive = ref(false);
 
-const modalTwoActive = ref(false)
+const modalTwoActive = ref(false);
 
-const modalThreeActive = ref(false)
+const modalThreeActive = ref(false);
 
-const notificationSettingsModel = ref([])
+const notificationSettingsModel = ref([]);
 
-const notificationsOutline = computed(() => notificationSettingsModel.value.indexOf('outline') > -1)
+const notificationsOutline = computed(
+  () => notificationSettingsModel.value.indexOf("outline") > -1
+);
 
-const buttonSettingsModel = ref([])
+const buttonSettingsModel = ref([]);
 
-const buttonsOutline = computed(() => buttonSettingsModel.value.indexOf('outline') > -1)
+const buttonsOutline = computed(() => buttonSettingsModel.value.indexOf("outline") > -1);
 
-const buttonsSmall = computed(() => buttonSettingsModel.value.indexOf('small') > -1)
+const buttonsSmall = computed(() => buttonSettingsModel.value.indexOf("small") > -1);
 
-const buttonsDisabled = computed(() => buttonSettingsModel.value.indexOf('disabled') > -1)
+const buttonsDisabled = computed(
+  () => buttonSettingsModel.value.indexOf("disabled") > -1
+);
 
-const buttonsRounded = computed(() => buttonSettingsModel.value.indexOf('rounded') > -1)
+const buttonsRounded = computed(() => buttonSettingsModel.value.indexOf("rounded") > -1);
 
-const pillsSettingsModel = ref(['icon'])
+const pillsSettingsModel = ref(["icon"]);
 
-const pillsOutline = computed(() => pillsSettingsModel.value.indexOf('outline') > -1)
+const pillsOutline = computed(() => pillsSettingsModel.value.indexOf("outline") > -1);
 
-const pillsSmall = computed(() => pillsSettingsModel.value.indexOf('small') > -1)
+const pillsSmall = computed(() => pillsSettingsModel.value.indexOf("small") > -1);
 
 const pillsIcon = computed(() =>
-  pillsSettingsModel.value.indexOf('icon') > -1 ? mdiTrendingUp : null
-)
+  pillsSettingsModel.value.indexOf("icon") > -1 ? mdiTrendingUp : null
+);
 
-const darkModeStore = useDarkModeStore()
+const darkModeStore = useDarkModeStore();
 </script>
 
 <template>
@@ -168,7 +173,11 @@ const darkModeStore = useDarkModeStore()
     </SectionTitle>
 
     <SectionMain>
-      <NotificationBar color="info" :icon="mdiInformation" :outline="notificationsOutline">
+      <NotificationBar
+        color="info"
+        :icon="mdiInformation"
+        :outline="notificationsOutline"
+      >
         <b>Info state</b>. NotificationBar
         <template #right>
           <BaseButton
@@ -181,7 +190,11 @@ const darkModeStore = useDarkModeStore()
         </template>
       </NotificationBar>
 
-      <NotificationBar color="success" :icon="mdiCheckCircle" :outline="notificationsOutline">
+      <NotificationBar
+        color="success"
+        :icon="mdiCheckCircle"
+        :outline="notificationsOutline"
+      >
         <b>Success state</b>. NotificationBar
         <template #right>
           <BaseButton
@@ -207,7 +220,11 @@ const darkModeStore = useDarkModeStore()
         </template>
       </NotificationBar>
 
-      <NotificationBar color="danger" :icon="mdiAlertCircle" :outline="notificationsOutline">
+      <NotificationBar
+        color="danger"
+        :icon="mdiAlertCircle"
+        :outline="notificationsOutline"
+      >
         <b>Danger state</b>. NotificationBar
         <template #right>
           <BaseButton
@@ -220,7 +237,11 @@ const darkModeStore = useDarkModeStore()
         </template>
       </NotificationBar>
 
-      <NotificationBar color="contrast" :icon="mdiContrastCircle" :outline="notificationsOutline">
+      <NotificationBar
+        color="contrast"
+        :icon="mdiContrastCircle"
+        :outline="notificationsOutline"
+      >
         <b>Contrast</b>. NotificationBar
       </NotificationBar>
     </SectionMain>
@@ -238,7 +259,7 @@ const darkModeStore = useDarkModeStore()
               outline: 'Outline',
               small: 'Small',
               rounded: 'Rounded',
-              disabled: 'Disabled'
+              disabled: 'Disabled',
             }"
           />
         </FormField>

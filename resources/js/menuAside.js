@@ -10,7 +10,9 @@ import {
   mdiTelevisionGuide,
   mdiResponsive,
   mdiPalette,
-  mdiReact
+  mdiReact,
+  mdiHandshakeOutline,
+  mdiBrain 
 } from '@mdi/js'
 
 export default [
@@ -59,6 +61,16 @@ export default [
     label: 'Error',
     icon: mdiAlertCircle
   },
+  {
+    route: 'sponsor',
+    label: 'Sponsor',
+    icon: mdiHandshakeOutline 
+  }, 
+  {
+    route: 'hima',
+    label: 'Hima',
+    icon: mdiBrain 
+  }, 
   {
     label: 'Dropdown',
     icon: mdiViewList,
