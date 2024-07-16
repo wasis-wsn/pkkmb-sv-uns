@@ -52,13 +52,12 @@
         >
           <router-link
             to="/kelompok"
-            class="button-biru justify-center px-10 py-5 text-sm text-white rounded-xl max-md:px-5"
+            class="button-biru justify-center px-6 py-4 text-sm text-white rounded-[100px] max-md:px-5"
           >
             Cari Kelompok
           </router-link>
           <router-link
             to="/materi"
-            href=""
             class="button-putih flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light"
           >
             <ClipboardIcon loading="lazy" alt="" class="size-6" />
@@ -227,7 +226,7 @@
             <div class="flex flex-col w-[65%] max-md:w-full">
               <img
                 loading="lazy"
-                src="@/assets/day 2.png"
+                src="/../../../assets/day 2.png"
                 alt="Day 2 illustration"
                 class="grow w-full max-md:mt-10 max-md:max-w-full"
               />
@@ -309,9 +308,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
-import VidioSection from "@/Components-landing/landing-page/VidioSection.vue";
-import SponsorSection from "@/Components-landing/landing-page/SponsorSection.vue";
-import HimaSection from "@/Components-landing/landing-page/HimaSection.vue";
+import VidioSection from "../../Components-landing/landing-page/VidioSection.vue";
+import SponsorSection from "../../Components-landing/landing-page/SponsorSection.vue";
+import HimaSection from "../../Components-landing/landing-page/HimaSection.vue";
 import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
 
 export default {
@@ -322,76 +321,6 @@ export default {
     VidioSection,
     SponsorSection,
     HimaSection,
-  },
-  data() {
-    return {
-      sponsor: [
-        { imgSrc: require("@/assets/telkom.png"), alt: "Telkom" },
-        { imgSrc: require("@/assets/bca.png"), alt: "BCA" },
-        { imgSrc: require("@/assets/mandiri.png"), alt: "Mandiri" },
-        { imgSrc: require("@/assets/bri.png"), alt: "BRI" },
-      ],
-      slides: [
-        {
-          imgSrc: require("@/assets/logo_hima/hima_sv.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himakesja.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himama.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/emailkom.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himapsdku.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himafarma.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/hmps.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himavida.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/HMB.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himaagrib.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himapertanian.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himamanajemen.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/formadasi.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/fondasi.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himaakuntansi.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/chinese.png"),
-        },
-        {
-          imgSrc: require("@/assets/logo_hima/himaupw.png"),
-        },
-      ],
-      comingSoon: [
-        {
-          title: "Askara Muda 2024!",
-          deskripsi: "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia",
-          videoSrc: "https://www.youtube.com/embed/ySsWXVGp7_o?si=X1SEIQDeQYOS4lZN",
-        },
-      ],
-    };
   },
   mounted() {
     document.title = "PKKMB SV UNS";
@@ -544,5 +473,5 @@ export default {
   height: 100%;
 }
 
-@import "../css/pages/_button.css";
+/*@import "../css/pages/_button.css";*/
 </style>

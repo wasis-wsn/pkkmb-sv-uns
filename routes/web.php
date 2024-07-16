@@ -14,37 +14,15 @@ Route::get('/', function () {
     ]);
 });
 
-//Dashboard Admin
+// Dashboard Admin
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('DashboardView');
 })->name('dashboard');
-Route::middleware(['auth:sanctum', 'verified'])->get('/form', function () {
-    return Inertia::render('FormsView');
-})->name('forms');
-Route::middleware(['auth:sanctum', 'verified'])->get('/table', function () {
-    return Inertia::render('TablesView');
-})->name('tables');
-Route::middleware(['auth:sanctum', 'verified'])->get('/login', function () {
-    return Inertia::render('LoginView');
-})->name('login');
-Route::middleware(['auth:sanctum', 'verified'])->get('/profiles', function () {
-    return Inertia::render('ProfileView');
-})->name('profiles');
-Route::middleware(['auth:sanctum', 'verified'])->get('/responsive', function () {
-    return Inertia::render('ResponsiveView');
-})->name('responsive');
-Route::middleware(['auth:sanctum', 'verified'])->get('/style', function () {
-    return Inertia::render('StyleView');
-})->name('styles');
-Route::middleware(['auth:sanctum', 'verified'])->get('/ui', function () {
-    return Inertia::render('UiView');
-})->name('ui');
-Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
-    return Inertia::render('ErrorView');
-})->name('error');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/sponsor', function () {
     return Inertia::render('SponsorView');
 })->name('sponsor');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/hima', function () {
     return Inertia::render('HimaView');
 })->name('hima');
@@ -83,10 +61,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Landing Page
+// Landing Page
 Route::get('/', function () {
     return Inertia::render('Views/LandingView');
-})->name('materi');
+})->name('landing');
 
 Route::get('/materi', function () {
     return Inertia::render('Views/MateriView');
