@@ -1,4 +1,5 @@
 <script setup>
+import { Head } from '@inertiajs/vue3'
 import { useRouter } from 'vue-router'
 import { useDarkModeStore } from '@/Stores/darkMode.js'
 import { gradientBgPurplePink } from '@/colors.js'
@@ -27,6 +28,7 @@ const handleStyleChange = (slug) => {
 
 <template>
   <LayoutGuest>
+    <Head title="Style" />
     <div :class="gradientBgPurplePink" class="flex min-h-screen items-center justify-center">
       <SectionMain>
         <h1 class="text-4xl md:text-5xl text-center text-white font-bold mt-12 mb-3 lg:mt-0">

@@ -1,4 +1,5 @@
 <script setup>
+import { Head } from '@inertiajs/vue3'
 import SectionTitle from '@/Components/SectionTitle.vue'
 import SectionMain from '@/Components/SectionMain.vue'
 import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue'
@@ -6,6 +7,7 @@ import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue'
 
 <template>
   <LayoutAuthenticated>
+    <Head title="Responsive" />
     <SectionTitle first>Mobile & Tablet</SectionTitle>
 
     <SectionMain>

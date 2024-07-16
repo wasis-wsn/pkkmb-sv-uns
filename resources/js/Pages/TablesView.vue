@@ -1,4 +1,5 @@
 <script setup>
+import { Head } from '@inertiajs/vue3'
 import { mdiMonitorCellphone, mdiTableBorder, mdiTableOff, mdiGithub } from '@mdi/js'
 import SectionMain from '@/Components/SectionMain.vue'
 import NotificationBar from '@/Components/NotificationBar.vue'
@@ -12,6 +13,7 @@ import CardBoxComponentEmpty from '@/Components/CardBoxComponentEmpty.vue'
 
 <template>
   <LayoutAuthenticated>
+    <Head title="Table" />
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiTableBorder" title="Tables" main>
         <BaseButton

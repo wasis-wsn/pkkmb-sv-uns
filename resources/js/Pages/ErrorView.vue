@@ -1,4 +1,5 @@
 <script setup>
+import { Head } from '@inertiajs/vue3'
 import SectionFullScreen from '@/Components/SectionFullScreen.vue'
 import CardBox from '@/Components/CardBox.vue'
 import BaseButton from '@/Components/BaseButton.vue'
@@ -8,6 +9,7 @@ import LayoutGuest from '@/Layouts/LayoutGuest.vue'
 
 <template>
   <LayoutGuest>
+    <Head title="error" />
     <SectionFullScreen v-slot="{ cardClass }" bg="pinkRed">
       <CardBox :class="cardClass">
         <div class="space-y-3">
@@ -18,7 +20,7 @@ import LayoutGuest from '@/Layouts/LayoutGuest.vue'
 
         <template #footer>
           <BaseButtons>
-            <BaseButton label="Done" to="/dashboard" color="danger" />
+            <BaseButton label="Done" href="/dashboard" color="danger" />
           </BaseButtons>
         </template>
       </CardBox>

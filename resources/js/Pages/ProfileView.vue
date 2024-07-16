@@ -1,4 +1,5 @@
 <script setup>
+// import { Head } from '@inertiajs/inertia-vue3'
 import { reactive } from 'vue'
 import { useMainStore } from '@/Stores/main'
 import { mdiAccount, mdiMail, mdiAsterisk, mdiFormTextboxPassword, mdiGithub } from '@mdi/js'
@@ -38,6 +39,7 @@ const submitPass = () => {
 
 <template>
   <LayoutAuthenticated>
+    <Head title="Profile" />
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
         <BaseButton
