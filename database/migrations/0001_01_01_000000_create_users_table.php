@@ -39,6 +39,74 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        
+        // Pesan Table
+        Schema::create('pesan', function (Blueprint $table) {
+            $table->id();
+            $table->enum('type', ['text', 'file', 'image']);
+            $table->text('message');
+            $table->enum('sender', ['admin', 'customer']);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->boolean('is_seen')->default(0);
+            $table->timestamps();
+        });
+        
+        // Galeri Table
+        Schema::create('galeri', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('photo_galeri');
+            $table->timestamps();
+        });
+        
+        // Hima Table
+        Schema::create('hima', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('nama_hima');
+            $table->string('logo_hima');
+            $table->timestamps();
+        });
+        
+        // Sponsor Table
+        Schema::create('sponsor', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('nama_sponsor');
+            $table->string('logo_sponsor');
+            $table->timestamps();
+        });
+        
+        // Dokumentasi Table
+        Schema::create('dokumentasi', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('photo_dokum');
+            $table->string('judul_dokum');
+            $table->string('acara_dokum');
+            $table->text('deskripsi_dokum');
+            $table->timestamps();
+        });
+        
+        // Youtube Table
+        Schema::create('youtube', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('nama_youtube');
+            $table->string('link_youtube');
+            $table->timestamps();
+        });
+        
+        // Materi Table
+        Schema::create('materi', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('judul_materi');
+            $table->text('deskripsi_materi');
+            $table->text('isi_materi');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -49,5 +117,12 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('pesan');
+        Schema::dropIfExists('galeri');
+        Schema::dropIfExists('hima');
+        Schema::dropIfExists('sponsor');
+        Schema::dropIfExists('dokumentasi');
+        Schema::dropIfExists('youtube');
+        Schema::dropIfExists('materi');
     }
 };
