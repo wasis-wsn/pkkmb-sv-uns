@@ -18,6 +18,7 @@ import {
     mdiYoutube,
     mdiClipboardText,
     mdiForum,
+    mdiAccountDetails ,
 } from "@mdi/js";
 
 export default [
@@ -25,6 +26,11 @@ export default [
         route: "dashboard",
         icon: mdiMonitor,
         label: "Dashboard",
+    },
+    {
+        route: "user",
+        icon: mdiAccountDetails,
+        label: "User",
     },
     {
         route: "galeris",

@@ -98,6 +98,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/chat', function () {
         return Inertia::render('ChatView');
     })->name('chat');
+
+    //user
+    Route::get('/dashboard/user', function () {
+        return Inertia::render('UserView');
+    })->name('user');
 });
 
 //** Profile Admin */
