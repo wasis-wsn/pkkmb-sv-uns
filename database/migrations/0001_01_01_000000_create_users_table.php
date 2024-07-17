@@ -107,6 +107,32 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        // Prodi Table
+        Schema::create('prodi', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_prodi');
+            $table->timestamps();
+        });
+
+        // Kelompok Table
+        Schema::create('kelompok', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_kelompok');
+            $table->timestamps();
+        });
+
+        // Mahasiswa Table
+        Schema::create('mahasiswa', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_mahasiswa');
+            $table->string('no_telp');
+            $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
+            $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
+            $table->string('nama_skill');
+            $table->text('deskripsi_skill');
+            $table->string('photo_piagam');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -124,5 +150,8 @@ return new class extends Migration
         Schema::dropIfExists('dokumentasi');
         Schema::dropIfExists('youtube');
         Schema::dropIfExists('materi');
+        Schema::dropIfExists('mahasiswa');
+        Schema::dropIfExists('kelompok');
+        Schema::dropIfExists('prodi');
     }
 };
