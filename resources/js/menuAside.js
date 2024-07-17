@@ -15,6 +15,9 @@ import {
     mdiBrain,
     mdiAccountGroup,
     mdiAccount,
+    mdiYoutube,
+    mdiClipboardText,
+    mdiForum,
 } from "@mdi/js";
 
 export default [
@@ -31,11 +34,6 @@ export default [
     {
         route: "form",
         label: "Form",
-        icon: mdiSquareEditOutline,
-    },
-    {
-        route: "galeris",
-        label: "Galeri",
         icon: mdiSquareEditOutline,
     },
     {
@@ -92,6 +90,21 @@ export default [
         route: "mahasiswa",
         label: "Mahasiswa",
         icon: mdiAccount,
+    },
+    {
+        route: "materis",
+        label: "Materi",
+        icon: mdiClipboardText,
+    },
+    {
+        route: "chat",
+        label: "Chat",
+        icon: mdiForum,
+    },
+    {
+        route: "youtube",
+        label: "YouTube",
+        icon: mdiYoutube,
     },
     {
         label: "Dropdown",
