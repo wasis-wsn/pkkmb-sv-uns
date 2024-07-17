@@ -37,6 +37,11 @@ export default [
         icon: mdiSquareEditOutline,
     },
     {
+        route: "galeris",
+        label: "Galeri",
+        icon: mdiSquareEditOutline,
+    },
+    {
         to: "ui",
         label: "UI",
         icon: mdiTelevisionGuide,
