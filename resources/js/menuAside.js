@@ -1,16 +1,9 @@
 import {
     mdiAccountCircle,
     mdiMonitor,
-    mdiGithub,
-    mdiLock,
     mdiAlertCircle,
     mdiSquareEditOutline,
-    mdiTable,
     mdiViewList,
-    mdiTelevisionGuide,
-    mdiResponsive,
-    mdiPalette,
-    mdiReact,
     mdiHandshakeOutline,
     mdiBrain,
     mdiAccountGroup,
@@ -18,6 +11,7 @@ import {
     mdiYoutube,
     mdiClipboardText,
     mdiForum,
+    mdiAccountDetails,
 } from "@mdi/js";
 
 export default [
@@ -25,6 +19,11 @@ export default [
         route: "dashboard",
         icon: mdiMonitor,
         label: "Dashboard",
+    },
+    {
+        route: "user",
+        icon: mdiAccountDetails,
+        label: "User",
     },
     {
         route: "galerise",
@@ -47,7 +46,7 @@ export default [
         icon: mdiBrain,
     },
     {
-        route: "kelompok",
+        route: "kelompoks",
         label: "Kelompok",
         icon: mdiAccountGroup,
     },

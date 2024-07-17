@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Galeri extends Model
+class Youtube extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,8 @@ class Galeri extends Model
 
     protected $fillable = [
         'user_id',
-        'judul',
-        'deskripsi',
-        'jenis',
-        'photo_galeri',
+        'nama_youtube',
+        'link_youtube',
     ];
 
     public function user()

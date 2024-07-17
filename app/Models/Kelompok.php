@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Galeri extends Model
+class Kelompok extends Model
 {
     use HasFactory;
 
@@ -13,15 +13,6 @@ class Galeri extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'user_id',
-        'judul',
-        'deskripsi',
-        'jenis',
-        'photo_galeri',
+        'nama_kelompok',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

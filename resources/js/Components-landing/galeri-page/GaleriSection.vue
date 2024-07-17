@@ -22,37 +22,20 @@
             </header>
 
             <!-- Galeri Start -->
-            <div class="container px-4 lg:px-8 md:px-6 sm:px-6 mx-auto">
-                <div class="galeri-1" data-aos="fade-up">
+            <div class="container lg:px-8 md:px-6 sm:px-6 mx-auto">
+                <div class="galeri" data-aos="fade-up">
                     <div
-                        class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9 rounded-lg"
+                        class="grid grid-rows-2 min-[320px]:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-lg"
                     >
                         <div
-                            v-for="(image, index) in galeri1"
-                            :key="'galeri1-' + index"
-                            :class="image.class"
+                            v-for="(image, index) in galeri"
+                            :key="'galeri-' + index"
+                            :class="getGridClass(index)"
                         >
                             <img
-                                :src="image.src"
+                                :src="image"
                                 :alt="'Image ' + (index + 1)"
-                                class="w-full h-auto rounded-3xl shadow-lg"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div class="galeri-2 mt-5" data-aos="fade-up">
-                    <div
-                        class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9"
-                    >
-                        <div
-                            v-for="(image, index) in galeri2"
-                            :key="'galeri2-' + index"
-                            :class="image.class"
-                        >
-                            <img
-                                :src="image.src"
-                                :alt="'Image ' + (index + 1)"
-                                class="w-full h-auto rounded-3xl shadow-lg"
+                                class="image rounded-3xl shadow-lg"
                             />
                         </div>
                     </div>
@@ -64,9 +47,9 @@
                     <button
                         class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5"
                     >
-                        <a href="https://bit.ly/FotoAskara2022" target="_blank">
-                            DOWNLOAD DISINI!
-                        </a>
+                        <a href="https://bit.ly/FotoAskara2022" target="_blank"
+                            >DOWNLOAD DISINI!</a
+                        >
                     </button>
                 </div>
             </div>
@@ -81,59 +64,37 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "@css/pages/_button.css";
 
-const galeri1 = ref([
-    {
-        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-        class: "row-span-2 sm:row-span-2 lg:row-span-3",
-    },
-    {
-        src: new URL("@assets/galeri/p-2.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-    {
-        src: new URL("@assets/galeri/p-3.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-    {
-        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-        class: "row-span-2 sm:row-span-2 lg:row-span-3",
-    },
-    {
-        src: new URL("@assets/galeri/p-4.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-    {
-        src: new URL("@assets/galeri/p-5.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-]);
+// URL gambar
+const imageUrls = [
+    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
+    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
+];
 
-const galeri2 = ref([
-    {
-        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-        class: "row-span-2 sm:row-span-2 lg:row-span-3",
-    },
-    {
-        src: new URL("@assets/galeri/p-2.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-    {
-        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-        class: "row-span-2 sm:row-span-2 lg:row-span-3 col-end",
-    },
-    {
-        src: new URL("@assets/galeri/p-3.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-    {
-        src: new URL("@assets/galeri/p-4.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-    {
-        src: new URL("@assets/galeri/p-5.png", import.meta.url).href,
-        class: "col-span-1",
-    },
-]);
+// Ref untuk galeri
+const galeri = ref(imageUrls);
+
+// Fungsi untuk mendapatkan kelas grid berdasarkan indeks gambar
+const getGridClass = (index) => {
+    if (index === 0 || index === 2 || index === 6 || index === 8) {
+        return "row-span-2";
+    } else {
+        return "row-1";
+    }
+};
 
 onMounted(() => {
     document.title = "PKKMB SV UNS - GALERI";
@@ -142,5 +103,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Add any necessary styling here */
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Menyesuaikan gambar tanpa mempertahankan rasio aspek */
+    border-radius: 12px; /* Optional: Tambahkan sudut melengkung untuk gambar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Tambahkan bayangan */
+}
 </style>

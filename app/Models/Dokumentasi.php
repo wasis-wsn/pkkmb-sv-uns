@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Galeri extends Model
+class Dokumentasi extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'Dokumentasi';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'user_id',
-        'judul',
-        'deskripsi',
-        'jenis',
-        'photo_galeri',
+        'photo_dokum',
+        'judul_dokum',
+        'acara_dokum',
+        'deskripsi_dokum',
     ];
 
     public function user()

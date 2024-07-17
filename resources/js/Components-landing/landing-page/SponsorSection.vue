@@ -14,10 +14,10 @@
 <script>
 import AOS from "aos";
 import "aos/dist/aos.css";
-import telkom from "../../../assets/telkom.png";
-import bca from "../../../assets/bca.png";
-import mandiri from "../../../assets/mandiri.png";
-import bri from "../../../assets/bri.png";
+import telkom from "@assets/telkom.png";
+import bca from "@assets/bca.png";
+import mandiri from "@assets/mandiri.png";
+import bri from "@assets/bri.png";
 
 export default {
   name: "SponsorSection",

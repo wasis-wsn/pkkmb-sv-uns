@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Galeri extends Model
+class Materi extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,9 @@ class Galeri extends Model
 
     protected $fillable = [
         'user_id',
-        'judul',
-        'deskripsi',
-        'jenis',
-        'photo_galeri',
+        'judul_materi',
+        'deskripsi_materi',
+        'isi_materi',
     ];
 
     public function user()

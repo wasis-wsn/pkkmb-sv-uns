@@ -1,6 +1,7 @@
 <script setup>
-import TableSampleClients from "@/Components/TableSampleClients.vue";
 import CardBox from "@/Components/CardBox.vue";
+import TableCheckboxCell from "../TableCheckboxCell.vue";
+import UserAvatar from "../UserAvatar.vue";
 </script>
 
 <template>

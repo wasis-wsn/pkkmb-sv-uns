@@ -11,7 +11,6 @@ import FormControl from "@/Components/FormControl.vue";
 import NavBar from "@/Components/NavBar.vue";
 import NavBarItemPlain from "@/Components/NavBarItemPlain.vue";
 import AsideMenu from "@/Components/AsideMenu.vue";
-import FooterBar from "@/Components/FooterBar.vue";
 
 router.on("navigate", () => {
   isAsideMobileExpanded.value = false;
