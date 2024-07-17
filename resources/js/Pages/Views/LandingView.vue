@@ -72,7 +72,7 @@
     >
       <img
         loading="lazy"
-        src="../../../assets/logo_besar.png"
+        src="@assets/logo_besar.png"
         alt=""
         class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]"
       />
@@ -211,7 +211,7 @@
             <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
-                src="../../../assets/day 1.png"
+                src="@assets/day 1.png"
                 alt="Day 1 illustration"
                 class="grow w-full aspect-[1.49] max-md:mt-10 max-md:max-w-full"
               />
@@ -226,7 +226,7 @@
             <div class="flex flex-col w-[65%] max-md:w-full">
               <img
                 loading="lazy"
-                src="../../../assets/day 2.png"
+                src="@assets/day 2.png"
                 alt="Day 2 illustration"
                 class="grow w-full max-md:mt-10 max-md:max-w-full"
               />
@@ -273,7 +273,7 @@
             <div class="flex flex-col ml-5 w-[57%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
-                src="../../../assets/day 3.png"
+                src="@assets/day 3.png"
                 alt="Day 3 illustration"
                 class="grow w-full max-md:mt-10 max-md:max-w-full"
               />
@@ -309,10 +309,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
-import VidioSection from "../../Components-landing/landing-page/VidioSection.vue";
-import SponsorSection from "../../Components-landing/landing-page/SponsorSection.vue";
-import HimaSection from "../../Components-landing/landing-page/HimaSection.vue";
-import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
+import VidioSection from "@/Components-landing/landing-page/VidioSection.vue";
+import SponsorSection from "@/Components-landing/landing-page/SponsorSection.vue";
+import HimaSection from "@/Components-landing/landing-page/HimaSection.vue";
+import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
 
 // Register components
 const components = {

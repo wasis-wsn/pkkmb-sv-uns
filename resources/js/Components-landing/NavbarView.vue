@@ -8,14 +8,14 @@
       </div>
     </div>
     <nav class="hidden md:flex gap-5 items-center text-sm font-medium capitalize whitespace-nowrap text-neutral-900 flex flex-grow">
-      <router-link to="/" class="nav-link ml-auto" @click="openMenu">BERANDA</router-link>
-      <router-link to="/materi" class="nav-link" @click="openMenu">MATERI</router-link>
-      <router-link to="/kelompok" class="nav-link" @click="openMenu">KELOMPOK</router-link>
-      <router-link to="/galeri" class="nav-link" @click="openMenu">GALERI</router-link>
-      <router-link to="/tentang" class="nav-link" @click="openMenu">TENTANG</router-link>
-      <router-link to="/login" class="button-biru justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
+      <Link href="/" class="nav-link ml-auto cursor-pointer" @click="openMenu">BERANDA</Link>
+      <Link href="/materi" class="nav-link cursor-pointer" @click="openMenu">MATERI</Link>
+      <Link href="/kelompok" class="nav-link cursor-pointer" @click="openMenu">KELOMPOK</Link>
+      <Link href="/galeri" class="nav-link cursor-pointer" @click="openMenu">GALERI</Link>
+      <Link href="/tentang" class="nav-link cursor-pointer" @click="openMenu">TENTANG</Link>
+      <Link href="/login" class="cursor-pointer button-biru justify-center px-5 py-2.5 md:px-10 md:py-5 rounded-xl text-white hover:shadow-md transition-shadow ml-auto">
         Login
-      </router-link>
+      </Link>
       <div class="relative ml-3">
         <button @click="toggleProfileDropdown" @mousedown="isClicked = true" @mouseup="isClicked = false" @mouseleave="isClicked = false" :class="['flex items-center p-2 rounded-full shadow-inner transition-all', { 'bg-gray-200': isClicked, 'hover:bg-gray-100': !isClicked }]" >
           <div class="relative">
@@ -48,6 +48,7 @@ import { ref } from 'vue';
 import { Bars3BottomRightIcon, XMarkIcon, UserCircleIcon } from '@heroicons/vue/24/solid';
 import ProfileView from './ProfileView.vue';
 import SidebarView from './SidebarView.vue';
+import { Link } from '@inertiajs/vue3';
 
 export default {
   name: 'NavbarView',
@@ -56,7 +57,8 @@ export default {
     XMarkIcon,
     UserCircleIcon,
     ProfileView,
-    SidebarView
+    SidebarView,
+    Link
   },
   setup() {
     const isDropdownOpen = ref(false);
@@ -124,5 +126,4 @@ export default {
 .router-link-exact-active.nav-link::after {
   width: 100%;
 }
-@import '../css/pages/_button.css';
 </style>

@@ -12,6 +12,10 @@ module.exports = {
   ],
   darkMode: "class", // or 'media' or 'class'
   theme: {
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'primary': '#2C2D5B',
+     }),
     asideScrollbars: {
       light: "light",
       gray: "gray",

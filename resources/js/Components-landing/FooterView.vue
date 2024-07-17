@@ -35,11 +35,11 @@
                   class="flex flex-col mt-1.5 text-sm font-medium text-white whitespace-nowrap"
                 >
                   <div class="text-lg font-bold capitalize">Menu</div>
-                  <router-link to="/" class="mt-6" @click="openMenu">Beranda</router-link>
-                  <router-link to="/materi" class="mt-2.5 capitalize" @click="openMenu">Materi</router-link>
-                  <router-link to="/kelompok" class="mt-2.5" @click="openMenu">Kelompok</router-link>
-                  <router-link to="/galeri" class="mt-2.5" @click="openMenu">Galeri</router-link>
-                  <router-link to="/tentang" class="mt-2.5" @click="openMenu">Tentang</router-link>
+                  <Link href="/" class="mt-6 cursor-pointer" @click="openMenu">Beranda</Link>
+                  <Link href="/materi" class="mt-2.5 capitalize cursor-pointer" @click="openMenu">Materi</Link>
+                  <Link href="/kelompok" class="mt-2.5 cursor-pointer" @click="openMenu">Kelompok</Link>
+                  <Link href="/galeri" class="mt-2.5 cursor-pointer" @click="openMenu">Galeri</Link>
+                  <Link href="/tentang" class="mt-2.5 cursor-pointer" @click="openMenu">Tentang</Link>
                 </div>
                 <div
                   class="flex flex-col mt-1.5 text-sm font-medium text-white"
@@ -117,9 +117,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { RiTiktokLine, RiInstagramLine, RiTwitterXFill, RiYoutubeFill } from "@remixicon/vue";
+import { Link } from '@inertiajs/vue3';
 
 // Props
 const props = defineProps({

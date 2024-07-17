@@ -22,13 +22,13 @@
 </template>
 
 <script>
-import NavbarView from "../Components-landing/NavbarView.vue";
-import FooterView from "../Components-landing/FooterView.vue";
+import NavbarView from "@/Components-landing/NavbarView.vue";
+import FooterView from "@/Components-landing/FooterView.vue";
 import {
   ChevronDoubleUpIcon,
   ChatBubbleLeftRightIcon,
 } from "@heroicons/vue/24/solid";
-import ChatView from "../Components-landing/ChatView.vue";
+import ChatView from "@/Components-landing/ChatView.vue";
 
 export default {
   components: {

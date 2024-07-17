@@ -71,49 +71,48 @@
   </section>
 </template>
 
-<script>
-import "../../css/pages/_button.css";
-
+<script setup>
+import { ref, onMounted } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "@css/pages/_button.css";
 
-export default {
-  name: "GaleriView",
-  data() {
-    return {
-      galeri1: [
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3",
-        },
-        { src: require("@/assets/galeri/p-2.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-3.png"), class: "col-span-1" },
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3",
-        },
-        { src: require("@/assets/galeri/p-4.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-5.png"), class: "col-span-1" },
-      ],
-      galeri2: [
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3",
-        },
-        { src: require("@/assets/galeri/p-2.png"), class: "col-span-1" },
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3 col-end",
-        },
-        { src: require("@/assets/galeri/p-3.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-4.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-5.png"), class: "col-span-1" },
-      ],
-    };
+const galeri1 = ref([
+  {
+    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+    class: "row-span-2 sm:row-span-2 lg:row-span-3",
   },
-  mounted() {
-    document.title = "PKKMB SV UNS - GALERI";
-    AOS.init();
+  { src: new URL("@assets/galeri/p-2.png", import.meta.url).href, class: "col-span-1" },
+  { src: new URL("@assets/galeri/p-3.png", import.meta.url).href, class: "col-span-1" },
+  {
+    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+    class: "row-span-2 sm:row-span-2 lg:row-span-3",
   },
-};
+  { src: new URL("@assets/galeri/p-4.png", import.meta.url).href, class: "col-span-1" },
+  { src: new URL("@assets/galeri/p-5.png", import.meta.url).href, class: "col-span-1" },
+]);
+
+const galeri2 = ref([
+  {
+    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+    class: "row-span-2 sm:row-span-2 lg:row-span-3",
+  },
+  { src: new URL("@assets/galeri/p-2.png", import.meta.url).href, class: "col-span-1" },
+  {
+    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+    class: "row-span-2 sm:row-span-2 lg:row-span-3 col-end",
+  },
+  { src: new URL("@assets/galeri/p-3.png", import.meta.url).href, class: "col-span-1" },
+  { src: new URL("@assets/galeri/p-4.png", import.meta.url).href, class: "col-span-1" },
+  { src: new URL("@assets/galeri/p-5.png", import.meta.url).href, class: "col-span-1" },
+]);
+
+onMounted(() => {
+  document.title = "PKKMB SV UNS - GALERI";
+  AOS.init();
+});
 </script>
+
+<style scoped>
+/* Add any necessary styling here */
+</style>

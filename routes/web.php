@@ -59,6 +59,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
 // Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function(){
 //     return Inertia::render('KelompokView');
 // })->name('kelompok');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', [MahasiswaController::class, 'index'], function(){
     return Inertia::render('KelompokView');
 })->name('kelompok');

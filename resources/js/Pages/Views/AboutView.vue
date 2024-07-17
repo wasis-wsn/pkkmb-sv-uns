@@ -36,7 +36,7 @@
       </div>
     </section>
     <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-up">
-      <img loading="lazy" src="@/assets/logo_besar.png" alt=""
+      <img loading="lazy" src="@assets/logo_besar.png" alt=""
         class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
     </section>
   </header>
@@ -75,7 +75,7 @@
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
             <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-up">
-              <img src="@/assets/galeri/p-2.png" alt="Perkenalan Icon"
+              <img src="@assets/galeri/p-2.png" alt="Perkenalan Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
           </div>
@@ -99,7 +99,7 @@
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
             <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-up">
-              <img src="@/assets/galeri/p-4.png" alt="Pengamalan Icon"
+              <img src="@assets/galeri/p-4.png" alt="Pengamalan Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
           </div>
@@ -123,7 +123,7 @@
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
             <div class="icon-wrapper relative mx-auto" data-aos="fade-up">
-              <img src="@/assets/galeri/acara.png" alt="Pemimpin Icon"
+              <img src="@assets/galeri/acara.png" alt="Pemimpin Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
           </div>
@@ -147,7 +147,7 @@
           <div class="timeline-circle bg-red-400 h-8 w-8 rounded-full"></div>
           <div class="icon w-full sm:w-1/2">
             <div class="icon-wrapper relative w-1/2 mx-auto" data-aos="fade-up">
-              <img src="@/assets/galeri/p-3.png" alt="Kompeten Icon"
+              <img src="@assets/galeri/p-3.png" alt="Kompeten Icon"
                 class="rounded-full border-4 border-white shadow-lg" />
             </div>
           </div>
@@ -174,35 +174,35 @@
     <div class="flex flex-wrap justify-center items-center text-center mx-auto">
       <div
         class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@/assets/dev(ardya)/chamber.png" alt="Wasis Wicaksono"
+        <img src="@assets/dev(ardya)/chamber.png" alt="Wasis Wicaksono"
           class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Wasis</div>
       </div>
       <div
         class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@/assets/dev(ardya)/raze.png" alt="Ardya Pusaka" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
+        <img src="@assets/dev(ardya)/raze.png" alt="Ardya Pusaka" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Ardya</div>
       </div>
       <div
         class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@/assets/dev(ardya)/sova.png" alt="Muhammad Raihan"
+        <img src="@assets/dev(ardya)/sova.png" alt="Muhammad Raihan"
           class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Raihan</div>
       </div>
       <div
         class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@/assets/dev(ardya)/reyna.png" alt="Michael Jamie" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
+        <img src="@assets/dev(ardya)/reyna.png" alt="Michael Jamie" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Michael</div>
       </div>
       <div
         class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@/assets/dev(ardya)/chyper.png" alt="Muhamad Prayoga"
+        <img src="@assets/dev(ardya)/chyper.png" alt="Muhamad Prayoga"
           class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Yoga</div>
       </div>
       <div
         class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@/assets/dev(ardya)/Sage.png" alt="Ariel Wage" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
+        <img src="@assets/dev(ardya)/Sage.png" alt="Ariel Wage" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Ariel</div>
       </div>
     </div>
@@ -210,18 +210,18 @@
 </LayoutHeaderFooter>
 </template>
 
-<script>
+<script setup>
   import AOS from "aos";
   import "aos/dist/aos.css";
-  import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
+  import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
+  import {
+    onMounted
+  } from 'vue';
 
-  export default {
-    name: "AboutView",
-    mounted() {
-      document.title = "PKKMB SV UNS - TENTANG";
-      AOS.init();
-    }
-  }
+  onMounted(() => {
+    document.title = "PKKMB SV UNS - TENTANG";
+    AOS.init();
+  });
 </script>
 
 <style scoped>

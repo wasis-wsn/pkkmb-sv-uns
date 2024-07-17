@@ -53,7 +53,7 @@
     >
       <img
         loading="lazy"
-        src="@/assets/logo_besar.png"
+        src="@assets/logo_besar.png"
         alt=""
         class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]"
       />
@@ -106,21 +106,13 @@
 </LayoutHeaderFooter>
 </template>
 
-<script>
+<script setup>
 import "aos/dist/aos.css";
-import GaleriSection from "@/Components/galeri-page/GaleriSection.vue";
-import AfterMovieSection from "@/Components/galeri-page/AfterMovieSection.vue";
-import AcaraSection from "@/Components/galeri-page/AcaraSection.vue";
-import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
+import GaleriSection from "@/Components-landing/galeri-page/GaleriSection.vue";
+import AfterMovieSection from "@/Components-landing/galeri-page/AfterMovieSection.vue";
+import AcaraSection from "@/Components-landing/galeri-page/AcaraSection.vue";
+import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
 
-export default {
-  name: "GaleriView",
-  components: {
-    GaleriSection,
-    AfterMovieSection,
-    AcaraSection,
-  },
-};
 </script>
 
 <style scoped>
