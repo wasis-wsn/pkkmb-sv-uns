@@ -15,93 +15,7 @@ Route::get('/', function () {
     ]);
 });
 
-// Dashboard Admin
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('DashboardView');
-})->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/sponsor', function () {
-    return Inertia::render('SponsorView');
-})->name('sponsor');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/hima', function () {
-    return Inertia::render('HimaView');
-})->name('hima');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/form', function () {
-    return Inertia::render('FormsView');
-})->name('form');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/galeris', function () {
-    return Inertia::render('GaleriView');
-})->name('galeris');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/table', function () {
-    return Inertia::render('TablesView');
-})->name('table');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/ui', function () {
-    return Inertia::render('UiView');
-})->name('ui');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/responsive', function () {
-    return Inertia::render('ResponsiveView');
-})->name('responsive');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/style', function () {
-    return Inertia::render('StyleView');
-})->name('style');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/profiles', function () {
-    return Inertia::render('ProfileView');
-})->name('profiles');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
-    return Inertia::render('ErrorView');
-})->name('error');
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function(){
-//     return Inertia::render('KelompokView');
-// })->name('kelompok');
-<<<<<<< HEAD
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', [MahasiswaController::class, 'index'], function(){
-=======
-Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function () {
->>>>>>> 1cdefb01d2a53f9dfe15f180cc75c8d7f32d470a
-    return Inertia::render('KelompokView');
-})->name('kelompok');
-
-// Route::get('/kelompok', [MahasiswaController::class, 'index']);
-
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/prodi', function () {
-    return Inertia::render('ProdiView');
-})->name('prodi');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/mahasiswa', function () {
-    return Inertia::render('MahasiswaView');
-})->name('mahasiswa');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/materis', function () {
-    return Inertia::render('MateriView');
-})->name('materis');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/youtube', function () {
-    return Inertia::render('YoutubeView');
-})->name('youtube');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
-    return Inertia::render('ChatView');
-})->name('chat');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-// Landing Page
+//* Landing Page
 Route::get('/', function () {
     return Inertia::render('Views/LandingView');
 })->name('landing');
@@ -121,5 +35,72 @@ Route::get('/galeri', function () {
 Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
+
+//** Dashboard */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return Inertia::render('DashboardView');
+})->name('dashboard');
+
+//Landing
+Route::middleware(['auth:sanctum', 'verified'])->get('/sponsor', function () {
+    return Inertia::render('SponsorView');
+})->name('sponsor');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/hima', function () {
+    return Inertia::render('HimaView');
+})->name('hima');
+
+//Materi
+Route::middleware(['auth:sanctum', 'verified'])->get('/materis', function () {
+    return Inertia::render('MateriView');
+})->name('materis');
+
+//Galeri
+Route::middleware(['auth:sanctum', 'verified'])->get('/galeris', function () {
+    return Inertia::render('GaleriView');
+})->name('galeris');
+
+//Kelompok
+Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', [MahasiswaController::class, 'index'], function(){
+    return Inertia::render('KelompokView');
+})->name('kelompok');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/prodi', function () {
+    return Inertia::render('ProdiView');
+})->name('prodi');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/mahasiswa', function () {
+    return Inertia::render('MahasiswaView');
+})->name('mahasiswa');
+
+//User
+Route::middleware(['auth:sanctum', 'verified'])->get('/profiles', function () {
+    return Inertia::render('ProfileView');
+})->name('profiles');
+
+//Error
+Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
+    return Inertia::render('ErrorView');
+})->name('error');
+
+//Youtube
+Route::middleware(['auth:sanctum', 'verified'])->get('/youtube', function () {
+    return Inertia::render('YoutubeView');
+})->name('youtube');
+
+//Chat
+Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
+    return Inertia::render('ChatView');
+})->name('chat');
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
 
 require __DIR__ . '/auth.php';
