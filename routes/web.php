@@ -15,6 +15,8 @@ Route::get('/', function () {
     ]);
 });
 
+
+
 //* Landing Page
 Route::get('/', function () {
     return Inertia::render('Views/LandingView');
@@ -36,8 +38,9 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
-//** Dashboard */
 
+
+//** Dashboard */
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('DashboardView');
 })->name('dashboard');
@@ -62,7 +65,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/galeris', funct
 })->name('galeris');
 
 //Kelompok
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/kelompok', [MahasiswaController::class, 'index'], function(){
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/kelompok', function(){
     return Inertia::render('KelompokView');
 })->name('kelompok');
 

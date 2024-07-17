@@ -27,49 +27,14 @@ export default [
         label: "Dashboard",
     },
     {
-        route: "table",
-        label: "Table",
-        icon: mdiTable,
-    },
-    {
-        route: "form",
-        label: "Form",
-        icon: mdiSquareEditOutline,
-    },
-    {
         route: "galeris",
         label: "Galeri",
         icon: mdiSquareEditOutline,
     },
     {
-        to: "ui",
-        label: "UI",
-        icon: mdiTelevisionGuide,
-    },
-    {
-        route: "responsive",
-        label: "Responsive",
-        icon: mdiResponsive,
-    },
-    {
-        route: "style",
-        label: "Style",
-        icon: mdiPalette,
-    },
-    {
         route: "profiles",
         label: "Profile",
         icon: mdiAccountCircle,
-    },
-    {
-        route: "login",
-        label: "Login",
-        icon: mdiLock,
-    },
-    {
-        route: "error",
-        label: "Error",
-        icon: mdiAlertCircle,
     },
     {
         route: "sponsor",
@@ -81,11 +46,11 @@ export default [
         label: "Hima",
         icon: mdiBrain,
     },
-    //   {
-    //     route: "kelompok",
-    //     label: "Kelompok",
-    //     icon: mdiAccountGroup ,
-    // },
+      {
+        route: "kelompok",
+        label: "Kelompok",
+        icon: mdiAccountGroup ,
+    },
     {
         route: "prodi",
         label: "Prodi",
@@ -124,15 +89,8 @@ export default [
         ],
     },
     {
-        href: "https://github.com/justboil/admin-one-vue-tailwind",
-        label: "GitHub",
-        icon: mdiGithub,
-        target: "_blank",
-    },
-    {
-        href: "https://github.com/justboil/admin-one-react-tailwind",
-        label: "React version",
-        icon: mdiReact,
-        target: "_blank",
+        route: "error",
+        label: "Error",
+        icon: mdiAlertCircle,
     },
 ];

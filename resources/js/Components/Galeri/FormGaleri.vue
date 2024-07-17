@@ -27,7 +27,6 @@
 
 <script setup>
 import { reactive } from "vue";
-import { Inertia } from "@inertiajs/inertia";
 import { mdiAccount } from "@mdi/js";
 import CardBox from "@/Components/CardBox.vue";
 import FormField from "@/Components/FormField.vue";
@@ -55,7 +54,5 @@ const submit = () => {
     formData.append("deskripsi", form.deskripsi);
     formData.append("jenis", form.jenis.label);
     formData.append("file", form.file);
-
-    Inertia.post("/data", formData);
 };
 </script>

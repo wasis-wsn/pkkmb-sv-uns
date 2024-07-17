@@ -22,7 +22,7 @@
 <template>
     <LayoutAuthenticated>
 
-        <Head title="form" />
+        <Head title="Kelompok" />
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiBallotOutline" title="Form Kelompok" main>
             </SectionTitleLineWithButton>
