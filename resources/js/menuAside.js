@@ -27,7 +27,7 @@ export default [
         label: "Dashboard",
     },
     {
-        route: "galeris",
+        route: "galerise",
         label: "Galeri",
         icon: mdiSquareEditOutline,
     },
@@ -46,10 +46,10 @@ export default [
         label: "Hima",
         icon: mdiBrain,
     },
-      {
+    {
         route: "kelompok",
         label: "Kelompok",
-        icon: mdiAccountGroup ,
+        icon: mdiAccountGroup,
     },
     {
         route: "prodi",

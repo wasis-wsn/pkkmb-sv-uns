@@ -82,38 +82,62 @@ import "aos/dist/aos.css";
 import "@css/pages/_button.css";
 
 const galeri1 = ref([
-  {
-    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-    class: "row-span-2 sm:row-span-2 lg:row-span-3",
-  },
-  { src: new URL("@assets/galeri/p-2.png", import.meta.url).href, class: "col-span-1" },
-  { src: new URL("@assets/galeri/p-3.png", import.meta.url).href, class: "col-span-1" },
-  {
-    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-    class: "row-span-2 sm:row-span-2 lg:row-span-3",
-  },
-  { src: new URL("@assets/galeri/p-4.png", import.meta.url).href, class: "col-span-1" },
-  { src: new URL("@assets/galeri/p-5.png", import.meta.url).href, class: "col-span-1" },
+    {
+        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+        class: "row-span-2 sm:row-span-2 lg:row-span-3",
+    },
+    {
+        src: new URL("@assets/galeri/p-2.png", import.meta.url).href,
+        class: "col-span-1",
+    },
+    {
+        src: new URL("@assets/galeri/p-3.png", import.meta.url).href,
+        class: "col-span-1",
+    },
+    {
+        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+        class: "row-span-2 sm:row-span-2 lg:row-span-3",
+    },
+    {
+        src: new URL("@assets/galeri/p-4.png", import.meta.url).href,
+        class: "col-span-1",
+    },
+    {
+        src: new URL("@assets/galeri/p-5.png", import.meta.url).href,
+        class: "col-span-1",
+    },
 ]);
 
 const galeri2 = ref([
-  {
-    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-    class: "row-span-2 sm:row-span-2 lg:row-span-3",
-  },
-  { src: new URL("@assets/galeri/p-2.png", import.meta.url).href, class: "col-span-1" },
-  {
-    src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
-    class: "row-span-2 sm:row-span-2 lg:row-span-3 col-end",
-  },
-  { src: new URL("@assets/galeri/p-3.png", import.meta.url).href, class: "col-span-1" },
-  { src: new URL("@assets/galeri/p-4.png", import.meta.url).href, class: "col-span-1" },
-  { src: new URL("@assets/galeri/p-5.png", import.meta.url).href, class: "col-span-1" },
+    {
+        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+        class: "row-span-2 sm:row-span-2 lg:row-span-3",
+    },
+    {
+        src: new URL("@assets/galeri/p-2.png", import.meta.url).href,
+        class: "col-span-1",
+    },
+    {
+        src: new URL("@assets/galeri/p-1.png", import.meta.url).href,
+        class: "row-span-2 sm:row-span-2 lg:row-span-3 col-end",
+    },
+    {
+        src: new URL("@assets/galeri/p-3.png", import.meta.url).href,
+        class: "col-span-1",
+    },
+    {
+        src: new URL("@assets/galeri/p-4.png", import.meta.url).href,
+        class: "col-span-1",
+    },
+    {
+        src: new URL("@assets/galeri/p-5.png", import.meta.url).href,
+        class: "col-span-1",
+    },
 ]);
 
 onMounted(() => {
-  document.title = "PKKMB SV UNS - GALERI";
-  AOS.init();
+    document.title = "PKKMB SV UNS - GALERI";
+    AOS.init();
 });
 </script>
 

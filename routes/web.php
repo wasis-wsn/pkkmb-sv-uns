@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
@@ -60,12 +61,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/materis', funct
 })->name('materis');
 
 //Galeri
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/galeris', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/galerise', function () {
     return Inertia::render('GaleriView');
-})->name('galeris');
+})->name('galerise');
 
 //Kelompok
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/kelompok', function(){
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/kelompok', function () {
     return Inertia::render('KelompokView');
 })->name('kelompok');
 
@@ -103,6 +104,27 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+// Route Controller Galeri
+
+Route::resource('galeris', GaleriController::class);
+// Route::get('/galerise', [GaleriController::class, 'index'])
+//     ->name('galerise.index');
+// Route::get('/galerise/create', [GaleriController::class, 'create'])
+//     ->name('galerise.create');
+// Route::post('/galerise/store', [GaleriController::class, 'store'])
+//     ->name('galerise.store');
+// Route::get('/galerise/{galeri}', [GaleriController::class, 'show'])
+//     ->name('galerise.show');
+// Route::get('/galerise/{galeri}/edit', [GaleriController::class, 'edit'])
+//     ->name('galerise.edit');
+// Route::put('/galerise/{galeri}/update', [GaleriController::class, 'update'])
+//     ->name('galerise.update');
+// Route::delete('/galerise/{galeri}/delete', [GaleriController::class, 'destroy'])
+//     ->name('galerise.delete');
+
 
 
 
