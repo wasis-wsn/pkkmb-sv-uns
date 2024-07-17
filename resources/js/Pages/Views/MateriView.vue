@@ -70,7 +70,7 @@
 
 </script>
 
-<style scoped>
+<!-- <style scoped>
   @import '../css/pages/materiview.css';
   @import '../css/pages/_button.css';
-</style>
+</style> -->

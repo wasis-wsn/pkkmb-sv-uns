@@ -14,7 +14,10 @@ import {
   mdiHandshakeOutline,
   mdiBrain,
   mdiAccountGroup,
-  mdiAccount
+  mdiAccount,
+  mdiYoutube,
+  mdiClipboardText,
+  mdiForum
 } from '@mdi/js'
 
 export default [
@@ -88,6 +91,21 @@ export default [
     label: "Mahasiswa",
     icon: mdiAccount,
 },
+  {
+    route: 'materis',
+    label: 'Materi',
+    icon: mdiClipboardText
+  },
+  {
+    route: 'chat',
+    label: 'Chat',
+    icon: mdiForum
+  },
+  {
+    route: 'youtube',
+    label: 'YouTube',
+    icon: mdiYoutube
+  },
   {
     label: 'Dropdown',
     icon: mdiViewList,

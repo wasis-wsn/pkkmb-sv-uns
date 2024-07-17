@@ -74,6 +74,18 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/mahasiswa', function () {
     return Inertia::render('MahasiswaView');
 })->name('mahasiswa');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/materis', function () {
+    return Inertia::render('MateriView');
+})->name('materis');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/youtube', function () {
+    return Inertia::render('YoutubeView');
+})->name('youtube');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
+    return Inertia::render('ChatView');
+})->name('chat');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
