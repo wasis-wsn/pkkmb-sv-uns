@@ -43,39 +43,39 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //Landing
-Route::middleware(['auth:sanctum', 'verified'])->get('/sponsor', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/sponsor', function () {
     return Inertia::render('SponsorView');
 })->name('sponsor');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/hima', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/hima', function () {
     return Inertia::render('HimaView');
 })->name('hima');
 
 //Materi
-Route::middleware(['auth:sanctum', 'verified'])->get('/materis', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/materis', function () {
     return Inertia::render('MateriView');
 })->name('materis');
 
 //Galeri
-Route::middleware(['auth:sanctum', 'verified'])->get('/galeris', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/galeris', function () {
     return Inertia::render('GaleriView');
 })->name('galeris');
 
 //Kelompok
-Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', [MahasiswaController::class, 'index'], function(){
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/kelompok', [MahasiswaController::class, 'index'], function(){
     return Inertia::render('KelompokView');
 })->name('kelompok');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/prodi', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/prodi', function () {
     return Inertia::render('ProdiView');
 })->name('prodi');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/mahasiswa', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/mahasiswa', function () {
     return Inertia::render('MahasiswaView');
 })->name('mahasiswa');
 
 //User
-Route::middleware(['auth:sanctum', 'verified'])->get('/profiles', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/profiles', function () {
     return Inertia::render('ProfileView');
 })->name('profiles');
 
@@ -85,12 +85,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
 })->name('error');
 
 //Youtube
-Route::middleware(['auth:sanctum', 'verified'])->get('/youtube', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/youtube', function () {
     return Inertia::render('YoutubeView');
 })->name('youtube');
 
 //Chat
-Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/chat', function () {
     return Inertia::render('ChatView');
 })->name('chat');
 
