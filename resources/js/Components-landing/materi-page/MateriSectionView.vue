@@ -21,11 +21,7 @@
     <!-- ISI MATERI -->
     <section
       class="relative flex justify-center items-center pt-16 pb-32 w-full text-2xl font-bold text-black bg-white">
-<<<<<<< HEAD
       <img loading="lazy" src="@assets/Materi/ImplementasiWave.png" alt="Decorative gradient"
-=======
-      <img loading="lazy" src="../../../assets/Materi/ImplementasiWave.png" alt="Decorative gradient"
->>>>>>> 1cdefb01d2a53f9dfe15f180cc75c8d7f32d470a
         class="absolute top-0 left-0 z-0 w-full h-auto max-w-full max-h-full" />
       <div
         class="relative z-20 flex justify-center mt-5 md:mt-36 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
@@ -40,11 +36,7 @@
           </ul>
         </div>
       </div>
-<<<<<<< HEAD
       <img loading="lazy" src="@assets/Materi/twibbon.png" alt="Decorative gradient"
-=======
-      <img loading="lazy" src="../../../assets/Materi/twibbon.png" alt="Decorative gradient"
->>>>>>> 1cdefb01d2a53f9dfe15f180cc75c8d7f32d470a
         class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[70px] lg:bottom-[-80px] md:bottom-[20px]" />
     </section>
 
@@ -83,11 +75,7 @@
             </ul>
           </div>
         </div>
-<<<<<<< HEAD
         <img loading="lazy" src="@assets/Materi/twibbon.png" alt="Decorative gradient"
-=======
-        <img loading="lazy" src="../../../assets/Materi/twibbon.png" alt="Decorative gradient"
->>>>>>> 1cdefb01d2a53f9dfe15f180cc75c8d7f32d470a
           class="absolute left-0 right-0 z-10 w-full max-w-full max-h-full bottom-[70px] lg:bottom-[-100px] md:bottom-[20px]" />
       </section>
     </div>
