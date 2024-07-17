@@ -1,5 +1,4 @@
 <script setup>
-import TableSampleClients from "@/Components/TableSampleClients.vue";
 import CardBox from "@/Components/CardBox.vue";
 </script>
 
