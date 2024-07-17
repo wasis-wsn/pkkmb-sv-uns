@@ -28,7 +28,7 @@
       </div>
     </section>
     <section class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full" data-aos="fade-up">
-      <img loading="lazy" src="@/assets/logo_besar.png" alt=""
+      <img loading="lazy" src="../../../assets/logo_besar.png" alt=""
         class="box-border object-cover overflow-hidden shrink-0 mt-0 w-full aspect-[0.99] min-h-[20px] min-w-[20px]" />
     </section>
   </header>
@@ -75,8 +75,8 @@
 </template>
 
 <script setup>
-  import KelompokSectionView from "@/Components/kelompok-page/KelompokSectionView.vue";
-  import UploadTugasView from "@/Components/kelompok-page/UploadTugasView.vue";
+  import KelompokSectionView from "../../Components-landing/kelompok-page/KelompokSectionView.vue";
+  import UploadTugasView from "../../Components-landing/kelompok-page/UploadTugasView.vue";
   import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
 
   import AOS from "aos";

@@ -62,48 +62,28 @@
     RiEqualizerLine,
   } from "@remixicon/vue";
 
-  const users = [{
-      id: 1,
-      nama: 'yoga',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'macan aung'
-    },
-    {
-      id: 2,
-      nama: 'ardya',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'bangau wayaw'
-    },
-    {
-      id: 3,
-      nama: 'mamat',
-      prodi: 'd3 teknik informatika',
-      kelompok: 'elang putra'
-    },
-  ];
-
-  const kelompokList = [{
-      id: 1,
-      kelompok: 'macan aung'
-    },
-    {
-      id: 2,
-      kelompok: 'bangau wayaw'
-    },
-    {
-      id: 3,
-      kelompok: 'elang putra'
-    },
-  ];
+  import axios from 'axios';
 
   const searchQuery = ref('');
   const selectedKelompok = ref('');
   const currentPage = ref(1);
   const itemsPerPage = 20;
+  let totalUsers = ref([]);
 
   const handleSearch = () => {
     currentPage.value = 1;
   };
+
+  const fetchUsers = async () => {
+    try {
+        const response = await axios.get('/kelompok');
+        console.log('Response:', response.data);
+        totalUsers.value = response.data;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+    }
+  };
+
 
   const filterByKelompok = (user) => {
     if (!selectedKelompok.value) {
@@ -114,7 +94,7 @@
   };
 
   const filteredUsers = computed(() => {
-    let result = users;
+    let result = totalUsers.value;
     if (searchQuery.value) {
       const lowercasedQuery = searchQuery.value.toLowerCase();
       result = result.filter(user =>
@@ -147,6 +127,7 @@
   };
 
   onMounted(() => {
+    fetchUsers();
     document.title = "PKKMB SV UNS - KELOMPOK";
     AOS.init();
   });

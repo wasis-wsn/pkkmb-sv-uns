@@ -302,7 +302,8 @@
 </LayoutHeaderFooter>
 </template>
 
-<script>
+<script setup>
+import { onMounted } from 'vue';
 import { ClipboardIcon, UserGroupIcon } from "@heroicons/vue/24/solid";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -313,55 +314,54 @@ import SponsorSection from "../../Components-landing/landing-page/SponsorSection
 import HimaSection from "../../Components-landing/landing-page/HimaSection.vue";
 import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
 
-export default {
-  name: "LandingView",
-  components: {
-    ClipboardIcon,
-    UserGroupIcon,
-    VidioSection,
-    SponsorSection,
-    HimaSection,
-  },
-  mounted() {
-    document.title = "PKKMB SV UNS";
-    AOS.init();
-    new Swiper(".swiper", {
-      loop: true,
-      slidesPerView: 10,
-      spaceBetween: 5,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 1000,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        300: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-        },
-        480: {
-          slidesPerView: 4,
-          spaceBetween: 10,
-        },
-        768: {
-          slidesPerView: 5,
-          spaceBetween: 10,
-        },
-        1024: {
-          slidesPerView: 6,
-          spaceBetween: 10,
-        },
-        1280: {
-          slidesPerView: 7,
-          spaceBetween: 10,
-        },
-      },
-    });
-  },
+// Register components
+const components = {
+  ClipboardIcon,
+  UserGroupIcon,
+  VidioSection,
+  SponsorSection,
+  HimaSection,
 };
+
+onMounted(() => {
+  document.title = "PKKMB SV UNS";
+  AOS.init();
+  new Swiper(".swiper", {
+    loop: true,
+    slidesPerView: 10,
+    spaceBetween: 5,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      300: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      480: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 5,
+        spaceBetween: 10,
+      },
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 10,
+      },
+      1280: {
+        slidesPerView: 7,
+        spaceBetween: 10,
+      },
+    },
+  });
+});
 </script>
 
 <style scoped>

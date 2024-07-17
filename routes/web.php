@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
     return Inertia::render('Views/LandingView', [
@@ -54,6 +55,24 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/profiles', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
     return Inertia::render('ErrorView');
 })->name('error');
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function(){
+//     return Inertia::render('KelompokView');
+// })->name('kelompok');
+Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', [MahasiswaController::class, 'index'], function(){
+    return Inertia::render('KelompokView');
+})->name('kelompok');
+
+// Route::get('/kelompok', [MahasiswaController::class, 'index']);
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/prodi', function () {
+    return Inertia::render('ProdiView');
+})->name('prodi');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/mahasiswa', function () {
+    return Inertia::render('MahasiswaView');
+})->name('mahasiswa');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

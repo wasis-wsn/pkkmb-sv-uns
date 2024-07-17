@@ -15,13 +15,13 @@
                     Website PKKMB SV 2024 Dipergunakan Untuk Jembatan Informasi
                     Kepada Mahasiswa Baru Sekolah Vokasi UNS 2024.
                   </div>
-                  <iframe 
+                  <iframe
                   class="rounded-2xl w-full max-w-4xl"
                   title="map"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7910.283819674678!2d110.83837400000002!3d-7.559502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1748cf551e55%3A0x54f8a762c0623225!2sSekolah%20Vokasi%20UNS!5e0!3m2!1sen!2sus!4v1720696547365!5m2!1sen!2sus" 
-                  style="border:0;" 
-                  allowfullscreen="" 
-                  loading="lazy" 
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7910.283819674678!2d110.83837400000002!3d-7.559502!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1748cf551e55%3A0x54f8a762c0623225!2sSekolah%20Vokasi%20UNS!5e0!3m2!1sen!2sus!4v1720696547365!5m2!1sen!2sus"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade">
                   </iframe>
                 </div>
@@ -134,8 +134,8 @@ const openMenu = () => {
   });
 };
 
-// Components
-const RouterLink = useRouter().options.routes;
+//
+const router = useRouter();
 </script>
 
 <style scoped>

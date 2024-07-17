@@ -12,7 +12,9 @@ import {
   mdiPalette,
   mdiReact,
   mdiHandshakeOutline,
-  mdiBrain 
+  mdiBrain,
+  mdiAccountGroup,
+  mdiAccount
 } from '@mdi/js'
 
 export default [
@@ -64,13 +66,28 @@ export default [
   {
     route: 'sponsor',
     label: 'Sponsor',
-    icon: mdiHandshakeOutline 
-  }, 
+    icon: mdiHandshakeOutline
+  },
   {
     route: 'hima',
     label: 'Hima',
-    icon: mdiBrain 
-  }, 
+    icon: mdiBrain
+  },
+//   {
+//     route: "kelompok",
+//     label: "Kelompok",
+//     icon: mdiAccountGroup ,
+// },
+{
+    route: "prodi",
+    label: "Prodi",
+    icon: mdiSquareEditOutline,
+},
+{
+    route: "mahasiswa",
+    label: "Mahasiswa",
+    icon: mdiAccount,
+},
   {
     label: 'Dropdown',
     icon: mdiViewList,

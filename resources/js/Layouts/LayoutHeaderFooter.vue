@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderView />
-    <router-view></router-view>
+    <NavbarView />
+    <slot></slot>
     <div>
       <button
         @click="scrollToTop"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import HeaderView from "../Components-landing/NavbarView.vue";
+import NavbarView from "../Components-landing/NavbarView.vue";
 import FooterView from "../Components-landing/FooterView.vue";
 import {
   ChevronDoubleUpIcon,
@@ -32,7 +32,7 @@ import ChatView from "../Components-landing/ChatView.vue";
 
 export default {
   components: {
-    HeaderView,
+    NavbarView,
     FooterView,
     ChevronDoubleUpIcon,
     ChatBubbleLeftRightIcon,
