@@ -4,7 +4,7 @@ export const gradientBgDark = `${gradientBgBase} from-slate-700 via-slate-900 to
 export const gradientBgPinkRed = `${gradientBgBase} from-pink-400 via-red-500 to-yellow-500`
 
 export const colorsBgLight = {
-  white: 'bg-white text-black',
+  white: 'bg-red text-black',
   light: 'bg-white text-black dark:bg-slate-900/70 dark:text-white',
   contrast: 'bg-gray-800 text-white dark:bg-white dark:text-black',
   success: 'bg-emerald-500 border-emerald-500 text-white',

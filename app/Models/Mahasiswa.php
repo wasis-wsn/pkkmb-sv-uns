@@ -13,8 +13,21 @@ class Mahasiswa extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'nama',
-        'prodi',
-        'kelompok',
+        'nama_mahasiswa',
+        'no_telp',
+        'prodi_id',
+        'kelompok_id',
+        'nama_skill',
+        'deskripsi_skill',
+        'photo_piagam',
     ];
+    public function prodi()
+    {
+        return $this->belongsTo(Prodi::class);
+    }
+
+    public function kelompok()
+    {
+        return $this->belongsTo(Kelompok::class);
+    }
 }

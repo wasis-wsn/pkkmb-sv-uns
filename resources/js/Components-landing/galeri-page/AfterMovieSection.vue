@@ -48,7 +48,7 @@ export default {
           deskripsi:
             'Saksikan momen-momen terbaik kalian selama PKKMB SV UNS 2024 dalam "After Movie" berikut ini!',
           videoSrc:
-            "https://www.youtube.com/embed/CoTPJXtsH3E?si=YFeI5igbxu-j6b3a",
+            "https://www.youtube.com/embed/pOLMAo_5LzI?si=30_Fmq7WlLhZcAJ-",
         },
       ],
     };
