@@ -32,6 +32,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/form', function () {
     return Inertia::render('FormsView');
 })->name('form');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/galeris', function () {
+    return Inertia::render('GaleriView');
+})->name('galeris');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/table', function () {
     return Inertia::render('TablesView');
 })->name('table');
@@ -59,7 +63,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
 // Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function(){
 //     return Inertia::render('KelompokView');
 // })->name('kelompok');
-Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', [MahasiswaController::class, 'index'], function(){
+Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function () {
     return Inertia::render('KelompokView');
 })->name('kelompok');
 
@@ -101,4 +105,4 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

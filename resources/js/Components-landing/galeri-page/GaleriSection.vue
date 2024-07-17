@@ -1,119 +1,152 @@
 <template>
-  <section class="galeri-page">
-    <div class="galeri w-full bg-slate-100 pb-5 px-4" data-aos="fade-up">
-      <header class="text-center py-10">
-        <h1
-          class="text-3xl font-bold inline-block border-b-4 border-[#F67366]"
-          data-aos="fade-up"
-        >
-          DOKUMENTASI PKKMB SV UNS 2024
-        </h1>
-        <p class="text-lg mt-4 container mx-auto px-4" data-aos="fade-up">
-          Halo, Vocazens! Selamat datang di galeri dokumentasi kegiatan
-          Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) Sekolah Vokasi
-          Universitas Sebelas Maret tahun 2024. Galeri ini menyajikan berbagai
-          momen berharga dan kenangan tak terlupakan dari setiap acara yang
-          diadakan selama PKKMB. Selamat menikmati galeri PKKMB SV UNS 2024!
-        </p>
-      </header>
+    <section class="galeri-page">
+        <div class="galeri w-full bg-slate-100 pb-5 px-4" data-aos="fade-up">
+            <header class="text-center py-10">
+                <h1
+                    class="text-3xl font-bold inline-block border-b-4 border-[#F67366]"
+                    data-aos="fade-up"
+                >
+                    DOKUMENTASI PKKMB SV UNS 2024
+                </h1>
+                <p
+                    class="text-lg mt-4 container mx-auto px-4"
+                    data-aos="fade-up"
+                >
+                    Halo, Vocazens! Selamat datang di galeri dokumentasi
+                    kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru
+                    (PKKMB) Sekolah Vokasi Universitas Sebelas Maret tahun 2024.
+                    Galeri ini menyajikan berbagai momen berharga dan kenangan
+                    tak terlupakan dari setiap acara yang diadakan selama PKKMB.
+                    Selamat menikmati galeri PKKMB SV UNS 2024!
+                </p>
+            </header>
 
-      <!-- Galeri Start -->
-      <div class="container px-4 lg:px-8 md:px-6 sm:px-6 mx-auto">
-        <div class="galeri-1" data-aos="fade-up">
-          <div
-            class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9 rounded-lg"
-          >
-            <div
-              v-for="(image, index) in galeri1"
-              :key="'galeri1-' + index"
-              :class="image.class"
-            >
-              <img
-                :src="image.src"
-                :alt="'Image ' + (index + 1)"
-                class="w-full h-auto rounded-3xl shadow-lg"
-              />
+            <!-- Galeri Start -->
+            <div class="container px-4 lg:px-8 md:px-6 sm:px-6 mx-auto">
+                <div class="galeri-1" data-aos="fade-up">
+                    <div
+                        class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9 rounded-lg"
+                    >
+                        <div
+                            v-for="(image, index) in galeri1"
+                            :key="'galeri1-' + index"
+                            :class="image.class"
+                        >
+                            <img
+                                :src="image.src"
+                                :alt="'Image ' + (index + 1)"
+                                class="w-full h-auto rounded-3xl shadow-lg"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="galeri-2 mt-5" data-aos="fade-up">
+                    <div
+                        class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9"
+                    >
+                        <div
+                            v-for="(image, index) in galeri2"
+                            :key="'galeri2-' + index"
+                            :class="image.class"
+                        >
+                            <img
+                                :src="image.src"
+                                :alt="'Image ' + (index + 1)"
+                                class="w-full h-auto rounded-3xl shadow-lg"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="download-button text-center mt-7 sm:mt-7 md:mt-7 lg:mt-6 xl:mt-2"
+                    data-aos="fade-up"
+                >
+                    <button
+                        class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5"
+                    >
+                        <a href="https://bit.ly/FotoAskara2022" target="_blank">
+                            DOWNLOAD DISINI!
+                        </a>
+                    </button>
+                </div>
             </div>
-          </div>
+            <!-- Galeri Ends -->
         </div>
-        <div class="galeri-2 mt-5" data-aos="fade-up">
-          <div
-            class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-4 sm:gap-y-9 lg:gap-y-9"
-          >
-            <div
-              v-for="(image, index) in galeri2"
-              :key="'galeri2-' + index"
-              :class="image.class"
-            >
-              <img
-                :src="image.src"
-                :alt="'Image ' + (index + 1)"
-                class="w-full h-auto rounded-3xl shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="download-button text-center mt-7 sm:mt-7 md:mt-7 lg:mt-6 xl:mt-2"
-          data-aos="fade-up"
-        >
-          <button
-            class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5"
-          >
-            <a href="https://bit.ly/FotoAskara2022" target="_blank">
-              DOWNLOAD DISINI!
-            </a>
-          </button>
-        </div>
-      </div>
-      <!-- Galeri Ends -->
-    </div>
-  </section>
+    </section>
 </template>
 
 <script>
-import "../../css/pages/_button.css";
-
+import "../../../css/pages/_button.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import image1 from "../../../assets/galeri/p-1.png";
+import image2 from "../../../assets/galeri/p-2.png";
+import image3 from "../../../assets/galeri/p-3.png";
+import image4 from "../../../assets/galeri/p-4.png";
+import image5 from "../../../assets/galeri/p-5.png";
+
 export default {
-  name: "GaleriView",
-  data() {
-    return {
-      galeri1: [
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3",
-        },
-        { src: require("@/assets/galeri/p-2.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-3.png"), class: "col-span-1" },
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3",
-        },
-        { src: require("@/assets/galeri/p-4.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-5.png"), class: "col-span-1" },
-      ],
-      galeri2: [
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3",
-        },
-        { src: require("@/assets/galeri/p-2.png"), class: "col-span-1" },
-        {
-          src: require("@/assets/galeri/p-1.png"),
-          class: "row-span-2 sm:row-span-2 lg:row-span-3 col-end",
-        },
-        { src: require("@/assets/galeri/p-3.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-4.png"), class: "col-span-1" },
-        { src: require("@/assets/galeri/p-5.png"), class: "col-span-1" },
-      ],
-    };
-  },
-  mounted() {
-    document.title = "PKKMB SV UNS - GALERI";
-    AOS.init();
-  },
+    name: "GaleriView",
+    data() {
+        return {
+            galeri1: [
+                {
+                    src: image1,
+                    class: "row-span-2 sm:row-span-2 lg:row-span-3",
+                },
+                {
+                    src: image2,
+                    class: "col-span-1",
+                },
+                {
+                    src: image3,
+                    class: "col-span-1",
+                },
+                {
+                    src: image1,
+                    class: "row-span-2 sm:row-span-2 lg:row-span-3",
+                },
+                {
+                    src: image4,
+                    class: "col-span-1",
+                },
+                {
+                    src: image5,
+                    class: "col-span-1",
+                },
+            ],
+            galeri2: [
+                {
+                    src: image1,
+                    class: "row-span-2 sm:row-span-2 lg:row-span-3",
+                },
+                {
+                    src: image2,
+                    class: "col-span-1",
+                },
+                {
+                    src: image1,
+                    class: "row-span-2 sm:row-span-2 lg:row-span-3 col-end",
+                },
+                {
+                    src: image3,
+                    class: "col-span-1",
+                },
+                {
+                    src: image4,
+                    class: "col-span-1",
+                },
+                {
+                    src: image5,
+                    class: "col-span-1",
+                },
+            ],
+        };
+    },
+    mounted() {
+        document.title = "PKKMB SV UNS - GALERI";
+        AOS.init();
+    },
 };
 </script>
