@@ -70,6 +70,13 @@
 
 </script>
 
+<<<<<<< HEAD
 <style scoped>
   @import '@css/pages/_button.css';
 </style>
+=======
+<!-- <style scoped>
+  @import '../css/pages/materiview.css';
+  @import '../css/pages/_button.css';
+</style> -->
+>>>>>>> 1cdefb01d2a53f9dfe15f180cc75c8d7f32d470a

@@ -45,11 +45,7 @@ const submitPass = () => {
 
 <template>
   <LayoutAuthenticated>
-    <<<<<<< HEAD
     <Head title="profiles" />
-    =======
-    <Head title="Profile" />
-    >>>>>>> f27382d2ff8393638af9f9c074cb9673d2b1caf8
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
         <BaseButton

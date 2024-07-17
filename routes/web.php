@@ -32,6 +32,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/form', function () {
     return Inertia::render('FormsView');
 })->name('form');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/galeris', function () {
+    return Inertia::render('GaleriView');
+})->name('galeris');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/table', function () {
     return Inertia::render('TablesView');
 })->name('table');
@@ -59,8 +63,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/error', function () {
 // Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function(){
 //     return Inertia::render('KelompokView');
 // })->name('kelompok');
+<<<<<<< HEAD
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', [MahasiswaController::class, 'index'], function(){
+=======
+Route::middleware(['auth:sanctum', 'verified'])->get('/kelompok', function () {
+>>>>>>> 1cdefb01d2a53f9dfe15f180cc75c8d7f32d470a
     return Inertia::render('KelompokView');
 })->name('kelompok');
 
@@ -74,6 +82,18 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/prodi', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/mahasiswa', function () {
     return Inertia::render('MahasiswaView');
 })->name('mahasiswa');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/materis', function () {
+    return Inertia::render('MateriView');
+})->name('materis');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/youtube', function () {
+    return Inertia::render('YoutubeView');
+})->name('youtube');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
+    return Inertia::render('ChatView');
+})->name('chat');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -102,4 +122,4 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
