@@ -97,6 +97,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/chat', function
     return Inertia::render('ChatView');
 })->name('chat');
 
+//user
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/user', function () {
+    return Inertia::render('UserView');
+})->name('user');
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
