@@ -65,7 +65,7 @@ export default [
     label: 'Light/Dark',
     isDesktopNoLabel: true,
     isToggleLightDark: true
-  },
+  },  
   {
     icon: mdiLogout,
     label: 'Log out',

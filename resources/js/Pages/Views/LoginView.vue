@@ -3,7 +3,7 @@
   <div>
     <nav class="sticky top-0 flex flex-col md:flex-row gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-10">
       <div class="flex items-center gap-2 pr-1.5 font-bold text-center text-black bg-white bg-opacity-0 leading-[150%]">
-        <img loading="lazy" src="../../../assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[1.08] w-[89px]" />
+        <img loading="lazy" src="@assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[1.08] w-[89px]" />
         <div class="flex flex-col self-start mt-5">
           <h1 class="text-3xl">A S K A R A</h1>
           <p class="mt-2.5 text-xs">PKKMB SEKOLAH VOKASI 2024</p>
@@ -20,7 +20,7 @@
       <main class="self-center mt-12 w-full max-w-[1270px] max-md:mt-10 max-md:max-w-full">
         <div class="flex gap-5 max-md:flex-col max-md:gap-0">
           <section class="flex flex-col ml-5 w-[56%] max-md:ml-0 max-md:w-full">
-            <img loading="lazy" src="../../../assets/illustration.png" alt="Decorative illustration" class="grow w-full aspect-[1.11] max-md:mt-7 max-md:max-w-full" />
+            <img loading="lazy" src="@assets/illustration.png" alt="Decorative illustration" class="grow w-full aspect-[1.11] max-md:mt-7 max-md:max-w-full" />
           </section>
           <section class="flex flex-col w-[44%] max-md:ml-0 max-md:w-full">
             <div class="flex flex-col self-stretch my-auto font-bold max-md:mt-10 max-md:max-w-full">
@@ -41,7 +41,7 @@
                     <input v-model="form.remember" type="checkbox" id="remember" class="h-[24px] w-[24px]" />
                     <label for="remember" class="flex-auto">Remember me</label>
                   </div>
-                  <a href="/lupa-password" class="text ml-auto">Lupa password?</a>
+                  <a href="forgot-password" class="text ml-auto">Lupa password?</a>
                 </div>
                 <button type="submit" class="button-biru justify-center items-center self-center px-16 py-4 mt-28 max-w-full text-4xl whitespace-nowrap rounded-[70px] w-[365px] max-md:px-5 max-md:mt-10">
                   LOGIN
