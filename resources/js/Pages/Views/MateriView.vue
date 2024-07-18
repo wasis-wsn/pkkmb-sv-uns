@@ -52,8 +52,8 @@
         <div class="text-center y">
           <p class="text-2xl font-bold mb-4 text-[30px]">Download Materi</p>
           <button
-            class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap rounded-[15px] max-md:px-5">
-            <a href="https://drive.google.com/file/d/1Z2uPvLgO2ECDyT9ku2SqoE9-VKtdV2Zc/view" target="_blank">
+            class="button-biru justify-center items-center font-bold  px-10 pt-1.5 pb-2 text-white whitespace-nowrap rounded-[15px] max-md:px-5">
+            <a class="text-[20px]" href="https://drive.google.com/file/d/1Z2uPvLgO2ECDyT9ku2SqoE9-VKtdV2Zc/view" target="_blank">
               Disini!
             </a>
           </button>
@@ -70,13 +70,7 @@
 
 </script>
 
-<<<<<<< HEAD
-<style scoped>
-  @import '@css/pages/_button.css';
-</style>
-=======
 <!-- <style scoped>
   @import '../css/pages/materiview.css';
   @import '../css/pages/_button.css';
 </style> -->
->>>>>>> 1cdefb01d2a53f9dfe15f180cc75c8d7f32d470a

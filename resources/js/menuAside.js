@@ -56,7 +56,7 @@ export default [
         icon: mdiAccount,
     },
     {
-        route: "materis",
+        route: "materi",
         label: "Materi",
         icon: mdiClipboardText,
     },
