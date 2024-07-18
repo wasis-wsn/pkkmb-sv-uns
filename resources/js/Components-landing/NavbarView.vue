@@ -27,7 +27,7 @@
                 >BERANDA</Link
             >
             <Link
-                href="/materi"
+                href="/implementasi"
                 class="nav-link cursor-pointer"
                 @click="openMenu"
                 >MATERI</Link

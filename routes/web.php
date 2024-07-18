@@ -15,10 +15,9 @@ Route::get('/', function () {
     ]);
 })->name('landing');
 
-// Route untuk materi, kelompok, galeri, dan tentang
-Route::get('/materi', function () {
+Route::get('/implementasi', function () {
     return Inertia::render('Views/MateriView');
-})->name('materi');
+})->name('implementasi');
 
 Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');
@@ -90,3 +89,7 @@ Route::get('/error', function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
+require __DIR__ . '/materiRoute.php';
+Route::get('/ui', function () {
+    return Inertia::render('UiView');
+})->name('ui');

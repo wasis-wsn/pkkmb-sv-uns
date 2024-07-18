@@ -1,88 +1,136 @@
 <script setup>
-import { computed, ref } from 'vue'
-import { useMainStore } from '@/Stores/main'
-import { mdiEye } from '@mdi/js'
-import CardBoxModal from '@/Components/CardBoxModal.vue'
-import BaseLevel from '@/Components/BaseLevel.vue'
-import BaseButtons from '@/Components/BaseButtons.vue'
+import {
+        ref
+    } from "vue";
+    import {
+        mdiDelete,
+        mdiPencil
+    } from "@mdi/js";
+    import CardBox from "@/Components/CardBox.vue";
 import BaseButton from '@/Components/BaseButton.vue'
+import { useForm } from "@inertiajs/vue3";
+import Swal from "sweetalert2";
+import EditModal from "@/Components/Materi/EditModal.vue";
 
-const mainStore = useMainStore()
+const props = defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 
-const items = computed(() => mainStore.clients)
+const showEditModal = ref(false);
+const selectedItem = ref(null);
 
-const isModalActive = ref(false)
-const selectedClient = ref(null)
+const form = useForm({});
 
-const perPage = ref(5)
-const currentPage = ref(0)
+const confirmDelete = (id) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.delete(route("materi.destroy", id), {
+                preserveState: true,
+                preserveScroll: true,
+                onSuccess: () => {
+                    Swal.fire(
+                        "Deleted!",
+                        "The item has been deleted.",
+                        "success"
+                    );
+                },
+                onError: (errors) => {
+                    Swal.fire(
+                        "Error!",
+                        "There was a problem deleting the file.",
+                        "error"
+                    );
+                    console.log(errors);
+                },
+            });
+        }
+    });
+};
 
-const itemsPaginated = computed(() =>
-  items.value.slice(perPage.value * currentPage.value, perPage.value * (currentPage.value + 1))
-)
+const editData = (item) => {
+    selectedItem.value = item;
+    showEditModal.value = true;
+};
 
-const numPages = computed(() => Math.ceil(items.value.length / perPage.value))
+const closeEditModal = () => {
+    showEditModal.value = false;
+    selectedItem.value = null;
+};
+// const isModalActive = ref(false)
+// const selectedClient = ref(null)
 
-const currentPageHuman = computed(() => currentPage.value + 1)  
+// const perPage = ref(5)
+// const currentPage = ref(0)
 
-const pagesList = computed(() => {
-  const pagesList = []
-  for (let i = 0; i < numPages.value; i++) {
-    pagesList.push(i)
-  }
-  return pagesList
-})
+// const itemsPaginated = computed(() =>
+//   items.value.slice(perPage.value * currentPage.value, perPage.value * (currentPage.value + 1))
+// )
+
+// const numPages = computed(() => Math.ceil(items.value.length / perPage.value))
+
+// const currentPageHuman = computed(() => currentPage.value + 1)  
+
+// const pagesList = computed(() => {
+//   const pagesList = []
+//   for (let i = 0; i < numPages.value; i++) {
+//     pagesList.push(i)
+//   }
+//   return pagesList
+// })
 </script>
 
 <template>
-  <CardBoxModal v-model="isModalActive" title="Detail Materi">
-    <p>{{ selectedClient?.content }}</p>
-  </CardBoxModal>
+  <CardBox>
+      <table class="min-w-full divide-y mx-auto">
+          <thead>
+              <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Judul Materi
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Deskripsi Materi
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Isi Materi
+                  </th>
+              </tr>
+          </thead>
+          <tbody class="bg-dark divide-y">
+              <tr v-for="item in data" :key="item.id">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                      {{ item.judul_materi }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                      {{ item.deskripsi_materi }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                      {{ item.isi_materi }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                      <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
+                      <BaseButton :icon="mdiDelete" color="danger" @click="confirmDelete(item.id)" />
+                  </td>
+              </tr>
+          </tbody>
+      </table>
 
-  <table>
-    <thead>
-      <tr class="flex">
-        <th class="flex-auto w-8 text-center">Judul Materi</th>
-        <th class="flex-auto w-64 text-center">Isi Materi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="client in itemsPaginated" :key="client.id">
-        <td data-label="Judul Materi">
-          {{ client.title }}
-        </td>
-        <td data-label="Isi Materi">
-          {{ client.content }}
-        </td>
-        <td class="before:hidden lg:w-1 whitespace-nowrap">
-          <BaseButtons type="justify-start lg:justify-end" no-wrap>
-            <BaseButton color="info" :icon="mdiEye" small @click="() => { selectedClient.value = client; isModalActive.value = true; }" />
-          </BaseButtons>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="p-3 lg:px-6 border-t border-gray-100 dark:border-slate-800">
-    <BaseLevel>
-      <BaseButtons>
-        <BaseButton
-          v-for="page in pagesList"
-          :key="page"
-          :active="page === currentPage"
-          :label="page + 1"
-          :color="page === currentPage ? 'lightDark' : 'whiteDark'"
-          small
-          @click="currentPage.value = page"
-        />
-      </BaseButtons>
-      <small class="ml-auto">Halaman {{ currentPageHuman }} dari {{ numPages }}</small>
-    </BaseLevel>
-  </div>
+      <EditModal v-if="showEditModal" :item="selectedItem" :show="showEditModal" @close="closeEditModal" />
+  </CardBox>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .center-title {
   text-align: center;
 }
-</style>
+</style> -->
