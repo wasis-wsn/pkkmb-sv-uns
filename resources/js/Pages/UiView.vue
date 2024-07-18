@@ -1,5 +1,5 @@
 <script setup>
-import { Head } from "@inertiajs/vue3";
+// import { Head } from "@inertiajs/vue3";
 import { ref, computed } from "vue";
 import { useDarkModeStore } from "@/Stores/darkMode.js";
 import {

@@ -4,9 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\MahasiswaController;
 
+// Route untuk landing page
 Route::get('/', function () {
     return Inertia::render('Views/LandingView', [
         'canLogin' => Route::has('login'),
@@ -14,15 +13,9 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
-
-
-//* Landing Page
-
-Route::get('/', function () {
-    return Inertia::render('Views/LandingView');
 })->name('landing');
 
+// Route untuk materi, kelompok, galeri, dan tentang
 Route::get('/materi', function () {
     return Inertia::render('Views/MateriView');
 })->name('materi');
@@ -39,16 +32,13 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
-
-
-//** Dashboard */
+// Route untuk dashboard dan halaman terproteksi
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/dashboard', function () {
         return Inertia::render('DashboardView');
     })->name('dashboard');
 
-    //Landing
     Route::get('/dashboard/sponsor', function () {
         return Inertia::render('SponsorView');
     })->name('sponsor');
@@ -57,21 +47,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('HimaView');
     })->name('hima');
 
-    //Materi
     Route::get('/dashboard/materis', function () {
         return Inertia::render('MateriView');
     })->name('materis');
 
-    //Galeri
     Route::get('/dashboard/galeris', function () {
         return Inertia::render('GaleriView');
     })->name('galeris');
-    //Galeri
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/galerise', function () {
+
+    Route::get('/dashboard/galerise', function () {
         return Inertia::render('GaleriView');
     })->name('galerise');
 
-    //Kelompok
     Route::get('/dashboard/kelompoks', function () {
         return Inertia::render('KelompokView');
     })->name('kelompoks');
@@ -84,38 +71,31 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('MahasiswaView');
     })->name('mahasiswa');
 
-    //User
-    Route::get('/dashboard/profiles', function () {
-        return Inertia::render('ProfileView');
-    })->name('profiles');
-
-    //Error
-    Route::get('/error', function () {
-        return Inertia::render('ErrorView');
-    })->name('error');
-
-    //Youtube
     Route::get('/dashboard/youtube', function () {
         return Inertia::render('YoutubeView');
     })->name('youtube');
 
-    //Chat
     Route::get('/dashboard/chat', function () {
         return Inertia::render('ChatView');
     })->name('chat');
 
-    //user
     Route::get('/dashboard/user', function () {
         return Inertia::render('UserView');
     })->name('user');
-});
 
-//** Profile Admin */
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+    // Profile Admin
+    Route::get('/dashboard/profiles', [ProfileController::class, 'edit'])->name('profiles');
+    Route::patch('/dashboard/profiles-update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/dashboard/profiles-delete', [ProfileController::class, 'destroy'])->name('profile.delete');});
 
+// Route untuk error
+Route::get('/error', function () {
+    return Inertia::render('ErrorView');
+})->name('error');
+
+// Route untuk UI
+Route::get('/ui', function () {
+    return Inertia::render('UiView');
+})->name('ui');
 
 require __DIR__ . '/auth.php';

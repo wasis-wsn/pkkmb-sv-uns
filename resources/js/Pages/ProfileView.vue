@@ -1,65 +1,50 @@
-<script setup>
-// import { Head } from '@inertiajs/inertia-vue3'
-import { reactive } from "vue";
-import { useMainStore } from "@/Stores/main";
-import {
-  mdiAccount,
-  mdiMail,
-  mdiAsterisk,
-  mdiFormTextboxPassword,
-  mdiGithub,
-} from "@mdi/js";
-import SectionMain from "@/Components/SectionMain.vue";
-import CardBox from "@/Components/CardBox.vue";
-import BaseDivider from "@/Components/BaseDivider.vue";
-import FormField from "@/Components/FormField.vue";
-import FormControl from "@/Components/FormControl.vue";
-import FormFilePicker from "@/Components/FormFilePicker.vue";
-import BaseButton from "@/Components/BaseButton.vue";
-import BaseButtons from "@/Components/BaseButtons.vue";
-import UserCard from "@/Components/UserCard.vue";
-import LayoutAuthenticated from "@//Layouts/LayoutAuthenticated.vue";
-import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
-
-const mainStore = useMainStore();
-
-const profileForm = reactive({
-  name: mainStore.userName,
-  email: mainStore.userEmail,
-});
-
-const passwordForm = reactive({
-  password_current: "",
-  password: "",
-  password_confirmation: "",
-});
-
-const submitProfile = () => {
-  mainStore.setUser(profileForm);
-};
-
-const submitPass = () => {
-  //
-};
-</script>
-
 <template>
   <LayoutAuthenticated>
-    <Head title="profiles" />
+    <Head title="Profile" />
     <SectionMain>
-      <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
-        <BaseButton
-          href="https://github.com/justboil/admin-one-vue-tailwind"
-          target="_blank"
-          :icon="mdiGithub"
-          label="Star on GitHub"
-          color="contrast"
-          rounded-full
-          small
-        />
-      </SectionTitleLineWithButton>
-
+      <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main />
       <UserCard class="mb-6" />
+
+      <!-- Notification Bars -->
+      <NotificationBar
+        v-if="notificationMessage && notificationType === 'info'"
+        color="info"
+        :icon="mdiInformation"
+        :outline="notificationsOutline"
+        @dismiss="dismissNotification"
+      >
+        {{ notificationMessage }}
+      </NotificationBar>
+
+      <NotificationBar
+        v-if="notificationMessage && notificationType === 'success'"
+        color="success"
+        :icon="mdiCheckCircle"
+        :outline="notificationsOutline"
+        @dismiss="dismissNotification"
+      >
+        {{ notificationMessage }}
+      </NotificationBar>
+
+      <NotificationBar
+        v-if="notificationMessage && notificationType === 'warning'"
+        color="warning"
+        :icon="mdiAlert"
+        :outline="notificationsOutline"
+        @dismiss="dismissNotification"
+      >
+        {{ notificationMessage }}
+      </NotificationBar>
+
+      <NotificationBar
+        v-if="notificationMessage && notificationType === 'danger'"
+        color="danger"
+        :icon="mdiAlertCircle"
+        :outline="notificationsOutline"
+        @dismiss="dismissNotification"
+      >
+        {{ notificationMessage }}
+      </NotificationBar>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <CardBox is-form @submit.prevent="submitProfile">
@@ -98,7 +83,7 @@ const submitPass = () => {
         <CardBox is-form @submit.prevent="submitPass">
           <FormField label="Current password" help="Required. Your current password">
             <FormControl
-              v-model="passwordForm.password_current"
+              v-model="passwordForm.current_password"
               :icon="mdiAsterisk"
               name="password_current"
               type="password"
@@ -139,6 +124,110 @@ const submitPass = () => {
           </template>
         </CardBox>
       </div>
+
+      <CardBox class="mt-6" is-form @submit.prevent="submitDelete">
+        <p class="text-sm mb-2">Are you sure you want to delete this account?</p>
+        <FormField label="Password" help="Required. Your password">
+          <FormControl
+            id="password"
+            v-model="form.password"
+            type="password"
+            class="mt-1 block w-3/4"
+            placeholder="Password"
+          />
+        </FormField>
+        <template #footer>
+          <BaseButtons>
+            <BaseButton type="submit" color="danger" label="Submit" />
+            <BaseButton color="danger" label="Options" outline />
+          </BaseButtons>
+        </template>
+      </CardBox>
     </SectionMain>
   </LayoutAuthenticated>
 </template>
+
+<script setup>
+import { Head, useForm, usePage } from '@inertiajs/vue3';
+import { ref, onMounted } from 'vue';
+import { mdiAccount, mdiMail, mdiAsterisk, mdiFormTextboxPassword, mdiInformation, mdiCheckCircle, mdiAlert, mdiAlertCircle, mdiContrastCircle } from '@mdi/js';
+import SectionMain from '@/Components/SectionMain.vue';
+import CardBox from '@/Components/CardBox.vue';
+import BaseDivider from '@/Components/BaseDivider.vue';
+import FormField from '@/Components/FormField.vue';
+import FormControl from '@/Components/FormControl.vue';
+import FormFilePicker from '@/Components/FormFilePicker.vue';
+import BaseButton from '@/Components/BaseButton.vue';
+import BaseButtons from '@/Components/BaseButtons.vue';
+import UserCard from '@/Components/UserCard.vue';
+import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue';
+import SectionTitleLineWithButton from '@/Components/SectionTitleLineWithButton.vue';
+import NotificationBar from '@/Components/NotificationBar.vue';
+
+const user = usePage().props.auth.user;
+const notificationsOutline = ref(true);
+const notificationMessage = ref(null);
+const notificationType = ref('');
+
+const profileForm = useForm({
+  name: user.name,
+  email: user.email,
+});
+
+const passwordForm = useForm({
+  current_password: '',
+  password: '',
+  password_confirmation: '',
+});
+
+const form = useForm({
+  password: '',
+});
+
+const handleSuccessResponse = (message) => {
+  notificationMessage.value = message;
+  notificationType.value = 'success';
+  setTimeout(dismissNotification, 3000); // Menyembunyikan notifikasi setelah 3 detik
+};
+
+const handleErrorResponse = (message) => {
+  notificationMessage.value = message;
+  notificationType.value = 'danger';
+  setTimeout(dismissNotification, 3000); // Menyembunyikan notifikasi setelah 3 detik
+};
+
+const dismissNotification = () => {
+  notificationMessage.value = null;
+  notificationType.value = '';
+};
+
+const submitProfile = () => {
+  profileForm.patch(route('profile.update'), {
+    onSuccess: () => handleSuccessResponse('Profile updated successfully.'),
+    onError: (errors) => handleErrorResponse(errors[0]),
+  });
+};
+
+const submitPass = () => {
+  passwordForm.put(route('password.update'), {
+    onSuccess: () => handleSuccessResponse('Password updated successfully.'),
+    onError: (errors) => handleErrorResponse(errors[0]),
+  });
+};
+
+const submitDelete = () => {
+  form.delete(route('profile.destroy'), {
+    onSuccess: () => handleSuccessResponse('Your account has been deleted.'),
+    onError: (errors) => handleErrorResponse(errors[0]),
+  });
+};
+
+onMounted(() => {
+  if (usePage().props.flash && usePage().props.flash.success) {
+    handleSuccessResponse(usePage().props.flash.success);
+  }
+  if (usePage().props.flash && usePage().props.flash.error) {
+    handleErrorResponse(usePage().props.flash.error);
+  }
+});
+</script>

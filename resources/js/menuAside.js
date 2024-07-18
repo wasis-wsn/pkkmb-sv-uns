@@ -31,11 +31,6 @@ export default [
         icon: mdiSquareEditOutline,
     },
     {
-        route: "profiles",
-        label: "Profile",
-        icon: mdiAccountCircle,
-    },
-    {
         route: "sponsor",
         label: "Sponsor",
         icon: mdiHandshakeOutline,
@@ -92,4 +87,9 @@ export default [
         label: "Error",
         icon: mdiAlertCircle,
     },
+    {
+        route: 'ui',
+        label: 'UI',
+    },
+
 ];
