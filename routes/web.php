@@ -66,10 +66,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/galeris', function () {
         return Inertia::render('GaleriView');
     })->name('galeris');
-    //Galeri
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/galerise', function () {
-        return Inertia::render('GaleriView');
-    })->name('galerise');
+
 
     //Kelompok
     Route::get('/dashboard/kelompoks', function () {
