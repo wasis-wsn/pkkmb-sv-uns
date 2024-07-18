@@ -13,7 +13,6 @@ class Materi extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'user_id',
         'judul_materi',
         'deskripsi_materi',
         'isi_materi',
