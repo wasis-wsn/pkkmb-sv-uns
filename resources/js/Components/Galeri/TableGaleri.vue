@@ -1,6 +1,72 @@
+<script setup>
+import { ref } from "vue";
+import { mdiDelete, mdiPencil } from "@mdi/js";
+import CardBox from "@/Components/CardBox.vue";
+import BaseButton from "@/Components/BaseButton.vue";
+import { useForm } from "@inertiajs/vue3";
+import Swal from "sweetalert2";
+import EditModal from "@/Components/Galeri/EditModal.vue";
+
+const props = defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
+
+const showEditModal = ref(false);
+const selectedItem = ref(null);
+
+const form = useForm({});
+
+const confirmDelete = (id) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.delete(route("galeri.destroy", id), {
+                preserveState: true,
+                preserveScroll: true,
+                onSuccess: () => {
+                    Swal.fire(
+                        "Deleted!",
+                        "The item has been deleted.",
+                        "success"
+                    );
+                },
+                onError: (errors) => {
+                    Swal.fire(
+                        "Error!",
+                        "There was a problem deleting the file.",
+                        "error"
+                    );
+                    console.log(errors);
+                },
+            });
+        }
+    });
+};
+
+const editData = (item) => {
+    selectedItem.value = item;
+    showEditModal.value = true;
+};
+
+const closeEditModal = () => {
+    showEditModal.value = false;
+    selectedItem.value = null;
+};
+</script>
+
 <template>
     <CardBox>
-        <table class="min-w-full divide-y divide-gray-200">
+        <table class="min-w-full divide-y mx-auto">
             <thead>
                 <tr>
                     <th
@@ -30,52 +96,46 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.judul }}
+                        {{ item.judul_dokum }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.deskripsi }}
+                        {{ item.deskripsi_dokum }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.jenis }}
+                        {{ item.jenis_dokum }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <a :href="item.file_url" target="_blank">View File</a>
+                        <img
+                            :src="`/storage/galeri/${item.photo_dokum}`"
+                            alt="Dokumen"
+                            class="w-20 h-20 object-cover"
+                        />
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <BaseButton
-                            icon="mdiPencil"
+                            :icon="mdiPencil"
                             color="warning"
                             @click="editData(item)"
+                            class="mx-4"
                         />
                         <BaseButton
-                            icon="mdiDelete"
+                            :icon="mdiDelete"
                             color="danger"
-                            @click="deleteData(item.id)"
+                            @click="confirmDelete(item.id)"
                         />
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <EditModal
+            v-if="showEditModal"
+            :item="selectedItem"
+            :show="showEditModal"
+            @close="closeEditModal"
+        />
     </CardBox>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import CardBox from "@/Components/CardBox.vue";
-import BaseButton from "@/Components/BaseButton.vue";
-import { usePage } from "@inertiajs/vue3";
-
-const { props } = usePage();
-const data = ref(props.data);
-
-const editData = (item) => {
-    // Implement your edit logic here
-};
-
-const deleteData = (id) => {
-    Inertia.delete(`/data/${id}`);
-};
-</script>

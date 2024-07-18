@@ -4,30 +4,36 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Galeri;
+use App\Models\User; // Don't forget to import the User model
 
 class GaleriSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
+        // Assuming there are users seeded already, retrieve a user or create one
+        $user = User::first(); // Change this to retrieve or create the appropriate user
+
         Galeri::create([
-            'judul' => 'Sample Galeri 1',
-            'deskripsi' => 'This is a sample description for Galeri 1',
-            'jenis' => 'Galeri1',
-            'file' => 'sample1.jpg',
+            'user_id' => $user->id,
+            'photo_dokum' => 'photo1.jpg',
+            'judul_dokum' => 'Document Title 1',
+            'jenis_dokum' => 'Type A',
+            'deskripsi_dokum' => 'Description of document 1',
         ]);
 
         Galeri::create([
-            'judul' => 'Sample Galeri 2',
-            'deskripsi' => 'This is a sample description for Galeri 2',
-            'jenis' => 'Galeri2',
-            'file' => 'sample2.jpg',
+            'user_id' => $user->id,
+            'photo_dokum' => 'photo2.jpg',
+            'judul_dokum' => 'Document Title 2',
+            'jenis_dokum' => 'Type B',
+            'deskripsi_dokum' => 'Description of document 2',
         ]);
 
-        Galeri::create([
-            'judul' => 'Sample Slide',
-            'deskripsi' => 'This is a sample description for Slide',
-            'jenis' => 'Slide',
-            'file' => 'sample3.jpg',
-        ]);
+        // Add more seed data as needed
     }
 }

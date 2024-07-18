@@ -24,9 +24,9 @@ Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');
 })->name('kelompok');
 
-Route::get('/galeri', function () {
+Route::get('/galleri', function () {
     return Inertia::render('Views/GaleriView');
-})->name('galeri');
+})->name('galleri');
 
 Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
@@ -51,13 +51,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('MateriView');
     })->name('materis');
 
-    Route::get('/dashboard/galeris', function () {
-        return Inertia::render('GaleriView');
-    })->name('galeris');
+    //Galeri
 
-    Route::get('/dashboard/galerise', function () {
-        return Inertia::render('GaleriView');
-    })->name('galerise');
 
     Route::get('/dashboard/kelompoks', function () {
         return Inertia::render('KelompokView');
@@ -93,9 +88,5 @@ Route::get('/error', function () {
     return Inertia::render('ErrorView');
 })->name('error');
 
-// Route untuk UI
-Route::get('/ui', function () {
-    return Inertia::render('UiView');
-})->name('ui');
-
 require __DIR__ . '/auth.php';
+require __DIR__ . '/galeriRoute.php';

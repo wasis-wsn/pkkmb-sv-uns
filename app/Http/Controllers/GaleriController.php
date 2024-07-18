@@ -5,77 +5,126 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Storage;
+use App\Models\User; // Don't forget to import the User model
+use Illuminate\Support\Facades\Redirect;
+
+use Auth;
 
 class GaleriController extends Controller
 {
     public function index()
     {
         $galeris = Galeri::all();
-        return Inertia::render('Galeri/Index', ['galeris' => $galeris]);
-    }
-
-    public function create()
-    {
-        return Inertia::render('Galeri/Create');
+        return Inertia::render('GaleriView', ['data' => $galeris]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'judul' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'jenis' => 'required|string|in:Galeri1,Galeri2,Slide',
-            'file' => 'required|image|mimes:png,jpg,svg|max:10240',
-        ]);
+        try {
+            $validated = $request->validate([
+                'judul_dokum' => 'required|string|max:255',
+                'deskripsi_dokum' => 'nullable|string',
+                'jenis_dokum' => 'required|string|max:255',
+                'photo_dokum' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
+            ]);
 
-        $file = $request->file('file')->store('galeri_files');
+            $path = $request->file('photo_dokum');
+            $path->storeAs('public/galeri', $request->file('photo_dokum')->hashName());
 
-        Galeri::create([
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'jenis' => $request->jenis,
-            'file' => $file,
-        ]);
+            $user = Auth::user(); // Change this to retrieve or create the appropriate user
 
-        return redirect()->route('galeris.index')->with('success', 'Galeri created successfully.');
+            Galeri::create([
+                'user_id' => $user->id,
+                'photo_dokum' => $path->hashName(),
+                'judul_dokum' => $validated['judul_dokum'],
+                'deskripsi_dokum' => $validated['deskripsi_dokum'],
+                'jenis_dokum' => $validated['jenis_dokum']
+            ]);
+
+            return redirect()->route('galeri');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
-    public function show(Galeri $galeri)
-    {
-        return Inertia::render('Galeri/Show', ['galeri' => $galeri]);
-    }
+    // public function update(Request $request, Galeri $galeri)
+    // {
+    //     $validated = $request->validate([
+    //         'judul_dokum' => 'required|string|max:255',
+    //         'deskripsi_dokum' => 'nullable|string',
+    //         'jenis_dokum' => 'required|string|max:255',
+    //         'photo_dokum' => 'nullable|file|max:10240'
+    //     ]);
 
-    public function edit(Galeri $galeri)
-    {
-        return Inertia::render('Galeri/Edit', ['galeri' => $galeri]);
-    }
+    //     if ($request->hasFile('photo_dokum')) {
+    //         $path = $request->file('photo_dokum')->store('galeri', 'public');
+    //         $galeri->photo_dokum = $path;
+    //     }
+
+    //     $galeri->update([
+    //         'judul_dokum' => $validated['judul_dokum'],
+    //         'deskripsi_dokum' => $validated['deskripsi_dokum'],
+    //         'jenis_dokum' => $validated['jenis_dokum']
+    //     ]);
+
+    //     return redirect()->route('galeri');
+    // }
 
     public function update(Request $request, Galeri $galeri)
     {
-        $request->validate([
-            'judul' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'jenis' => 'required|string|in:Galeri1,Galeri2,Slide',
-            'file' => 'nullable|image|mimes:png,jpg,svg|max:10240',
+        \Log::info('Update method called');
+        \Log::info('Request data: ' . json_encode($request->all()));
+
+        $validated = $request->validate([
+            'judul_dokum' => 'nullable|string|max:255',
+            'deskripsi_dokum' => 'nullable|string',
+            'jenis_dokum' => 'nullable|string|max:255',
+            'photo_dokum' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
 
-        if ($request->hasFile('file')) {
-            Storage::delete($galeri->file);
-            $file = $request->file('file')->store('galeri_files');
-            $galeri->file = $file;
+        \Log::info('Validated data: ' . json_encode($validated));
+
+        $dataToUpdate = [];
+
+        if ($request->filled('judul_dokum')) {
+            $dataToUpdate['judul_dokum'] = $validated['judul_dokum'];
         }
 
-        $galeri->update($request->only('judul', 'deskripsi', 'jenis'));
+        if ($request->filled('deskripsi_dokum')) {
+            $dataToUpdate['deskripsi_dokum'] = $validated['deskripsi_dokum'];
+        }
 
-        return redirect()->route('galeris.index')->with('success', 'Galeri updated successfully.');
+        if ($request->filled('jenis_dokum')) {
+            $dataToUpdate['jenis_dokum'] = $validated['jenis_dokum'];
+        }
+
+        if ($request->hasFile('photo_dokum')) {
+            \Log::info('File uploaded');
+            $path = $request->file('photo_dokum');
+            $fileName = $path->hashName();
+            $path->storeAs('public/galeri', $fileName);
+            $dataToUpdate['photo_dokum'] = $fileName;
+            \Log::info('File stored as: ' . $fileName);
+        } else {
+            \Log::info('No file uploaded');
+        }
+
+        \Log::info('Data to update: ' . json_encode($dataToUpdate));
+
+        $galeri->update($dataToUpdate);
+
+        \Log::info('Update completed');
+
+        return redirect()->route('galeri');
     }
 
-    public function destroy(Galeri $galeri)
+    public function destroy($id)
     {
-        Storage::delete($galeri->file);
-        $galeri->delete();
+        // Your deletion logic here
+        Galeri::destroy($id);
 
-        return redirect()->route('galeris.index')->with('success', 'Galeri deleted successfully.');
+        // Return a valid Inertia response
+        return redirect()->route('galeri');
     }
+
 }
