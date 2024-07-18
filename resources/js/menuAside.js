@@ -31,11 +31,6 @@ export default [
         icon: mdiSquareEditOutline,
     },
     {
-        route: "profiles",
-        label: "Profile",
-        icon: mdiAccountCircle,
-    },
-    {
         route: "sponsor",
         label: "Sponsor",
         icon: mdiHandshakeOutline,
@@ -61,7 +56,7 @@ export default [
         icon: mdiAccount,
     },
     {
-        route: "materis",
+        route: "materi",
         label: "Materi",
         icon: mdiClipboardText,
     },
@@ -80,7 +75,8 @@ export default [
         icon: mdiViewList,
         menu: [
             {
-                label: "Item One",
+                route: 'ui',
+                label: 'UI',
             },
             {
                 label: "Item Two",
@@ -92,4 +88,6 @@ export default [
         label: "Error",
         icon: mdiAlertCircle,
     },
+
+
 ];

@@ -14,27 +14,32 @@
     import TableMateri from '@/Components/Materi/TableMateri.vue'
     import FormMateri from '@/Components/Materi/FormMateri.vue'
 
-    const submit = () => {
-        //
-    }
+defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 
 </script>
 
 <template>
     <LayoutAuthenticated>
 
-        <Head title="materi" />
+        <Head title="Materi" />
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiBallotOutline" title="Form Materi" main>
             </SectionTitleLineWithButton>
             <FormMateri />
-        </SectionMain>
-        <SectionMain>
-            <SectionTitleLineWithButton :icon="mdiTableBorder" title="Daftar Materi" main>
-            </SectionTitleLineWithButton>
-            <CardBox>
-                <TableMateri />
-            </CardBox>
+            <div class="text-center">
+                <SectionTitleLineWithButton
+                    class="mt-5"
+                    :icon="mdiBallotOutline"
+                    title="Table Data"
+                    main
+                ></SectionTitleLineWithButton>
+            </div>
+            <TableMateri :data="data" />
         </SectionMain>
     </LayoutAuthenticated>
 </template>
