@@ -66,8 +66,7 @@
 import { ref } from "vue";
 import CardBox from "@/Components/CardBox.vue";
 import BaseButton from "@/Components/BaseButton.vue";
-import { usePage } from '@inertiajs/vue3';
-
+import { usePage } from "@inertiajs/vue3";
 
 const { props } = usePage();
 const data = ref(props.data);

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
@@ -18,25 +19,25 @@ Route::get('/', function () {
 
 //* Landing Page
 
-    Route::get('/', function () {
-        return Inertia::render('Views/LandingView');
-    })->name('landing');
+Route::get('/', function () {
+    return Inertia::render('Views/LandingView');
+})->name('landing');
 
-    Route::get('/materi', function () {
-        return Inertia::render('Views/MateriView');
-    })->name('materi');
+Route::get('/materi', function () {
+    return Inertia::render('Views/MateriView');
+})->name('materi');
 
-    Route::get('/kelompok', function () {
-        return Inertia::render('Views/KelompokView');
-    })->name('kelompok');
+Route::get('/kelompok', function () {
+    return Inertia::render('Views/KelompokView');
+})->name('kelompok');
 
-    Route::get('/galeri', function () {
-        return Inertia::render('Views/GaleriView');
-    })->name('galeri');
+Route::get('/galeri', function () {
+    return Inertia::render('Views/GaleriView');
+})->name('galeri');
 
-    Route::get('/tentang', function () {
-        return Inertia::render('Views/AboutView');
-    })->name('tentang');
+Route::get('/tentang', function () {
+    return Inertia::render('Views/AboutView');
+})->name('tentang');
 
 
 
@@ -65,9 +66,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/galeris', function () {
         return Inertia::render('GaleriView');
     })->name('galeris');
+    //Galeri
+    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/galerise', function () {
+        return Inertia::render('GaleriView');
+    })->name('galerise');
 
     //Kelompok
-    Route::get('/dashboard/kelompoks', function(){
+    Route::get('/dashboard/kelompoks', function () {
         return Inertia::render('KelompokView');
     })->name('kelompoks');
 

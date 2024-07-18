@@ -27,6 +27,7 @@
 
 <script setup>
 import { reactive } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 import { mdiAccount } from "@mdi/js";
 import CardBox from "@/Components/CardBox.vue";
 import FormField from "@/Components/FormField.vue";
@@ -35,24 +36,23 @@ import BaseDivider from "@/Components/BaseDivider.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import BaseButtons from "@/Components/BaseButtons.vue";
 import FormFilePicker from "@/Components/FormFilePicker.vue";
+import { useForm } from "@inertiajs/inertia-vue3";
 
 const selectOptions = [
     { id: 1, label: "Galeri" },
     { id: 2, label: "Slide Acara" },
 ];
 
-const form = reactive({
+const form = useForm({
     judul: "",
     deskripsi: "",
-    jenis: selectOptions[0],
+    jenis: selectOptions[0].label,
     file: null,
 });
 
 const submit = () => {
-    const formData = new FormData();
-    formData.append("judul", form.judul);
-    formData.append("deskripsi", form.deskripsi);
-    formData.append("jenis", form.jenis.label);
-    formData.append("file", form.file);
+    form.post(route("galerise.store"), {
+        onFinish: () => form.reset(),
+    });
 };
 </script>

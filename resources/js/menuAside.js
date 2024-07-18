@@ -11,7 +11,7 @@ import {
     mdiYoutube,
     mdiClipboardText,
     mdiForum,
-    mdiAccountDetails ,
+    mdiAccountDetails,
 } from "@mdi/js";
 
 export default [
@@ -26,7 +26,7 @@ export default [
         label: "User",
     },
     {
-        route: "galeris",
+        route: "galerise",
         label: "Galeri",
         icon: mdiSquareEditOutline,
     },
@@ -45,10 +45,10 @@ export default [
         label: "Hima",
         icon: mdiBrain,
     },
-      {
+    {
         route: "kelompoks",
         label: "Kelompok",
-        icon: mdiAccountGroup ,
+        icon: mdiAccountGroup,
     },
     {
         route: "prodi",
