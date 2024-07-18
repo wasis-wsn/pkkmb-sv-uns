@@ -14,7 +14,7 @@ import BaseButtons from "@/Components/BaseButtons.vue";
 import FormValidationErrors from "@/Components/FormValidationErrors.vue";
 
 const form = useForm({
-  name: "",
+  // name: "",
   email: "",
   password: "",
   password_confirmation: "",
@@ -35,6 +35,16 @@ const submit = () => {
       onFinish: () => form.reset("password", "password_confirmation"),
     });
 };
+
+const role = [{
+            label: "Admin",
+            value: "admin"
+        },
+        {
+            label: "User",
+            value: "user"
+        }
+    ];
 </script>
 
 <template>
@@ -50,7 +60,7 @@ const submit = () => {
       >
         <FormValidationErrors />
 
-        <FormField label="Name" label-for="name" help="Please enter your name">
+        <!-- <FormField label="Name" label-for="name" help="Please enter your name">
           <FormControl
             v-model="form.name"
             id="name"
@@ -59,7 +69,7 @@ const submit = () => {
             type="text"
             required
           />
-        </FormField>
+        </FormField> -->
 
         <FormField
           label="Email"
@@ -104,6 +114,10 @@ const submit = () => {
             autocomplete="new-password"
             required
           />
+        </FormField>
+
+        <FormField label="Role">
+            <FormControl v-model="form.role" :options="role" type="select"/>
         </FormField>
 
         <FormCheckRadioGroup

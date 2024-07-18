@@ -112,6 +112,5 @@
     overflow-y: auto; /* Aktifkan scroll vertical jika konten lebih dari container */
   }
   
-  @import '../css/pages/_button.css';
   </style>
   

@@ -63,8 +63,6 @@ import "swiper/swiper-bundle.css";
 import { register } from "swiper/element/bundle";
 register();
 
-import "@css/pages/_button.css";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 

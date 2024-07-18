@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Mahasiswa;
+use Illuminate\Support\Facades\Hash;
 
 
 class DatabaseSeeder extends Seeder
@@ -15,13 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            MahasiswaSeeder::class,
-        ]);
         User::factory()->create([
-            'name' => 'Yoga',
-            'email' => 'prayogaputra@gmail.com',
-            'password' => '12345678'
+            'email' => 'admin@gmail.com',
+            'password' => 'admin',
+            'role' => 'admin'
         ]);
     }
 }
