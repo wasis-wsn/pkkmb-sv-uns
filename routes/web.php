@@ -88,5 +88,9 @@ Route::get('/error', function () {
     return Inertia::render('ErrorView');
 })->name('error');
 
+Route::get('/ui', function () {
+    return Inertia::render('UiView');
+})->name('ui');
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';

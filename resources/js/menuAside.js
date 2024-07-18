@@ -75,7 +75,8 @@ export default [
         icon: mdiViewList,
         menu: [
             {
-                label: "Item One",
+                route: 'ui',
+                label: 'UI',
             },
             {
                 label: "Item Two",
@@ -87,9 +88,6 @@ export default [
         label: "Error",
         icon: mdiAlertCircle,
     },
-    {
-        route: 'ui',
-        label: 'UI',
-    },
+
 
 ];
