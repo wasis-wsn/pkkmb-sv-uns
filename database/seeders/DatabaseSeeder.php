@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin',
             'role' => 'admin'
         ]);
+        $this->call([
+            SponsorSeeder::class,
+        ]);    
     }
 }

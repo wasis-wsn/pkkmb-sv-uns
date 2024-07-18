@@ -9,11 +9,10 @@ class Sponsor extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'sponsor';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'user_id',
         'nama_sponsor',
         'logo_sponsor',
     ];

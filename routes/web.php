@@ -49,9 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('dashboard');
 
     //Landing
-    Route::get('/dashboard/sponsor', function () {
-        return Inertia::render('SponsorView');
-    })->name('sponsor');
+   
 
     Route::get('/dashboard/hima', function () {
         return Inertia::render('HimaView');
@@ -61,9 +59,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/materis', function () {
         return Inertia::render('MateriView');
     })->name('materis');
-
-    //Galeri
-
 
     //Kelompok
     Route::get('/dashboard/kelompoks', function () {
@@ -114,3 +109,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
+require __DIR__ . '/sponsorRoute.php';

@@ -82,7 +82,6 @@ return new class extends Migration {
         // Sponsor Table
         Schema::create('sponsor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_sponsor');
             $table->string('logo_sponsor');
             $table->timestamps();
