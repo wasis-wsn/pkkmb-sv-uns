@@ -26,7 +26,7 @@ export default [
         label: "User",
     },
     {
-        route: "galeris",
+        route: "galeri",
         label: "Galeri",
         icon: mdiSquareEditOutline,
     },

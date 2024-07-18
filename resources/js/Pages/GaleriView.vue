@@ -26,7 +26,7 @@
                     main
                 ></SectionTitleLineWithButton>
             </div>
-            <TableGaleri />
+            <TableGaleri :data="data" />
         </SectionMain>
     </LayoutAuthenticated>
 </template>
@@ -40,4 +40,11 @@ import BaseButton from "@/Components/BaseButton.vue";
 import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
 import FormGaleri from "@/Components/Galeri/FormGaleri.vue";
 import TableGaleri from "@/Components/Galeri/TableGaleri.vue";
+
+defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 </script>

@@ -9,15 +9,15 @@ class Galeri extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'dokumentasi';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'user_id',
-        'judul',
-        'deskripsi',
-        'jenis',
-        'photo_galeri',
+        'photo_dokum',
+        'judul_dokum',
+        'jenis_dokum',
+        'deskripsi_dokum',
     ];
 
     public function user()

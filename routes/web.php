@@ -31,9 +31,9 @@ Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');
 })->name('kelompok');
 
-Route::get('/galeri', function () {
+Route::get('/galleri', function () {
     return Inertia::render('Views/GaleriView');
-})->name('galeri');
+})->name('galleri');
 
 Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
@@ -63,9 +63,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('materis');
 
     //Galeri
-    Route::get('/dashboard/galeris', function () {
-        return Inertia::render('GaleriView');
-    })->name('galeris');
 
 
     //Kelompok
@@ -116,3 +113,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/galeriRoute.php';
