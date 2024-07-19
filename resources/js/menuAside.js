@@ -26,34 +26,62 @@ export default [
         label: "User",
     },
     {
-        route: "galeri",
+        label: "Landing",
+        icon: mdiViewList,
+        menu: [
+            {
+                route: "sponsor",
+                label: "Sponsor",
+                icon: mdiHandshakeOutline,
+            },
+            {
+                route: "hima",
+                label: "Hima",
+                icon: mdiBrain,
+            },
+        ],
+    },
+    {
         label: "Galeri",
-        icon: mdiSquareEditOutline,
+        icon: mdiViewList,
+        menu: [
+            {
+                route: "galeri",
+                label: "dokumentasi",
+                icon: mdiSquareEditOutline,
+            },
+            {
+                to: "acara",
+                label: "acara",
+                icon: mdiSquareEditOutline,
+            },
+            {
+                route: "youtube",
+                label: "YouTube",
+                icon: mdiYoutube,
+            },
+        ],
     },
     {
-        route: "sponsor",
-        label: "Sponsor",
-        icon: mdiHandshakeOutline,
-    },
-    {
-        route: "hima",
-        label: "Hima",
-        icon: mdiBrain,
-    },
-    {
-        route: "kelompoks",
         label: "Kelompok",
-        icon: mdiAccountGroup,
-    },
-    {
-        route: "prodi",
-        label: "Prodi",
-        icon: mdiSquareEditOutline,
-    },
-    {
-        route: "mahasiswa",
-        label: "Mahasiswa",
-        icon: mdiAccount,
+        icon: mdiViewList,
+        menu: [
+            {
+                route: "kelompoks",
+                label: "Kelompok",
+                icon: mdiAccountGroup,
+            },
+            {
+                route: "prodi",
+                label: "Prodi",
+                icon: mdiSquareEditOutline,
+            },
+            {
+                route: "mahasiswa",
+                label: "Mahasiswa",
+                icon: mdiAccount,
+            },
+        ],
     },
     {
         route: "materi",
@@ -64,11 +92,6 @@ export default [
         route: "chat",
         label: "Chat",
         icon: mdiForum,
-    },
-    {
-        route: "youtube",
-        label: "YouTube",
-        icon: mdiYoutube,
     },
     {
         label: "Dropdown",
