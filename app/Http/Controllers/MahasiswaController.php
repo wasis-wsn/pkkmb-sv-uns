@@ -21,7 +21,8 @@ class MahasiswaController extends Controller
 
     public function index()
     {
-
+        $mahasiswas = Mahasiswa::with('prodi', 'kelompok')->get();
+        return Inertia::render('MahasiswaView', ['data' => $mahasiswas]);
     }
 
     public function store(Request $request)

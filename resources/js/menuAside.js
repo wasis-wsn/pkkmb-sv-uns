@@ -67,7 +67,7 @@ export default [
         icon: mdiViewList,
         menu: [
             {
-                route: "kelompoks",
+                route: "kelompok",
                 label: "Kelompok",
                 icon: mdiAccountGroup,
             },

@@ -45,23 +45,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/materis', function () {
         return Inertia::render('MateriView');
     })->name('materis');
-
-    //Galeri
-
-
-    //Kelompok
-    Route::get('/dashboard/kelompoks', function () {
-        return Inertia::render('KelompokView');
-    })->name('kelompoks');
-
-    Route::get('/dashboard/prodi', function () {
-        return Inertia::render('ProdiView');
-    })->name('prodi');
-
-    Route::get('/dashboard/mahasiswa', function () {
-        return Inertia::render('MahasiswaView');
-    })->name('mahasiswa');
-
+    
     Route::get('/dashboard/youtube', function () {
         return Inertia::render('YoutubeView');
     })->name('youtube');
