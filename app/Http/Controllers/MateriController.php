@@ -6,6 +6,7 @@ use App\Models\Materi;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+use Auth;
 
 class MateriController extends Controller
 {
@@ -24,7 +25,10 @@ class MateriController extends Controller
                 'isi_materi' => 'required|string',
             ]);
 
+            $user = Auth::user();
+
             Materi::create([
+                'user_id' => $user->id,
                 'judul_materi' => $validated['judul_materi'],
                 'deskripsi_materi' => $validated['deskripsi_materi'],
                 'isi_materi' => $validated['isi_materi']
@@ -61,13 +65,14 @@ class MateriController extends Controller
 
     public function update(Request $request, Materi $materi)
     {
+        
         \Log::info('Update method called');
         \Log::info('Request data: ' . json_encode($request->all()));
 
         $validated = $request->validate([
             'judul_materi' => 'nullable|string|max:255',
                 'deskripsi_materi' => 'nullable|string',
-                'isi_materi' => 'nullable|string|max:255',
+                'isi_materi' => 'nullable|string',
         ]);
 
         \Log::info('Validated data: ' . json_encode($validated));
