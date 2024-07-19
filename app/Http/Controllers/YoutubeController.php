@@ -17,6 +17,9 @@ class YoutubeController extends Controller
         return Inertia::render('YoutubeView', ['data' => $youtubes]);
     }
 
+    
+
+
     public function store(Request $request)
     {
         try {
@@ -25,7 +28,10 @@ class YoutubeController extends Controller
                 'link_youtube' => 'required|string',
             ]);
 
+            $user = Auth::user();
+
             Youtube::create([
+                'user_id' => $user->id,
                 'judul_youtube' => $validated['judul_youtube'],
                 'link_youtube' => $validated['link_youtube']
             ]);
