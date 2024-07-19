@@ -12,7 +12,8 @@ class GaleriController extends Controller
     public function getAllGaleri()
     {
         $galeris = Galeri::all();
-        return response()->json(['data' => $galeris], 200);
+        // Hapus respons JSON dan kembalikan data ke view atau gunakan dengan cara lain
+        return Inertia::render('GaleriList', ['data' => $galeris]);
     }
 
     public function index()
@@ -36,7 +37,7 @@ class GaleriController extends Controller
 
             $user = Auth::user();
 
-            $galeri = Galeri::create([
+            Galeri::create([
                 'user_id' => $user->id,
                 'photo_dokum' => $path->hashName(),
                 'judul_dokum' => $validated['judul_dokum'],
@@ -44,9 +45,11 @@ class GaleriController extends Controller
                 'jenis_dokum' => $validated['jenis_dokum']
             ]);
 
-            return response()->json(['message' => 'Data berhasil disimpan', 'data' => $galeri], 201);
+            // Redirect atau render view tanpa respons JSON
+            return redirect()->route('galeri.index')->with('success', 'Data berhasil disimpan');
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            // Redirect atau render view dengan pesan error
+            return redirect()->route('galeri.index')->with('error', $e->getMessage());
         }
     }
 
@@ -82,7 +85,8 @@ class GaleriController extends Controller
 
         $id->update($dataToUpdate);
 
-        return response()->json(['message' => 'Data berhasil diperbarui', 'data' => $id], 200);
+        // Redirect atau render view tanpa respons JSON
+        return redirect()->route('galeri.index')->with('success', 'Data berhasil diperbarui');
     }
 
     public function destroy($id)
@@ -90,6 +94,7 @@ class GaleriController extends Controller
         $galeri = Galeri::findOrFail($id);
         $galeri->delete();
 
-        return response()->json(['message' => 'Data berhasil dihapus'], 200);
+        // Redirect atau render view tanpa respons JSON
+        return redirect()->route('galeri.index')->with('success', 'Data berhasil dihapus');
     }
 }
