@@ -9,10 +9,15 @@ class Kelompok extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'kelompok';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'nama_kelompok',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

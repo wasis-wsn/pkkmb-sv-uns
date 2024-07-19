@@ -7,10 +7,13 @@ import UserAvatarCurrentUser from '@/Components/UserAvatarCurrentUser.vue'
 import CardBox from '@/Components/CardBox.vue'
 import FormCheckRadio from '@/Components/FormCheckRadio.vue'
 import PillTag from '@/Components/PillTag.vue'
+import { usePage } from '@inertiajs/vue3';
 
-const mainStore = useMainStore()
+const { props } = usePage();
+const user = props.auth.user;
+// const mainStore = useMainStore()
 
-const userEmail = computed(() => mainStore.userEmail)
+// const userName = computed(() => mainStore.userName)
 
 const userSwitchVal = ref(false)
 </script>
@@ -30,7 +33,7 @@ const userSwitchVal = ref(false)
           />
         </div>
         <h1 class="text-2xl">
-          Howdy, <b>{{ userEmail }}</b
+          Howdy, <b>{{ user ? user.name : 'Loading...' }}</b
           >!
         </h1>
         <p>Last login <b>12 mins ago</b> from <b>127.0.0.1</b></p>

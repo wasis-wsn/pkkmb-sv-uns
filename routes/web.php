@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\KelompokController;
+use App\Http\Controllers\ProdiController;
 
+// Route untuk landing page
 Route::get('/', function () {
     return Inertia::render('Views/LandingView', [
         'canLogin' => Route::has('login'),
@@ -14,22 +17,15 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
-
-
-//* Landing Page
-
-Route::get('/', function () {
-    return Inertia::render('Views/LandingView');
 })->name('landing');
 
-Route::get('/materi', function () {
+Route::get('/implementasi', function () {
     return Inertia::render('Views/MateriView');
-})->name('materi');
+})->name('implementasi');
 
-Route::get('/kelompok', function () {
+Route::get('/kellompok', function () {
     return Inertia::render('Views/KelompokView');
-})->name('kelompok');
+})->name('kellompok');
 
 Route::get('/galleri', function () {
     return Inertia::render('Views/GaleriView');
@@ -39,79 +35,49 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
-
-
-//** Dashboard */
+// Route untuk dashboard dan halaman terproteksi
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/dashboard', function () {
         return Inertia::render('DashboardView');
     })->name('dashboard');
 
-    //Landing
-    Route::get('/dashboard/sponsor', function () {
-        return Inertia::render('SponsorView');
-    })->name('sponsor');
-
-    Route::get('/dashboard/hima', function () {
-        return Inertia::render('HimaView');
-    })->name('hima');
-
-    //Materi
     Route::get('/dashboard/materis', function () {
         return Inertia::render('MateriView');
     })->name('materis');
-
-    //Galeri
-
-
-    //Kelompok
-    Route::get('/dashboard/kelompoks', function () {
-        return Inertia::render('KelompokView');
-    })->name('kelompoks');
-
-    Route::get('/dashboard/prodi', function () {
-        return Inertia::render('ProdiView');
-    })->name('prodi');
-
-    Route::get('/dashboard/mahasiswa', function () {
-        return Inertia::render('MahasiswaView');
-    })->name('mahasiswa');
-
-    //User
-    Route::get('/dashboard/profiles', function () {
-        return Inertia::render('ProfileView');
-    })->name('profiles');
-
-    //Error
-    Route::get('/error', function () {
-        return Inertia::render('ErrorView');
-    })->name('error');
-
-    //Youtube
+    
     Route::get('/dashboard/youtube', function () {
         return Inertia::render('YoutubeView');
     })->name('youtube');
 
-    //Chat
     Route::get('/dashboard/chat', function () {
         return Inertia::render('ChatView');
     })->name('chat');
 
-    //user
     Route::get('/dashboard/user', function () {
         return Inertia::render('UserView');
     })->name('user');
-});
 
-//** Profile Admin */
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+    // Profile Admin
+    Route::get('/dashboard/profiles', [ProfileController::class, 'edit'])->name('profiles');
+    Route::patch('/dashboard/profiles-update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/dashboard/profiles-delete', [ProfileController::class, 'destroy'])->name('profile.delete');});
 
+// Route untuk error
+Route::get('/error', function () {
+    return Inertia::render('ErrorView');
+})->name('error');
+
+Route::get('/ui', function () {
+    return Inertia::render('UiView');
+})->name('ui');
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
-require __DIR__ . '/userRoute.php';
+require __DIR__ . '/kelompokRoute.php';
+require __DIR__ . '/prodiRoute.php';
+require __DIR__ . '/mahasiswaRoute.php';
+require __DIR__ . '/sponsorRoute.php';
+require __DIR__ . '/himaRoute.php';
+require __DIR__ . '/materiRoute.php';
+require __DIR__ . '/youtubeRoute.php';

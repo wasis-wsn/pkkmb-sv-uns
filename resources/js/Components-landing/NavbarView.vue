@@ -27,13 +27,13 @@
                 >BERANDA</Link
             >
             <Link
-                href="/materi"
+                href="/implementasi"
                 class="nav-link cursor-pointer"
                 @click="openMenu"
                 >MATERI</Link
             >
             <Link
-                href="/kelompok"
+                href="/kellompok"
                 class="nav-link cursor-pointer"
                 @click="openMenu"
                 >KELOMPOK</Link
