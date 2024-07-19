@@ -6,6 +6,7 @@ import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import { mdiAccount } from "@mdi/js";
 import FormFilePicker from "@/Components/FormFilePicker.vue";
+import CardBox from "../CardBox.vue";
 
 const props = defineProps({
     item: Object,
@@ -62,7 +63,7 @@ const handleFileChange = (event) => {
             class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
         >
             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                <div class="absolute inset-0 "></div>
             </div>
             <span
                 class="hidden sm:inline-block sm:align-middle sm:h-screen"
@@ -70,15 +71,15 @@ const handleFileChange = (event) => {
                 >​</span
             >
             <div
-                class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                class="inline-block align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
             >
-                <div class="bg-slate-900 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
+                <CardBox>
+                    <div class=" sm:items-start">
                         <div
                             class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
                         >
                             <h3
-                                class="text-lg leading-6 font-medium text-gray-900"
+                                class="text-lg leading-6 font-medium"
                             >
                                 Edit Galeri
                             </h3>
@@ -96,9 +97,10 @@ const handleFileChange = (event) => {
                                     />
                                 </FormField>
                                 <FormField label="Jenis Dokumen">
+                                    
                                     <select
                                         v-model="form.jenis_dokum"
-                                        class="bg-slate-900"
+                                        class=""
                                     >
                                         <option
                                             v-for="option in selectOptions"
@@ -121,9 +123,9 @@ const handleFileChange = (event) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                
                 <div
-                    class="bg-blue-950 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                    class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
                 >
                     <BaseButton
                         type="button"
@@ -140,6 +142,7 @@ const handleFileChange = (event) => {
                         outline
                     />
                 </div>
+            </CardBox>
             </div>
         </div>
     </div>
