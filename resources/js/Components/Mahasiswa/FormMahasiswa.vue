@@ -91,7 +91,7 @@ const reset = () => {
         <FormField label="Prodi">
             <select v-model="form.prodi_id" class="form-control">
                 <option value="" disabled>Pilih Prodi</option>
-                <option v-for="prodi in props.prodis" :key="prodi.id" :value="prodi.id">
+                <option v-for="prodi in props.prodi" :key="prodi.id" :value="prodi.id">
                     {{ prodi.nama_prodi }}
                 </option>
             </select>
@@ -103,7 +103,7 @@ const reset = () => {
         <FormField label="Kelompok">
             <select v-model="form.kelompok_id" class="form-control">
                 <option value="" disabled>Pilih Kelompok</option>
-                <option v-for="kelompok in props.kelompoks" :key="kelompok.id" :value="kelompok.id">
+                <option v-for="kelompok in props.kelompok" :key="kelompok.id" :value="kelompok.id">
                     {{ kelompok.nama_kelompok }}
                 </option>
             </select>

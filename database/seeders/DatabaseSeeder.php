@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ProdiSeeder::class,
             KelompokSeeder::class,
-            // MahasiswaSeeder::class,
+            MahasiswaSeeder::class,
         ]);
 
         User::factory()->create([
@@ -31,6 +31,6 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             SponsorSeeder::class,
-        ]);    
+        ]);
     }
 }

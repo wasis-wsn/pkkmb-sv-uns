@@ -78,12 +78,11 @@ export default [
         icon: mdiBrain,
     },
     {
-        route: "kelompok",
         label: "Kelompok",
         icon: mdiViewList,
         menu: [
             {
-                route: "kelompoks",
+                route: "kelompok",
                 label: "Kelompok",
                 icon: mdiAccountGroup,
             },
