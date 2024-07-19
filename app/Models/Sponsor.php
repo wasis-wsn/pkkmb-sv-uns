@@ -13,6 +13,7 @@ class Sponsor extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'user_id',
         'nama_sponsor',
         'logo_sponsor',
     ];

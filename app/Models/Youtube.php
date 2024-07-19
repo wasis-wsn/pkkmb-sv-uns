@@ -13,6 +13,7 @@ class Youtube extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'user_id',
         'judul_youtube',
         'link_youtube',
     ];
