@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -28,23 +26,32 @@ class UserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'email' => 'required|string|lowercase|email|max:255|unique:',
-            'password' => 'required|string',
-            'role' => 'required|string'
-        ]);
+    public function store(Request $request)
+{
+    $validatedData = $request->validate([
+        'name' => 'required|string',
+        'email' => 'required|string|email|max:255|unique:users,email',
+        'password' => 'required|string',
+        'role' => 'required|string'
+    ]);
 
-        User::create([
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => $request->role,
-            'mahasiswa_id' => $request -> mahasiswa,
-        ]);
+    Log::info('Validated Data: ', $validatedData);
 
-        return redirect(route('user', absolute: false));
-    }
+    $mahasiswa = Auth::user();
+
+    $user = User::create([
+        'name' => $validatedData['name'],
+        'email' => $validatedData['email'],
+        'password' => bcrypt($validatedData['password']),
+        'role' => $validatedData['role'],
+        'mahasiswa_id' => $mahasiswa->id,
+    ]);
+
+    Log::info('User Created: ', $user->toArray());
+
+    return redirect()->route('user.index');
+}
+
 
 
     public function update(Request $request, User $user)
@@ -53,15 +60,21 @@ class UserController extends Controller
         Log::info('Request data: ' . json_encode($request->all()));
 
         $request->validate([
-            'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
+            'name' => 'required|string',
+            'email' => 'required|string|lowercase|email|max:255|unique:users,email,' . $user->id,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role'
+            'role' => 'required|string'
         ]);
+        
 
         Log::info('Validated data: ' . json_encode($request));
 
         $dataToUpdate = [];
 
+        if ($request->filled('name')) {
+            $dataToUpdate['name'] = $request['name'];
+        }
+        
         if ($request->filled('email')) {
             $dataToUpdate['email'] = $request['email'];
         }

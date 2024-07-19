@@ -14,8 +14,11 @@
     import FormUser from '@/Components/User/FormUser.vue'
 
     const props = defineProps({
-        users: Array
-    });
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 
 </script>
 
@@ -31,7 +34,7 @@
             <SectionTitleLineWithButton :icon="mdiTableBorder" title="User Data" main>
             </SectionTitleLineWithButton>
             <CardBox>
-                <TableUser />
+                <TableUser :data="data"/>
             </CardBox>
         </SectionMain>
     </LayoutAuthenticated>

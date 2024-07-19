@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Mahasiswa;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,23 +16,29 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // Array of sample users
-        $users = [
-            [
-                'email' => 'admin@example.com',
-                'password' => Hash::make('password'),
-                'role' => 'admin'
-            ],
-            [
-                'email' => 'user@example.com',
-                'password' => Hash::make('password'),
-                'role' => 'user'
-            ],
-        ];
+        // Retrieve or create a mahasiswa
+        $mahasiswa = Mahasiswa::first(); // Change this to retrieve or create the appropriate mahasiswa
 
-        // Insert each user into the database
-        foreach ($users as $user) {
-            User::create($user);
+        if ($mahasiswa) {
+            User::create([
+                'name' => 'ppk',
+                'email' => 'ppk@example.com',
+                'role' => 'admin',
+                'password' => Hash::make('123'), // Use Hash::make() for hashing password
+                // 'mahasiswa_id' => $mahasiswa->id,
+            ]);
+
+            User::create([
+                'name' => 'aril',
+                'email' => 'aril@example.com',
+                'role' => 'user',
+                'password' => Hash::make('345'), // Use Hash::make() for hashing password
+                // 'mahasiswa_id' => $mahasiswa->id,
+            ]);
+
+            // Add more seed data as needed
+        } else {
+            $this->command->info('No mahasiswa found, please seed mahasiswa table first.');
         }
     }
 }

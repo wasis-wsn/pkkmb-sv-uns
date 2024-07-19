@@ -16,7 +16,7 @@
     import BaseButton from "@/Components/BaseButton.vue";
     import BaseButtons from "@/Components/BaseButtons.vue";
 
-    const role = [{
+    const selectOptions = [{
             label: "Admin",
             value: "admin"
         },
@@ -26,6 +26,7 @@
         }
     ];
     const form = useForm({
+        name: "",
         email: "",
         password: "",
         role: "",
@@ -36,11 +37,14 @@
     const showAlert = ref(false);
 
     const isFormValid = computed(() => {
-        return form.email && form.password && form.role;
+        return form.name && form.email && form.password && form.role;
     });
 
     const validateForm = () => {
         errors.value = {};
+        if (!form.name) {
+            errors.value.name = "name is required.";
+        }
         if (!form.email) {
             errors.value.email = "Email is required.";
         }
@@ -73,31 +77,41 @@
         form.reset();
         errors.value = {};
         showAlert.value = false;
-    };;
+    };
 
 </script>
 
 <template>
     <CardBox form @submit.prevent="submit">
-        <FormField label="Email" label-for="email" help="Please enter your email">
-            <FormControl v-model="form.email" id="email" :icon="mdiEmail" autocomplete="email" type="email" required />
+        <FormField label=" Nama">
+            <FormControl v-model="form.name" id="name" :icon="mdiAccount" />
         </FormField>
 
-
-        <FormField label="Role">
-            <FormControl v-model="form.role" :options="role" type="select" />
+        <FormField label=" Email ">
+            <FormControl v-model="form.email" id="email" :icon="mdiMail" autocomplete="email" type="email"  />
         </FormField>
+
 
         <FormField label="Password" label-for="password" help="Please enter new password">
             <FormControl v-model="form.password" id="password" :icon="mdiFormTextboxPassword" type="password"
-                autocomplete="new-password" required />
+                autocomplete="new-password"  />
         </FormField>
 
-
-        <!-- <FormField label="Confirm Password" label-for="password_confirmation" help="Please confirm your password">
-            <FormControl v-model="form.password_confirmation" id="password_confirmation" :icon="mdiFormTextboxPassword"
-                type="password" autocomplete="new-password" required />
-        </FormField> -->
+        <FormField label="Role">
+            <select v-model="form.role" class="bg-slate-900">
+                <option value="">Select an option</option>
+                <option
+                    v-for="option in selectOptions"
+                    :key="option.label"
+                    :value="option.label"
+                >
+                    {{ option.label }}
+                </option>
+            </select>
+            <p v-if="errors.role" class="text-red-500 text-sm mt-1">
+                {{ errors.role }}
+            </p>
+        </FormField>
 
         <template #footer>
             <BaseButtons>
@@ -113,5 +127,5 @@
     <div v-if="showAlert" class="mt-4 p-4 bg-red-100 text-red-700 rounded">
         Please fill in all required fields.
     </div>
-
 </template>
+

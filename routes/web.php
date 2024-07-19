@@ -8,6 +8,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\UserController;
 
 // Route untuk landing page
 Route::get('/', function () {
@@ -81,3 +82,4 @@ require __DIR__ . '/sponsorRoute.php';
 require __DIR__ . '/himaRoute.php';
 require __DIR__ . '/materiRoute.php';
 require __DIR__ . '/youtubeRoute.php';
+require __DIR__ . '/userRoute.php';

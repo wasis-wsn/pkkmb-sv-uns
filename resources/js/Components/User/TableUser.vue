@@ -1,11 +1,50 @@
+<template>
+    <CardBox>
+        <table class="min-w-full divide-y mx-auto">
+            <thead>
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Nama
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Email
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Role
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Password
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-dark divide-y">
+                <tr v-for="item in data" :key="item.id">
+                    <td class="px-6 py-4 whitespace-nowrap">{{ item.name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ item.email }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ item.role }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ item.password }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
+                        <BaseButton :icon="mdiDelete" color="danger" @click="confirmDelete(item.id)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <EditModal v-if="showEditModal" :item="selectedItem" :show="showEditModal" @close="closeEditModal" />
+    </CardBox>
+</template>
+
 <script setup>
-import { ref } from "vue";
-import { mdiDelete, mdiPencil } from "@mdi/js";
-import CardBox from "@/Components/CardBox.vue";
-import BaseButton from "@/Components/BaseButton.vue";
-import { useForm } from "@inertiajs/vue3";
-import Swal from "sweetalert2";
-import EditModal from "@/Components/User/EditModal.vue";
+import { ref } from 'vue';
+import { mdiDelete, mdiPencil } from '@mdi/js';
+import CardBox from '@/Components/CardBox.vue';
+import BaseButton from '@/Components/BaseButton.vue';
+import { useForm } from '@inertiajs/vue3';
+import Swal from 'sweetalert2';
+import EditModal from '@/Components/User/EditModal.vue';
 
 const props = defineProps({
     data: {
@@ -21,31 +60,23 @@ const form = useForm({});
 
 const confirmDelete = (id) => {
     Swal.fire({
-        title: "Are you sure?",
+        title: 'Are you sure?',
         text: "You won't be able to revert this!",
-        icon: "warning",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
         if (result.isConfirmed) {
-            form.delete(route("user.destroy", id), {
+            form.delete(route('user.destroy', id), {
                 preserveState: true,
                 preserveScroll: true,
                 onSuccess: () => {
-                    Swal.fire(
-                        "Deleted!",
-                        "The item has been deleted.",
-                        "success"
-                    );
+                    Swal.fire('Deleted!', 'The item has been deleted.', 'success');
                 },
                 onError: (errors) => {
-                    Swal.fire(
-                        "Error!",
-                        "There was a problem deleting the file.",
-                        "error"
-                    );
+                    Swal.fire('Error!', 'There was a problem deleting the file.', 'error');
                     console.log(errors);
                 },
             });
@@ -63,67 +94,3 @@ const closeEditModal = () => {
     selectedItem.value = null;
 };
 </script>
-
-<template>
-    <CardBox>
-        <table class="min-w-full divide-y mx-auto">
-            <thead>
-                <tr>
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Email
-                    </th>
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Password
-                    </th>
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Role
-                    </th>
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Actions
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="bg-dark divide-y">
-                <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.email }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.password }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.role }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <BaseButton
-                            :icon="mdiPencil"
-                            color="warning"
-                            @click="editData(item)"
-                            class="mx-4"
-                        />
-                        <BaseButton
-                            :icon="mdiDelete"
-                            color="danger"
-                            @click="confirmDelete(item.id)"
-                        />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <EditModal
-            v-if="showEditModal"
-            :item="selectedItem"
-            :show="showEditModal"
-            @close="closeEditModal"
-        />
-    </CardBox>
-</template>
