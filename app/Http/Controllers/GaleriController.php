@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class GaleriController extends Controller
 {
