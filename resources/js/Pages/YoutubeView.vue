@@ -10,30 +10,35 @@
     import {
         Head
     } from '@inertiajs/vue3'
-    import TableYoutube from '@/Components/VidioYoutube/TableYoutube.vue'
-    import FormYoutube from '@/Components/VidioYoutube/FormYoutube.vue'
+    import TableYoutube from '@/Components/Youtube/TableYoutube.vue'
+    import FormYoutube from '@/Components/Youtube/FormYoutube.vue'
 
-    const submit = () => {
-        //
-    }
+    defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 
 </script>
 
 <template>
     <LayoutAuthenticated>
 
-        <Head title="form" />
+        <Head title="Youtube" />
         <SectionMain>
-            <SectionTitleLineWithButton :icon="mdiBallotOutline" title="Form Materi" main>
+            <SectionTitleLineWithButton :icon="mdiBallotOutline" title="Form Youtube" main>
             </SectionTitleLineWithButton>
             <FormYoutube />
-        </SectionMain>
-        <SectionMain>
-            <SectionTitleLineWithButton :icon="mdiTableBorder" title="Daftar Materi" main>
-            </SectionTitleLineWithButton>
-            <CardBox>
-                <TableYoutube />
-            </CardBox>
+        <div class="text-center">
+                <SectionTitleLineWithButton
+                    class="mt-5"
+                    :icon="mdiTableBorder"
+                    title="Data Youtube"
+                    main
+                ></SectionTitleLineWithButton>
+            </div>
+            <TableYoutube :data="data" />
         </SectionMain>
     </LayoutAuthenticated>
 </template>

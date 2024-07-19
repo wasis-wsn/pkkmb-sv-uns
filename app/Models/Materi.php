@@ -9,7 +9,7 @@ class Materi extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'materi';
     protected $primaryKey = 'id';
 
     protected $fillable = [

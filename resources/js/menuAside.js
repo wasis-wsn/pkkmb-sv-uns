@@ -26,9 +26,41 @@ export default [
         label: "User",
     },
     {
-        route: "galeri",
+        label: "Landing",
+        icon: mdiViewList,
+        menu: [
+            {
+                route: "sponsor",
+                label: "Sponsor",
+                icon: mdiHandshakeOutline,
+            },
+            {
+                route: "hima",
+                label: "Hima",
+                icon: mdiBrain,
+            },
+        ],
+    },
+    {
         label: "Galeri",
-        icon: mdiSquareEditOutline,
+        icon: mdiViewList,
+        menu: [
+            {
+                route: "galeri",
+                label: "dokumentasi",
+                icon: mdiSquareEditOutline,
+            },
+            {
+                to: "acara",
+                label: "acara",
+                icon: mdiSquareEditOutline,
+            },
+            {
+                route: "youtube",
+                label: "YouTube",
+                icon: mdiYoutube,
+            },
+        ],
     },
     {
         route: "profiles",
@@ -48,20 +80,27 @@ export default [
     {
         route: "kelompok",
         label: "Kelompok",
-        icon: mdiAccountGroup,
+        icon: mdiViewList,
+        menu: [
+            {
+                route: "kelompoks",
+                label: "Kelompok",
+                icon: mdiAccountGroup,
+            },
+            {
+                route: "prodi",
+                label: "Prodi",
+                icon: mdiSquareEditOutline,
+            },
+            {
+                route: "mahasiswa",
+                label: "Mahasiswa",
+                icon: mdiAccount,
+            },
+        ],
     },
     {
-        route: "prodi",
-        label: "Prodi",
-        icon: mdiSquareEditOutline,
-    },
-    {
-        route: "mahasiswa",
-        label: "Mahasiswa",
-        icon: mdiAccount,
-    },
-    {
-        route: "materis",
+        route: "materi",
         label: "Materi",
         icon: mdiClipboardText,
     },
@@ -71,16 +110,12 @@ export default [
         icon: mdiForum,
     },
     {
-        route: "youtube",
-        label: "YouTube",
-        icon: mdiYoutube,
-    },
-    {
         label: "Dropdown",
         icon: mdiViewList,
         menu: [
             {
-                label: "Item One",
+                route: 'ui',
+                label: 'UI',
             },
             {
                 label: "Item Two",
@@ -92,4 +127,6 @@ export default [
         label: "Error",
         icon: mdiAlertCircle,
     },
+
+
 ];

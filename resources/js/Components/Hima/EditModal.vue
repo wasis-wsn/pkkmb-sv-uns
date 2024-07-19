@@ -6,7 +6,6 @@ import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import { mdiAccount } from "@mdi/js";
 import FormFilePicker from "@/Components/FormFilePicker.vue";
-import CardBox from "../CardBox.vue";
 
 const props = defineProps({
     item: Object,
@@ -17,29 +16,27 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    judul_dokum: "",
-    deskripsi_dokum: "",
-    jenis_dokum: "",
-    photo_dokum: null,
+    nama_hima: "",
+    logo_hima: null,
+    logo_hima_preview: null,
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.judul_dokum = newItem.judul_dokum;
-            form.deskripsi_dokum = newItem.deskripsi_dokum;
-            form.jenis_dokum = newItem.jenis_dokum;
-            form.photo_dokum = null; // Reset file input
+            form.nama_hima = newItem.nama_hima;
+            form.logo_hima_preview = newItem.logo_hima ? `/storage/${newItem.logo_hima}` : null;
+            form.logo_hima = null; // Reset file input
         }
     },
     { immediate: true }
 );
 
-const selectOptions = [{ label: "Galeri" }, { label: "Slide Acara" }];
+const selectOptions = [{ label: "Hima" }];
 
 const submit = () => {
-    form.post(route("galeri.update", props.item.id), {
+    form.post(route("hima.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -53,7 +50,17 @@ const submit = () => {
 };
 
 const handleFileChange = (event) => {
-    form.photo_dokum = event.target.files[0];
+    const file = event.target.files[0];
+    form.logo_hima = file;
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            form.logo_hima_preview = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    } else {
+        form.logo_hima_preview = null;
+    }
 };
 </script>
 
@@ -63,69 +70,51 @@ const handleFileChange = (event) => {
             class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
         >
             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-                <div class="absolute inset-0 "></div>
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
             <span
                 class="hidden sm:inline-block sm:align-middle sm:h-screen"
                 aria-hidden="true"
-                >​</span
+                ></span
             >
             <div
-                class="inline-block align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
             >
-                <CardBox>
-                    <div class=" sm:items-start">
+                <div class="bg-slate-900 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
                         <div
                             class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
                         >
                             <h3
-                                class="text-lg leading-6 font-medium"
+                                class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Galeri
+                                Edit Hima
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Judul Dokumen">
+                                <FormField label="Nama Hima">
                                     <FormControl
-                                        v-model="form.judul_dokum"
-                                        :icon="mdiAccount"
+                                        v-model="form.nama_hima"
                                     />
                                 </FormField>
-                                <FormField label="Deskripsi Dokumen">
-                                    <FormControl
-                                        v-model="form.deskripsi_dokum"
-                                        placeholder="Deskripsi Dokumen/Acara"
-                                    />
-                                </FormField>
-                                <FormField label="Jenis Dokumen">
-                                    
-                                    <select
-                                        v-model="form.jenis_dokum"
-                                        class=""
-                                    >
-                                        <option
-                                            v-for="option in selectOptions"
-                                            :key="option.label"
-                                            :value="option.label"
-                                        >
-                                            {{ option.label }}
-                                        </option>
-                                    </select>
-                                </FormField>
+                                
                                 <FormField
                                     label="Upload File (image max 10 MB)"
                                 >
                                     <FormFilePicker
-                                        v-model="form.photo_dokum"
+                                        v-model="form.logo_hima"
                                         label="Upload"
-                                        name="photo_dokum"
+                                        name="logo_hima"
+                                        @change="handleFileChange"
                                     />
+                                    <div v-if="form.logo_hima_preview" class="mt-2">
+                                    </div>
                                 </FormField>
                             </div>
                         </div>
                     </div>
-                
+                </div>
                 <div
-                    class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                    class="bg-blue-950 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
                 >
                     <BaseButton
                         type="button"
@@ -142,7 +131,6 @@ const handleFileChange = (event) => {
                         outline
                     />
                 </div>
-            </CardBox>
             </div>
         </div>
     </div>

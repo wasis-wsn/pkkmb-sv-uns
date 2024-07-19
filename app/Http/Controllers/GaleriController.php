@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\User; // Don't forget to import the User model
 use Illuminate\Support\Facades\Redirect;
-
 use Auth;
 
 class GaleriController extends Controller
@@ -70,7 +69,7 @@ class GaleriController extends Controller
     //     return redirect()->route('galeri');
     // }
 
-    public function update(Request $request, Galeri $galeri)
+    public function update(Request $request, Galeri $id)
     {
         \Log::info('Update method called');
         \Log::info('Request data: ' . json_encode($request->all()));
@@ -111,7 +110,7 @@ class GaleriController extends Controller
 
         \Log::info('Data to update: ' . json_encode($dataToUpdate));
 
-        $galeri->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         \Log::info('Update completed');
 
