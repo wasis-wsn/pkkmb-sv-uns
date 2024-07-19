@@ -5,7 +5,6 @@ import FormField from "@/Components/FormField.vue";
 import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import { mdiAccount } from "@mdi/js";
-import FormFilePicker from "@/Components/FormFilePicker.vue";
 
 const props = defineProps({
     item: Object,
@@ -16,27 +15,21 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    nama_sponsor: "",
-    logo_sponsor: null,
-    logo_sponsor_preview: null,
+    nama_kelompok: "",
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_sponsor = newItem.nama_sponsor;
-            form.logo_sponsor_preview = newItem.logo_sponsor ? `/storage/${newItem.logo_sponsor}` : null;
-            form.logo_sponsor = null; // Reset file input
+            form.nama_kelompok = newItem.nama_kelompok;
         }
     },
     { immediate: true }
 );
 
-const selectOptions = [{ label: "Sponsor" }];
-
 const submit = () => {
-    form.post(route("sponsor.update", props.item.id), {
+    form.post(route("kelompok.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -47,20 +40,6 @@ const submit = () => {
             console.log(errors);
         },
     });
-};
-
-const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    form.logo_sponsor = file;
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            form.logo_sponsor_preview = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    } else {
-        form.logo_sponsor_preview = null;
-    }
 };
 </script>
 
@@ -75,7 +54,7 @@ const handleFileChange = (event) => {
             <span
                 class="hidden sm:inline-block sm:align-middle sm:h-screen"
                 aria-hidden="true"
-                ></span
+                >​</span
             >
             <div
                 class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
@@ -88,26 +67,14 @@ const handleFileChange = (event) => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Sponsor
+                                Edit Kelompok
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Nama Sponsor">
+                                <FormField label="Nama Kelompok">
                                     <FormControl
-                                        v-model="form.nama_sponsor"
+                                        v-model="form.nama_kelompok"
+                                        :icon="mdiAccount"
                                     />
-                                </FormField>
-                                
-                                <FormField
-                                    label="Upload File (image max 10 MB)"
-                                >
-                                    <FormFilePicker
-                                        v-model="form.logo_sponsor"
-                                        label="Upload"
-                                        name="logo_sponsor"
-                                        @change="handleFileChange"
-                                    />
-                                    <div v-if="form.logo_sponsor_preview" class="mt-2">
-                                    </div>
                                 </FormField>
                             </div>
                         </div>

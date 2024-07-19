@@ -13,9 +13,12 @@
     import TableKelompok from '@/Components/Kelompok/TableKelompok.vue'
     import FormKelompok from '@/Components/Kelompok/FormKelompok.vue'
 
-    const submit = () => {
-        //
-    }
+    defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 
 </script>
 
@@ -32,7 +35,7 @@
             <SectionTitleLineWithButton :icon="mdiTableBorder" title="Daftar Kelompok" main>
             </SectionTitleLineWithButton>
             <CardBox>
-                <TableKelompok />
+                <TableKelompok :data="data"/>
             </CardBox>
         </SectionMain>
     </LayoutAuthenticated>

@@ -18,7 +18,7 @@ class SponsorSeeder extends Seeder
         ]);
         
         Sponsor::create([
-            'user_id' => $user->id,
+            'user_id' =>$user->id,
             'nama_sponsor' => 'BCA',
             'logo_sponsor' => 'BCA.jpg',
         ]);

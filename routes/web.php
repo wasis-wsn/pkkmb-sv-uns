@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\KelompokController;
+use App\Http\Controllers\ProdiController;
 
 // Route untuk landing page
 Route::get('/', function () {
@@ -19,9 +23,9 @@ Route::get('/implementasi', function () {
     return Inertia::render('Views/MateriView');
 })->name('implementasi');
 
-Route::get('/kelompok', function () {
+Route::get('/kellompok', function () {
     return Inertia::render('Views/KelompokView');
-})->name('kelompok');
+})->name('kellompok');
 
 Route::get('/galleri', function () {
     return Inertia::render('Views/GaleriView');
@@ -38,12 +42,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('DashboardView');
     })->name('dashboard');
 
-    
-
-    Route::get('/dashboard/hima', function () {
-        return Inertia::render('HimaView');
-    })->name('hima');
-
     Route::get('/dashboard/materis', function () {
         return Inertia::render('MateriView');
     })->name('materis');
@@ -51,6 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //Galeri
 
 
+    //Kelompok
     Route::get('/dashboard/kelompoks', function () {
         return Inertia::render('KelompokView');
     })->name('kelompoks');
@@ -91,6 +90,10 @@ Route::get('/ui', function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
+require __DIR__ . '/kelompokRoute.php';
+require __DIR__ . '/prodiRoute.php';
+require __DIR__ . '/mahasiswaRoute.php';
 require __DIR__ . '/sponsorRoute.php';
+require __DIR__ . '/himaRoute.php';
 require __DIR__ . '/materiRoute.php';
 require __DIR__ . '/youtubeRoute.php';

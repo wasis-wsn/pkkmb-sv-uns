@@ -39,10 +39,10 @@
       v-if="form.recentlySuccessful"
       class="mt-4 p-4 bg-green-100 text-green-700 rounded"
   >
-      Form submitted successfully!
+      Data berhasil ditambahkan
   </div>
   <div v-if="showAlert" class="mt-4 p-4 bg-red-100 text-red-700 rounded">
-      Please fill in all required fields.
+      Harus isi data di formnya
   </div>
 </template>
 
@@ -69,7 +69,7 @@ const errors = ref({});
 const showAlert = ref(false);
 
 const isFormValid = computed(() => {
-  return form.nama_sponsor && form.jenis_dokum && form.logo_sponsor;
+  return form.nama_sponsor && form.logo_sponsor;
 });
 
 const validateForm = () => {

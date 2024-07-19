@@ -4,8 +4,7 @@ import { useForm } from "@inertiajs/vue3";
 import FormField from "@/Components/FormField.vue";
 import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
-import { mdiAccount } from "@mdi/js";
-import FormFilePicker from "@/Components/FormFilePicker.vue";
+import { mdiAccount, mdiPhone, mdiBook, mdiCertificate } from "@mdi/js";
 
 const props = defineProps({
     item: Object,
@@ -16,27 +15,32 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    nama_sponsor: "",
-    logo_sponsor: null,
-    logo_sponsor_preview: null,
+    nama_mahasiswa: "",
+    no_telp: "",
+    prodi_id: "",
+    kelompok_id: "",
+    nama_skill: "",
+    deskripsi_skill: "",
+    photo_piagam: null,
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_sponsor = newItem.nama_sponsor;
-            form.logo_sponsor_preview = newItem.logo_sponsor ? `/storage/${newItem.logo_sponsor}` : null;
-            form.logo_sponsor = null; // Reset file input
+            form.nama_mahasiswa = newItem.nama_mahasiswa;
+            form.no_telp = newItem.no_telp;
+            form.prodi_id = newItem.prodi_id;
+            form.kelompok_id = newItem.kelompok_id;
+            form.nama_skill = newItem.nama_skill;
+            form.deskripsi_skill = newItem.deskripsi_skill;
         }
     },
     { immediate: true }
 );
 
-const selectOptions = [{ label: "Sponsor" }];
-
 const submit = () => {
-    form.post(route("sponsor.update", props.item.id), {
+    form.post(route("mahasiswa.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -47,20 +51,6 @@ const submit = () => {
             console.log(errors);
         },
     });
-};
-
-const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    form.logo_sponsor = file;
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            form.logo_sponsor_preview = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    } else {
-        form.logo_sponsor_preview = null;
-    }
 };
 </script>
 
@@ -75,7 +65,7 @@ const handleFileChange = (event) => {
             <span
                 class="hidden sm:inline-block sm:align-middle sm:h-screen"
                 aria-hidden="true"
-                ></span
+                >​</span
             >
             <div
                 class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
@@ -88,26 +78,53 @@ const handleFileChange = (event) => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Sponsor
+                                Edit Mahasiswa
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Nama Sponsor">
+                                <FormField label="Nama Mahasiswa">
                                     <FormControl
-                                        v-model="form.nama_sponsor"
+                                        v-model="form.nama_mahasiswa"
+                                        :icon="mdiAccount"
                                     />
                                 </FormField>
-                                
-                                <FormField
-                                    label="Upload File (image max 10 MB)"
-                                >
-                                    <FormFilePicker
-                                        v-model="form.logo_sponsor"
-                                        label="Upload"
-                                        name="logo_sponsor"
-                                        @change="handleFileChange"
+                                <FormField label="No Telp">
+                                    <FormControl
+                                        v-model="form.no_telp"
+                                        :icon="mdiPhone"
                                     />
-                                    <div v-if="form.logo_sponsor_preview" class="mt-2">
-                                    </div>
+                                </FormField>
+                                <FormField label="Prodi">
+                                    <FormControl
+                                        v-model="form.prodi_id"
+                                        :icon="mdiBook"
+                                        placeholder="Masukkan ID Prodi"
+                                    />
+                                </FormField>
+                                <FormField label="Kelompok">
+                                    <FormControl
+                                        v-model="form.kelompok_id"
+                                        :icon="mdiBook"
+                                        placeholder="Masukkan ID Kelompok"
+                                    />
+                                </FormField>
+                                <FormField label="Nama Skill">
+                                    <FormControl
+                                        v-model="form.nama_skill"
+                                        :icon="mdiCertificate"
+                                    />
+                                </FormField>
+                                <FormField label="Deskripsi Skill">
+                                    <FormControl
+                                        v-model="form.deskripsi_skill"
+                                        :icon="mdiCertificate"
+                                    />
+                                </FormField>
+                                <FormField label="Photo Piagam">
+                                    <input
+                                        type="file"
+                                        @change="(e) => form.photo_piagam = e.target.files[0]"
+                                        class="form-control"
+                                    />
                                 </FormField>
                             </div>
                         </div>

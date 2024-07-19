@@ -7,15 +7,6 @@
               title="Sponsor Form"
               main
           >
-              <BaseButton
-                  href="https://github.com/justboil/admin-one-vue-tailwind"
-                  target="_blank"
-                  :icon="mdiGithub"
-                  label="Star on GitHub"
-                  color="contrast"
-                  rounded-full
-                  small
-              />
           </SectionTitleLineWithButton>
           <FormSponsor />
           <div class="text-center">
