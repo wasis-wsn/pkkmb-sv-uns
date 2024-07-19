@@ -9,12 +9,12 @@ class Youtube extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'youtube';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'user_id',
-        'nama_youtube',
+        'judul_youtube',
         'link_youtube',
     ];
 

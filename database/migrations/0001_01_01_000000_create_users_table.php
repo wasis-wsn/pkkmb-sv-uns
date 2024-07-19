@@ -104,7 +104,7 @@ return new class extends Migration {
         Schema::create('youtube', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('nama_youtube');
+            $table->string('judul_youtube');
             $table->string('link_youtube');
             $table->timestamps();
         });

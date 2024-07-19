@@ -87,3 +87,5 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
 require __DIR__ . '/sponsorRoute.php';
 require __DIR__ . '/himaRoute.php';
+require __DIR__ . '/materiRoute.php';
+require __DIR__ . '/youtubeRoute.php';

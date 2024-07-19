@@ -5,8 +5,7 @@
     import BaseButton from '@/Components/BaseButton.vue'
     import BaseButtons from '@/Components/BaseButtons.vue'
     import { ref, computed } from "vue";
-import { mdiAccount } from "@mdi/js";
-import { useForm } from "@inertiajs/vue3";
+    import { useForm } from "@inertiajs/vue3";
     
 
 const form = useForm({

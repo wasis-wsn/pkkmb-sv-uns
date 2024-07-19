@@ -2,39 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Materi;
+use App\Models\Youtube;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Redirect;
 
 use Auth;
 
-class MateriController extends Controller
+class YoutubeController extends Controller
 {
     public function index()
     {
-        $materis = Materi::all();
-        return Inertia::render('MateriView', ['data' => $materis]);
+        $youtubes = Youtube::all();
+        return Inertia::render('YoutubeView', ['data' => $youtubes]);
     }
+
+    
+
 
     public function store(Request $request)
     {
         try {
             $validated = $request->validate([
-                'judul_materi' => 'required|string|max:255',
-                'deskripsi_materi' => 'required|string',
-                'isi_materi' => 'required|string',
+                'judul_youtube' => 'required|string|max:255',
+                'link_youtube' => 'required|string',
             ]);
 
             $user = Auth::user();
 
-            Materi::create([
+            Youtube::create([
                 'user_id' => $user->id,
-                'judul_materi' => $validated['judul_materi'],
-                'deskripsi_materi' => $validated['deskripsi_materi'],
-                'isi_materi' => $validated['isi_materi']
+                'judul_youtube' => $validated['judul_youtube'],
+                'link_youtube' => $validated['link_youtube']
             ]);
 
-            return redirect()->route('materi');
+            return redirect()->route('youtube');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -63,51 +65,44 @@ class MateriController extends Controller
     //     return redirect()->route('galeri');
     // }
 
-    public function update(Request $request, Materi $materi)
+    public function update(Request $request, Youtube $youtube)
     {
-        
         \Log::info('Update method called');
         \Log::info('Request data: ' . json_encode($request->all()));
 
         $validated = $request->validate([
-            'judul_materi' => 'nullable|string|max:255',
-                'deskripsi_materi' => 'nullable|string',
-                'isi_materi' => 'nullable|string',
+                'judul_youtube' => 'nullable|string|max:255',
+                'link_youtube' => 'nullable|string',
         ]);
 
         \Log::info('Validated data: ' . json_encode($validated));
 
         $dataToUpdate = [];
 
-        if ($request->filled('judul_materi')) {
-            $dataToUpdate['judul_materi'] = $validated['judul_materi'];
+        if ($request->filled('judul_youtube')) {
+            $dataToUpdate['judul_youtube'] = $validated['judul_youtube'];
         }
 
-        if ($request->filled('deskripsi_materi')) {
-            $dataToUpdate['deskripsi_materi'] = $validated['deskripsi_materi'];
+        if ($request->filled('link_youtube')) {
+            $dataToUpdate['link_youtube'] = $validated['link_youtube'];
         }
-
-        if ($request->filled('isi_materi')) {
-            $dataToUpdate['isi_materi'] = $validated['isi_materi'];
-        }
-
 
         \Log::info('Data to update: ' . json_encode($dataToUpdate));
 
-        $materi->update($dataToUpdate);
+        $youtube->update($dataToUpdate);
 
         \Log::info('Update completed');
 
-        return redirect()->route('materi');
+        return redirect()->route('youtube');
     }
 
     public function destroy($id)
     {
         // Your deletion logic here
-        Materi::destroy($id);
+        Youtube::destroy($id);
 
         // Return a valid Inertia response
-        return redirect()->route('materi');
+        return redirect()->route('youtube');
     }
 
 }

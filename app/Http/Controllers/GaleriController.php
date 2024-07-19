@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\User; // Don't forget to import the User model
 use Illuminate\Support\Facades\Redirect;
-
 use Auth;
 
 class GaleriController extends Controller

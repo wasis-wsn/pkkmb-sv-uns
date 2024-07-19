@@ -1,8 +1,6 @@
 <script setup>
     import {
         mdiBallotOutline,
-        mdiTableBorder,
-        mdiYoutube
     } from '@mdi/js'
     import SectionMain from '@/Components/SectionMain.vue'
     import CardBox from '@/Components/CardBox.vue'
