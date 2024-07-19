@@ -9,7 +9,7 @@ class Hima extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'hima';
     protected $primaryKey = 'id';
 
     protected $fillable = [

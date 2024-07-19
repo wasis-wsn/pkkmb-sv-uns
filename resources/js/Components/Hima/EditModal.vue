@@ -16,27 +16,27 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    nama_sponsor: "",
-    logo_sponsor: null,
-    logo_sponsor_preview: null,
+    nama_hima: "",
+    logo_hima: null,
+    logo_hima_preview: null,
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_sponsor = newItem.nama_sponsor;
-            form.logo_sponsor_preview = newItem.logo_sponsor ? `/storage/${newItem.logo_sponsor}` : null;
-            form.logo_sponsor = null; // Reset file input
+            form.nama_hima = newItem.nama_hima;
+            form.logo_hima_preview = newItem.logo_hima ? `/storage/${newItem.logo_hima}` : null;
+            form.logo_hima = null; // Reset file input
         }
     },
     { immediate: true }
 );
 
-const selectOptions = [{ label: "Sponsor" }];
+const selectOptions = [{ label: "Hima" }];
 
 const submit = () => {
-    form.post(route("sponsor.update", props.item.id), {
+    form.post(route("hima.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -51,15 +51,15 @@ const submit = () => {
 
 const handleFileChange = (event) => {
     const file = event.target.files[0];
-    form.logo_sponsor = file;
+    form.logo_hima = file;
     if (file) {
         const reader = new FileReader();
         reader.onload = (e) => {
-            form.logo_sponsor_preview = e.target.result;
+            form.logo_hima_preview = e.target.result;
         };
         reader.readAsDataURL(file);
     } else {
-        form.logo_sponsor_preview = null;
+        form.logo_hima_preview = null;
     }
 };
 </script>
@@ -88,12 +88,12 @@ const handleFileChange = (event) => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Sponsor
+                                Edit Hima
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Nama Sponsor">
+                                <FormField label="Nama Hima">
                                     <FormControl
-                                        v-model="form.nama_sponsor"
+                                        v-model="form.nama_hima"
                                     />
                                 </FormField>
                                 
@@ -101,12 +101,12 @@ const handleFileChange = (event) => {
                                     label="Upload File (image max 10 MB)"
                                 >
                                     <FormFilePicker
-                                        v-model="form.logo_sponsor"
+                                        v-model="form.logo_hima"
                                         label="Upload"
-                                        name="logo_sponsor"
+                                        name="logo_hima"
                                         @change="handleFileChange"
                                     />
-                                    <div v-if="form.logo_sponsor_preview" class="mt-2">
+                                    <div v-if="form.logo_hima_preview" class="mt-2">
                                     </div>
                                 </FormField>
                             </div>

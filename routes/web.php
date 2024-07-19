@@ -38,12 +38,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('DashboardView');
     })->name('dashboard');
 
-    
-
-    Route::get('/dashboard/hima', function () {
-        return Inertia::render('HimaView');
-    })->name('hima');
-
     Route::get('/dashboard/materis', function () {
         return Inertia::render('MateriView');
     })->name('materis');
@@ -92,3 +86,4 @@ Route::get('/ui', function () {
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
 require __DIR__ . '/sponsorRoute.php';
+require __DIR__ . '/himaRoute.php';
