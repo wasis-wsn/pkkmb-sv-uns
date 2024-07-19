@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\User;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class SponsorController extends Controller
 {
+    public function getAllSponsor()
+    {
+        $sponsors = Sponsor::all();
+        return response()->json(['data' => $sponsors], 200);
+    }
+
     public function index()
     {
-        $sponsor = Sponsor::all();
-        return Inertia::render('SponsorView', ['data' => $sponsor]);
+        $sponsors = Sponsor::all();
+        return Inertia::render('SponsorView', ['data' => $sponsors]);
     }
 
     public function store(Request $request)
@@ -26,15 +29,20 @@ class SponsorController extends Controller
                 'logo_sponsor' => 'nullable|file|max:10240',
             ]);
 
-            $path = $request->file('logo_sponsor');
-            $path->storeAs('public/sponsor', $request->file('logo_sponsor')->hashName());
-            
+            if ($request->hasFile('logo_sponsor')) {
+                $path = $request->file('logo_sponsor');
+                $fileName = $path->hashName();
+                $path->storeAs('public/sponsor', $fileName);
+            } else {
+                $fileName = null;
+            }
+
             $user = Auth::user();
-            
+
             Sponsor::create([
                 'user_id' => $user->id,
                 'nama_sponsor' => $validated['nama_sponsor'],
-                'logo_sponsor' => $path->hashName(),
+                'logo_sponsor' => $fileName,
             ]);
 
             return redirect()->route('sponsor');
@@ -45,15 +53,10 @@ class SponsorController extends Controller
 
     public function update(Request $request, Sponsor $sponsor)
     {
-        Log::info('Update method called');
-        Log::info('Request data: ' . json_encode($request->all()));
-
         $validated = $request->validate([
             'nama_sponsor' => 'nullable|string|max:255',
             'logo_sponsor' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
-
-        Log::info('Validated data: ' . json_encode($validated));
 
         $dataToUpdate = [];
 
@@ -62,21 +65,13 @@ class SponsorController extends Controller
         }
 
         if ($request->hasFile('logo_sponsor')) {
-            Log::info('File uploaded');
             $path = $request->file('logo_sponsor');
             $fileName = $path->hashName();
             $path->storeAs('public/sponsor', $fileName);
             $dataToUpdate['logo_sponsor'] = $fileName;
-            Log::info('File stored as: ' . $fileName);
-        } else {
-            Log::info('Tidak ada foto yang di upload');
         }
 
-        Log::info('Data to update: ' . json_encode($dataToUpdate));
-
         $sponsor->update($dataToUpdate);
-
-        Log::info('Edit Berhasil!');
 
         return redirect()->route('sponsor');
     }
@@ -84,8 +79,7 @@ class SponsorController extends Controller
     public function destroy($id)
     {
         Sponsor::destroy($id);
-
         return redirect()->route('sponsor');
     }
-
 }
+

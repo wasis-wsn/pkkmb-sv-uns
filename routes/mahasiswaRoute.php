@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/data-mahasiswa', [MahasiswaController::class, 'getAllMahasiswa']);
     Route::get('/dashboard/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
     Route::post('/dashboard/mahasiswa', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
     Route::put('/dashboard/mahasiswa/{mahasiswa}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');

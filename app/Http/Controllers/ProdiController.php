@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\User;
-use Illuminate\Support\Facades\Redirect;
-
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ProdiController extends Controller
 {
+    public function getAllProdi()
+    {
+        $prodis = Prodi::all();
+        return response()->json(['data' => $prodis], 200);
+    }
+
     public function index()
     {
         $prodis = Prodi::all();
@@ -37,14 +40,9 @@ class ProdiController extends Controller
 
     public function update(Request $request, Prodi $prodi)
     {
-        \Log::info('Update method called');
-        \Log::info('Request data: ' . json_encode($request->all()));
-
         $validated = $request->validate([
             'nama_prodi' => 'nullable|string|max:255',
         ]);
-
-        \Log::info('Validated data: ' . json_encode($validated));
 
         $dataToUpdate = [];
 
@@ -52,11 +50,7 @@ class ProdiController extends Controller
             $dataToUpdate['nama_prodi'] = $validated['nama_prodi'];
         }
 
-        \Log::info('Data to update: ' . json_encode($dataToUpdate));
-
         $prodi->update($dataToUpdate);
-
-        \Log::info('Update completed');
 
         return redirect()->route('prodi');
     }

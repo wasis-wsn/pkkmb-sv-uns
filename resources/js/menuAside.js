@@ -63,22 +63,6 @@ export default [
         ],
     },
     {
-        route: "profiles",
-        label: "Profile",
-        icon: mdiAccountCircle,
-    },
-    {
-        route: "sponsor",
-        label: "Sponsor",
-        icon: mdiHandshakeOutline,
-    },
-    {
-        route: "hima",
-        label: "Hima",
-        icon: mdiBrain,
-    },
-    {
-        route: "kelompok",
         label: "Kelompok",
         icon: mdiViewList,
         menu: [

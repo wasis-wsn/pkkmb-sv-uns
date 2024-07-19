@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/data-materi', [MateriController::class, 'getAllMateri']);
     Route::get('/dashboard/materi', [MateriController::class, 'index'])->name('materi');
     Route::post('/dashboard/materi', [MateriController::class, 'store'])->name('materi.store');
     Route::put('/dashboard/materi{materi}', [MateriController::class, 'update'])->name('materi.update');

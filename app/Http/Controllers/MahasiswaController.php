@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\Prodi;
+use App\Models\Kelompok;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -11,10 +13,15 @@ use Illuminate\Support\Facades\Redirect;
 
 class MahasiswaController extends Controller
 {
+    public function getAllMahasiswa()
+    {
+        $mahasiswa = Mahasiswa::all();
+        return response()->json(['data' => $mahasiswa], 200);   
+    }
+
     public function index()
     {
-        $mahasiswas = Mahasiswa::all();
-        return Inertia::render('MahasiswaView', ['data' => $mahasiswas]);
+
     }
 
     public function store(Request $request)

@@ -120,10 +120,10 @@ const closeEditModal = () => {
                         {{ item.no_telp }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.prodi.nama_prodi }}
+                        {{ item.prodi?.nama_prodi }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.kelompok.nama_kelompok }}
+                        {{ item.kelompok?.nama_kelompok }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ item.nama_skill }}
