@@ -16,13 +16,25 @@ class MahasiswaController extends Controller
     public function getAllMahasiswa()
     {
         $mahasiswa = Mahasiswa::all();
-        return response()->json(['data' => $mahasiswa], 200);   
+        $prodis = Prodi::all();
+        $kelompoks = Kelompok::all();
+        return response()->json([
+            'data' => $mahasiswa,
+            'prodi' => $prodis,
+            'kelompok' => $kelompoks
+        ], 200);   
     }
 
     public function index()
     {
         $mahasiswas = Mahasiswa::with('prodi', 'kelompok')->get();
-        return Inertia::render('MahasiswaView', ['data' => $mahasiswas]);
+        $prodi = Prodi::all();
+        $kelompok = Kelompok::all();
+        return Inertia::render('MahasiswaView', [
+            'data' => $mahasiswas,
+            'prodi' => $prodi,
+            'kelompok' => $kelompok
+        ]);
     }
 
     public function store(Request $request)
@@ -31,11 +43,11 @@ class MahasiswaController extends Controller
             $validated = $request->validate([
                 'nama_mahasiswa' => 'required|string|max:255',
                 'no_telp' => 'required|string|max:15',
-                'prodi_id' => 'required|exists:prodis,id',
-                'kelompok_id' => 'required|exists:kelompoks,id',
+                'prodi_id' => 'required',
+                'kelompok_id' => 'required',
                 'nama_skill' => 'nullable|string|max:255',
                 'deskripsi_skill' => 'nullable|string',
-                'photo_piagam' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
+                'photo_piagam' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
             ]);
 
             $path = $request->file('photo_piagam');
@@ -54,7 +66,7 @@ class MahasiswaController extends Controller
                 'user_id' => $user->id,
             ]);
 
-            return redirect()->route('mahasiswa.index');
+            return redirect()->route('mahasiswa');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => $e->getMessage()]);
         }

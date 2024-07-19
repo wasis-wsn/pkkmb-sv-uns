@@ -1,16 +1,12 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useForm } from '@inertiajs/vue3';
+import axios from 'axios';
 import CardBox from '@/Components/CardBox.vue';
 import FormField from '@/Components/FormField.vue';
 import FormControl from '@/Components/FormControl.vue';
 import BaseButton from '@/Components/BaseButton.vue';
 import BaseButtons from '@/Components/BaseButtons.vue';
-
-const props = defineProps({
-    prodis: Array,
-    kelompoks: Array,
-});
 
 const form = useForm({
     nama_mahasiswa: '',
@@ -24,6 +20,22 @@ const form = useForm({
 
 const errors = ref({});
 const showAlert = ref(false);
+const prodiOptions = ref([]);
+const kelompokOptions = ref([]);
+
+const fetchOptions = async () => {
+    try {
+        const response = await axios.get('/data-mahasiswa');
+        prodiOptions.value = response.data.prodi;
+        kelompokOptions.value = response.data.kelompok;
+    } catch (error) {
+        console.error('Failed to fetch options:', error);
+    }
+};
+
+onMounted(() => {
+    fetchOptions();
+});
 
 const isFormValid = computed(() => {
     return form.nama_mahasiswa && form.no_telp && form.prodi_id && form.kelompok_id;
@@ -89,24 +101,24 @@ const reset = () => {
         </FormField>
 
         <FormField label="Prodi">
-            <select v-model="form.prodi_id" class="form-control">
-                <option value="" disabled>Pilih Prodi</option>
-                <option v-for="prodi in props.prodi" :key="prodi.id" :value="prodi.id">
-                    {{ prodi.nama_prodi }}
-                </option>
-            </select>
+            <FormControl
+                v-model="form.prodi_id"
+                :options="prodiOptions.map(option => ({ id: option.id, label: option.nama_prodi }))"
+                placeholder="Pilih Prodi"
+                type="select"
+            />
             <p v-if="errors.prodi_id" class="text-red-500 text-sm mt-0">
                 {{ errors.prodi_id }}
             </p>
         </FormField>
 
         <FormField label="Kelompok">
-            <select v-model="form.kelompok_id" class="form-control">
-                <option value="" disabled>Pilih Kelompok</option>
-                <option v-for="kelompok in props.kelompok" :key="kelompok.id" :value="kelompok.id">
-                    {{ kelompok.nama_kelompok }}
-                </option>
-            </select>
+            <FormControl
+                v-model="form.kelompok_id"
+                :options="kelompokOptions.map(option => ({ id: option.id, label: option.nama_kelompok }))"
+                placeholder="Pilih Kelompok"
+                type="select"
+            />
             <p v-if="errors.kelompok_id" class="text-red-500 text-sm mt-0">
                 {{ errors.kelompok_id }}
             </p>
@@ -129,7 +141,7 @@ const reset = () => {
 
         <template #footer>
             <BaseButtons>
-                <BaseButton type="submit" color="success" label="Submit" @click="submit"/>
+                <BaseButton type="submit" color="success" label="Submit" />
                 <BaseButton type="reset" color="danger" outline label="Reset" @click="reset" />
             </BaseButtons>
         </template>
