@@ -28,7 +28,6 @@ import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.
 import CardBoxComponentEmpty from "@/Components/CardBoxComponentEmpty.vue";
 import CardBoxComponentTitle from "@/Components/CardBoxComponentTitle.vue";
 import PillTag from "@/Components/PillTag.vue";
-import { Head } from "@inertiajs/vue3";
 
 const modalOneActive = ref(false);
 

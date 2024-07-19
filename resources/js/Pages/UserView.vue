@@ -12,6 +12,11 @@
     import SectionTitleLineWithButton from '@/Components/SectionTitleLineWithButton.vue'
     import TableUser from '@/Components/User/TableUser.vue'
     import FormUser from '@/Components/User/FormUser.vue'
+
+    const props = defineProps({
+        users: Array
+    });
+
 </script>
 
 <template>
@@ -23,8 +28,8 @@
             <FormUser />
         </SectionMain>
         <SectionMain>
-                <SectionTitleLineWithButton :icon="mdiTableBorder" title="User Data" main>
-                </SectionTitleLineWithButton>
+            <SectionTitleLineWithButton :icon="mdiTableBorder" title="User Data" main>
+            </SectionTitleLineWithButton>
             <CardBox>
                 <TableUser />
             </CardBox>

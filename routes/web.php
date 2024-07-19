@@ -114,3 +114,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
+require __DIR__ . '/userRoute.php';
