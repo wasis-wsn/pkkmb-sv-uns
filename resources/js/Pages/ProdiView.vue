@@ -13,10 +13,12 @@
     import TableProdi from '@/Components/Prodi/TableProdi.vue'
     import FormProdi from '@/Components/Prodi/FormProdi.vue'
 
-    const submit = () => {
-        //
-    }
-
+    defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 </script>
 
 <template>
@@ -32,7 +34,7 @@
             <SectionTitleLineWithButton :icon="mdiTableBorder" title="Daftar Prodi" main>
             </SectionTitleLineWithButton>
             <CardBox>
-                <TableProdi />
+                <TableProdi :data="data"/>
             </CardBox>
         </SectionMain>
     </LayoutAuthenticated>

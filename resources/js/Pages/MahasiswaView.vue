@@ -12,10 +12,13 @@
     } from '@inertiajs/vue3'
     import TableMahasiswa from '@/Components/Mahasiswa/TableMahasiswa.vue'
     import FormMahasiswa from '@/Components/Mahasiswa/FormMahasiswa.vue'
-
-    const submit = () => {
-        //
-    }
+    
+    defineProps({
+    data: {
+        type: Array,
+        required: true,
+    },
+});
 
 </script>
 
@@ -32,7 +35,7 @@
             <SectionTitleLineWithButton :icon="mdiTableBorder" title="Daftar Mahasiswa" main>
             </SectionTitleLineWithButton>
             <CardBox>
-                <TableMahasiswa />
+                <TableMahasiswa :data="data"/>
             </CardBox>
         </SectionMain>
     </LayoutAuthenticated>

@@ -1,68 +1,143 @@
 <script setup>
-    import CardBox from '@/Components/CardBox.vue'
-    import FormField from '@/Components/FormField.vue'
-    import FormControl from '@/Components/FormControl.vue'
-    import BaseButton from '@/Components/BaseButton.vue'
-    import BaseButtons from '@/Components/BaseButtons.vue'
-    import { reactive, ref } from 'vue'
+import { ref, computed, onMounted } from 'vue';
+import { useForm } from '@inertiajs/vue3';
+import CardBox from '@/Components/CardBox.vue';
+import FormField from '@/Components/FormField.vue';
+import FormControl from '@/Components/FormControl.vue';
+import BaseButton from '@/Components/BaseButton.vue';
+import BaseButtons from '@/Components/BaseButtons.vue';
 
-    const selectOptions = [
-  { id: 1, label: 'D3 Teknik Informatika' },
-  { id: 2, label: 'D3 Teknologi Hasil Pertanian' },
-  { id: 3, label: 'D3 Farmasi' },
-  { id: 4, label: 'D3 Kebidanan' },
-//   { id: 5, label: 'D3 Teknik Sipil' },
-//   { id: 6, label: 'D3 Teknik Mesin' },
-//   { id: 7, label: 'D3 Teknik Elektro' },
-//   { id: 8, label: 'D3 Akuntansi' },
-//   { id: 9, label: 'D3 Manajemen Pemasaran' },
-//   { id: 10, label: 'D3 Manajemen Administrasi' },
-//   { id: 11, label: 'D3 Keperawatan' },
-//   { id: 12, label: 'D4 Teknik Informatika' },
-//   { id: 13, label: 'D4 Teknologi Hasil Pertanian' },
-//   { id: 14, label: 'D4 Kebidanan' },
-//   { id: 15, label: 'D4 Teknik Sipil' },
-//   { id: 16, label: 'D4 Akuntansi' },
-//   { id: 17, label: 'D4 Manajemen Pemasaran' },
-//   { id: 18, label: 'D4 Manajemen Administrasi' },
-//   { id: 19, label: 'D4 Keperawatan' },
-//   { id: 20, label: 'D4 Pengelolaan Hutan' }
-];
+const props = defineProps({
+    prodis: Array,
+    kelompoks: Array,
+});
 
+const form = useForm({
+    nama_mahasiswa: '',
+    no_telp: '',
+    prodi_id: '',
+    kelompok_id: '',
+    nama_skill: '',
+    deskripsi_skill: '',
+    photo_piagam: null
+});
 
-const form = reactive({
-  name: '',
-  kelompok: selectOptions[0],
-  prodi: selectOptions[0],
-  subject: '',
-  question: ''
-})
+const errors = ref({});
+const showAlert = ref(false);
 
-    const submit = () => {
-        //
+const isFormValid = computed(() => {
+    return form.nama_mahasiswa && form.no_telp && form.prodi_id && form.kelompok_id;
+});
+
+const validateForm = () => {
+    errors.value = {};
+    if (!form.nama_mahasiswa) {
+        errors.value.nama_mahasiswa = 'Nama Mahasiswa is required.';
     }
+    if (!form.no_telp) {
+        errors.value.no_telp = 'No Telp is required.';
+    }
+    if (!form.prodi_id) {
+        errors.value.prodi_id = 'Prodi is required.';
+    }
+    if (!form.kelompok_id) {
+        errors.value.kelompok_id = 'Kelompok is required.';
+    }
+    if (!form.photo_piagam) {
+        errors.value.photo_piagam = 'Photo Piagam is required.';
+    }
+    return Object.keys(errors.value).length === 0;
+};
 
+const submit = () => {
+    if (validateForm()) {
+        showAlert.value = false;
+        form.post(route('mahasiswa.store'), {
+            onSuccess: () => {
+                reset();
+            },
+            onError: (errors) => {
+                console.log(errors);
+            },
+        });
+    } else {
+        showAlert.value = true;
+    }
+};
+
+const reset = () => {
+    form.reset();
+    errors.value = {};
+    showAlert.value = false;
+};
 </script>
+
 <template>
-    <CardBox form @submit.prevent="submit">
-        <FormField label="Nama" help="">
-            <FormControl type="text" placeholder="Masukkan nama Mahasiswa" />
+    <CardBox @submit.prevent="submit">
+        <FormField label="Nama Mahasiswa">
+            <FormControl v-model="form.nama_mahasiswa" placeholder="Masukkan nama mahasiswa" />
+            <p v-if="errors.nama_mahasiswa" class="text-red-500 text-sm mt-0">
+                {{ errors.nama_mahasiswa }}
+            </p>
+        </FormField>
+
+        <FormField label="No Telp">
+            <FormControl v-model="form.no_telp" placeholder="Masukkan no telp" />
+            <p v-if="errors.no_telp" class="text-red-500 text-sm mt-0">
+                {{ errors.no_telp }}
+            </p>
+        </FormField>
+
+        <FormField label="Prodi">
+            <select v-model="form.prodi_id" class="form-control">
+                <option value="" disabled>Pilih Prodi</option>
+                <option v-for="prodi in props.prodis" :key="prodi.id" :value="prodi.id">
+                    {{ prodi.nama_prodi }}
+                </option>
+            </select>
+            <p v-if="errors.prodi_id" class="text-red-500 text-sm mt-0">
+                {{ errors.prodi_id }}
+            </p>
         </FormField>
 
         <FormField label="Kelompok">
-          <FormControl v-model="form.kelompok" :options="selectOptions" />
+            <select v-model="form.kelompok_id" class="form-control">
+                <option value="" disabled>Pilih Kelompok</option>
+                <option v-for="kelompok in props.kelompoks" :key="kelompok.id" :value="kelompok.id">
+                    {{ kelompok.nama_kelompok }}
+                </option>
+            </select>
+            <p v-if="errors.kelompok_id" class="text-red-500 text-sm mt-0">
+                {{ errors.kelompok_id }}
+            </p>
         </FormField>
 
-        <FormField label="Kelompok">
-          <FormControl v-model="form.kelompok" :options="selectOptions" />
+        <FormField label="Nama Skill">
+            <FormControl v-model="form.nama_skill" placeholder="Masukkan nama skill" />
+        </FormField>
+
+        <FormField label="Deskripsi Skill">
+            <FormControl v-model="form.deskripsi_skill" placeholder="Masukkan deskripsi skill" />
+        </FormField>
+
+        <FormField label="Photo Piagam">
+            <input type="file" @change="e => form.photo_piagam = e.target.files[0]" />
+            <p v-if="errors.photo_piagam" class="text-red-500 text-sm mt-0">
+                {{ errors.photo_piagam }}
+            </p>
         </FormField>
 
         <template #footer>
             <BaseButtons>
-                <BaseButton type="submit" color="success" label="Submit" />
-                <BaseButton type="reset" color="danger" outline label="Reset" />
+                <BaseButton type="submit" color="success" label="Submit" @click="submit"/>
+                <BaseButton type="reset" color="danger" outline label="Reset" @click="reset" />
             </BaseButtons>
         </template>
     </CardBox>
+    <div v-if="form.recentlySuccessful" class="mt-4 p-4 bg-green-100 text-green-700 rounded">
+        Form submitted successfully!
+    </div>
+    <div v-if="showAlert" class="mt-4 p-4 bg-red-100 text-red-700 rounded">
+        Please fill in all required fields.
+    </div>
 </template>
-

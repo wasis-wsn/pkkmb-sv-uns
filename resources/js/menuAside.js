@@ -46,7 +46,7 @@ export default [
         icon: mdiBrain,
     },
     {
-        route: "kelompoks",
+        route: "kelompok",
         label: "Kelompok",
         icon: mdiAccountGroup,
     },

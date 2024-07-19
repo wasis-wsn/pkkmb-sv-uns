@@ -33,7 +33,7 @@
                 >MATERI</Link
             >
             <Link
-                href="/kelompok"
+                href="/kellompok"
                 class="nav-link cursor-pointer"
                 @click="openMenu"
                 >KELOMPOK</Link

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\KelompokController;
+use App\Http\Controllers\ProdiController;
 
 Route::get('/', function () {
     return Inertia::render('Views/LandingView', [
@@ -27,9 +29,9 @@ Route::get('/materi', function () {
     return Inertia::render('Views/MateriView');
 })->name('materi');
 
-Route::get('/kelompok', function () {
+Route::get('/kellompok', function () {
     return Inertia::render('Views/KelompokView');
-})->name('kelompok');
+})->name('kellompok');
 
 Route::get('/galleri', function () {
     return Inertia::render('Views/GaleriView');
@@ -66,17 +68,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 
     //Kelompok
-    Route::get('/dashboard/kelompoks', function () {
-        return Inertia::render('KelompokView');
-    })->name('kelompoks');
-
-    Route::get('/dashboard/prodi', function () {
-        return Inertia::render('ProdiView');
-    })->name('prodi');
-
-    Route::get('/dashboard/mahasiswa', function () {
-        return Inertia::render('MahasiswaView');
-    })->name('mahasiswa');
 
     //User
     Route::get('/dashboard/profiles', function () {
@@ -114,3 +105,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
+require __DIR__ . '/kelompokRoute.php';
+require __DIR__ . '/prodiRoute.php';
+require __DIR__ . '/mahasiswaRoute.php';
