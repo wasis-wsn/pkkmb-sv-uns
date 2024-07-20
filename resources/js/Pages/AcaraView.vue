@@ -4,7 +4,7 @@
         <SectionMain>
             <SectionTitleLineWithButton
                 :icon="mdiBallotOutline"
-                title="Galeri Form"
+                title="Acara Form"
                 main
             >
                 <BaseButton

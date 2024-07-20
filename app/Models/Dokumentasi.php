@@ -9,15 +9,12 @@ class Dokumentasi extends Model
 {
     use HasFactory;
 
-    protected $table = 'Dokumentasi';
+    protected $table = 'galeri';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'user_id',
-        'photo_dokum',
-        'judul_dokum',
-        'acara_dokum',
-        'deskripsi_dokum',
+        'photo_galeri',
     ];
 
     public function user()

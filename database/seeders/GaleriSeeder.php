@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Galeri;
+use App\Models\Acara;
 use App\Models\User; // Don't forget to import the User model
 
 class GaleriSeeder extends Seeder
@@ -18,7 +18,7 @@ class GaleriSeeder extends Seeder
         // Assuming there are users seeded already, retrieve a user or create one
         $user = User::first(); // Change this to retrieve or create the appropriate user
 
-        Galeri::create([
+        Acara::create([
             'user_id' => $user->id,
             'photo_dokum' => 'photo1.jpg',
             'judul_dokum' => 'Document Title 1',
@@ -26,7 +26,7 @@ class GaleriSeeder extends Seeder
             'deskripsi_dokum' => 'Description of document 1',
         ]);
 
-        Galeri::create([
+        Acara::create([
             'user_id' => $user->id,
             'photo_dokum' => 'photo2.jpg',
             'judul_dokum' => 'Document Title 2',

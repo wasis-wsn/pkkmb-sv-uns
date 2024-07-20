@@ -17,25 +17,21 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    judul_dokum: "",
-    deskripsi_dokum: "",
-    photo_dokum: null,
+    photo_galeri: null,
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.judul_dokum = newItem.judul_dokum;
-            form.deskripsi_dokum = newItem.deskripsi_dokum;
-            form.photo_dokum = null; // Reset file input
+            form.photo_galeri = null; // Reset file input
         }
     },
     { immediate: true }
 );
 
 const submit = () => {
-    form.post(route("acara.update", props.item.id), {
+    form.post(route("dokumentasi.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -71,28 +67,16 @@ const submit = () => {
                             class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
                         >
                             <h3 class="text-lg leading-6 font-medium">
-                                Edit Galeri
+                                Edit Dokumentasi
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Judul Dokumen">
-                                    <FormControl
-                                        v-model="form.judul_dokum"
-                                        :icon="mdiAccount"
-                                    />
-                                </FormField>
-                                <FormField label="Deskripsi Dokumen">
-                                    <FormControl
-                                        v-model="form.deskripsi_dokum"
-                                        placeholder="Deskripsi Dokumen/Acara"
-                                    />
-                                </FormField>
                                 <FormField
                                     label="Upload File (image max 10 MB)"
                                 >
                                     <FormFilePicker
-                                        v-model="form.photo_dokum"
+                                        v-model="form.photo_galeri"
                                         label="Upload"
-                                        name="photo_dokum"
+                                        name="photo_galeri"
                                     />
                                 </FormField>
                             </div>

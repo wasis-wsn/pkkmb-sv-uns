@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Galeri;
+use App\Models\Acara;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 
-class GaleriController extends Controller
+class AcaraController extends Controller
 {
     public function getAllGaleri()
     {
-        $galeris = Galeri::all();
+        $galeris = Acara::all();
         // Hapus respons JSON dan kembalikan data ke view atau gunakan dengan cara lain
-        return Inertia::render('GaleriList', ['data' => $galeris]);
+        return response()->json([
+            'data' => $galeris,
+        ], 200);
     }
 
     public function index()
     {
-        $galeris = Galeri::all();
-        return Inertia::render('GaleriView', ['data' => $galeris]);
+        $galeris = Acara::all();
+        return Inertia::render('AcaraView', ['data' => $galeris]);
     }
 
     public function store(Request $request)
@@ -28,7 +30,6 @@ class GaleriController extends Controller
             $validated = $request->validate([
                 'judul_dokum' => 'required|string|max:255',
                 'deskripsi_dokum' => 'nullable|string',
-                'jenis_dokum' => 'required|string|max:255',
                 'photo_dokum' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
             ]);
 
@@ -37,28 +38,26 @@ class GaleriController extends Controller
 
             $user = Auth::user();
 
-            Galeri::create([
+            Acara::create([
                 'user_id' => $user->id,
                 'photo_dokum' => $path->hashName(),
                 'judul_dokum' => $validated['judul_dokum'],
                 'deskripsi_dokum' => $validated['deskripsi_dokum'],
-                'jenis_dokum' => $validated['jenis_dokum']
             ]);
 
             // Redirect atau render view tanpa respons JSON
-            return redirect()->route('galeri.index')->with('success', 'Data berhasil disimpan');
+            return redirect()->route('acara')->with('success', 'Data berhasil disimpan');
         } catch (\Exception $e) {
             // Redirect atau render view dengan pesan error
-            return redirect()->route('galeri.index')->with('error', $e->getMessage());
+            return redirect()->route('acara')->with('error', $e->getMessage());
         }
     }
 
-    public function update(Request $request, Galeri $id)
+    public function update(Request $request, Acara $id)
     {
         $validated = $request->validate([
             'judul_dokum' => 'nullable|string|max:255',
             'deskripsi_dokum' => 'nullable|string',
-            'jenis_dokum' => 'nullable|string|max:255',
             'photo_dokum' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
 
@@ -72,9 +71,6 @@ class GaleriController extends Controller
             $dataToUpdate['deskripsi_dokum'] = $validated['deskripsi_dokum'];
         }
 
-        if ($request->filled('jenis_dokum')) {
-            $dataToUpdate['jenis_dokum'] = $validated['jenis_dokum'];
-        }
 
         if ($request->hasFile('photo_dokum')) {
             $path = $request->file('photo_dokum');
@@ -86,15 +82,15 @@ class GaleriController extends Controller
         $id->update($dataToUpdate);
 
         // Redirect atau render view tanpa respons JSON
-        return redirect()->route('galeri.index')->with('success', 'Data berhasil diperbarui');
+        return redirect()->route('acara')->with('success', 'Data berhasil diperbarui');
     }
 
     public function destroy($id)
     {
-        $galeri = Galeri::findOrFail($id);
+        $galeri = Acara::findOrFail($id);
         $galeri->delete();
 
         // Redirect atau render view tanpa respons JSON
-        return redirect()->route('galeri.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('acara')->with('success', 'Data berhasil dihapus');
     }
 }
