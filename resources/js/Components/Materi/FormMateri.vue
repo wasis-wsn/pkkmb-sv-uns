@@ -66,7 +66,7 @@ const reset = () => {
             </p>
         </FormField>
         <FormField label="Deskripsi Materi" help="">
-            <FormControl v-model="form.deskripsi_materi" type="text" placeholder="Materi ke..." />
+            <FormControl v-model="form.deskripsi_materi" type="text" placeholder="Nama Implementasi nilai :" />
         </FormField>
         <FormField label="Isi Materi" help="">
             <FormControl v-model="form.isi_materi" type="textarea" placeholder="Masukkan materi dengan format list manual. Contoh: A. / 1. / a." />
