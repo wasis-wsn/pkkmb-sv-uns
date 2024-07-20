@@ -10,7 +10,7 @@
                 {{ errors.judul_dokum }}
             </p>
         </FormField>
-        <FormField label="Deskripsi Dokumen (Opsional)">
+        <FormField label="Deskripsi Dokumen">
             <FormControl
                 v-model="form.deskripsi_dokum"
                 placeholder="Deskripsi Dokumen/Acara"

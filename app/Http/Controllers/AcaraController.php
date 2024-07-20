@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AcaraController extends Controller
 {
-    public function getAllGaleri()
+    public function getAllAcara()
     {
         $galeris = Acara::all();
         // Hapus respons JSON dan kembalikan data ke view atau gunakan dengan cara lain

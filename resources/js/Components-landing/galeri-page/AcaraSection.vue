@@ -12,14 +12,10 @@
                     Hallo Vocazens!, Bagian ini khusus berisi highlight
                     foto-foto dari setiap acara yang diadakan, menampilkan
                     berbagai kegiatan penting dan menarik yang telah kita jalani
-                    bersama. Dari sesi pembukaan yang megah dan penuh semangat,
-                    hingga kuliah umum yang inspiratif dan memberikan wawasan
-                    baru. Tidak hanya itu, berbagai pelatihan keterampilan yang
-                    bermanfaat dan kegiatan sosial yang menyenangkan juga
-                    diabadikan dalam potret-potret indah.
+                    bersama.
                 </p>
             </div>
-            <div class="container swiper mb-2">
+            <div class="container swiper my-3">
                 <!-- Swiper Wrapper -->
                 <div class="swiper-wrapper flex items-stretch">
                     <div
@@ -30,26 +26,32 @@
                         data-aos-delay="200"
                     >
                         <div
-                            class="bg-white border-2 rounded-3xl p-5 pt-5 pb-20 text-sm"
+                            class="card flex flex-col bg-white border-2 rounded-3xl p-5 text-sm"
                         >
-                            <img
-                                :src="slide.imgSrc"
-                                :alt="slide.alt"
-                                class="w-full aspect-[1.28] object-cover"
-                            />
-                            <header class="mt-7">{{ slide.judul }}</header>
-                            <h2 class="mt-3 text-2xl uppercase">
-                                {{ slide.judulAcara }}
+                            <div class="image-container">
+                                <img
+                                    :src="
+                                        '/storage/galeri/' + slide.photo_dokum
+                                    "
+                                    :alt="slide.judul_dokum"
+                                    class="w-full h-full object-cover rounded-3xl"
+                                />
+                            </div>
+                            <header class="mt-7 font-bold">
+                                PKKMB SV UNS 2024
+                            </header>
+                            <h2 class="text-2xl uppercase font-bold">
+                                {{ slide.judul_dokum }}
                             </h2>
-                            <p class="mt-5 text-base justify-between">
-                                {{ slide.deskripsi }}
+                            <p class="mt-5 text-base card-content">
+                                {{ slide.deskripsi_dokum }}
                             </p>
                         </div>
                     </div>
                 </div>
                 <!-- Swiper Navigation Buttons -->
-                <div class="swiper-button-next text-lg"></div>
-                <div class="swiper-button-prev text-lg"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
                 <!-- Swiper Wrapper End -->
             </div>
         </div>
@@ -58,6 +60,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import axios from "axios";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import { register } from "swiper/element/bundle";
@@ -66,91 +69,57 @@ register();
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const slides = ref([
-  {
-    imgSrc: new URL("@assets/galeri/acara-1.png", import.meta.url).href,
-    alt: "PKKMB SV UNS 2024 Seminar",
-    judul: "PKKMB SV UNS 2024",
-    judulAcara: "Seminar Inspiratif",
-    deskripsi: "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
-  },
-  {
-    imgSrc: new URL("@assets/galeri/acara-1.png", import.meta.url).href,
-    alt: "PKKMB SV UNS 2024 Seminar",
-    judul: "PKKMB SV UNS 2024",
-    judulAcara: "Seminar Inspiratif",
-    deskripsi: "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
-  },
-  {
-    imgSrc: new URL("@assets/galeri/acara-1.png", import.meta.url).href,
-    alt: "PKKMB SV UNS 2024 Seminar",
-    judul: "PKKMB SV UNS 2024",
-    judulAcara: "Seminar Inspiratif",
-    deskripsi: "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
-  },
-  {
-    imgSrc: new URL("@assets/galeri/acara-1.png", import.meta.url).href,
-    alt: "PKKMB SV UNS 2024 Seminar",
-    judul: "PKKMB SV UNS 2024",
-    judulAcara: "Seminar Inspiratif",
-    deskripsi: "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
-  },
-  {
-    imgSrc: new URL("@assets/galeri/acara-1.png", import.meta.url).href,
-    alt: "PKKMB SV UNS 2024 Seminar",
-    judul: "PKKMB SV UNS 2024",
-    judulAcara: "Seminar Inspiratif",
-    deskripsi: "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
-  },
-  {
-    imgSrc: new URL("@assets/galeri/acara-1.png", import.meta.url).href,
-    alt: "PKKMB SV UNS 2024 Seminar",
-    judul: "PKKMB SV UNS 2024",
-    judulAcara: "Seminar Inspiratif",
-    deskripsi: "Mendengarkan paparan dari tokoh-tokoh inspiratif yang berbagi pengalaman dan pengetahuan mereka.",
-  },
-  // Add more slides here...
-]);
+const slides = ref([]);
+
+const fetchAcara = async () => {
+    try {
+        const response = await axios.get("/data-galeri");
+        slides.value = response.data.data;
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+    }
+};
 
 onMounted(() => {
-  document.title = "PKKMB SV UNS - GALERI";
-  AOS.init();
-  new Swiper(".swiper", {
-    loop: true,
-    direction: "horizontal",
-    slidesPerView: 1,
-    spaceBetween: 10,
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false,
-    },
-    breakpoints: {
-      640: {
+    document.title = "PKKMB SV UNS - GALERI";
+    AOS.init();
+    fetchAcara();
+    new Swiper(".swiper", {
+        loop: true,
+        direction: "horizontal",
         slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 40,
-      },
-      1280: {
-        slidesPerView: 4,
-        spaceBetween: 40,
-      },
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+        spaceBetween: 10,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+            },
+            1280: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+            },
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
 });
 </script>
 
@@ -159,5 +128,23 @@ onMounted(() => {
 .swiper-button-next,
 .swiper-button-prev {
     color: #000;
+}
+
+/* Fixed height for cards with a scroll bar */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 600px; /* Set your desired fixed height */
+}
+
+/* Ensure the image container maintains aspect ratio and is responsive */
+.image-container {
+    flex-shrink: 0;
+    height: 250px; /* Adjust this value as needed */
+}
+
+.card .card-content {
+    flex-grow: 1;
+    overflow-y: auto;
 }
 </style>

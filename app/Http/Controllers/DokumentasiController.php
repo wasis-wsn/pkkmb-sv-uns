@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DokumentasiController extends Controller
 {
-    public function getAllHima()
+    public function getAllDokumentasi()
     {
         $dokumentasi = Dokumentasi::all();
         return response()->json(['data' => $dokumentasi], 200);

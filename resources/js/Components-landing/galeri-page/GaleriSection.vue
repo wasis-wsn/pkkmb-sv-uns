@@ -28,12 +28,12 @@
                         class="grid grid-rows-2 min-[320px]:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-lg"
                     >
                         <div
-                            v-for="(image, index) in galeri"
-                            :key="'galeri-' + index"
+                            v-for="(image, index) in dokumentasi"
+                            :key="'dokumentasi-' + index"
                             :class="getGridClass(index)"
                         >
                             <img
-                                :src="image"
+                                :src="'/storage/galeri/' + image.photo_galeri"
                                 :alt="'Image ' + (index + 1)"
                                 class="image rounded-3xl shadow-lg"
                             />
@@ -62,31 +62,10 @@
 import { ref, onMounted } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 
-// URL gambar
-const imageUrls = [
-    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-2.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-3.jpg", import.meta.url).href,
-    new URL("@assets/galeri/p-1.jpg", import.meta.url).href,
-];
+const dokumentasi = ref([]);
 
-// Ref untuk galeri
-const galeri = ref(imageUrls);
-
-// Fungsi untuk mendapatkan kelas grid berdasarkan indeks gambar
 const getGridClass = (index) => {
     if (index === 0 || index === 2 || index === 6 || index === 8) {
         return "row-span-2";
@@ -95,9 +74,19 @@ const getGridClass = (index) => {
     }
 };
 
+const fetchGaleri = async () => {
+    try {
+        const response = await axios.get("/data-dokumentasi");
+        dokumentasi.value = response.data.data;
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+    }
+};
+
 onMounted(() => {
     document.title = "PKKMB SV UNS - GALERI";
     AOS.init();
+    fetchGaleri();
 });
 </script>
 
