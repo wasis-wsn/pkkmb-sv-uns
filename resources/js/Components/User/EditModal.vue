@@ -49,7 +49,7 @@ const props = defineProps({
     show: Boolean,
 });
 
-const emit = defineEmits(['close']);
+const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: 'PUT', // Add this line to force PUT method

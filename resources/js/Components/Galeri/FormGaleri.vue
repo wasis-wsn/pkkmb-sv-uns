@@ -17,13 +17,6 @@
             />
         </FormField>
 
-        <FormField label="Jenis Dokumen">
-            <FormControl v-model="form.jenis_dokum" :options="selectOptions" optionValue="label" placeholder="Select an option"/>
-            <p v-if="errors.jenis_dokum" class="text-red-500 text-sm mt-0">
-                {{ errors.jenis_dokum }}
-            </p>
-        </FormField>
-
         <BaseDivider />
         <FormField label="Upload File (image max 10 MB)">
             <FormFilePicker
