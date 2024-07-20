@@ -38,7 +38,7 @@ class KelompokController extends Controller
         }
     }
 
-    public function update(Request $request, Kelompok $kelompok)
+    public function update(Request $request, Kelompok $id)
     {
         $validated = $request->validate([
             'nama_kelompok' => 'nullable|string|max:255',
@@ -50,7 +50,7 @@ class KelompokController extends Controller
             $dataToUpdate['nama_kelompok'] = $validated['nama_kelompok'];
         }
 
-        $kelompok->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('kelompok');
     }

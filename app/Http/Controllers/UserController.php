@@ -7,11 +7,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    /**
+     * Display the registration view.
+     */
+    public function getAllUser()
+    {
+        $users = User::all();
+        return response()->json(['data' => $users], 200);
+    }
+
     /**
      * Display the registration view.
      */
@@ -27,46 +35,36 @@ class UserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'name' => 'required|string',
-        'email' => 'required|string|email|max:255|unique:users,email',
-        'password' => 'required|string',
-        'role' => 'required|string'
-    ]);
-
-    Log::info('Validated Data: ', $validatedData);
-
-    $mahasiswa = Auth::user();
-
-    $user = User::create([
-        'name' => $validatedData['name'],
-        'email' => $validatedData['email'],
-        'password' => bcrypt($validatedData['password']),
-        'role' => $validatedData['role'],
-        'mahasiswa_id' => $mahasiswa->id,
-    ]);
-
-    Log::info('User Created: ', $user->toArray());
-
-    return redirect()->route('user.index');
-}
-
-
-
-    public function update(Request $request, User $user)
     {
-        Log::info('Update method called');
-        Log::info('Request data: ' . json_encode($request->all()));
-
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string',
-            'email' => 'required|string|lowercase|email|max:255|unique:users,email,' . $user->id,
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'password' => 'required|string',
             'role' => 'required|string'
         ]);
-        
 
-        Log::info('Validated data: ' . json_encode($request));
+        $mahasiswa = Auth::user();
+        $pesan = Auth::user();
+
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']),
+            'role' => $validatedData['role'],
+            'mahasiswa_id' => $mahasiswa ? $mahasiswa->id : null,
+            'pesan_id' => $pesan ? $pesan->id : null,
+        ]);
+
+        return redirect()->route('user');
+    }
+
+    public function update(Request $request, User $id)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|lowercase|email|max:255|unique:users,email,' . $id->id,
+            'role' => 'required|string'
+        ]);
 
         $dataToUpdate = [];
 
@@ -82,20 +80,15 @@ class UserController extends Controller
             $dataToUpdate['role'] = $request['role'];
         }
 
-        Log::info('Data to update: ' . json_encode($dataToUpdate));
-
-        $user->update($dataToUpdate);
-
-        Log::info('Update completed');
+        $id->update($dataToUpdate);
 
         return redirect()->route('user');
     }
+
     public function destroy($id)
     {
-        // Your deletion logic here
         User::destroy($id);
 
-        // Return a valid Inertia response
         return redirect()->route('user');
     }
 }

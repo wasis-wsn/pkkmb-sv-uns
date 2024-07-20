@@ -43,7 +43,7 @@ class YoutubeController extends Controller
         }
     }
 
-    public function update(Request $request, Youtube $youtube)
+    public function update(Request $request, Youtube $id)
     {
         $validated = $request->validate([
             'judul_youtube' => 'nullable|string|max:255',
@@ -60,7 +60,7 @@ class YoutubeController extends Controller
             $dataToUpdate['link_youtube'] = $validated['link_youtube'];
         }
 
-        $youtube->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('youtube');
     }

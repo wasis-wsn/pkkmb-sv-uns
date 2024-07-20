@@ -45,7 +45,7 @@ class MateriController extends Controller
         }
     }
 
-    public function update(Request $request, Materi $materi)
+    public function update(Request $request, Materi $id)
     {
         $validated = $request->validate([
             'judul_materi' => 'nullable|string|max:255',
@@ -67,7 +67,7 @@ class MateriController extends Controller
             $dataToUpdate['isi_materi'] = $validated['isi_materi'];
         }
 
-        $materi->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('materi');
     }

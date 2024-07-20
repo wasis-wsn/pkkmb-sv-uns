@@ -17,21 +17,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            ProdiSeeder::class,
-            KelompokSeeder::class,
-            MahasiswaSeeder::class,
-            DokumentasiSeeder::class,
-        ]);
-
         User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => 'admin',
             'role' => 'admin',
-            "mahasiswa_id" => 1 // ini cuma contoh, sesuaikan dengan id mahasiswa yang ada di database
         ]);
         $this->call([
+            ProdiSeeder::class,
+            KelompokSeeder::class,
+            MahasiswaSeeder::class,
+            DokumentasiSeeder::class,
             SponsorSeeder::class,
             FeedbackSeeder::class,
         ]);

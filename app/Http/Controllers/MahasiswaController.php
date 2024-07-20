@@ -71,7 +71,7 @@ class MahasiswaController extends Controller
         }
     }
     
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, Mahasiswa $id)
     {
         $validated = $request->validate([
             'nama_mahasiswa' => 'nullable|string|max:255',
@@ -116,7 +116,7 @@ class MahasiswaController extends Controller
             $dataToUpdate['photo_piagam'] = $fileName;
         }
 
-        $mahasiswa->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('mahasiswa');
     }

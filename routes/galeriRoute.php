@@ -1,7 +1,6 @@
 <?php
 use App\Http\Controllers\AcaraController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/data-galeri', [AcaraController::class, 'getAllAcara']);
