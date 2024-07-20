@@ -15,7 +15,7 @@ class MahasiswaController extends Controller
 {
     public function getAllMahasiswa()
     {
-        $mahasiswa = Mahasiswa::all();
+        $mahasiswa = Mahasiswa::with('prodi', 'kelompok')->get();
         $prodi = Prodi::all();
         $kelompok = Kelompok::all();
         return response()->json([
