@@ -12,7 +12,6 @@ class GaleriController extends Controller
     public function getAllGaleri()
     {
         $galeris = Galeri::all();
-        // Hapus respons JSON dan kembalikan data ke view atau gunakan dengan cara lain
         return response()->json([
             'data' => $galeris,
         ], 200);       

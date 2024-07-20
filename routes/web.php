@@ -24,7 +24,7 @@ Route::get('/implementasi', function () {
     return Inertia::render('Views/MateriView');
 })->name('implementasi');
 
-Route::get('/kellompok', function () {
+Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');
 })->name('kellompok');
 
@@ -83,3 +83,4 @@ require __DIR__ . '/himaRoute.php';
 require __DIR__ . '/materiRoute.php';
 require __DIR__ . '/youtubeRoute.php';
 require __DIR__ . '/userRoute.php';
+require __DIR__ . '/feedbackRoute.php';

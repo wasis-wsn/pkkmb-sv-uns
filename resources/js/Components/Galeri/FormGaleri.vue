@@ -15,7 +15,7 @@
 
         <FormField label="Jenis Dokumen">
             <FormControl v-model="form.jenis_dokum" :options="selectOptions" optionValue="label" placeholder="Select an option"/>
-            <p v-if="errors.prodi_id" class="text-red-500 text-sm mt-0">
+            <p v-if="errors.jenis_dokum" class="text-red-500 text-sm mt-0">
                 {{ errors.jenis_dokum }}
             </p>
         </FormField>

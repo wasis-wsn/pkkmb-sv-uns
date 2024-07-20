@@ -125,6 +125,6 @@ class MahasiswaController extends Controller
     {
         Mahasiswa::destroy($id);
 
-        return redirect()->route('mahasiswa.index');
+        return redirect()->route('mahasiswa');
     }
 }

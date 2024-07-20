@@ -23,9 +23,6 @@
                                         <option value="user">User</option>
                                     </select>
                                 </FormField>
-                                <FormField label="Password">
-                                    <FormControl v-model="form.password" />
-                                </FormField>
                             </div>
                         </div>
                     </div>

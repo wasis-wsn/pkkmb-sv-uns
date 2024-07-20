@@ -34,6 +34,7 @@
         "sweetalert2": "^11.6.13",
         "swiper": "^11.1.5",
         "vue-router": "^4.0.13",
+        "wordcloud": "^1.2.2",
         "ziggy-js": "^2.2.1"
     }
 }

@@ -62,7 +62,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|lowercase|email|max:255|unique:users,email,' . $user->id,
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role' => 'required|string'
         ]);
         
@@ -77,10 +76,6 @@ class UserController extends Controller
         
         if ($request->filled('email')) {
             $dataToUpdate['email'] = $request['email'];
-        }
-
-        if ($request->filled('password')) {
-            $dataToUpdate['password'] = $request['password'];
         }
 
         if ($request->filled('role')) {

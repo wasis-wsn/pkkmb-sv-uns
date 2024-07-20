@@ -27,10 +27,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => 'admin',
-            'role' => 'admin'
+            'role' => 'admin',
+            'mahasiswa_id' => '1'
         ]);
         $this->call([
             SponsorSeeder::class,
+            FeedbackSeeder::class,
         ]);
     }
 }

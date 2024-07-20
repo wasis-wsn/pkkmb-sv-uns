@@ -8,7 +8,7 @@
         >
             <img
                 loading="lazy"
-                src="../../assets/logo.png"
+                src="@assets/logo.png"
                 alt="Askara logo"
                 class="shrink-0 aspect-[0.99] h-[83px] w-[93px] md:w-[100px]"
             />
@@ -22,31 +22,36 @@
         >
             <Link
                 href="/"
-                class="nav-link ml-auto cursor-pointer"
+                class="nav-link ml-auto"
+                :class="{ 'active': isActive('/') }"
                 @click="openMenu"
                 >BERANDA</Link
             >
             <Link
                 href="/implementasi"
-                class="nav-link cursor-pointer"
+                class="nav-link"
+                :class="{ 'active': isActive('/implementasi') }"
                 @click="openMenu"
                 >MATERI</Link
             >
             <Link
-                href="/kellompok"
-                class="nav-link cursor-pointer"
+                href="/kelompok"
+                class="nav-link"
+                :class="{ 'active': isActive('/kelompok') }"
                 @click="openMenu"
                 >KELOMPOK</Link
             >
             <Link
                 href="/galleri"
-                class="nav-link cursor-pointer"
+                class="nav-link"
+                :class="{ 'active': isActive('/galleri') }"
                 @click="openMenu"
                 >GALERI</Link
             >
             <Link
                 href="/tentang"
-                class="nav-link cursor-pointer"
+                class="nav-link"
+                :class="{ 'active': isActive('/tentang') }"
                 @click="openMenu"
                 >TENTANG</Link
             >
@@ -144,6 +149,10 @@ export default {
             isProfileDropdownOpen.value = !isProfileDropdownOpen.value;
         }
 
+        function isActive(path) {
+            return window.location.pathname === path;
+        }
+
         window.addEventListener("scroll", () => {
             isHeaderShadowVisible.value = window.scrollY > 0;
         });
@@ -155,6 +164,7 @@ export default {
             toggleProfileDropdown,
             isHeaderShadowVisible,
             isClicked,
+            isActive,
         };
     },
     methods: {
@@ -195,7 +205,7 @@ export default {
     transition: width 0.3s ease;
 }
 .nav-link:hover::after,
-.router-link-exact-active.nav-link::after {
+.nav-link.active::after {
     width: 100%;
 }
 </style>

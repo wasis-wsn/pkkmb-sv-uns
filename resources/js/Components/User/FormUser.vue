@@ -98,17 +98,8 @@
         </FormField>
 
         <FormField label="Role">
-            <select v-model="form.role" class="bg-slate-900">
-                <option value="">Select an option</option>
-                <option
-                    v-for="option in selectOptions"
-                    :key="option.label"
-                    :value="option.label"
-                >
-                    {{ option.label }}
-                </option>
-            </select>
-            <p v-if="errors.role" class="text-red-500 text-sm mt-1">
+            <FormControl v-model="form.role" :options="selectOptions" optionValue="label" placeholder="Select an option"/>
+            <p v-if="errors.role" class="text-red-500 text-sm mt-0">
                 {{ errors.role }}
             </p>
         </FormField>
