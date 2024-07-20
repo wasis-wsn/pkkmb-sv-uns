@@ -95,7 +95,6 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('photo_dokum');
             $table->string('judul_dokum');
-            $table->string('jenis_dokum');
             $table->text('deskripsi_dokum');
             $table->timestamps();
         });

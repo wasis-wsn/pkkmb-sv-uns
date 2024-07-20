@@ -28,9 +28,9 @@ Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');
 })->name('kellompok');
 
-Route::get('/galleri', function () {
+Route::get('/galeri', function () {
     return Inertia::render('Views/GaleriView');
-})->name('galleri');
+})->name('galeri');
 
 Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/materis', function () {
         return Inertia::render('MateriView');
     })->name('materis');
-    
+
     Route::get('/dashboard/youtube', function () {
         return Inertia::render('YoutubeView');
     })->name('youtube');
@@ -62,7 +62,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Profile Admin
     Route::get('/dashboard/profiles', [ProfileController::class, 'edit'])->name('profiles');
     Route::patch('/dashboard/profiles-update', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/dashboard/profiles-delete', [ProfileController::class, 'destroy'])->name('profile.delete');});
+    Route::delete('/dashboard/profiles-delete', [ProfileController::class, 'destroy'])->name('profile.delete');
+});
 
 // Route untuk error
 Route::get('/error', function () {
@@ -83,4 +84,5 @@ require __DIR__ . '/himaRoute.php';
 require __DIR__ . '/materiRoute.php';
 require __DIR__ . '/youtubeRoute.php';
 require __DIR__ . '/userRoute.php';
+require __DIR__ . '/dokumentasiRoute.php';
 require __DIR__ . '/feedbackRoute.php';

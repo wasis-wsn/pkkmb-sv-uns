@@ -42,7 +42,7 @@
                 >KELOMPOK</Link
             >
             <Link
-                href="/galleri"
+                href="/galeri"
                 class="nav-link"
                 :class="{ 'active': isActive('/galleri') }"
                 @click="openMenu"

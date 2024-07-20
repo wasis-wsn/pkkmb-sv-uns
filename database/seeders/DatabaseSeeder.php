@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ProdiSeeder::class,
             KelompokSeeder::class,
             MahasiswaSeeder::class,
+            DokumentasiSeeder::class,
         ]);
 
         User::factory()->create([
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => 'admin',
             'role' => 'admin',
-            'mahasiswa_id' => '1'
+            "mahasiswa_id" => 1 // ini cuma contoh, sesuaikan dengan id mahasiswa yang ada di database
         ]);
         $this->call([
             SponsorSeeder::class,

@@ -46,14 +46,14 @@ export default [
         icon: mdiViewList,
         menu: [
             {
-                route: "galeri",
-                label: "dokumentasi",
+                route: "dokumentasi", // Jika tidak ada route maka akan dianggap sebagai label nanti di ubah cok ke route
+                label: "Dokumentasi",
                 icon: mdiSquareEditOutline,
             },
             {
-                to: "acara",
-                label: "acara",
-                icon: mdiSquareEditOutline,
+                route: "acara",
+                label: "Acara",
+                icon: mdiAccount,
             },
             {
                 route: "youtube",
@@ -98,8 +98,8 @@ export default [
         icon: mdiViewList,
         menu: [
             {
-                route: 'ui',
-                label: 'UI',
+                route: "ui",
+                label: "UI",
             },
             {
                 label: "Item Two",
@@ -111,6 +111,4 @@ export default [
         label: "Error",
         icon: mdiAlertCircle,
     },
-
-
 ];

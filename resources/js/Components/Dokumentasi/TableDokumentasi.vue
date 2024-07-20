@@ -5,7 +5,7 @@ import CardBox from "@/Components/CardBox.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import { useForm } from "@inertiajs/vue3";
 import Swal from "sweetalert2";
-import EditModal from "@/Components/Galeri/EditModal.vue";
+import EditModal from "@/Components/Dokumentasi/EditModal.vue";
 
 const props = defineProps({
     data: {
@@ -30,7 +30,7 @@ const confirmDelete = (id) => {
         confirmButtonText: "Yes, delete it!",
     }).then((result) => {
         if (result.isConfirmed) {
-            form.delete(route("acara.destroy", id), {
+            form.delete(route("dokumentasi.destroy", id), {
                 preserveState: true,
                 preserveScroll: true,
                 onSuccess: () => {
@@ -72,17 +72,7 @@ const closeEditModal = () => {
                     <th
                         class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4"
                     >
-                        Judul
-                    </th>
-                    <th
-                        class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3"
-                    >
-                        Deskripsi
-                    </th>
-                    <th
-                        class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6"
-                    >
-                        File
+                        Image
                     </th>
                     <th
                         class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6"
@@ -93,20 +83,10 @@ const closeEditModal = () => {
             </thead>
             <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
-                    <td
-                        class="px-6 py-4 whitespace-normal break-words text-center w-1/4"
-                    >
-                        {{ item.judul_dokum }}
-                    </td>
-                    <td
-                        class="px-6 py-4 whitespace-normal break-words text-center w-1/3"
-                    >
-                        {{ item.deskripsi_dokum }}
-                    </td>
                     <td class="px-6 py-4 whitespace-nowrap text-center w-1/6">
                         <img
-                            :src="`/storage/galeri/${item.photo_dokum}`"
-                            alt="Dokumen"
+                            :src="`/storage/galeri/${item.photo_galeri}`"
+                            alt="Foto Galeri"
                             class="w-20 h-20 object-cover mx-auto"
                         />
                     </td>
