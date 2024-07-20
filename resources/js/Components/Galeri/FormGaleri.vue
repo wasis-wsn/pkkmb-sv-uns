@@ -12,21 +12,14 @@
                 placeholder="Deskripsi Dokumen/Acara"
             />
         </FormField>
+
         <FormField label="Jenis Dokumen">
-            <select v-model="form.jenis_dokum" class="bg-slate-900">
-                <option value="">Select an option</option>
-                <option
-                    v-for="option in selectOptions"
-                    :key="option.label"
-                    :value="option.label"
-                >
-                    {{ option.label }}
-                </option>
-            </select>
-            <p v-if="errors.jenis_dokum" class="text-red-500 text-sm mt-1">
+            <FormControl v-model="form.jenis_dokum" :options="selectOptions" optionValue="label" placeholder="Select an option"/>
+            <p v-if="errors.prodi_id" class="text-red-500 text-sm mt-0">
                 {{ errors.jenis_dokum }}
             </p>
         </FormField>
+
         <BaseDivider />
         <FormField label="Upload File (image max 10 MB)">
             <FormFilePicker

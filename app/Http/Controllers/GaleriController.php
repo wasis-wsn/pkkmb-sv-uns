@@ -13,7 +13,9 @@ class GaleriController extends Controller
     {
         $galeris = Galeri::all();
         // Hapus respons JSON dan kembalikan data ke view atau gunakan dengan cara lain
-        return Inertia::render('GaleriList', ['data' => $galeris]);
+        return response()->json([
+            'data' => $galeris,
+        ], 200);       
     }
 
     public function index()
@@ -46,10 +48,10 @@ class GaleriController extends Controller
             ]);
 
             // Redirect atau render view tanpa respons JSON
-            return redirect()->route('galeri.index')->with('success', 'Data berhasil disimpan');
+            return redirect()->route('galeri')->with('success', 'Data berhasil disimpan');
         } catch (\Exception $e) {
             // Redirect atau render view dengan pesan error
-            return redirect()->route('galeri.index')->with('error', $e->getMessage());
+            return redirect()->route('galeri')->with('error', $e->getMessage());
         }
     }
 
