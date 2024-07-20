@@ -64,7 +64,7 @@ class UserController extends Controller
             'email' => 'required|string|lowercase|email|max:255|unique:users,email,' . $user->id,
             'role' => 'required|string'
         ]);
-        
+
 
         Log::info('Validated data: ' . json_encode($request));
 
@@ -73,7 +73,7 @@ class UserController extends Controller
         if ($request->filled('name')) {
             $dataToUpdate['name'] = $request['name'];
         }
-        
+
         if ($request->filled('email')) {
             $dataToUpdate['email'] = $request['email'];
         }

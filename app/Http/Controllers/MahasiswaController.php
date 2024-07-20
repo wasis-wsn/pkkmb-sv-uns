@@ -22,7 +22,7 @@ class MahasiswaController extends Controller
             'data' => $mahasiswa,
             'prodi' => $prodi,
             'kelompok' => $kelompok
-        ], 200);   
+        ], 200);
     }
 
     public function index()
@@ -49,11 +49,11 @@ class MahasiswaController extends Controller
                 'deskripsi_skill' => 'nullable|string',
                 'photo_piagam' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
             ]);
-    
+
             $path = $request->file('photo_piagam') ? $request->file('photo_piagam')->store('public/piagam') : null;
-    
+
             $user = Auth::user();
-    
+
             Mahasiswa::create([
                 'nama_mahasiswa' => $validated['nama_mahasiswa'],
                 'no_telp' => $validated['no_telp'],
@@ -64,13 +64,13 @@ class MahasiswaController extends Controller
                 'photo_piagam' => $path ? basename($path) : null,
                 'user_id' => $user->id,
             ]);
-    
+
             return redirect()->route('mahasiswa');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-    
+
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
         $validated = $request->validate([
