@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="flex gap-5 items-center text-xl text-right text-gray-600 tracking-[2px]">
-        <a href="/hubungi-kami">Hubungi Kami</a>
+        <a href="/hubungi-kami">Hubungi Admin</a>
         <a href="/">
           <HomeIcon class="w-10 h-10 self-end" />
         </a>
@@ -143,5 +143,4 @@ const props = defineProps({
   }
 }
 
-@import '../../css/pages/_button.css';
 </style>

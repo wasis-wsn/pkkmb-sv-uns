@@ -20,9 +20,9 @@
         <!-- Center Section: Navigation Links -->
         <nav class="hidden md:flex gap-5 items-center text-sm font-medium capitalize whitespace-nowrap text-neutral-900 flex-grow justify-center">
             <Link href="/" class="nav-link" :class="{ 'active': isActive('/') }" @click="openMenu">BERANDA</Link>
-            <Link href="/implementasi" class="nav-link" :class="{ 'active': isActive('/implementasi') }" @click="openMenu">MATERI</Link>
+            <Link href="/materi" class="nav-link" :class="{ 'active': isActive('/materi') }" @click="openMenu">MATERI</Link>
             <Link href="/kelompok" class="nav-link" :class="{ 'active': isActive('/kelompok') }" @click="openMenu">KELOMPOK</Link>
-            <Link href="/galeri" class="nav-link" :class="{ 'active': isActive('/galleri') }" @click="openMenu">GALERI</Link>
+            <Link href="/galeri" class="nav-link" :class="{ 'active': isActive('/galeri') }" @click="openMenu">GALERI</Link>
             <Link href="/tentang" class="nav-link" :class="{ 'active': isActive('/tentang') }" @click="openMenu">TENTANG</Link>
         </nav>
 
