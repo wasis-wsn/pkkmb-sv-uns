@@ -35,13 +35,13 @@
             <BaseButtons>
                 <BaseButton
                     type="submit"
-                    color="info"
+                    color="success"
                     label="Submit"
                     @click="submit"
                 />
                 <BaseButton
                     type="reset"
-                    color="info"
+                    color="danger"
                     @click="reset"
                     outline
                     label="Reset"
