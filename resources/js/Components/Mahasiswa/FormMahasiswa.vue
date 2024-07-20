@@ -6,6 +6,8 @@ import FormField from '@/Components/FormField.vue';
 import FormControl from '@/Components/FormControl.vue';
 import BaseButton from '@/Components/BaseButton.vue';
 import BaseButtons from '@/Components/BaseButtons.vue';
+import FormFilePicker from "@/Components/FormFilePicker.vue";
+
 
 const props = defineProps({
     prodi: {
@@ -78,31 +80,31 @@ const reset = () => {
     <CardBox @submit.prevent="submit">
         <FormField label="Nama Mahasiswa">
             <FormControl v-model="form.nama_mahasiswa" placeholder="Masukkan nama mahasiswa" />
-            <p v-if="errors.nama_mahasiswa" class="text-red-500 text-sm mt-0">
+        </FormField>
+            <p v-if="errors.nama_mahasiswa" class="text-red-500 text-sm mb-3">
                 {{ errors.nama_mahasiswa }}
             </p>
-        </FormField>
 
         <FormField label="No Telp">
             <FormControl v-model="form.no_telp" placeholder="Masukkan no telp" />
-            <p v-if="errors.no_telp" class="text-red-500 text-sm mt-0">
+        </FormField>
+            <p v-if="errors.no_telp" class="text-red-500 text-sm mb-3">
                 {{ errors.no_telp }}
             </p>
-        </FormField>
 
         <FormField label="Prodi">
             <FormControl v-model="form.prodi_id" :options="prodi" optionLabel="nama_prodi" optionValue="id" placeholder="Pilih Prodi"/>
-            <p v-if="errors.prodi_id" class="text-red-500 text-sm mt-0">
+        </FormField>
+            <p v-if="errors.prodi_id" class="text-red-500 text-sm mb-3">
                 {{ errors.prodi_id }}
             </p>
-        </FormField>
 
         <FormField label="Kelompok">
             <FormControl v-model="form.kelompok_id" :options="kelompok" optionLabel="nama_kelompok" optionValue="id" placeholder="Pilih Kelompok"/>
-            <p v-if="errors.kelompok_id" class="text-red-500 text-sm mt-0">
-                {{ errors.kelompok_id }}
-            </p>
         </FormField>
+                <p v-if="errors.kelompok_id" class="text-red-500 text-sm mb-3">
+                    {{ errors.kelompok_id }}
+                </p>
 
         <FormField label="Nama Skill">
             <FormControl v-model="form.nama_skill" placeholder="Masukkan nama skill" />
@@ -112,12 +114,17 @@ const reset = () => {
             <FormControl v-model="form.deskripsi_skill" placeholder="Masukkan deskripsi skill" />
         </FormField>
 
-        <FormField label="Photo Piagam">
-            <input type="file" @change="e => form.photo_piagam = e.target.files[0]" />
-            <p v-if="errors.photo_piagam" class="text-red-500 text-sm mt-0">
+        <FormField label="Photo Piagam (image max 10 MB)">
+            <FormFilePicker
+                v-model="form.photo_piagam"
+                label="Upload"
+                name="photo_piagam"
+            />
+
+        </FormField>
+            <p v-if="errors.photo_piagam" class="text-red-500 text-sm mb-3">
                 {{ errors.photo_piagam }}
             </p>
-        </FormField>
 
         <template #footer>
             <BaseButtons>

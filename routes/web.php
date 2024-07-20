@@ -29,7 +29,7 @@ Route::get('/materi/all', [MateriController::class, 'getAllMateri'])->name('mate
 
 Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');
-})->name('kellompok');
+})->name('kelompok');
 
 Route::get('/galeri', function () {
     return Inertia::render('Views/GaleriView');

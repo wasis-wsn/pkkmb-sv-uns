@@ -44,7 +44,6 @@ class UserController extends Controller
         ]);
 
         $mahasiswa = Auth::user();
-        $pesan = Auth::user();
 
         $user = User::create([
             'name' => $validatedData['name'],
@@ -52,7 +51,6 @@ class UserController extends Controller
             'password' => bcrypt($validatedData['password']),
             'role' => $validatedData['role'],
             'mahasiswa_id' => $mahasiswa ? $mahasiswa->id : null,
-            'pesan_id' => $pesan ? $pesan->id : null,
         ]);
 
         return redirect()->route('user');
@@ -71,7 +69,7 @@ class UserController extends Controller
         if ($request->filled('name')) {
             $dataToUpdate['name'] = $request['name'];
         }
-        
+
         if ($request->filled('email')) {
             $dataToUpdate['email'] = $request['email'];
         }
