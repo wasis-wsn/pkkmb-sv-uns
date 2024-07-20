@@ -108,10 +108,10 @@ const closeEditModal = () => {
           </thead>
           <tbody class="bg-dark divide-y">
               <tr v-for="item in data" :key="item.id">
-                  <td class="px-6 py-4 whitespace-nowrap text-center">
+                  <td class="px-6 py-4 text-center">
                       {{ item.judul_materi }}
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-center">
+                  <td class="px-6 py-4 text-center">
                       {{ item.deskripsi_materi }}
                   </td>
                   <td class="px-6 py-4 ">

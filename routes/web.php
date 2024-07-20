@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\KelompokController;
 use App\Http\Controllers\ProdiController;
@@ -20,9 +21,11 @@ Route::get('/', function () {
     ]);
 })->name('landing');
 
-Route::get('/implementasi', function () {
+Route::get('/materi', function () {
     return Inertia::render('Views/MateriView');
-})->name('implementasi');
+})->name('materi');
+// Add this route in web.php
+Route::get('/materi/all', [MateriController::class, 'getAllMateri'])->name('materi.all');
 
 Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');

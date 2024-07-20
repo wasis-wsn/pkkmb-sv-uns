@@ -28,9 +28,9 @@
                 >BERANDA</Link
             >
             <Link
-                href="/implementasi"
+                href="/materi"
                 class="nav-link"
-                :class="{ 'active': isActive('/implementasi') }"
+                :class="{ 'active': isActive('/materi') }"
                 @click="openMenu"
                 >MATERI</Link
             >
