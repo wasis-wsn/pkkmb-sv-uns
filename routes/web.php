@@ -28,9 +28,9 @@ Route::get('/kellompok', function () {
     return Inertia::render('Views/KelompokView');
 })->name('kellompok');
 
-Route::get('/galleri', function () {
+Route::get('/galeri', function () {
     return Inertia::render('Views/GaleriView');
-})->name('galleri');
+})->name('galeri');
 
 Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');

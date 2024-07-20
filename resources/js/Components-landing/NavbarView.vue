@@ -39,7 +39,7 @@
                 >KELOMPOK</Link
             >
             <Link
-                href="/galleri"
+                href="/galeri"
                 class="nav-link cursor-pointer"
                 @click="openMenu"
                 >GALERI</Link
