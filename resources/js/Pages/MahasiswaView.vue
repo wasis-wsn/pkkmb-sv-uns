@@ -18,6 +18,14 @@
         type: Array,
         required: true,
     },
+    prodi: {
+        type: Array,
+        required: true,
+    },
+    kelompok: {
+        type: Array,
+        required: true,
+    },
 });
 
 </script>
@@ -29,7 +37,7 @@
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiBallotOutline" title="Form Mahasiswa" main>
             </SectionTitleLineWithButton>
-            <FormMahasiswa />
+            <FormMahasiswa :prodi="prodi" :kelompok="kelompok"/>
         </SectionMain>
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiTableBorder" title="Daftar Mahasiswa" main>

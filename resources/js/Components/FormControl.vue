@@ -34,7 +34,15 @@ const props = defineProps({
   },
   options: {
     type: Array,
-    default: null
+    default: () => []
+  },
+  optionLabel: {
+    type: String,
+    default: 'label'
+  },
+  optionValue: {
+    type: String,
+    default: 'value'
   },
   type: {
     type: String,
@@ -75,7 +83,7 @@ const inputElClass = computed(() => {
   return base
 })
 
-const computedType = computed(() => (props.options ? 'select' : props.type))
+const computedType = computed(() => (props.options.length ? 'select' : props.type))
 
 const controlIconH = computed(() => (props.type === 'textarea' ? 'h-full' : 'h-12'))
 
@@ -132,8 +140,9 @@ if (props.ctrlKFocus) {
       :name="name"
       :class="inputElClass"
     >
-      <option v-for="option in options" :key="option.id ?? option" :value="option">
-        {{ option.label ?? option }}
+      <option value="" disabled selected>{{ placeholder }}</option>
+      <option v-for="option in options" :key="option[props.optionValue]" :value="option[props.optionValue]">
+        {{ option[props.optionLabel] }}
       </option>
     </select>
     <textarea
