@@ -13,9 +13,6 @@
                         Role
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Password
-                    </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Actions
                     </th>
                 </tr>
@@ -25,7 +22,6 @@
                     <td class="px-6 py-4 whitespace-nowrap">{{ item.name }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ item.email }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ item.role }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ item.password }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
                         <BaseButton :icon="mdiDelete" color="danger" @click="confirmDelete(item.id)" />

@@ -11,8 +11,7 @@ class AcaraController extends Controller
 {
     public function getAllAcara()
     {
-        $galeris = Acara::all();
-        // Hapus respons JSON dan kembalikan data ke view atau gunakan dengan cara lain
+        $galeris = Galeri::all();
         return response()->json([
             'data' => $galeris,
         ], 200);

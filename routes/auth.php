@@ -56,4 +56,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+    Route::get('/session', [AuthenticatedSessionController::class, 'getSessionData']);
+
+    Route::get('/data-login', [AuthenticatedSessionController::class, 'getLoggedInUser']);
+
 });

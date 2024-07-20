@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             SponsorSeeder::class,
+            FeedbackSeeder::class,
         ]);
     }
 }

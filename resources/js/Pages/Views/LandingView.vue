@@ -282,7 +282,8 @@
         </div>
       </div>
     </section>
-    <div class="slider-acara mt-5">
+    <FormFeedback />
+    <div class="slider-acara">
       <section class="acara" id="acara">
         <div class="background">
           <div class="mb-3 text-center">
@@ -312,6 +313,7 @@ import "swiper/swiper-bundle.css";
 import VidioSection from "@/Components-landing/landing-page/VidioSection.vue";
 import SponsorSection from "@/Components-landing/landing-page/SponsorSection.vue";
 import HimaSection from "@/Components-landing/landing-page/HimaSection.vue";
+import FormFeedback from "@/Components-landing/landing-page/FormFeedback.vue";
 import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
 
 // Register components

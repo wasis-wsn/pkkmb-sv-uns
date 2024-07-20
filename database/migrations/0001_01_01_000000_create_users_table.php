@@ -134,6 +134,13 @@ return new class extends Migration {
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        // Migration for Feedback
+        Schema::create('feedback', function (Blueprint $table) {
+            $table->id();
+            $table->text('feedback');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -154,5 +161,6 @@ return new class extends Migration {
         Schema::dropIfExists('mahasiswa');
         Schema::dropIfExists('kelompok');
         Schema::dropIfExists('prodi');
+        Schema::dropIfExists('feedback');
     }
 };

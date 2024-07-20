@@ -216,7 +216,7 @@ const submitPass = () => {
 };
 
 const submitDelete = () => {
-  form.delete(route('profile.destroy'), {
+  form.delete(route('profile.delete'), {
     onSuccess: () => handleSuccessResponse('Your account has been deleted.'),
     onError: (errors) => handleErrorResponse(errors[0]),
   });

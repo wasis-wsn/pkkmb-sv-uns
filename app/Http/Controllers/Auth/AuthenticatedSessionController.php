@@ -14,6 +14,24 @@ use Inertia\Response;
 class AuthenticatedSessionController extends Controller
 {
     /**
+     * Get Session view.
+     */    
+    public function getSessionData(Request $request)
+    {
+        dd($request->session()->all());
+    }
+
+    /**
+     * Get Loggedin User.
+     */
+    public function getLoggedInUser(Request $request)
+    {
+        $user = $request->user()->load('mahasiswa.prodi', 'mahasiswa.kelompok');
+
+        return response()->json($user);
+    }
+
+    /**
      * Display the login view.
      */
     public function create(): Response
@@ -31,9 +49,20 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        $user = Auth::user();
+
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Simpan mahasiswa_id dan pesan_id di session
+        $request->session()->put('mahasiswa_id', $user->mahasiswa_id);
+        $request->session()->put('pesan_id', $user->pesan_id);
+
+        // Redirect berdasarkan role
+        if ($user->role === 'admin') {
+            return redirect()->intended(route('dashboard'));
+        } else {
+            return redirect()->intended('/');
+        }
     }
 
     /**
