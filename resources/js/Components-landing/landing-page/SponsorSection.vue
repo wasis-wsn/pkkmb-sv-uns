@@ -2,40 +2,37 @@
   <div class="grid-container">
     <div
       class="image-container flex justify-center items-center w-1/2 md:w-1/4"
-      v-for="(sponsor, index) in sponsor"
+      v-for="(sponsor, index) in sponsors"
       :key="'sponsor' + index"
       data-aos="fade-up"
     >
-      <img :src="sponsor.imgSrc" :alt="sponsor.alt" />
+      <img :src="'/storage/sponsor/' + sponsor.logo_sponsor" />
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
+import { onMounted, ref } from "vue";
+import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import telkom from "@assets/telkom.png";
-import bca from "@assets/bca.png";
-import mandiri from "@assets/mandiri.png";
-import bri from "@assets/bri.png";
 
-export default {
-  name: "SponsorSection",
-  data() {
-    return {
-      sponsor: [
-        { imgSrc: telkom, alt: "Telkom" },
-        { imgSrc: bca, alt: "BCA" },
-        { imgSrc: mandiri, alt: "Mandiri" },
-        { imgSrc: bri, alt: "BRI" },
-      ],
-    };
-  },
-  mounted() {
-    document.title = "PKKMB SV UNS";
-    AOS.init();
-  },
-};
+const sponsors = ref([]);
+
+const fetchSponsor = async () => {
+    try {
+        const response = await axios.get("/data-sponsor");
+        sponsors.value = response.data.data;
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+    }
+};  
+
+onMounted(() => {
+  fetchSponsor();
+  document.title = "PKKMB SV UNS";
+  AOS.init();
+});
 </script>
 
 <style scoped>
