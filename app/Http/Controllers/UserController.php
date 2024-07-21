@@ -27,30 +27,32 @@ class UserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'name' => 'required|string',
-        'email' => 'required|string|email|max:255|unique:users,email',
-        'password' => 'required|string',
-        'role' => 'required|string'
-    ]);
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'password' => 'required|string',
+            'role' => 'required|string'
+        ]);
 
-    Log::info('Validated Data: ', $validatedData);
+        Log::info('Validated Data: ', $validatedData);
 
-    $mahasiswa = Auth::user();
+        $mahasiswa = Auth::user();
 
-    $user = User::create([
-        'name' => $validatedData['name'],
-        'email' => $validatedData['email'],
-        'password' => bcrypt($validatedData['password']),
-        'role' => $validatedData['role'],
-        'mahasiswa_id' => $mahasiswa->id,
-    ]);
 
-    Log::info('User Created: ', $user->toArray());
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']),
+            'role' => $validatedData['role'],
+            'mahasiswa_id' => $mahasiswa ? $mahasiswa->id : null, // Allow mahasiswa_id to be nullable
+        ]);
 
-    return redirect()->route('user.index');
-}
+
+        Log::info('User Created: ', $user->toArray());
+
+        return redirect()->route('user.index');
+    }
 
 
 
@@ -64,7 +66,7 @@ class UserController extends Controller
             'email' => 'required|string|lowercase|email|max:255|unique:users,email,' . $user->id,
             'role' => 'required|string'
         ]);
-        
+
 
         Log::info('Validated data: ' . json_encode($request));
 
@@ -73,7 +75,7 @@ class UserController extends Controller
         if ($request->filled('name')) {
             $dataToUpdate['name'] = $request['name'];
         }
-        
+
         if ($request->filled('email')) {
             $dataToUpdate['email'] = $request['email'];
         }

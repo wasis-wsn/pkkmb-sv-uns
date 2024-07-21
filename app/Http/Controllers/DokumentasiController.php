@@ -25,23 +25,27 @@ class DokumentasiController extends Controller
     {
         try {
             $validated = $request->validate([
-                'photo_galeri' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
+                'photo_galeri.*' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
             ]);
-
-            $path = $validated['photo_galeri']->storeAs('public/galeri', $validated['photo_galeri']->hashName());
 
             $user = Auth::user();
+            $photos = $request->file('photo_galeri');
 
-            Dokumentasi::create([
-                'user_id' => $user->id,
-                'photo_galeri' => $validated['photo_galeri']->hashName(),
-            ]);
+            foreach ($photos as $photo) {
+                $path = $photo->storeAs('public/galeri', $photo->hashName());
+
+                Dokumentasi::create([
+                    'user_id' => $user->id,
+                    'photo_galeri' => $photo->hashName(),
+                ]);
+            }
 
             return redirect()->route('dokumentasi');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
 
     public function update(Request $request, Dokumentasi $id)
     {
