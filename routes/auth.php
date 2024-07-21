@@ -60,5 +60,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/session', [AuthenticatedSessionController::class, 'getSessionData']);
 
     Route::get('/data-login', [AuthenticatedSessionController::class, 'getLoggedInUser']);
-
 });
