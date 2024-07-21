@@ -2,7 +2,7 @@
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
     Route::post('/dashboard/mahasiswa', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
     Route::put('/dashboard/mahasiswa/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');

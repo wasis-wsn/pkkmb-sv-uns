@@ -2,7 +2,7 @@
 use App\Http\Controllers\YoutubeController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/youtube', [YoutubeController::class, 'index'])->name('youtube');
     Route::post('/dashboard/youtube', [YoutubeController::class, 'store'])->name('youtube.store');
     Route::put('/dashboard/youtube{id}', [YoutubeController::class, 'update'])->name('youtube.update');

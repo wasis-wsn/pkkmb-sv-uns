@@ -2,7 +2,7 @@
 use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/prodi', [ProdiController::class, 'index'])->name('prodi');
     Route::post('/dashboard/prodi', [ProdiController::class, 'store'])->name('prodi.store');
     Route::put('/dashboard/prodi/{id}', [ProdiController::class, 'update'])->name('prodi.update');

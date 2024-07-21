@@ -40,27 +40,11 @@ Route::get('/tentang', function () {
 })->name('tentang');
 
 // Route untuk dashboard dan halaman terproteksi
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
 
     Route::get('/dashboard', function () {
         return Inertia::render('DashboardView');
     })->name('dashboard');
-
-    Route::get('/dashboard/materis', function () {
-        return Inertia::render('MateriView');
-    })->name('materis');
-
-    Route::get('/dashboard/youtube', function () {
-        return Inertia::render('YoutubeView');
-    })->name('youtube');
-
-    Route::get('/dashboard/chat', function () {
-        return Inertia::render('ChatView');
-    })->name('chat');
-
-    Route::get('/dashboard/user', function () {
-        return Inertia::render('UserView');
-    })->name('user');
 
     // Profile Admin
     Route::get('/dashboard/profiles', [ProfileController::class, 'edit'])->name('profiles');
@@ -68,7 +52,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::delete('/dashboard/profiles-delete', [ProfileController::class, 'destroy'])->name('profile.delete');
 });
 
-// Route untuk error
 Route::get('/error', function () {
     return Inertia::render('ErrorView');
 })->name('error');

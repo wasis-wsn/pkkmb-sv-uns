@@ -44,7 +44,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role');
+            $table->string('role')->default('user');
             $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswa')->onDelete('cascade');
             $table->integer('unseen_messages')->nullable();
             $table->enum('last_sender', ['admin', 'user']);

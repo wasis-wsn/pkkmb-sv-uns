@@ -12,7 +12,9 @@ class DokumentasiController extends Controller
     public function getAllDokumentasi()
     {
         $dokumentasi = Dokumentasi::all();
-        return response()->json(['data' => $dokumentasi], 200);
+        return response()->json([
+            'data' => $dokumentasi
+        ], 200);
     }
 
     public function index()

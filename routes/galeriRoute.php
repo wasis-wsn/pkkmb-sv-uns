@@ -2,7 +2,7 @@
 use App\Http\Controllers\AcaraController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/acara', [AcaraController::class, 'index'])->name('acara');
     Route::post('/dashboard/acara', [AcaraController::class, 'store'])->name('acara.store');
     Route::put('/dashboard/acara/{id}', [AcaraController::class, 'update'])->name('acara.update');

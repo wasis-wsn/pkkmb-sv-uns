@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-red-600 leading-[155%] max-w-[375px]">
-          <a href="#" class="flex items-center justify-between w-full">
+          <a href="" @click="logout" class="flex items-center justify-between w-full">
             Log out
             <ChevronRightIcon class="w-5 h-5"/>
           </a>
@@ -54,6 +54,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import { router } from "@inertiajs/vue3";
 import { UserCircleIcon, ChevronRightIcon, XMarkIcon } from '@heroicons/vue/24/solid';
 
 const user = ref(null);
@@ -70,6 +71,10 @@ const fetchUserData = async () => {
 onMounted(() => {
   fetchUserData();
 });
+
+const logout = () => {
+    router.post(route("logout"));
+}
 </script>
 
 <style scoped>
