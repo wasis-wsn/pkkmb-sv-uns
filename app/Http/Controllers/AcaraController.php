@@ -11,7 +11,7 @@ class AcaraController extends Controller
 {
     public function getAllAcara()
     {
-        $galeris = Galeri::all();
+        $galeris = Acara::all();
         return response()->json([
             'data' => $galeris,
         ], 200);
