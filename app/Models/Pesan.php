@@ -9,7 +9,7 @@ class Pesan extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'pesan';
     protected $primaryKey = 'id';
 
     protected $fillable = [
@@ -22,6 +22,11 @@ class Pesan extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function sender()
+    {
+        return $this->belongsTo(User::class, 'sender_id');
     }
 }

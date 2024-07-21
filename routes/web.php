@@ -46,6 +46,10 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function ()
         return Inertia::render('DashboardView');
     })->name('dashboard');
 
+    Route::get('/chat', function () {
+        return Inertia::render('ChatView');
+    })->name('chat');
+
     // Profile Admin
     Route::get('/dashboard/profiles', [ProfileController::class, 'edit'])->name('profiles');
     Route::patch('/dashboard/profiles-update', [ProfileController::class, 'update'])->name('profile.update');
