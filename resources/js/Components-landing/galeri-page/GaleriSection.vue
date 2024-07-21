@@ -41,11 +41,11 @@
                     </div>
                 </div>
                 <div
-                    class="download-button text-center mt-7 sm:mt-7 md:mt-7 lg:mt-6 xl:mt-2"
+                    class="download-button text-center mt-4 sm:mt-4 md:mt-7 lg:mt-6 xl:mt-4"
                     data-aos="fade-up"
                 >
                     <button
-                        class="button-biru justify-center items-center font-bold text-[20px] px-10 pt-1.5 pb-2 text-white whitespace-nowrap bg-slate-700 rounded-[15px] max-md:px-5"
+                        class="button-biru justify-center items-center font-bold text-[24px] px-12 pt-4 pb-4 text-white whitespace-nowrap bg-slate-700 rounded-[20px] max-md:px-7"
                     >
                         <a href="https://bit.ly/FotoAskara2022" target="_blank"
                             >DOWNLOAD DISINI!</a
