@@ -4,11 +4,11 @@
       <div
         class="swiper-slide slide"
         style="max-width: 200px; max-height: 200px; margin: 0 0px"
-        v-for="(slides, index) in slides"
-        :key="'slides' + index"
+        v-for="(slide, index) in slides"
+        :key="'slide-' + index"
         data-aos="fade-up"
       >
-        <img :src="slides.imgSrc" class="object-cover" />
+        <img :src="'/storage/hima/' + slide.logo_hima" class="object-cover" />
       </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -16,51 +16,27 @@
 </template>
 <script setup>
 import { onMounted, ref } from 'vue';
+import axios from "axios";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 import { register } from "swiper/element/bundle";
 register();
-import hima_sv from '@assets/logo_hima/hima_sv.png';
-import himakesja from '@assets/logo_hima/himakesja.png';
-import himama from '@assets/logo_hima/himama.png';
-import emailkom from '@assets/logo_hima/emailkom.png';
-import himapsdku from '@assets/logo_hima/himapsdku.png';
-import himafarma from '@assets/logo_hima/himafarma.png';
-import hmps from '@assets/logo_hima/hmps.png';
-import himavida from '@assets/logo_hima/himavida.png';
-import HMB from '@assets/logo_hima/HMB.png';
-import himaagrib from '@assets/logo_hima/himaagrib.png';
-import himapertanian from '@assets/logo_hima/himapertanian.png';
-import himamanajemen from '@assets/logo_hima/himamanajemen.png';
-import formadasi from '@assets/logo_hima/formadasi.png';
-import fondasi from '@assets/logo_hima/fondasi.png';
-import himaakuntansi from '@assets/logo_hima/himaakuntansi.png';
-import chinese from '@assets/logo_hima/chinese.png';
-import himaupw from '@assets/logo_hima/himaupw.png';
 
-const slides = ref([
-  { imgSrc: hima_sv },
-  { imgSrc: himakesja },
-  { imgSrc: himama },
-  { imgSrc: emailkom },
-  { imgSrc: himapsdku },
-  { imgSrc: himafarma },
-  { imgSrc: hmps },
-  { imgSrc: himavida },
-  { imgSrc: HMB },
-  { imgSrc: himaagrib },
-  { imgSrc: himapertanian },
-  { imgSrc: himamanajemen },
-  { imgSrc: formadasi },
-  { imgSrc: fondasi },
-  { imgSrc: himaakuntansi },
-  { imgSrc: chinese },
-  { imgSrc: himaupw },
-]);
+const slides = ref([]);
+
+const fetchHima = async () => {
+    try {
+        const response = await axios.get("/data-hima");
+        slides.value = response.data.data;
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+    }
+};  
 
 onMounted(() => {
+  fetchHima();
   document.title = 'PKKMB SV UNS';
   AOS.init();
   new Swiper('.swiper-container', {

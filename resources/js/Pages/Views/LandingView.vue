@@ -50,19 +50,11 @@
           data-aos="fade-right"
           data-aos-delay="800"
         >
-          <router-link
-            to="/kelompok"
-            class="button-biru justify-center px-6 py-4 text-sm text-white rounded-[100px] max-md:px-5"
-          >
-            Cari Kelompok
-          </router-link>
-          <router-link
-            to="/materi"
-            class="button-putih flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light"
-          >
+          <Link href="/kelompok" class="button-biru justify-center px-6 py-4 text-sm text-white rounded-[100px] max-md:px-5">
+            Cari Kelompok</Link>
+          <Link href="/materi" class="button-putih flex gap-5 justify-between px-6 py-4 bg-white shadow-lg rounded-[100px] max-md:px-5 btn btn-light">
             <ClipboardIcon loading="lazy" alt="" class="size-6" />
-            <span class="my-auto">Materi</span>
-          </router-link>
+            <span class="my-auto">Materi</span></Link>
         </div>
       </div>
     </section>
@@ -157,13 +149,8 @@
             </article>
           </div>
         </div>
-        <router-link
-          to="/kelompok"
-          class="button-biru justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl w-[250px] max-md:px-5 max-md:mt-10"
-          data-aos="fade-up"
-        >
-          Check
-        </router-link>
+        <Link href="/kelompok" class="button-biru justify-center items-center self-center p-7 mt-12 max-w-full text-sm font-extrabold text-center text-white capitalize rounded-xl w-[250px] max-md:px-5 max-md:mt-10"
+        data-aos="fade-up">Check</Link>
       </div>
     </section>
 
@@ -315,6 +302,7 @@ import SponsorSection from "@/Components-landing/landing-page/SponsorSection.vue
 import HimaSection from "@/Components-landing/landing-page/HimaSection.vue";
 import FormFeedback from "@/Components-landing/landing-page/FormFeedback.vue";
 import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
+import { Link } from "@inertiajs/vue3";
 
 // Register components
 const components = {
@@ -323,6 +311,7 @@ const components = {
   VidioSection,
   SponsorSection,
   HimaSection,
+  Link
 };
 
 onMounted(() => {
