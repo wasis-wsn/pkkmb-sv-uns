@@ -38,7 +38,7 @@ class ProdiController extends Controller
         }
     }
 
-    public function update(Request $request, Prodi $prodi)
+    public function update(Request $request, Prodi $id)
     {
         $validated = $request->validate([
             'nama_prodi' => 'nullable|string|max:255',
@@ -50,7 +50,7 @@ class ProdiController extends Controller
             $dataToUpdate['nama_prodi'] = $validated['nama_prodi'];
         }
 
-        $prodi->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('prodi');
     }

@@ -46,7 +46,7 @@ class HimaController extends Controller
         }
     }
 
-    public function update(Request $request, Hima $hima)
+    public function update(Request $request, Hima $id)
     {
         $validated = $request->validate([
             'nama_hima' => 'nullable|string|max:255',
@@ -66,7 +66,7 @@ class HimaController extends Controller
             $dataToUpdate['logo_hima'] = $fileName;
         }
 
-        $hima->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('hima');
     }

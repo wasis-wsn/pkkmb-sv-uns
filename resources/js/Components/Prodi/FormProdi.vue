@@ -53,10 +53,10 @@ const reset = () => {
     <CardBox @submit.prevent="submit">
         <FormField label="Nama Prodi">
             <FormControl v-model="form.nama_prodi" placeholder="Masukkan nama Prodi" />
-            <p v-if="errors.nama_prodi" class="text-red-500 text-sm mt-0">
+        </FormField>
+            <p v-if="errors.nama_prodi" class="text-red-500 text-sm">
                 {{ errors.nama_prodi }}
             </p>
-        </FormField>
         <template #footer>
             <BaseButtons>
                 <BaseButton type="submit" color="success" label="Submit" @click="submit"/>

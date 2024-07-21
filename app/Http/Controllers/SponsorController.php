@@ -51,7 +51,7 @@ class SponsorController extends Controller
         }
     }
 
-    public function update(Request $request, Sponsor $sponsor)
+    public function update(Request $request, Sponsor $id)
     {
         $validated = $request->validate([
             'nama_sponsor' => 'nullable|string|max:255',
@@ -71,7 +71,7 @@ class SponsorController extends Controller
             $dataToUpdate['logo_sponsor'] = $fileName;
         }
 
-        $sponsor->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('sponsor');
     }
