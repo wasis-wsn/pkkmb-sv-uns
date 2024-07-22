@@ -39,6 +39,10 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
+Route::get('/profile', function () {
+    return Inertia::render('Views/UserProfileView');
+})->name('profile');
+
 // Route untuk dashboard dan halaman terproteksi
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
 
