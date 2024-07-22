@@ -2,7 +2,7 @@
     <LayoutHeaderFooter>
         <SectionMain>
             <main class="flex flex-col px-16 mt-7 w-full max-md:px-5">
-                <h2 class="self-start ml-16 text-5xl font-bold text-black capitalize max-md:ml-2.5">
+                <h2 class="self-start ml-16 text-5xl font-bold text-black capitalize max-md:ml-2.5" :icon="mdiMail">
                     Profile
                 </h2>
                 <section
@@ -26,15 +26,19 @@
                     </div>
                 </section>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-14 max-md:mt-10">
-                    <CardBox is-form @submit.prevent="submitProfile">
-                        <FormField label="Avatar" help="Max 500kb">
+                    <CardBox
+                        :style="customCardBoxStyle"
+                        is-form
+                        @submit.prevent="submitProfile"
+                    >
+                        <FormField :style="customFormFieldStyle" label="Avatar" help="Max 500kb">
                             <FormFilePicker label="Upload" />
                         </FormField>
-                        <FormField label="Name" help="Required. Your name">
+                        <FormField :style="customFormFieldStyle" label="Name" help="Required. Your name">
                             <FormControl v-model="profileForm.name" :icon="mdiAccount" name="username" required
                                 autocomplete="username" />
                         </FormField>
-                        <FormField label="E-mail" help="Required. Your e-mail">
+                        <FormField :style="customFormFieldStyle" label="E-mail" help="Required. Your e-mail">
                             <FormControl v-model="profileForm.email" :icon="mdiMail" type="email" name="email" required
                                 autocomplete="email" />
                         </FormField>
@@ -45,17 +49,21 @@
                             </BaseButtons>
                         </template>
                     </CardBox>
-                    <CardBox is-form @submit.prevent="submitPass">
-                        <FormField label="Current password" help="Required. Your current password">
+                    <CardBox
+                        :style="customCardBoxStyle"
+                        is-form
+                        @submit.prevent="submitPass"
+                    >
+                        <FormField :style="customFormFieldStyle" label="Current password" help="Required. Your current password">
                             <FormControl v-model="passwordForm.current_password" :icon="mdiAsterisk"
                                 name="password_current" type="password" required autocomplete="current-password" />
                         </FormField>
                         <BaseDivider />
-                        <FormField label="New password" help="Required. New password">
+                        <FormField :style="customFormFieldStyle" label="New password" help="Required. New password">
                             <FormControl v-model="passwordForm.password" :icon="mdiFormTextboxPassword" name="password"
                                 type="password" required autocomplete="new-password" />
                         </FormField>
-                        <FormField label="Confirm password" help="Required. New password one more time">
+                        <FormField :style="customFormFieldStyle" label="Confirm password" help="Required. New password one more time">
                             <FormControl v-model="passwordForm.password_confirmation" :icon="mdiFormTextboxPassword"
                                 name="password_confirmation" type="password" required autocomplete="new-password" />
                         </FormField>
@@ -117,6 +125,17 @@
 
     const submitPass = () => {
         // Logic to submit password
+    };
+
+    const customCardBoxStyle = {
+        backgroundColor: '#f1f5f9', // Warna latar belakang yang Anda inginkan
+        color: '#333', // Warna teks yang Anda inginkan
+        border: '1px solid #ccc', // Warna border yang Anda inginkan
+        padding: '20px', // Padding untuk memperindah tampilan
+        borderRadius: '10px' // Sudut membulat
+    };
+    const customFormFieldStyle = {
+        backgroundColor: '#f1f5f9', // Warna latar belakang yang Anda inginkan
     };
 
 </script>
