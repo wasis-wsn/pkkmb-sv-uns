@@ -2,16 +2,16 @@
     <LayoutHeaderFooter>
         <SectionMain>
             <main class="flex flex-col px-16 mt-7 w-full max-md:px-5">
-                <h2 class="self-start ml-16 text-5xl font-bold text-black capitalize max-md:ml-2.5" :icon="mdiMail">
-                    Profile
+                <h2 class="self-start ml-16 text-5xl font-bold text-black capitalize max-md:ml-2.5">
+                   Profile
                 </h2>
                 <section
-                    class="flex flex-col items-start px-16 pt-14 pb-6 mt-11 rounded-3xl bg-slate-100 max-md:px-5 max-md:mt-10">
+                    class="flex flex-col items-start px-16 pt-14 pb-6 mt-11 rounded-3xl bg-slate-100 max-md:px-5 max-md:mt-10 border border-gray-300">
                     <div class="px-0.5 ml-20 max-md:ml-0">
                         <div class="flex gap-5 max-md:flex-col">
                             <div class="flex flex-col w-6/12 max-md:w-full">
                                 <img loading="lazy" src="../../../assets/Ellipse 19.png" alt="Profile picture"
-                                    class="w-full rounded-full aspect-square max-md:mt-10" />
+                                    class="w-full rounded-full aspect-square max-md:mt-10 border border-gray-800" />
                             </div>
                             <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
                                 <div
@@ -35,16 +35,16 @@
                             <FormFilePicker label="Upload" />
                         </FormField>
                         <FormField :style="customFormFieldStyle" label="Name" help="Required. Your name">
-                            <FormControl v-model="profileForm.name" :icon="mdiAccount" name="username" required
+                            <FormControlProfile v-model="profileForm.name" :icon="mdiAccount" name="username" required
                                 autocomplete="username" />
                         </FormField>
                         <FormField :style="customFormFieldStyle" label="E-mail" help="Required. Your e-mail">
-                            <FormControl v-model="profileForm.email" :icon="mdiMail" type="email" name="email" required
+                            <FormControlProfile v-model="profileForm.email" :icon="mdiMail" type="email" name="email" required
                                 autocomplete="email" />
                         </FormField>
                         <template #footer>
                             <BaseButtons>
-                                <BaseButton color="info" type="submit" label="Submit" />
+                                <BaseButton color="success" type="submit" label="Submit" />
                                 <BaseButton color="info" label="Options" outline />
                             </BaseButtons>
                         </template>
@@ -55,31 +55,31 @@
                         @submit.prevent="submitPass"
                     >
                         <FormField :style="customFormFieldStyle" label="Current password" help="Required. Your current password">
-                            <FormControl v-model="passwordForm.current_password" :icon="mdiAsterisk"
+                            <FormControlProfile v-model="passwordForm.current_password" :icon="mdiAsterisk"
                                 name="password_current" type="password" required autocomplete="current-password" />
                         </FormField>
                         <BaseDivider />
                         <FormField :style="customFormFieldStyle" label="New password" help="Required. New password">
-                            <FormControl v-model="passwordForm.password" :icon="mdiFormTextboxPassword" name="password"
-                                type="password" required autocomplete="new-password" />
+                            <FormControlProfile v-model="passwordForm.password" :icon="mdiFormTextboxPassword" name="password"
+                                type="password" required autocomplete="new-password"/>
                         </FormField>
                         <FormField :style="customFormFieldStyle" label="Confirm password" help="Required. New password one more time">
-                            <FormControl v-model="passwordForm.password_confirmation" :icon="mdiFormTextboxPassword"
+                            <FormControlProfile v-model="passwordForm.password_confirmation" :icon="mdiFormTextboxPassword"
                                 name="password_confirmation" type="password" required autocomplete="new-password" />
                         </FormField>
                         <template #footer>
                             <BaseButtons>
-                                <BaseButton type="submit" color="info" label="Submit" />
+                                <BaseButton type="submit" color="success" label="Submit" />
                                 <BaseButton color="info" label="Options" outline />
                             </BaseButtons>
                         </template>
                     </CardBox>
                 </div>
                 <section
-                    class="flex flex-col md:flex-row items-center justify-center gap-5 pt-16 pr-20 mt-14 max-w-full capitalize rounded-3xl bg-slate-100 w-full max-md:pt-10 max-md:pr-5 max-md:mt-10">
+                    class="flex items-center justify-center gap-2 pt-16 mt-7 max-w-full rounded-3xl bg-slate-100 w-full max-md:pt-10 max-md:pr-5 max-md:mt-10 border border-gray-300">
                     <div class="flex flex-col items-center justify-center text-center">
-                        <h3 class="text-2xl font-bold text-black">Sertifikat PKKMB</h3>
-                        <BaseButton type="download" color="info" label="Download" class="mt-6" />
+                        <h3 class="text-2xl text-center font-bold text-black">Sertifikat PKKMB</h3>
+                        <BaseButton type="download" color="info" label="Download" class="mt-6 mb-8" />
                     </div>
                 </section>
 
@@ -102,7 +102,7 @@
     import CardBox from '@/Components/CardBox.vue';
     import BaseDivider from '@/Components/BaseDivider.vue';
     import FormField from '@/Components/FormField.vue';
-    import FormControl from '@/Components/FormControl.vue';
+    import FormControlProfile from '@/Components/FormControlProfile.vue';
     import FormFilePicker from '@/Components/FormFilePicker.vue';
     import BaseButton from '@/Components/BaseButton.vue';
     import BaseButtons from '@/Components/BaseButtons.vue';
