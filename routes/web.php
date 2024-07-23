@@ -72,6 +72,7 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
 require __DIR__ . '/kelompokRoute.php';
 require __DIR__ . '/prodiRoute.php';
+require __DIR__ . '/skillRoute.php';
 require __DIR__ . '/mahasiswaRoute.php';
 require __DIR__ . '/sponsorRoute.php';
 require __DIR__ . '/himaRoute.php';

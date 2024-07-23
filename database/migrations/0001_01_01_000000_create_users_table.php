@@ -24,6 +24,13 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        // Skill Table
+        Schema::create('skill', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_skill');
+            $table->timestamps();
+        });
+
         // Mahasiswa Table
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
@@ -31,7 +38,6 @@ return new class extends Migration {
             $table->string('no_telp');
             $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
-            $table->string('nama_skill');
             $table->text('deskripsi_skill');
             $table->string('photo_piagam');
             $table->timestamps();
@@ -161,6 +167,7 @@ return new class extends Migration {
         Schema::dropIfExists('mahasiswa');
         Schema::dropIfExists('kelompok');
         Schema::dropIfExists('prodi');
+        Schema::dropIfExists('skill');
         Schema::dropIfExists('feedback');
     }
 };

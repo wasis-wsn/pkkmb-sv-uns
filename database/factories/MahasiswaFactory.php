@@ -35,7 +35,6 @@ class MahasiswaFactory extends Factory
             'no_telp' => $this->faker->phoneNumber,
             'prodi_id' => $prodi->id,
             'kelompok_id' => $kelompok->id,
-            'nama_skill' => $this->faker->word,
             'deskripsi_skill' => $this->faker->sentence,
             'photo_piagam' => $this->faker->imageUrl(),
         ];
