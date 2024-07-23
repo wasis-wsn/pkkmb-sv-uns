@@ -1,5 +1,5 @@
 import {
-    mdiAccountCircle,
+    mdiBookOpenVariant,
     mdiMonitor,
     mdiAlertCircle,
     mdiSquareEditOutline,
@@ -75,6 +75,11 @@ export default [
                 route: "prodi",
                 label: "Prodi",
                 icon: mdiSquareEditOutline,
+            },
+            {
+                route: "skill",
+                label: "Skill",
+                icon: mdiBookOpenVariant,
             },
             {
                 route: "mahasiswa",
