@@ -31,10 +31,12 @@
                 <div class="mt-20 text-2xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
                   <label for="email" class="sr-only">Email</label>
                   <input v-model="form.email" type="text" id="email" placeholder="Email" class="w-full bg-transparent border-b-2 border-black outline-none" />
+                  <p v-if="errors.email" class="text-red-500 text-sm mt-2">{{ errors.email }}</p>
                 </div>
                 <div class="mt-20 text-2xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
                   <label for="password" class="sr-only">Password</label>
                   <input v-model="form.password" type="password" id="password" placeholder="Password" class="w-full bg-transparent border-b-2 border-black outline-none" />
+                  <p v-if="errors.password" class="text-red-500 text-sm mt-2">{{ errors.password }}</p>
                 </div>
                 <div class="flex gap-5 mt-5 w-full text-2xl font-light text-black text-opacity-80 max-md:flex-wrap max-md:mt-10 max-md:max-w-full items-center">
                   <div class="flex items-center gap-2">
@@ -47,6 +49,14 @@
                   LOGIN
                 </button>
               </form>
+              <!-- Modal for Error -->
+              <div v-if="showModal" class="bg-black-200/70 fixed inset-0 flex items-center justify-center z-50">
+                <div class="bg-white p-6 rounded shadow-lg max-w-sm w-full">
+                  <h3 class="text-xl font-semibold mb-4">Error</h3>
+                  <p class="text-red-500 mb-4">{{ modalMessage }}</p>
+                  <button @click="closeModal" class="bg-blue-500 text-white px-4 py-2 rounded">OK</button>
+                </div>
+              </div>           
             </div>
           </section>
         </div>
@@ -67,18 +77,44 @@ const form = useForm({
   remember: []
 })
 
+const errors = ref({})
+const serverError = ref('')
+const showModal = ref(false)
+const modalMessage = ref('')
+
 const submit = () => {
-  form
-    .transform(data => ({
-      ...data,
-      remember: form.remember && form.remember.length ? 'on' : ''
-    }))
-    .post(route('login'), {
-      onFinish: () => form.reset('password'),
-    })
+  errors.value = {}
+  serverError.value = ''
+  
+  if (!form.email) {
+    errors.value.email = 'Email is required.'
+  }
+  
+  if (!form.password) {
+    errors.value.password = 'Password is required.'
+  }
+
+  if (Object.keys(errors.value).length === 0) {
+    form
+      .transform(data => ({
+        ...data,
+        remember: form.remember && form.remember.length ? 'on' : ''
+      }))
+      .post(route('login'), {
+        onFinish: () => form.reset('password'),
+        onError: (errors) => {
+          modalMessage.value = 'Email atau password Anda salah. Mohon ulangi sekali lagi.'
+          showModal.value = true
+        }
+      })
+  }
 }
 
-const username = ref('') // ubah sesuai dengan email atau field yang digunakan
+const closeModal = () => {
+  showModal.value = false
+}
+
+const username = ref('')
 
 const isHeaderShadowVisible = ref(false)
 const router = useRouter()
@@ -143,4 +179,20 @@ const props = defineProps({
   }
 }
 
+/* Add styling for modal */
+.fixed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.bg-white {
+  background-color: #fff;
+}
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.max-w-sm {
+  max-width: 24rem;
+}
 </style>
