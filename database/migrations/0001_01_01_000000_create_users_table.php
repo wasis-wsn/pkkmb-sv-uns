@@ -38,7 +38,7 @@ return new class extends Migration {
             $table->string('no_telp');
             $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
-            $table->string('nama_skill');
+            $table->foreignId('skill_id')->constrained('kelompok')->onDelete('cascade');
             $table->text('deskripsi_skill');
             $table->string('photo_piagam');
             $table->timestamps();

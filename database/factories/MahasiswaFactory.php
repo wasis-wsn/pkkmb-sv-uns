@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
 use App\Models\Kelompok;
+use App\Models\Skill;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MahasiswaFactory extends Factory
@@ -25,6 +26,7 @@ class MahasiswaFactory extends Factory
     {
         $prodi = Prodi::inRandomOrder()->first();
         $kelompok = Kelompok::inRandomOrder()->first();
+        $skill = Skill::inRandomOrder()->first();
 
         if (!$prodi || !$kelompok) {
             throw new \Exception('Prodi or Kelompok not found. Please seed Prodi and Kelompok tables first.');
@@ -35,6 +37,7 @@ class MahasiswaFactory extends Factory
             'no_telp' => $this->faker->phoneNumber,
             'prodi_id' => $prodi->id,
             'kelompok_id' => $kelompok->id,
+            'skill_id' => $skill->id,
             'deskripsi_skill' => $this->faker->sentence,
             'photo_piagam' => $this->faker->imageUrl(),
         ];
