@@ -82,3 +82,4 @@ require __DIR__ . '/userRoute.php';
 require __DIR__ . '/dokumentasiRoute.php';
 require __DIR__ . '/feedbackRoute.php';
 require __DIR__ . '/profileRoute.php';
+require __DIR__ . '/uploadRoute.php';
