@@ -10,6 +10,9 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+use App\Exports\MahasiswaExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class MahasiswaController extends Controller
 {
@@ -23,6 +26,11 @@ class MahasiswaController extends Controller
             'prodi' => $prodi,
             'kelompok' => $kelompok
         ], 200);
+    }
+
+    public function mahasiswaExport() 
+    {
+        return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
     }
 
     public function index()
