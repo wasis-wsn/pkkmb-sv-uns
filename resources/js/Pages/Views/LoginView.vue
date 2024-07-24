@@ -124,11 +124,11 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
-  document.title = "PKKMB SV UNS - LOGIN"
   window.addEventListener('scroll', handleScroll)
 })
 
 onBeforeUnmount(() => {
+  document.title = "PKKMB SV UNS - LOGIN"
   window.removeEventListener('scroll', handleScroll)
 })
 

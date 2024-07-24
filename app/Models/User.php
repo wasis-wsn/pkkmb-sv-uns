@@ -25,7 +25,7 @@ class User extends Authenticatable
         'password',
         'role',
         'mahasiswa_id',
-        'unseen_messages', 
+        'unseen_messages',
         'last_sender'
     ];
     /**
@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function mahasiswa()
     {
-        return $this->hasOne(Mahasiswa::class);
+        return $this->belongsTo(Mahasiswa::class);
     }
 
     public function pesan(){
