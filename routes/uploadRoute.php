@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\UploadTugasController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploadTugasController;
+use Illuminate\Support\Facades\Storage;
 
-// Route untuk mengupload file
-Route::get('/upload', [UploadTugasController::class, 'upload']);
+Route::post('/upload', [UploadTugasController::class, 'upload']);
+
 
 require __DIR__ . '/auth.php';
-
