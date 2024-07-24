@@ -115,7 +115,7 @@
 </script>
 
 <template>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-14 max-md:mt-0">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8 max-md:mt-0">
         <CardBox :style="customCardBoxStyle" is-form @submit.prevent="submitPass">
             <FormField :style="customFormFieldStyle" label="Current password" help="Required. Your current password">
                 <FormControlProfile v-model="passwordForm.current_password" :icon="mdiAsterisk" name="password_current"

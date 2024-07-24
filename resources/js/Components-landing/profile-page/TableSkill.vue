@@ -72,7 +72,7 @@ const customCardBoxStyle = {
 </script>
 
 <template>
-    <CardBox :style="customCardBoxStyle" class="mt-5">
+    <CardBox :style="customCardBoxStyle" class="mt-8">
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y mx-auto">
                 <thead>

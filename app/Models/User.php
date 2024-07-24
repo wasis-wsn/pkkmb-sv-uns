@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function mahasiswa()
     {
-        return $this->belongsTo(Mahasiswa::class);
+        return $this->hasOne(Mahasiswa::class);
     }
 
     public function pesan(){
