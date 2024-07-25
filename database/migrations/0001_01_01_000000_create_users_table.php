@@ -35,12 +35,9 @@ return new class extends Migration {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
             $table->string('nama_mahasiswa');
-            $table->string('no_telp');
+            $table->string('no_telp')->nullable();
             $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
-            $table->string('nama_skill');
-            $table->text('deskripsi_skill');
-            $table->string('photo_piagam');
             $table->timestamps();
         });
 

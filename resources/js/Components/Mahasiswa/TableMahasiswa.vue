@@ -5,7 +5,8 @@
     import {
         mdiDelete,
         mdiPencil,
-        mdiDownload 
+        mdiDownload,
+        mdiUpload 
     } from "@mdi/js";
     import CardBox from "@/Components/CardBox.vue";
     import BaseButton from "@/Components/BaseButton.vue";
@@ -14,6 +15,7 @@
     } from "@inertiajs/vue3";
     import Swal from "sweetalert2";
     import EditModal from "@/Components/Mahasiswa/EditModal.vue";
+    import ImportModal from "@/Components/Mahasiswa/ImportModal.vue";
     import {
         Inertia
     } from '@inertiajs/inertia';
@@ -26,6 +28,7 @@
     });
 
     const showEditModal = ref(false);
+    const showImportModal = ref(false);
     const selectedItem = ref(null);
 
     const form = useForm({});
@@ -68,10 +71,18 @@
         selectedItem.value = item;
         showEditModal.value = true;
     };
+    
+    const importData = () => {
+        showImportModal.value = true;
+    };
 
     const closeEditModal = () => {
         showEditModal.value = false;
         selectedItem.value = null;
+    };
+
+    const closeImportModal = () => {
+        showImportModal.value = false;
     };
 
     const exportData = () => {
@@ -87,7 +98,9 @@
                 <thead>
                     <tr>
                         <th colspan="8">
-                            <BaseButton :icon="mdiDownload" @click="exportData" color="success" label="Export"></BaseButton>
+                            <BaseButton :icon="mdiDownload" @click="exportData" color="success" label="Export">
+                            </BaseButton>
+                            <BaseButton :icon="mdiUpload" color="info" @click="importData()" class="mx-4" label="Import" />
                         </th>
                     </tr>
                     <tr>
@@ -102,15 +115,6 @@
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Kelompok
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Nama Skill
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Deskripsi Skill
-                        </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Photo Piagam
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Actions
@@ -132,16 +136,6 @@
                             {{ item.kelompok?.nama_kelompok }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ item.nama_skill }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            {{ item.deskripsi_skill }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <img :src="`/storage/mahasiswa/${item.photo_piagam}`" alt="Piagam"
-                                class="w-20 h-20 object-cover" />
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
                             <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
                             <BaseButton :icon="mdiDelete" color="danger" @click="confirmDelete(item.id)" />
                         </td>
@@ -151,5 +145,6 @@
         </div>
 
         <EditModal v-if="showEditModal" :item="selectedItem" :show="showEditModal" @close="closeEditModal" />
+        <ImportModal v-if="showImportModal" :show="showImportModal" @close="closeImportModal" />
     </CardBox>
 </template>
