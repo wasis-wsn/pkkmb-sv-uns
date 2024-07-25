@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from "vue";
-import { mdiDelete, mdiPencil, mdiDownload } from "@mdi/js";
+import { mdiDelete, mdiPencil, mdiDownload, mdiUpload } from "@mdi/js";
 import CardBox from "@/Components/CardBox.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import { useForm } from "@inertiajs/vue3";
 import Swal from "sweetalert2";
 import EditModal from "@/Components/Mahasiswa/EditModal.vue";
+import ImportModal from "@/Components/Mahasiswa/ImportModal.vue";
 import { Inertia } from "@inertiajs/inertia";
 
 const props = defineProps({
@@ -24,6 +25,7 @@ const props = defineProps({
 });
 
 const showEditModal = ref(false);
+const showImportModal = ref(false);
 const selectedItem = ref(null);
 
 const form = useForm({});
@@ -67,9 +69,17 @@ const editData = (item) => {
     showEditModal.value = true;
 };
 
+const importData = () => {
+    showImportModal.value = true;
+};
+
 const closeEditModal = () => {
     showEditModal.value = false;
     selectedItem.value = null;
+};
+
+const closeImportModal = () => {
+    showImportModal.value = false;
 };
 
 const exportData = () => {
@@ -89,7 +99,14 @@ const exportData = () => {
                                 @click="exportData"
                                 color="success"
                                 label="Export"
-                            ></BaseButton>
+                            />
+                            <BaseButton
+                                :icon="mdiUpload"
+                                color="info"
+                                @click="importData()"
+                                class="mx-4"
+                                label="Import"
+                            />
                         </th>
                     </tr>
                     <tr>
@@ -159,6 +176,11 @@ const exportData = () => {
             :prodi="prodi"
             :kelompok="kelompok"
             @close="closeEditModal"
+        />
+        <ImportModal
+            v-if="showImportModal"
+            :show="showImportModal"
+            @close="closeImportModal"
         />
     </CardBox>
 </template>

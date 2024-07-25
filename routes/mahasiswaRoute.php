@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
     Route::get('/mahasiswaExport', [MahasiswaController::class, 'mahasiswaExport'])->name('mahasiswaExport');
+    Route::post('/mahasiswaImport', [MahasiswaController::class, 'mahasiswaImport'])->name('mahasiswaImport');
     Route::post('/dashboard/mahasiswa', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
     Route::put('/dashboard/mahasiswa/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
     Route::delete('/dashboard/mahasiswa/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');

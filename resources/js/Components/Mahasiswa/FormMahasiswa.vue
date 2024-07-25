@@ -31,6 +31,7 @@ const form = useForm({
 
 const errors = ref({});
 const showAlert = ref(false);
+const emit = defineEmits(["close"]);
 
 const validateForm = () => {
     errors.value = {};
@@ -73,6 +74,7 @@ const reset = () => {
     errors.value = {};
     showAlert.value = false;
 };
+
 </script>
 
 <template>

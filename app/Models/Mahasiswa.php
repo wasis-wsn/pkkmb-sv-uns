@@ -25,6 +25,6 @@ class Mahasiswa extends Model
 
     public function kelompok()
     {
-        return $this->belongsTo(Kelompok::class);
+        return $this->belongsTo(Kelompok::class, 'kelompok_id');
     }
 }

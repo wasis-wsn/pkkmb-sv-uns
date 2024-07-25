@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
-
+use App\Imports\UserImport;
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
 class UserController extends Controller
 {
     /**
@@ -29,6 +31,31 @@ class UserController extends Controller
         return Inertia::render('UserView', ['data' => $users]);
     }
 
+    public function userExport() 
+    {
+        return Excel::download(new UserExport, 'user.xlsx');
+    }
+
+    public function userImport(Request $request)
+{
+    try {
+        // Validate the file
+        $request->validate([
+            'file_user' => 'required|file|mimes:xlsx,xls',
+        ]);
+
+        $file = $request->file('file_user');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('DataUser', $namaFile);
+
+        // Import the data
+        Excel::import(new UserImport, public_path('/DataUser/'.$namaFile));
+        return redirect('/dashboard/user')->with('success', 'Data berhasil diimport');
+    } catch (\Exception $e) {
+        // Optionally, you can return the error message for debugging purposes
+        return redirect('/dashboard/user')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
+    }
+}   
     /**
      * Handle an incoming registration request.
      *

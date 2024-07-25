@@ -35,7 +35,7 @@ return new class extends Migration {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
             $table->string('nama_mahasiswa');
-            $table->string('no_telp');
+            $table->string('no_telp')->nullable();
             $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
             $table->timestamps();
@@ -46,11 +46,11 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('user');
             $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswa')->onDelete('cascade');
             $table->integer('unseen_messages')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->enum('last_sender', ['admin', 'user']);
             $table->rememberToken();
             $table->timestamps();
