@@ -25,7 +25,7 @@ class User extends Authenticatable
         'password',
         'role',
         'mahasiswa_id',
-        'unseen_messages', 
+        'unseen_messages',
         'last_sender'
     ];
     /**

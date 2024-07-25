@@ -61,4 +61,3 @@ class SkillController extends Controller
         return redirect()->route('skill');
     }
 }
-
