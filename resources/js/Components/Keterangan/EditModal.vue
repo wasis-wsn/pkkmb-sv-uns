@@ -30,9 +30,10 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    nama_skill: "",
     deskripsi_skill: "",
-    photo_piagam: null,
+    skill_id: "",
+    mahasiswa_id: "",
+    photo_piagam: "",
 });
 
 const mahasiswaOptions = computed(() => {
@@ -46,9 +47,10 @@ watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_skill = newItem.nama_skill;
             form.deskripsi_skill = newItem.deskripsi_skill;
-            form.photo_piagam = newItem.photo_piagam;
+            form.skill_id = newItem.skill_id;
+            form.mahasiswa_id = newItem.mahasiswa_id;
+            form.photo_piagam = null; // Reset file input
         }
     },
     { immediate: true }

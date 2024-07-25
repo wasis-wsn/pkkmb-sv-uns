@@ -39,9 +39,9 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
-Route::get('/profile', function () {
-    return Inertia::render('Views/UserProfileView');
-})->name('profile');
+// Route::get('/profile', function () {
+//     return Inertia::render('Views/UserProfileView');
+// })->name('profile');
 
 // Route untuk dashboard dan halaman terproteksi
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
@@ -83,3 +83,4 @@ require __DIR__ . '/dokumentasiRoute.php';
 require __DIR__ . '/feedbackRoute.php';
 require __DIR__ . '/uploadRoute.php';
 require __DIR__ . '/keteranganRoute.php';
+require __DIR__ . '/profileUserRoute.php';

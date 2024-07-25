@@ -27,4 +27,8 @@ class Mahasiswa extends Model
     {
         return $this->belongsTo(Kelompok::class, 'kelompok_id');
     }
+    public function keteranganSkills()
+    {
+        return $this->hasMany(KeteranganSkill::class);
+    }
 }
