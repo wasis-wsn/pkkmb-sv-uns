@@ -3,17 +3,6 @@
         <h1 class="text-gray-600 text-lg text-left mb-4">
             Tolong untuk upload file tugas kalian disini sesuai dengan kelompok masing-masing.
         </h1>
-        <form class="search-form flex items-center gap-2 mb-4" @submit.prevent="handleSearch">
-            <div class="relative cursor-pointer">
-                <RiEqualizerLine class="h-5 w-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2" />
-                <select v-model="selectedKelompok" @change="handleSearch"
-                    class="cursor-pointer block appearance-none w-full bg-white border border-gray-300 rounded-lg shadow-md py-2 pl-3 pr-10 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    <option value="">Pilih Kelompok</option>
-                    <option v-for="kel in kelompokList" :key="kel.id" :value="kel.nama_kelompok">{{ kel.nama_kelompok }}
-                    </option>
-                </select>
-            </div>
-        </form>
         <!-- Upload form or uploaded files -->
         <div v-if="uploadedFiles.length === 0">
             <form id="file-upload-form"
@@ -70,14 +59,12 @@
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue';
-    import { RiInboxArchiveLine, RiDeleteBinLine, RiEqualizerLine, RiFilePdfLine, RiFileWordLine } from "@remixicon/vue";
+    import { ref } from 'vue';
+    import { RiInboxArchiveLine, RiDeleteBinLine, RiFilePdfLine, RiFileWordLine } from "@remixicon/vue";
     import axios from 'axios';
 
     const uploadedFiles = ref([]);
     const previewFiles = ref([]);
-    const selectedKelompok = ref('');
-    const kelompokList = ref([]);
     const uploading = ref(false);
     const fileInput = ref(null);
 
@@ -143,7 +130,6 @@
         uploadedFiles.value.forEach((file, index) => {
             formData.append(`files[${index}]`, file);
         });
-        formData.append('kelompok', selectedKelompok.value);
 
         try {
             const response = await axios.post('/upload', formData, {
@@ -172,18 +158,4 @@
             uploading.value = false;
         }
     };
-
-    const fetchKelompok = async () => {
-        try {
-            const response = await axios.get('data-mahasiswa');
-            console.log('Response:', response.data);
-            kelompokList.value = response.data.kelompok;
-        } catch (error) {
-            console.error('Error fetching kelompok:', error);
-        }
-    };
-
-    onMounted(() => {
-        fetchKelompok();
-    });
 </script>

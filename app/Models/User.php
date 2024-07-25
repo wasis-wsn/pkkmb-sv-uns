@@ -63,4 +63,9 @@ class User extends Authenticatable
     public function unseen_messages(){
         return $this->messages()->where('sender', 'customer')->where('is_seen', 0);
     }
+    
+    public function upload()
+    {
+        return $this->belongsTo(Upload::class);
+    }
 }

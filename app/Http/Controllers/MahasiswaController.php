@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use App\Exports\MahasiswaExport;
+use App\Imports\MahasiswaImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
-
 class MahasiswaController extends Controller
 {
     public function getAllMahasiswa()
@@ -32,6 +32,27 @@ class MahasiswaController extends Controller
     {
         return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
     }
+
+    public function mahasiswaImport(Request $request)
+{
+    try {
+        // Validate the file
+        $request->validate([
+            'file_mahasiswa' => 'required|file|mimes:xlsx,xls',
+        ]);
+
+        $file = $request->file('file_mahasiswa');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('DataMahasiswa', $namaFile);
+
+        // Import the data
+        Excel::import(new MahasiswaImport, public_path('/DataMahasiswa/'.$namaFile));
+        return redirect('/dashboard/mahasiswa')->with('success', 'Data berhasil diimport');
+    } catch (\Exception $e) {
+        // Optionally, you can return the error message for debugging purposes
+        return redirect('/dashboard/mahasiswa')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
+    }
+}   
 
     public function index()
     {

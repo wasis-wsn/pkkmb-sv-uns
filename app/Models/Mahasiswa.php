@@ -29,11 +29,17 @@ class Mahasiswa extends Model
 
     public function kelompok()
     {
-        return $this->belongsTo(Kelompok::class);
+        return $this->belongsTo(Kelompok::class, 'kelompok_id');
     }
 
     public function skill()
     {
         return $this->belongsTo(Skill::class);
+    }
+
+    // Relasi dengan model User
+    public function user()
+    {
+        return $this->hasOne(User::class, 'mahasiswa_id');
     }
 }
