@@ -5,20 +5,20 @@ import CardBox from "@/Components/CardBox.vue";
 import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
 import { Head } from "@inertiajs/vue3";
-import TableMahasiswa from "@/Components/Mahasiswa/TableMahasiswa.vue";
-import FormMahasiswa from "@/Components/Mahasiswa/FormMahasiswa.vue";
+import TableSkill from "@/Components/Keterangan/TableSkill.vue";
+import FormSkill from "@/Components/Keterangan/FormSkill.vue";
 
-defineProps({
+const props = defineProps({
     data: {
         type: Array,
         required: true,
     },
-    prodi: {
+    skill: {
         type: Array,
         required: true,
     },
-    kelompok: {
-        type: Array,
+    mahasiswa: {
+        type: Object,
         required: true,
     },
 });
@@ -26,28 +26,28 @@ defineProps({
 
 <template>
     <LayoutAuthenticated>
-        <Head title="form" />
+        <Head title="Skill" />
         <SectionMain>
             <SectionTitleLineWithButton
                 :icon="mdiBallotOutline"
-                title="Form Mahasiswa"
+                title="Form Skill"
                 main
             >
             </SectionTitleLineWithButton>
-            <FormMahasiswa :prodi="prodi" :kelompok="kelompok" />
+            <FormSkill :skill="props.skill" :mahasiswa="props.mahasiswa" />
         </SectionMain>
         <SectionMain>
             <SectionTitleLineWithButton
                 :icon="mdiTableBorder"
-                title="Daftar Mahasiswa"
+                title="Daftar Skill"
                 main
             >
             </SectionTitleLineWithButton>
             <CardBox>
-                <TableMahasiswa
+                <TableSkill
                     :data="data"
-                    :prodi="prodi"
-                    :kelompok="kelompok"
+                    :skill="skill"
+                    :mahasiswa="mahasiswa"
                 />
             </CardBox>
         </SectionMain>

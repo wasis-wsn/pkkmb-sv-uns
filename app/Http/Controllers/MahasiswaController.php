@@ -51,23 +51,16 @@ class MahasiswaController extends Controller
             $validated = $request->validate([
                 'nama_mahasiswa' => 'required|string|max:255',
                 'no_telp' => 'required|string|max:15',
-                'prodi_id' => 'required|string',
-                'kelompok_id' => 'required|string',
-                'skill_id' => 'required|string',
-                'deskripsi_skill' => 'nullable|string',
-                'photo_piagam' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
+                'prodi_id' => 'required|exists:prodi,id',
+                'kelompok_id' => 'required|exists:kelompok,id',
             ]);
 
-            $path = $request->file('photo_piagam') ? $request->file('photo_piagam')->store('public/piagam') : null;
 
             Mahasiswa::create([
                 'nama_mahasiswa' => $validated['nama_mahasiswa'],
                 'no_telp' => $validated['no_telp'],
-                'prodi_id' => $validated['prodi_id'],
-                'kelompok_id' => $validated['kelompok_id'],
-                'skill_id' => $validated['nama_skill'],
-                'deskripsi_skill' => $validated['deskripsi_skill'],
-                'photo_piagam' => $path ? basename($path) : null,
+                'prodi_id' => (int) $validated['prodi_id'],
+                'kelompok_id' => (int) $validated['kelompok_id'],
             ]);
 
             return redirect()->route('mahasiswa');
@@ -83,9 +76,6 @@ class MahasiswaController extends Controller
             'no_telp' => 'nullable|string|max:15',
             'prodi_id' => 'nullable|string',
             'kelompok_id' => 'nullable|string',
-            'nama_skill' => 'nullable|string|max:255',
-            'deskripsi_skill' => 'nullable|string',
-            'photo_piagam' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
 
         $dataToUpdate = [];
@@ -105,22 +95,6 @@ class MahasiswaController extends Controller
         if ($request->filled('kelompok_id')) {
             $dataToUpdate['kelompok_id'] = $validated['kelompok_id'];
         }
-
-        if ($request->filled('nama_skill')) {
-            $dataToUpdate['nama_skill'] = $validated['nama_skill'];
-        }
-
-        if ($request->filled('deskripsi_skill')) {
-            $dataToUpdate['deskripsi_skill'] = $validated['deskripsi_skill'];
-        }
-
-        if ($request->hasFile('photo_piagam')) {
-            $path = $request->file('photo_piagam');
-            $fileName = $path->hashName();
-            $path->storeAs('public/piagam', $fileName);
-            $dataToUpdate['photo_piagam'] = $fileName;
-        }
-
         $id->update($dataToUpdate);
 
         return redirect()->route('mahasiswa');

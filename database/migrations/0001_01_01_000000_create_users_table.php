@@ -38,9 +38,6 @@ return new class extends Migration {
             $table->string('no_telp');
             $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
-            $table->foreignId('skill_id')->constrained('kelompok')->onDelete('cascade');
-            $table->text('deskripsi_skill');
-            $table->string('photo_piagam');
             $table->timestamps();
         });
 
@@ -69,6 +66,18 @@ return new class extends Migration {
             $table->boolean('is_seen')->default(0);
             $table->timestamps();
         });
+
+         // Keterangan Table
+         Schema::create('keterangan', function (Blueprint $table) {
+            $table->id();
+            $table->text('deskripsi_skill');
+            $table->string('photo_piagam')->nullable(); // Perbaikan di sini
+            $table->foreignId('skill_id')->constrained('skill')->onDelete('cascade'); // Ubah nama tabel ke 'skills'
+            $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->onDelete('cascade'); // Ubah nama tabel ke 'mahasiswas'
+            $table->timestamps();
+        });
+        
+
 
         // Galeri Table
         Schema::create('galeri', function (Blueprint $table) {
@@ -169,6 +178,7 @@ return new class extends Migration {
         Schema::dropIfExists('kelompok');
         Schema::dropIfExists('prodi');
         Schema::dropIfExists('skill');
+        Schema::dropIfExists('keterangan');
         Schema::dropIfExists('feedback');
     }
 };
