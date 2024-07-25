@@ -58,10 +58,10 @@ class AuthenticatedSessionController extends Controller
         $request->session()->put('pesan_id', $user->pesan_id);
 
         // Redirect berdasarkan role
-        if ($user->role === 'admin') {
-            return redirect()->intended(route('dashboard'));
-        } else {
+        if ($user->role === 'user') {
             return redirect()->intended('/');
+        } else {
+            return redirect()->intended(route('dashboard'));
         }
     }
 

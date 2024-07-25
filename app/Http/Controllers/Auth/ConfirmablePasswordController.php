@@ -25,6 +25,15 @@ class ConfirmablePasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+                // Cek jika pengguna sudah login
+        if (Auth::check()) {
+            $user = Auth::user();
+            
+            // Redirect ke halaman utama jika bukan admin
+            if ($user->role !== 'admin') {
+                return redirect('/');
+            }
+        }
         if (! Auth::guard('web')->validate([
             'email' => $request->user()->email,
             'password' => $request->password,
