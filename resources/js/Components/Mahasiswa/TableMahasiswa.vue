@@ -98,8 +98,7 @@
                 <thead>
                     <tr>
                         <th colspan="8">
-                            <BaseButton :icon="mdiDownload" @click="exportData" color="success" label="Export">
-                            </BaseButton>
+                            <BaseButton :icon="mdiDownload" @click="exportData" color="success" label="Export" />
                             <BaseButton :icon="mdiUpload" color="info" @click="importData()" class="mx-4" label="Import" />
                         </th>
                     </tr>

@@ -18,7 +18,7 @@ class MahasiswaImport implements ToModel
             'nama_mahasiswa' => $row[0] ?? null,
             'no_telp' => $row[1] ?? null,
             'prodi_id' => $row[2] ?? null,
-            'kelompok_id' => $row[3] ?? null,
+            'kelompok_id' => $row[3] ?? null,            
         ]);
     }
 }
