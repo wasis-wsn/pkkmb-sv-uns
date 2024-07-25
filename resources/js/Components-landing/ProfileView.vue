@@ -28,15 +28,15 @@
     <hr class="self-stretch mt-5 w-full border border-solid bg-neutral-900 bg-opacity-10 border-neutral-900 border-opacity-10 min-h-[1px]" />
     <nav class="w-full mt-5">
       <ul>
-        <li class="flex gap-2.5 justify-between px-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
-          <a :href="`/dashboard`" class="flex items-center justify-between w-full">
+        <li v-if="user && user.role == 'admin'" class="flex gap-2.5 justify-between px-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
+          <a href="/dashboard" class="flex items-center justify-between w-full">
             Dashboard
             <ChevronRightIcon class="w-5 h-5"/>
           </a>
         </li>
-        <li class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-red-600 leading-[155%] max-w-[375px]">
-          <a href="change-password" class="flex items-center justify-between w-full">
-            Change Password
+        <li v-if="user && user.role !== 'admin'" class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
+          <a href="/profile" class="flex items-center justify-between w-full">
+            Profile Settings
             <ChevronRightIcon class="w-5 h-5"/>
           </a>
         </li>

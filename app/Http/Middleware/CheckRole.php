@@ -24,6 +24,6 @@ class CheckRole
         }
 
         // Redirect atau respon jika tidak memiliki akses
-        return redirect()->back()->with('error', 'You do not have access to this resource.');
+        return redirect()->intended(route('landing'));
     }
 }

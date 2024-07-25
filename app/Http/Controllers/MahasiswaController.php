@@ -74,24 +74,21 @@ class MahasiswaController extends Controller
                 'no_telp' => 'required|string|max:15',
                 'prodi_id' => 'required|string',
                 'kelompok_id' => 'required|string',
-                'nama_skill' => 'nullable|string|max:255',
+                'skill_id' => 'required|string',
                 'deskripsi_skill' => 'nullable|string',
                 'photo_piagam' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:10240'
             ]);
 
             $path = $request->file('photo_piagam') ? $request->file('photo_piagam')->store('public/piagam') : null;
 
-            $user = Auth::user();
-
             Mahasiswa::create([
                 'nama_mahasiswa' => $validated['nama_mahasiswa'],
                 'no_telp' => $validated['no_telp'],
                 'prodi_id' => $validated['prodi_id'],
                 'kelompok_id' => $validated['kelompok_id'],
-                'nama_skill' => $validated['nama_skill'],
+                'skill_id' => $validated['nama_skill'],
                 'deskripsi_skill' => $validated['deskripsi_skill'],
                 'photo_piagam' => $path ? basename($path) : null,
-                'user_id' => $user->id,
             ]);
 
             return redirect()->route('mahasiswa');

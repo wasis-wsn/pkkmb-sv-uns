@@ -65,43 +65,62 @@
   </div>
 </template>
 
-<script>
-import AOS from "aos";
-import "aos/dist/aos.css";
-
+<script setup>
+import { ref, onMounted, onBeforeMount } from 'vue';
 import axios from 'axios';
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
-export default {
-  data() {
-    return {
-      firstMateri: null,
-      filteredMateri: []
-    };
-  },
-  mounted() {
-    this.getMateri();
-  },
-  methods: {
-    async getMateri() {
-      try {
-        const response = await axios.get('/materi/all');
-        console.log('Materi data:', response.data.data); // Debugging line
-        if (response.data.data.length > 0) {
-          this.firstMateri = response.data.data[0];
-          this.filteredMateri = response.data.data.slice(1); // Sisanya
-        }
-      } catch (error) {
-        console.error('Error fetching materi:', error);
-      }
-    },
-    splitParagraphs(text) {
-      if (text) {
-        return text.split('\n');
-      }
-      return [];
+// Import components
+import NavbarView from '@/Components-landing/NavbarView.vue';
+import FooterView from '@/Components-landing/FooterView.vue';
+import ChatView from '@/Components-landing/ChatView.vue';
+import { ChevronDoubleUpIcon, ChatBubbleLeftRightIcon } from '@heroicons/vue/24/solid';
+
+// Component registration
+const components = {
+  NavbarView,
+  FooterView,
+  ChevronDoubleUpIcon,
+  ChatBubbleLeftRightIcon,
+  ChatView
+};
+
+// Reactive properties
+const firstMateri = ref(null);
+const filteredMateri = ref([]);
+
+// Fetch materi data
+const getMateri = async () => {
+  try {
+    const response = await axios.get('/materi/all');
+    console.log('Materi data:', response.data.data); // Debugging line
+    if (response.data.data.length > 0) {
+      firstMateri.value = response.data.data[0];
+      filteredMateri.value = response.data.data.slice(1); // Sisanya
     }
+  } catch (error) {
+    console.error('Error fetching materi:', error);
   }
 };
+
+// Split paragraphs by new line
+const splitParagraphs = (text) => {
+  if (text) {
+    return text.split('\n');
+  }
+  return [];
+};
+
+// Lifecycle hook
+onMounted(() => {
+  getMateri();
+});
+
+onBeforeMount(() => {
+  AOS.init();
+  document.title = "PKKMB SV UNS - MATERI";
+});
 </script>
 
 <style scoped>

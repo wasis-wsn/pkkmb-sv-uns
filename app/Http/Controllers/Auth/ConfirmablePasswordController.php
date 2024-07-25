@@ -25,6 +25,15 @@ class ConfirmablePasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+                // Cek jika pengguna sudah login
+        if (Auth::check()) {
+            $user = Auth::user();
+            
+            // Redirect ke halaman utama jika bukan admin
+            if ($user->role !== 'admin') {
+                return redirect('/');
+            }
+        }
         if (! Auth::guard('web')->validate([
             'email' => $request->user()->email,
             'password' => $request->password,
@@ -36,6 +45,6 @@ class ConfirmablePasswordController extends Controller
 
         $request->session()->put('auth.password_confirmed_at', time());
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('landing', absolute: false));
     }
 }

@@ -2,20 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use IlluminateVittp\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Yaza\LaravelGoogleDriveStorage\Gdrive;
-use File;
 
 class UploadTugasController extends Controller
 {
-public function upload( )
+    public function upload(Request $request)
     {
-        $path = public_path().'/'. 'file.png';
-        $filename = 'file.png';
+        // Validasi input
+        $request->validate([
+            'files.*' => 'required|file', // Validasi untuk file
+        ]);
 
-        Storage::disk('google')->put($filename, File::get($path));
+        $filePaths = []; // Array untuk menyimpan path file yang diunggah
 
-        return response()->json(['success' => true]);
+        // Proses setiap file yang diunggah
+        foreach ($request->file('files') as $file) {
+            // Simpan file dan ambil pathnya
+            $filePath = $file->store('PKKMB', 'google');
+            $filePaths[] = $filePath;
+        }
+
+        // Simpan informasi kelompok dan file ke database atau lakukan proses lain yang diperlukan
+        // Misalnya: $this->saveFilesAndKelompok($filePaths, $kelompok);
+
+        return response()->json(['success' => true, 'message' => 'Files uploaded successfully', 'filePaths' => $filePaths]);
     }
 }
