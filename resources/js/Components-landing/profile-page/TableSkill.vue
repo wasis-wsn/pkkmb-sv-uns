@@ -12,10 +12,10 @@ const props = defineProps({
         type: Array,
         required: true,
     },
-    user: {
-        type: Object,
-        required: true,
-    },
+    // user: {
+    //     type: Object,
+    //     required: true,
+    // },
     skills: {
         type: Array,
         required: true,

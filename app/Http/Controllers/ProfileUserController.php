@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Skill;
 use Inertia\Response;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\KeteranganSkill;
 use Illuminate\Support\Facades\Auth;
@@ -78,6 +79,55 @@ class ProfileUserController extends Controller
 
     //     return Redirect::route('profile')->with('success', 'Skill added successfully.');
     // }
+
+    // Store Email
+    public function storeEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+        ]);
+
+        // Get the currently authenticated user
+        $user = Auth::user();
+        $user->email = $request->email;
+        $user->save();
+
+        return redirect()->route('profile')
+            ->with('success', 'Email updated successfully');
+    }
+
+    // Store Telepon
+    public function storeTelepon(Request $request)
+    {
+        $request->validate([
+            'no_telp' => 'required|string|max:15', // Adjust the validation rules as needed
+        ]);
+
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        // Check if the user has a linked mahasiswa
+        if ($user->mahasiswa_id) {
+            // Find the mahasiswa record
+            $mahasiswa = Mahasiswa::find($user->mahasiswa_id);
+
+            // Update the no_telp field
+            if ($mahasiswa) {
+                $mahasiswa->no_telp = $request->no_telp;
+                $mahasiswa->save();
+
+                return redirect()->route('profile')
+                    ->with('success', 'Nomor telepon updated successfully');
+            } else {
+                return redirect()->route('profile')
+                    ->with('error', 'Mahasiswa not found');
+            }
+        } else {
+            return redirect()->route('profile')
+                ->with('error', 'No associated mahasiswa found');
+        }
+    }
+
 
 
     public function edit(Request $request): Response

@@ -1,15 +1,17 @@
 <script setup>
-import { ref } from "vue";
-import { mdiAsterisk, mdiFormTextboxPassword } from "@mdi/js";
+import { ref, onMounted } from "vue";
+import { mdiAsterisk, mdiFormTextboxPassword, mdiMail } from "@mdi/js";
+import axios from "axios"; // Import axios
 import CardBox from "@/Components/CardBox.vue";
 import FormField from "@/Components/FormField.vue";
 import FormControlProfile from "@/Components/FormControlProfile.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import BaseButtons from "@/Components/BaseButtons.vue";
 import BaseDivider from "@/Components/BaseDivider.vue";
-import { useForm } from "@inertiajs/vue3";
+import { useForm, usePage } from "@inertiajs/vue3";
 import FormFilePicker from "@/Components/FormFilePicker.vue";
 
+// Form Deskripsi Skill
 // Definisi props
 const props = defineProps({
     skills: {
@@ -60,6 +62,7 @@ const reset = () => {
     showAlert.value = false;
 };
 
+// Form Skill
 const formSkill = useForm({
     nama_skill: "",
 });
@@ -84,6 +87,94 @@ const submitSkill = () => {
         formSkill.post(route("userSkill.store"), {
             onSuccess: () => {
                 resetSkill();
+            },
+            onError: (errors) => {
+                console.log(errors);
+            },
+        });
+    } else {
+        showAlert.value = true;
+    }
+};
+
+// Form Email
+const user = ref({}); // Initialize with an empty object
+
+const fetchUserData = async () => {
+    try {
+        const response = await axios.get("/data-login");
+        user.value = response.data;
+        formEmail.email = user.value.email; // Set email in form
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+    }
+};
+
+onMounted(() => {
+    fetchUserData();
+});
+
+const formEmail = useForm({
+    email: "",
+});
+
+const resetEmail = () => {
+    formEmail.reset();
+    errors.value = {};
+    showAlert.value = false;
+};
+
+const validateformEmail = () => {
+    errors.value = {};
+    if (!formEmail.email) {
+        // Corrected validation field
+        errors.value.email = "Email is required.";
+    }
+    return Object.keys(errors.value).length === 0;
+};
+
+const submitEmail = () => {
+    if (validateformEmail()) {
+        showAlert.value = false;
+        formEmail.post(route("profileEmail.store"), {
+            onSuccess: () => {
+                resetEmail();
+            },
+            onError: (errors) => {
+                console.log(errors);
+            },
+        });
+    } else {
+        showAlert.value = true;
+    }
+};
+
+// Telepon
+const formTelepon = useForm({
+    no_telp: "",
+});
+
+const resetTelepon = () => {
+    formTelepon.reset();
+    errors.value = {};
+    showAlert.value = false;
+};
+
+const validateformTelepon = () => {
+    errors.value = {};
+    if (!formTelepon.no_telp) {
+        // Corrected validation field
+        errors.value.no_telp = "Email is required konzz.";
+    }
+    return Object.keys(errors.value).length === 0;
+};
+
+const submitTelepon = () => {
+    if (validateformTelepon()) {
+        showAlert.value = false;
+        formTelepon.post(route("profileTelepon.store"), {
+            onSuccess: () => {
+                resetTelepon();
             },
             onError: (errors) => {
                 console.log(errors);
@@ -256,6 +347,72 @@ const customFormFieldStyle = {
                         outline
                         label="Reset"
                         @click="resetSkill"
+                    />
+                </BaseButtons>
+            </template>
+        </CardBox>
+        <CardBox @submit.prevent="submitEmail" :style="customCardBoxStyle">
+            <FormField label="E-mail" help="Required. Your e-mail">
+                <FormControlProfile
+                    v-model="formEmail.email"
+                    :icon="mdiMail"
+                    type="email"
+                    name="email"
+                    required
+                    autocomplete="email"
+                />
+            </FormField>
+            <p v-if="errors.email" class="text-red-500 text-sm">
+                {{ errors.email }}
+            </p>
+            <template #footer>
+                <BaseButtons>
+                    <BaseButton
+                        type="submit"
+                        color="success"
+                        label="Submit"
+                        @click="submitEmail"
+                    />
+                    <BaseButton
+                        type="reset"
+                        color="danger"
+                        outline
+                        label="Reset"
+                        @click="resetEmail"
+                    />
+                </BaseButtons>
+            </template>
+        </CardBox>
+        <!-- No telepon -->
+        <CardBox @submit.prevent="submitTelepon" :style="customCardBoxStyle">
+            <FormField
+                label="Nomor Telepon"
+                help="Required. Your nomor telepon"
+            >
+                <FormControlProfile
+                    v-model="formTelepon.no_telp"
+                    :icon="mdiMail"
+                    name="no_telp"
+                    required
+                />
+            </FormField>
+            <p v-if="errors.no_telp" class="text-red-500 text-sm">
+                {{ errors.no_telp }}
+            </p>
+            <template #footer>
+                <BaseButtons>
+                    <BaseButton
+                        type="submit"
+                        color="success"
+                        label="Submit"
+                        @click="submitTelepon"
+                    />
+                    <BaseButton
+                        type="reset"
+                        color="danger"
+                        outline
+                        label="Reset"
+                        @click="resetTelepon"
                     />
                 </BaseButtons>
             </template>
