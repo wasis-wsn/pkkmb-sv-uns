@@ -35,40 +35,56 @@ return new class extends Migration {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
             $table->string('nama_mahasiswa');
-            $table->string('no_telp');
+            $table->string('no_telp')->nullable();
             $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
-            $table->foreignId('skill_id')->constrained('kelompok')->onDelete('cascade');
-            $table->text('deskripsi_skill');
-            $table->string('photo_piagam');
             $table->timestamps();
         });
 
         // Users Table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('username');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('user');
             $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswa')->onDelete('cascade');
             $table->integer('unseen_messages')->nullable();
-            $table->enum('last_sender', ['admin', 'user']);
             $table->rememberToken();
             $table->timestamps();
         });
 
-        // Pesan Table
-        Schema::create('pesan', function (Blueprint $table) {
+        // chats
+        Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['text', 'file', 'image']);
-            $table->text('message');
-            $table->enum('sender', ['admin', 'customer']);
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->integer('unseen_messages')->nullable();
+            $table->enum('last_sender', ['admin', 'user']);
+            $table->timestamps();
+        });
+
+        // Pesan Table
+        Schema::create('messages', function (Blueprint $table) {
+            $table->id();
+            $table->enum('type',['text', 'file', 'image']);
+            $table->text('message');
+            $table->enum('sender', ['admin', 'user']);
+            $table->foreignId('chat_id')->references('id')->on('chats')->onDelete('cascade');
             $table->boolean('is_seen')->default(0);
             $table->timestamps();
         });
+
+         // Keterangan Table
+         Schema::create('keterangan', function (Blueprint $table) {
+            $table->id();
+            $table->text('deskripsi_skill');
+            $table->string('photo_piagam')->nullable(); // Perbaikan di sini
+            $table->foreignId('skill_id')->constrained('skill')->onDelete('cascade'); // Ubah nama tabel ke 'skills'
+            $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->onDelete('cascade'); // Ubah nama tabel ke 'mahasiswas'
+            $table->timestamps();
+        });
+        
+
 
         // Galeri Table
         Schema::create('galeri', function (Blueprint $table) {
@@ -155,20 +171,28 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('sessions');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('materi');
-        Schema::dropIfExists('youtube');
-        Schema::dropIfExists('dokumentasi');
-        Schema::dropIfExists('sponsor');
-        Schema::dropIfExists('hima');
+        // Hapus tabel yang memiliki foreign key yang merujuk ke tabel users
+        Schema::dropIfExists('messages');
+        Schema::dropIfExists('chats');
+        
         Schema::dropIfExists('galeri');
-        Schema::dropIfExists('pesan');
+        Schema::dropIfExists('hima');
+        Schema::dropIfExists('sponsor');
+        Schema::dropIfExists('dokumentasi');
+        Schema::dropIfExists('youtube');
+        Schema::dropIfExists('materi');
+        Schema::dropIfExists('sessions');
+    
+        // Hapus tabel users setelah tabel yang bergantung dihapus
         Schema::dropIfExists('users');
+        
+        // Hapus tabel yang bergantung pada tabel users
+        Schema::dropIfExists('keterangan');
         Schema::dropIfExists('mahasiswa');
         Schema::dropIfExists('kelompok');
         Schema::dropIfExists('prodi');
         Schema::dropIfExists('skill');
         Schema::dropIfExists('feedback');
-    }
+        Schema::dropIfExists('password_reset_tokens');
+    }    
 };

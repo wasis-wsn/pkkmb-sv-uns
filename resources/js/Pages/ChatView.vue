@@ -1,13 +1,7 @@
 <script setup>
-    import {
-        mdiBallotOutline,
-        mdiTableBorder,
-        mdiYoutube
-    } from '@mdi/js'
     import SectionMain from '@/Components/SectionMain.vue'
     import CardBox from '@/Components/CardBox.vue'
     import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue'
-    import SectionTitleLineWithButton from '@/Components/SectionTitleLineWithButton.vue'
     import {
         Head
     } from '@inertiajs/vue3'

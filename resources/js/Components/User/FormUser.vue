@@ -26,7 +26,7 @@
         }
     ];
     const form = useForm({
-        name: "",
+        username: "",
         email: "",
         password: "",
         role: "",
@@ -37,13 +37,13 @@
     const showAlert = ref(false);
 
     const isFormValid = computed(() => {
-        return form.name && form.email && form.password && form.role;
+        return form.username && form.email && form.password && form.role;
     });
 
     const validateForm = () => {
         errors.value = {};
-        if (!form.name) {
-            errors.value.name = "name is required.";
+        if (!form.username) {
+            errors.value.username = "username is required.";
         }
         if (!form.email) {
             errors.value.email = "Email is required.";
@@ -83,8 +83,8 @@
 
 <template>
     <CardBox form @submit.prevent="submit">
-        <FormField label=" Nama">
-            <FormControl v-model="form.name" id="name" :icon="mdiAccount" />
+        <FormField label=" Username">
+            <FormControl v-model="form.username" id="username" :icon="mdiAccount" />
         </FormField>
 
         <FormField label=" Email ">
@@ -98,7 +98,7 @@
         </FormField>
 
         <FormField label="Role">
-            <FormControl v-model="form.role" :options="selectOptions" optionValue="label" placeholder="Select an option"/>
+            <FormControl v-model="form.role" :options="selectOptions" optionValue="value" placeholder="Select an option"/>
             <p v-if="errors.role" class="text-red-500 text-sm mt-0">
                 {{ errors.role }}
             </p>

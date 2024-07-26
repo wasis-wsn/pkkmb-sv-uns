@@ -82,6 +82,11 @@ export default [
                 icon: mdiBookOpenVariant,
             },
             {
+                route: "keterangan",
+                label: "Keterangan Skill",
+                icon: mdiBookOpenVariant,
+            },
+            {
                 route: "mahasiswa",
                 label: "Mahasiswa",
                 icon: mdiAccount,

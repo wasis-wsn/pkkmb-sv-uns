@@ -70,7 +70,6 @@ class AcaraController extends Controller
             $dataToUpdate['deskripsi_dokum'] = $validated['deskripsi_dokum'];
         }
 
-
         if ($request->hasFile('photo_dokum')) {
             $path = $request->file('photo_dokum');
             $fileName = $path->hashName();

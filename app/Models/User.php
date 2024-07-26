@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Chat;
+use App\Models\Mahasiswa;
+use Google\Service\DriveActivity\Upload;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -20,13 +22,12 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
         'role',
         'mahasiswa_id',
         'unseen_messages',
-        'last_sender'
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -38,29 +39,17 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-
     public function mahasiswa()
     {
         return $this->belongsTo(Mahasiswa::class);
     }
 
-    public function pesan(){
-        return $this->hasMany(Pesan::class);
+    public function chat(){
+        return $this->hasMany(Chat::class);
     }
 
-    public function unseen_messages(){
-        return $this->messages()->where('sender', 'customer')->where('is_seen', 0);
+    public function upload()
+    {
+        return $this->belongsTo(Upload::class);
     }
 }

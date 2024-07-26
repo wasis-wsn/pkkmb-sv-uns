@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeMount } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
@@ -84,9 +84,12 @@ const fetchGaleri = async () => {
 };
 
 onMounted(() => {
-    document.title = "PKKMB SV UNS - GALERI";
     AOS.init();
     fetchGaleri();
+});
+
+onBeforeMount(() => {
+    document.title = "PKKMB SV UNS - GALERI";
 });
 </script>
 

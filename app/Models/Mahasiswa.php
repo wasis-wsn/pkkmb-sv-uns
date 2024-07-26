@@ -17,10 +17,6 @@ class Mahasiswa extends Model
         'no_telp',
         'prodi_id',
         'kelompok_id',
-        'skill_id',
-        'nama_skill',
-        'deskripsi_skill',
-        'photo_piagam',
     ];
     public function prodi()
     {
@@ -29,11 +25,10 @@ class Mahasiswa extends Model
 
     public function kelompok()
     {
-        return $this->belongsTo(Kelompok::class);
+        return $this->belongsTo(Kelompok::class, 'kelompok_id');
     }
-
-    public function skill()
+    public function keteranganSkills()
     {
-        return $this->belongsTo(Skill::class);
+        return $this->hasMany(KeteranganSkill::class);
     }
 }

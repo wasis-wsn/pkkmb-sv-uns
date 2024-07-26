@@ -38,7 +38,24 @@ class SkillController extends Controller
         }
     }
 
-    public function update(Request $request, Kelompok $id)
+    public function storeUser(Request $request)
+    {
+        try {
+            $validated = $request->validate([
+                'nama_skill' => 'required|string|max:255',
+            ]);
+
+            Skill::create([
+                'nama_skill' => $validated['nama_skill'],
+            ]);
+
+            return redirect()->route('profile');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function update(Request $request, Skill $id)
     {
         $validated = $request->validate([
             'nama_skill' => 'nullable|string|max:255',

@@ -7,8 +7,22 @@ import BaseButton from "@/Components/BaseButton.vue";
 import { mdiAccount, mdiPhone, mdiBook, mdiCertificate } from "@mdi/js";
 
 const props = defineProps({
-    item: Object,
-    show: Boolean,
+    item: {
+        type: Object,
+        required: true,
+    },
+    show: {
+        type: Boolean,
+        required: true,
+    },
+    prodi: {
+        type: Array,
+        required: true,
+    },
+    kelompok: {
+        type: Array,
+        required: true,
+    },
 });
 
 const emit = defineEmits(["close"]);
@@ -19,9 +33,6 @@ const form = useForm({
     no_telp: "",
     prodi_id: "",
     kelompok_id: "",
-    nama_skill: "",
-    deskripsi_skill: "",
-    photo_piagam: null,
 });
 
 watch(
@@ -32,8 +43,6 @@ watch(
             form.no_telp = newItem.no_telp;
             form.prodi_id = newItem.prodi_id;
             form.kelompok_id = newItem.kelompok_id;
-            form.nama_skill = newItem.nama_skill;
-            form.deskripsi_skill = newItem.deskripsi_skill;
         }
     },
     { immediate: true }
@@ -95,35 +104,20 @@ const submit = () => {
                                 </FormField>
                                 <FormField label="Prodi">
                                     <FormControl
-                                        v-model="form.prodi_id"
-                                        :icon="mdiBook"
-                                        placeholder="Masukkan ID Prodi"
+                                        v-model.string="form.prodi_id"
+                                        :options="prodi"
+                                        optionLabel="nama_prodi"
+                                        optionValue="id"
+                                        placeholder="Pilih Prodi"
                                     />
                                 </FormField>
                                 <FormField label="Kelompok">
                                     <FormControl
-                                        v-model="form.kelompok_id"
-                                        :icon="mdiBook"
-                                        placeholder="Masukkan ID Kelompok"
-                                    />
-                                </FormField>
-                                <FormField label="Nama Skill">
-                                    <FormControl
-                                        v-model="form.nama_skill"
-                                        :icon="mdiCertificate"
-                                    />
-                                </FormField>
-                                <FormField label="Deskripsi Skill">
-                                    <FormControl
-                                        v-model="form.deskripsi_skill"
-                                        :icon="mdiCertificate"
-                                    />
-                                </FormField>
-                                <FormField label="Photo Piagam">
-                                    <input
-                                        type="file"
-                                        @change="(e) => form.photo_piagam = e.target.files[0]"
-                                        class="form-control"
+                                        v-model.string="form.kelompok_id"
+                                        :options="kelompok"
+                                        optionLabel="nama_kelompok"
+                                        optionValue="id"
+                                        placeholder="Pilih Kelompok"
                                     />
                                 </FormField>
                             </div>

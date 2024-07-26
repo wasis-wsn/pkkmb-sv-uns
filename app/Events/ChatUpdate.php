@@ -2,42 +2,33 @@
 
 namespace App\Events;
 
+use App\Models\User;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Queue\SerializesModels;
 
-class ChatUpdate
+class ChatUpdate implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+  use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $chats;
+  public $chats;
 
-    /**
-     * Create a new event instance.
-     */
-    public function __construct()
-    {
-        $this->chats = $chats;
-    }
+  public function __construct($chats)
+  {
+      $this->chats = $chats;
+  }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
-     */
-    public function broadcastOn(): array
-    {
-        return [
-            new PrivateChannel('chats-update'),
-        ];
-    }
+  public function broadcastOn()
+  {
+      return 'chats-update';
+  }
 
-    public function broadcastAs()
-    {
-        return 'chats';
-    }
+  public function broadcastAs()
+  {
+      return 'chats';
+  }
 }

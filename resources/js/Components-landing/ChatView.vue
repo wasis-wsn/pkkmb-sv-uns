@@ -80,7 +80,8 @@ const props = defineProps({
 const messages = ref([
   { type: 'text', text: 'Halo, ada yang bisa saya bantu?', time: '09:00', sender: 'admin' },
   { type: 'text', text: 'Ya, apakah saya bisa bertanya tentang UKT.', time: '09:05', sender: 'user' },
-  { type: 'text', text: 'Malas.', time: '09:10', sender: 'admin' }
+  { type: 'text', text: 'Malas.', time: '09:10', sender: 'admin' },
+  { type: 'image', text: 'Malas.', time: '09:10', sender: 'admin' }
 ]);
 
 const newMessage = ref({

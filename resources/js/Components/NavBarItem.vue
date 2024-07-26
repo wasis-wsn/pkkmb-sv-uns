@@ -50,7 +50,7 @@ const componentClass = computed(() => {
 })
 
 const itemLabel = computed(() =>
-  props.item.isCurrentUser ? (usePage().props.auth.user ? usePage().props.auth.user.name : '') : props.item.label
+  props.item.isCurrentUser ? (usePage().props.auth.user ? usePage().props.auth.user.username : '') : props.item.label
 )
 
 const isDropdownActive = ref(false)

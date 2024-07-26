@@ -8,7 +8,7 @@
             <form id="file-upload-form"
                 class="w-full flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg py-12"
                 @drop.prevent="handleDrop" @dragover.prevent="handleDragOver">
-                <input id="file-upload-input" type="file" class="hidden" @change="handleFileSelect" multiple />
+                <input id="file-upload-input" type="file" class="hidden" @change="handleFileSelect" ref="fileInput" multiple />
                 <label for="file-upload-input" class="text-center text-gray-500 cursor-pointer">
                     <div class="flex flex-col items-center mt-7 mb-5">
                         <RiInboxArchiveLine class="h-10 w-10 text-gray-400 top-1/2 transform -translate-y-1/2" />
@@ -20,8 +20,7 @@
             <div class="left-7 flex w-full pt-5">
                 <p class="font-normal font text-sm text-left text-gray-500">
                     Accepted File Types : <br>
-                    Archive (Zip) <br>
-                    Archive files .7z .bdoc .cdoc .ddoc .gtar .gz .gzip .hqx .rar .sit .tar .tgz .zip
+                    JPEG, PNG, PDF, DOC, and ZIP
                 </p>
             </div>
         </div>
@@ -30,11 +29,19 @@
             <div class="flex flex-col items-center border-2 border-dashed border-gray-300 rounded-lg py-4">
                 <div v-for="(file, index) in previewFiles" :key="index"
                     class="w-full flex justify-between items-center">
-                    <template v-if="file.type.includes('image')">
+                    <template v-if="file.type.startsWith('image/')">
                         <img :src="file.url" :alt="file.name" class="w-12 h-12 object-cover rounded-md pl-3" />
                     </template>
+                    <template v-else-if="file.type === 'application/pdf'">
+                        <RiFilePdfLine class="w-10 h-10 object-cover rounded-md pl-3 text-red-500" />
+                    </template>
+                    <template v-else-if="file.type.includes('word')">
+                        <RiFileWordLine class="w-10 h-10 object-cover rounded-md pl-3 text-blue-500" />
+                    </template>
                     <template v-else>
-                        <component :is="getIconComponent(file.type)" class="w-10 h-10 object-cover rounded-md pl-3" />
+                        <div class="w-10 h-10 flex items-center justify-center rounded-md pl-3 text-gray-500">
+                            <RiInboxArchiveLine class="w-8 h-8" />
+                        </div>
                     </template>
                     <p class="text-gray-800 font text-sm">{{ file.name }}</p>
                     <button @click="removeFile(index)"
@@ -52,18 +59,14 @@
 </template>
 
 <script setup>
-    import {
-        ref
-    } from 'vue';
-    import {
-        RiInboxArchiveLine,
-        RiFileWordLine,
-        RiFilePdfLine,
-        RiDeleteBinLine
-    } from "@remixicon/vue";
+    import { ref } from 'vue';
+    import { RiInboxArchiveLine, RiDeleteBinLine, RiFilePdfLine, RiFileWordLine } from "@remixicon/vue";
+    import axios from 'axios';
 
     const uploadedFiles = ref([]);
     const previewFiles = ref([]);
+    const uploading = ref(false);
+    const fileInput = ref(null);
 
     const handleDrop = (event) => {
         event.preventDefault();
@@ -82,17 +85,31 @@
 
     const handleFiles = (files) => {
         for (let i = 0; i < files.length; i++) {
-            uploadedFiles.value.push(files[i]);
             const file = files[i];
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                previewFiles.value.push({
-                    name: file.name,
-                    url: e.target.result,
-                    type: file.type
-                });
-            };
-            reader.readAsDataURL(file);
+            const fileType = file.type;
+
+            if (['image/jpeg', 'image/png', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(fileType)) {
+                uploadedFiles.value.push(file);
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewFiles.value.push({
+                        name: file.name,
+                        url: fileType.startsWith('image/') ? e.target.result : '',
+                        type: fileType
+                    });
+                };
+                if (fileType.startsWith('image/')) {
+                    reader.readAsDataURL(file);
+                } else {
+                    previewFiles.value.push({
+                        name: file.name,
+                        url: '',
+                        type: fileType
+                    });
+                }
+            } else {
+                alert(`File ${file.name} is not a supported type. It will be skipped.`);
+            }
         }
     };
 
@@ -101,48 +118,44 @@
         previewFiles.value.splice(index, 1);
     };
 
-    const getIconComponent = (type) => {
-        if (type.includes('pdf')) {
-            return RiFilePdfLine;
-        } else if (type.includes('word')) {
-            return RiFileWordLine;
-        } else {
-            return RiFileWordLine; // Default icon
+    const handleFileUpload = async () => {
+        if (uploadedFiles.value.length === 0) {
+            alert('Please select files to upload');
+            return;
         }
-    };
 
-    const handleFileUpload = () => {
-        console.log("Upload button clicked");
+        uploading.value = true;
 
         const formData = new FormData();
         uploadedFiles.value.forEach((file, index) => {
             formData.append(`files[${index}]`, file);
         });
 
-        fetch('/upload-tugas', {
-                method: 'POST',
-                body: formData,
+        try {
+            const response = await axios.post('/upload', formData, {
                 headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    'Content-Type': 'multipart/form-data'
                 }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log('Files uploaded successfully:', data);
-                    // Clear the uploaded files after successful upload
-                    uploadedFiles.value = [];
-                    previewFiles.value = [];
-                    // You might want to show a success message to the user here
-                } else {
-                    console.error('Upload failed:', data);
-                    // You might want to show an error message to the user here
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // You might want to show an error message to the user here
             });
-    };
 
+            if (response.data.success) {
+                alert('Files uploaded successfully');
+                uploadedFiles.value = [];
+                previewFiles.value = [];
+            } else {
+                alert('Error uploading files');
+            }
+        } catch (error) {
+            console.error('Error uploading files:', error);
+            if (error.response) {
+                alert(`Error: ${error.response.data.message}`);
+            } else if (error.request) {
+                alert('Error: No response from server. Please try again later.');
+            } else {
+                alert(`Error: ${error.message}`);
+            }
+        } finally {
+            uploading.value = false;
+        }
+    };
 </script>

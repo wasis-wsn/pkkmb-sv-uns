@@ -11,8 +11,8 @@
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                             <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Data</h3>
                             <div class="mt-2">
-                                <FormField label="Nama">
-                                    <FormControl v-model="form.name" :icon="mdiAccount" />
+                                <FormField label="Username">
+                                    <FormControl v-model="form.username" :icon="mdiAccount" />
                                 </FormField>
                                 <FormField label="Email">
                                     <FormControl v-model="form.email" :icon="mdiMail" />
@@ -53,7 +53,7 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: 'PUT', // Add this line to force PUT method
-    name: '',
+    username: '',
     email: '',
     password: '',
     role: '',
@@ -63,7 +63,7 @@ watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.name = newItem.name;
+            form.username = newItem.username;
             form.email = newItem.email;
             form.password = newItem.password;
             form.role = newItem.role;
