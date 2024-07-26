@@ -14,7 +14,7 @@ import BaseButtons from "@/Components/BaseButtons.vue";
 import FormValidationErrors from "@/Components/FormValidationErrors.vue";
 
 const form = useForm({
-  name: "",
+  username: "",
   email: "",
   password: "",
   password_confirmation: "",
@@ -50,12 +50,12 @@ const submit = () => {
       >
         <FormValidationErrors />
 
-        <FormField label="Name" label-for="name" help="Please enter your name">
+        <FormField label="Username" label-for="username" help="Please enter your username">
           <FormControl
-            v-model="form.name"
-            id="name"
+            v-model="form.username"
+            id="username"
             :icon="mdiAccount"
-            autocomplete="name"
+            autocomplete="username"
             type="text"
             required
           />

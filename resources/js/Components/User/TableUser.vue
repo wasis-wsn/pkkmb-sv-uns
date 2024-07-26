@@ -10,7 +10,7 @@
                 </tr>
                 <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Nama
+                        Username
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Email
@@ -25,7 +25,7 @@
             </thead>
             <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap">{{ item.name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ item.username }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ item.email }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ item.role }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">

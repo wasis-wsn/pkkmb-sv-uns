@@ -38,6 +38,13 @@
                                     <h1 class="text-2xl">
                                         {{ user ? user.email : "Loading..." }}
                                     </h1>
+                                    <h1 class="text-2xl">
+                                        {{                                         
+                                        user
+                                                ? user.mahasiswa.no_telp
+                                                : "Loading..."  
+                                        }}                                   
+                                    </h1>
                                 </div>
                             </div>
                         </div>

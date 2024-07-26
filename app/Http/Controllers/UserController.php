@@ -64,7 +64,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string',
+            'username' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string',
             'role' => 'required|string'
@@ -73,7 +73,7 @@ class UserController extends Controller
         $mahasiswa = Auth::user();
 
         $user = User::create([
-            'name' => $validatedData['name'],
+            'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
             'role' => $validatedData['role'],
@@ -86,7 +86,7 @@ class UserController extends Controller
     public function update(Request $request, User $id)
     {
         $request->validate([
-            'name' => 'required|string',
+            'username' => 'required|string',
             'email' => 'required|string|lowercase|email|max:255|unique:users,email,' . $id->id,
             'role' => 'required|string'
         ]);

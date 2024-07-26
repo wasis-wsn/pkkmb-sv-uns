@@ -29,9 +29,9 @@
               </h2>
               <form @submit.prevent="submit">
                 <div class="mt-20 text-2xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
-                  <label for="email" class="sr-only">Email</label>
-                  <input v-model="form.email" type="text" id="email" placeholder="Email" class="w-full bg-transparent border-b-2 border-black outline-none" />
-                  <p v-if="errors.email" class="text-red-500 text-sm mt-2">{{ errors.email }}</p>
+                  <label for="username" class="sr-only">Username</label>
+                  <input v-model="form.username" type="text" id="username" placeholder="Username" class="w-full bg-transparent border-b-2 border-black outline-none" />
+                  <p v-if="errors.username" class="text-red-500 text-sm mt-2">{{ errors.username }}</p>
                 </div>
                 <div class="mt-20 text-2xl text-neutral-400 max-md:mt-10 max-md:max-w-full">
                   <label for="password" class="sr-only">Password</label>
@@ -72,7 +72,7 @@ import { HomeIcon } from '@heroicons/vue/24/solid'
 import { useForm, Head, Link } from '@inertiajs/vue3'
 
 const form = useForm({
-  email: '',
+  username: '',
   password: '',
   remember: []
 })
@@ -86,8 +86,8 @@ const submit = () => {
   errors.value = {}
   serverError.value = ''
   
-  if (!form.email) {
-    errors.value.email = 'Email is required.'
+  if (!form.username) {
+    errors.value.username = 'Username is required.'
   }
   
   if (!form.password) {
@@ -103,7 +103,7 @@ const submit = () => {
       .post(route('login'), {
         onFinish: () => form.reset('password'),
         onError: (errors) => {
-          modalMessage.value = 'Email atau password Anda salah. Mohon ulangi sekali lagi.'
+          modalMessage.value = 'Username atau password Anda salah. Mohon ulangi sekali lagi.'
           showModal.value = true
         }
       })

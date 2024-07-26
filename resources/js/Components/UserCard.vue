@@ -33,7 +33,7 @@ const userSwitchVal = ref(false)
           />
         </div>
         <h1 class="text-2xl">
-          Howdy, <b>{{ user ? user.name : 'Loading...' }}</b
+          Hello, <b>{{ user ? user.username : 'Loading...' }}</b
           >!
         </h1>
         <p>Last login <b>12 mins ago</b> from <b>127.0.0.1</b></p>

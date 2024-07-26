@@ -58,7 +58,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->put('pesan_id', $user->pesan_id);
 
         // Redirect berdasarkan role
-        return redirect()->intended(route('landing'));
+        return redirect()->intended(route('login'));
 
     }
 

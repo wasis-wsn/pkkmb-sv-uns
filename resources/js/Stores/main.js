@@ -5,7 +5,7 @@ import { usePage } from '@inertiajs/vue3';
 export const useMainStore = defineStore('main', () => {
   const pageProps = usePage().props
   const userEmail = computed(() => pageProps.auth.user.email)  
-  const userName = computed(() => pageProps.auth.user.name)  
+  const userName = computed(() => pageProps.auth.user.username)  
 
   const userAvatar = computed(
     () =>
@@ -21,8 +21,8 @@ export const useMainStore = defineStore('main', () => {
   const history = ref([])
 
   function setUser(payload) {
-    if (payload.name) {
-      userName.value = payload.name
+    if (payload.username) {
+      userName.value = payload.username
     }
     if (payload.email) {
       userEmail.value = payload.email

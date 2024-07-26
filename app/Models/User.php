@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Pesan;
+use App\Models\Chat;
 use App\Models\Mahasiswa;
 use Google\Service\DriveActivity\Upload;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -23,7 +22,7 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
         'role',
@@ -39,19 +38,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
 
     public function mahasiswa()
     {

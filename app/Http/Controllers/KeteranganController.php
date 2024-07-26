@@ -14,6 +14,23 @@ class KeteranganController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function getAllketerangan()
+    {
+        $keterangans = KeteranganSkill::with(['skill', 'mahasiswa'])->get();
+        $skills = Skill::all();
+        $mahasiswas = Mahasiswa::pluck('nama_mahasiswa', 'id');
+    
+        return response()->json([
+            'data' => $keterangans,
+            'skill' => $skills,
+            'mahasiswa' => $mahasiswas,
+        ], 200); // Status code 200
+    }
+    
+
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         // Get all keterangan skills with related skill and mahasiswa data

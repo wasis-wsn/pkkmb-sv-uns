@@ -44,7 +44,7 @@ return new class extends Migration {
         // Users Table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->default('user');
@@ -171,22 +171,28 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('sessions');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('materi');
-        Schema::dropIfExists('youtube');
-        Schema::dropIfExists('dokumentasi');
-        Schema::dropIfExists('sponsor');
-        Schema::dropIfExists('hima');
-        Schema::dropIfExists('galeri');
-        Schema::dropIfExists('chats');
+        // Hapus tabel yang memiliki foreign key yang merujuk ke tabel users
         Schema::dropIfExists('messages');
+        Schema::dropIfExists('chats');
+        
+        Schema::dropIfExists('galeri');
+        Schema::dropIfExists('hima');
+        Schema::dropIfExists('sponsor');
+        Schema::dropIfExists('dokumentasi');
+        Schema::dropIfExists('youtube');
+        Schema::dropIfExists('materi');
+        Schema::dropIfExists('sessions');
+    
+        // Hapus tabel users setelah tabel yang bergantung dihapus
         Schema::dropIfExists('users');
+        
+        // Hapus tabel yang bergantung pada tabel users
+        Schema::dropIfExists('keterangan');
         Schema::dropIfExists('mahasiswa');
         Schema::dropIfExists('kelompok');
         Schema::dropIfExists('prodi');
         Schema::dropIfExists('skill');
-        Schema::dropIfExists('keterangan');
         Schema::dropIfExists('feedback');
-    }
+        Schema::dropIfExists('password_reset_tokens');
+    }    
 };

@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
 import { mdiDelete, mdiPencil } from "@mdi/js";
-import CardBox from "@/Components/CardBox.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import { useForm } from "@inertiajs/vue3";
 import Swal from "sweetalert2";
@@ -12,10 +11,6 @@ const props = defineProps({
         type: Array,
         required: true,
     },
-    // user: {
-    //     type: Object,
-    //     required: true,
-    // },
     skills: {
         type: Array,
         required: true,
@@ -73,72 +68,51 @@ const closeEditModal = () => {
 </script>
 
 <template>
-    <CardBox>
-        <table class="min-w-full divide-y mx-auto">
-            <thead>
-                <tr>
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Nama skill
-                    </th>
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Deskripsi skill
-                    </th>
+    <div class="bg-white p-4 mt-8 rounded-lg shadow-md overflow-x-auto">
 
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Piagam
-                    </th>
-                    <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                        Aksi
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="bg-dark divide-y">
-                <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.skill.nama_skill }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.deskripsi_skill }}
-                    </td>
-
-                    <td class="px-6 py-4 whitespace-nowrap text-center w-1/6">
-                        <img
-                            :src="`/storage/piagam/${item.photo_piagam}`"
-                            alt="Dokumen"
-                            class="w-20 h-20 object-cover mx-auto"
-                        />
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <BaseButton
-                            :icon="mdiPencil"
-                            color="warning"
-                            @click="editData(item)"
-                            class="mx-4"
-                        />
-                        <BaseButton
-                            :icon="mdiDelete"
-                            color="danger"
-                            @click="confirmDelete(item.id)"
-                        />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <EditModal
+<!-- Table displaying users -->
+<table class="group-table w-full border-collapse">
+    <thead>
+        <tr class="bg-blue-100">
+            <th class="py-2 px-4 text-center border">Nama Skill</th>
+            <th class="py-2 px-4 text-center border">Deskripsi Skill</th>
+            <th class="py-2 px-4 text-center border">Piagam</th>
+            <th class="py-2 px-4 text-center border">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="item in data" :key="item.id" class="border-b">
+            <td class="py-2 px-4 text-center">{{ item.skill.nama_skill }}</td>
+            <td class="py-2 px-4 text-center">{{ item.deskripsi_skill }}</td>
+            <td class="py-2 px-4 text-center">
+                <img
+                    :src="`/storage/piagam/${item.photo_piagam}`"
+                    alt="Dokumen"
+                    class="w-20 h-20 object-cover mx-auto"
+                />
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <BaseButton
+                    :icon="mdiPencil"
+                    color="warning"
+                    @click="editData(item)"
+                    class="mx-4"
+                />
+                <BaseButton
+                    :icon="mdiDelete"
+                    color="danger"
+                    @click="confirmDelete(item.id)"
+                />
+            </td>
+        </tr>
+    </tbody>
+</table>
+<EditModal
             v-if="showEditModal"
             :item="selectedItem"
             :show="showEditModal"
             :skills="skills"
             @close="closeEditModal"
         />
-    </CardBox>
+</div>
 </template>
