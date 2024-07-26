@@ -20,20 +20,20 @@ class UserSeeder extends Seeder
         $mahasiswa = Mahasiswa::first(); // Change this to retrieve or create the appropriate mahasiswa
 
         if ($mahasiswa) {
-            User::create([
-                'name' => 'ppk',
-                'email' => 'ppk@example.com',
-                'role' => 'admin',
-                'password' => Hash::make('123'), // Use Hash::make() for hashing password
-                // 'mahasiswa_id' => $mahasiswa->id,
-            ]);
+            // User::create([
+            //     'name' => 'ppk',
+            //     'email' => 'ppk@example.com',
+            //     'role' => 'admin',
+            //     'password' => Hash::make('123'), // Use Hash::make() for hashing password
+            //     'mahasiswa_id' => "2",
+            // ]);
 
             User::create([
                 'name' => 'aril',
                 'email' => 'aril@example.com',
-                'role' => 'user',
+                'role' => 'User',
                 'password' => Hash::make('345'), // Use Hash::make() for hashing password
-                // 'mahasiswa_id' => $mahasiswa->id,
+                'mahasiswa_id' => "4",
             ]);
 
             // Add more seed data as needed

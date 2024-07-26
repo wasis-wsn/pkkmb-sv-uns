@@ -1,38 +1,50 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { useForm } from "@inertiajs/vue3";
 import FormField from "@/Components/FormField.vue";
 import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
-import {  mdiCertificate } from "@mdi/js";
+import { mdiAccount } from "@mdi/js";
+import FormFilePicker from "@/Components/FormFilePicker.vue";
 
 const props = defineProps({
-    item: Object,
-    show: Boolean,
+    item: {
+        type: Object,
+        required: true,
+    },
+    show: {
+        type: Boolean,
+        required: true,
+    },
+    skills: {
+        type: Array,
+        required: true,
+    },
 });
 
 const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    nama_skill: "",
     deskripsi_skill: "",
-    photo_piagam: null,
+    skill_id: "",
+    photo_piagam: "",
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_skill = newItem.nama_skill;
             form.deskripsi_skill = newItem.deskripsi_skill;
+            form.skill_id = newItem.skill_id;
+            form.photo_piagam = null; // Reset file input
         }
     },
     { immediate: true }
 );
 
 const submit = () => {
-    form.post(route("mahasiswa.update", props.item.id), {
+    form.post(route("profileSkill.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -70,26 +82,31 @@ const submit = () => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Mahasiswa
+                                Edit Skill
                             </h3>
                             <div class="mt-2">
                                 <FormField label="Nama Skill">
                                     <FormControl
-                                        v-model="form.nama_skill"
-                                        :icon="mdiCertificate"
+                                        v-model="form.skill_id"
+                                        :options="props.skills"
+                                        optionLabel="nama_skill"
+                                        optionValue="id"
+                                        placeholder="Pilih Skill"
                                     />
                                 </FormField>
                                 <FormField label="Deskripsi Skill">
                                     <FormControl
                                         v-model="form.deskripsi_skill"
-                                        :icon="mdiCertificate"
+                                        placeholder="Masukkan deskripsi skill"
                                     />
                                 </FormField>
-                                <FormField label="Photo Piagam">
-                                    <input
-                                        type="file"
-                                        @change="(e) => form.photo_piagam = e.target.files[0]"
-                                        class="form-control"
+                                <FormField
+                                    label="Upload File (image max 10 MB)"
+                                >
+                                    <FormFilePicker
+                                        v-model="form.photo_piagam"
+                                        label="Upload"
+                                        name="photo_piagam"
                                     />
                                 </FormField>
                             </div>

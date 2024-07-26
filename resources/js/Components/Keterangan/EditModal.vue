@@ -1,10 +1,11 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { useForm } from "@inertiajs/vue3";
 import FormField from "@/Components/FormField.vue";
 import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
-import { mdiAccount, mdiPhone, mdiBook, mdiCertificate } from "@mdi/js";
+import { mdiAccount } from "@mdi/js";
+import FormFilePicker from "@/Components/FormFilePicker.vue";
 
 const props = defineProps({
     item: {
@@ -15,12 +16,12 @@ const props = defineProps({
         type: Boolean,
         required: true,
     },
-    prodi: {
+    skill: {
         type: Array,
         required: true,
     },
-    kelompok: {
-        type: Array,
+    mahasiswa: {
+        type: Object,
         required: true,
     },
 });
@@ -29,27 +30,34 @@ const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    nama_mahasiswa: "",
-    no_telp: "",
-    prodi_id: "",
-    kelompok_id: "",
+    deskripsi_skill: "",
+    skill_id: "",
+    mahasiswa_id: "",
+    photo_piagam: "",
+});
+
+const mahasiswaOptions = computed(() => {
+    return Object.entries(props.mahasiswa).map(([id, nama]) => ({
+        id: id,
+        nama: nama,
+    }));
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_mahasiswa = newItem.nama_mahasiswa;
-            form.no_telp = newItem.no_telp;
-            form.prodi_id = newItem.prodi_id;
-            form.kelompok_id = newItem.kelompok_id;
+            form.deskripsi_skill = newItem.deskripsi_skill;
+            form.skill_id = newItem.skill_id;
+            form.mahasiswa_id = newItem.mahasiswa_id;
+            form.photo_piagam = null; // Reset file input
         }
     },
     { immediate: true }
 );
 
 const submit = () => {
-    form.post(route("mahasiswa.update", props.item.id), {
+    form.post(route("keterangan.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -87,37 +95,40 @@ const submit = () => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Mahasiswa
+                                Edit Skill
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Nama Mahasiswa">
+                                <FormField label="Nama Skill">
                                     <FormControl
-                                        v-model="form.nama_mahasiswa"
-                                        :icon="mdiAccount"
-                                    />
-                                </FormField>
-                                <FormField label="No Telp">
-                                    <FormControl
-                                        v-model="form.no_telp"
-                                        :icon="mdiPhone"
-                                    />
-                                </FormField>
-                                <FormField label="Prodi">
-                                    <FormControl
-                                        v-model.string="form.prodi_id"
-                                        :options="prodi"
-                                        optionLabel="nama_prodi"
+                                        v-model="form.skill_id"
+                                        :options="props.skill"
+                                        optionLabel="nama_skill"
                                         optionValue="id"
-                                        placeholder="Pilih Prodi"
+                                        placeholder="Pilih Skill"
                                     />
                                 </FormField>
-                                <FormField label="Kelompok">
+                                <FormField label="Deskripsi Skill">
                                     <FormControl
-                                        v-model.string="form.kelompok_id"
-                                        :options="kelompok"
-                                        optionLabel="nama_kelompok"
+                                        v-model="form.deskripsi_skill"
+                                        placeholder="Masukkan deskripsi skill"
+                                    />
+                                </FormField>
+                                <FormField label="Mahasiswa">
+                                    <FormControl
+                                        v-model="form.mahasiswa_id"
+                                        :options="mahasiswaOptions"
+                                        optionLabel="nama"
                                         optionValue="id"
-                                        placeholder="Pilih Kelompok"
+                                        placeholder="Pilih Mahasiswa"
+                                    />
+                                </FormField>
+                                <FormField
+                                    label="Upload File (image max 10 MB)"
+                                >
+                                    <FormFilePicker
+                                        v-model="form.photo_piagam"
+                                        label="Upload"
+                                        name="photo_piagam"
                                     />
                                 </FormField>
                             </div>

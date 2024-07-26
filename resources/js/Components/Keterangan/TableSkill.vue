@@ -5,19 +5,19 @@ import CardBox from "@/Components/CardBox.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import { useForm } from "@inertiajs/vue3";
 import Swal from "sweetalert2";
-import EditModal from "@/Components-landing/profile-page/EditModal.vue";
+import EditModal from "@/Components/Keterangan/EditModal.vue";
 
 const props = defineProps({
     data: {
         type: Array,
         required: true,
     },
-    // user: {
-    //     type: Object,
-    //     required: true,
-    // },
-    skills: {
+    skill: {
         type: Array,
+        required: true,
+    },
+    mahasiswa: {
+        type: Object,
         required: true,
     },
 });
@@ -38,7 +38,7 @@ const confirmDelete = (id) => {
         confirmButtonText: "Yes, delete it!",
     }).then((result) => {
         if (result.isConfirmed) {
-            form.delete(route("profileSkill.destroy", id), {
+            form.delete(route("keterangan.destroy", id), {
                 preserveState: true,
                 preserveScroll: true,
                 onSuccess: () => {
@@ -87,7 +87,11 @@ const closeEditModal = () => {
                     >
                         Deskripsi skill
                     </th>
-
+                    <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Nama Mahasiswa
+                    </th>
                     <th
                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
@@ -108,7 +112,9 @@ const closeEditModal = () => {
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ item.deskripsi_skill }}
                     </td>
-
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {{ item.mahasiswa.nama_mahasiswa }}
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap text-center w-1/6">
                         <img
                             :src="`/storage/piagam/${item.photo_piagam}`"
@@ -137,7 +143,8 @@ const closeEditModal = () => {
             v-if="showEditModal"
             :item="selectedItem"
             :show="showEditModal"
-            :skills="skills"
+            :skill="skill"
+            :mahasiswa="mahasiswa"
             @close="closeEditModal"
         />
     </CardBox>

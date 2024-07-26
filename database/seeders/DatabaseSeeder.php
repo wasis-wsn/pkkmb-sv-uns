@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
             DokumentasiSeeder::class,
             SponsorSeeder::class,
             FeedbackSeeder::class,
+            MateriSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

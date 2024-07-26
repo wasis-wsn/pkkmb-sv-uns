@@ -19,12 +19,15 @@
     <section v-if="firstMateri" class="relative flex justify-center items-center pt-16 pb-32 w-full text-2xl font-bold text-black bg-white">
       <img loading="lazy" src="@assets/Materi/ImplementasiWave.png" alt="Decorative gradient"
         class="absolute top-0 left-0 z-0 w-full h-auto max-w-full max-h-full" />
-      <div class="relative z-20 flex justify-center mt-5 md:mt-36 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1160px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
+      <div class="relative z-20 flex justify-center mt-5 md:mt-36 px-8 pt-10 md:pt-20 mb-0 w-full bg-slate-100 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1100px] pb-10 rounded-[60px] md:px-20 md:pb-[100px]">
         <div class="w-full max-md:px-5 top-[50px]">
           <div class="text-[16px] md:text-[20px]" data-aos="fade-up">
-            <div v-for="(paragraph, index) in splitParagraphs(firstMateri.isi_materi)" :key="index">
-              <p>{{ paragraph }}</p>
-            </div>
+            <h3>{{ firstMateri.deskripsi_materi }}</h3>
+            <ol class="list-decimal list-inside pl-5 space-y-4">
+              <li v-for="(paragraph, index) in splitParagraphs(firstMateri.isi_materi)" :key="index" class="formatted-text text-justify">
+                {{ paragraph }}
+              </li>
+            </ol>
           </div>
         </div>
       </div>
@@ -53,9 +56,11 @@
           <div class="w-full max-md:px-5 top-[50px]">
             <div data-aos="fade-up" class="text-[16px] md:text-[20px]">
               <h3>{{ item.deskripsi_materi }}</h3>
-              <div v-for="(paragraph, index) in splitParagraphs(item.isi_materi)" :key="index">
-                <p>{{ paragraph }}</p>
-              </div>
+              <ol class="list-decimal list-outside pl-5 space-y-4">
+                <li v-for="(paragraph, index) in splitParagraphs(item.isi_materi)" :key="index" class="formatted-text-materi text-justify">
+                  {{ paragraph }}
+                </li>
+              </ol>
             </div>
           </div>
         </div>
@@ -124,5 +129,16 @@ onBeforeMount(() => {
 </script>
 
 <style scoped>
-/* Gaya Anda di sini */
+.formatted-text {
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  text-indent: -30px;
+}
+.formatted-text-materi {
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 0px;
+  text-indent: -25px;
+}
 </style>
