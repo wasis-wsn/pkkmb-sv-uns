@@ -11,24 +11,24 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 
-class ChatUpdate implements ShouldBroadcast
+class SendMessage implements ShouldBroadcast
 {
   use Dispatchable, InteractsWithSockets, SerializesModels;
 
-  public $chats;
+  public $message;
 
-  public function __construct($chats)
+  public function __construct($message)
   {
-      $this->chats = $chats;
+      $this->message = $message;
   }
 
   public function broadcastOn()
   {
-      return 'chats-update';
+      return 'chat'.$this->message->chat_id;
   }
 
   public function broadcastAs()
   {
-      return 'chats';
+      return 'my-messages';
   }
 }

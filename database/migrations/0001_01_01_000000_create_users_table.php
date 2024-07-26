@@ -54,18 +54,26 @@ return new class extends Migration {
             $table->string('role')->default('user');
             $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswa')->onDelete('cascade');
             $table->integer('unseen_messages')->nullable();
-            $table->enum('last_sender', ['admin', 'user']);
             $table->rememberToken();
             $table->timestamps();
         });
 
-        // Pesan Table
-        Schema::create('pesan', function (Blueprint $table) {
+        // chats
+        Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['text', 'file', 'image']);
-            $table->text('message');
-            $table->enum('sender', ['admin', 'customer']);
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->integer('unseen_messages')->nullable();
+            $table->enum('last_sender', ['admin', 'user']);
+            $table->timestamps();
+        });
+
+        // Pesan Table
+        Schema::create('messages', function (Blueprint $table) {
+            $table->id();
+            $table->enum('type',['text', 'file', 'image']);
+            $table->text('message');
+            $table->enum('sender', ['admin', 'user']);
+            $table->foreignId('chat_id')->references('id')->on('chats')->onDelete('cascade');
             $table->boolean('is_seen')->default(0);
             $table->timestamps();
         });
@@ -163,7 +171,8 @@ return new class extends Migration {
         Schema::dropIfExists('sponsor');
         Schema::dropIfExists('hima');
         Schema::dropIfExists('galeri');
-        Schema::dropIfExists('pesan');
+        Schema::dropIfExists('chats');
+        Schema::dropIfExists('messages');
         Schema::dropIfExists('users');
         Schema::dropIfExists('mahasiswa');
         Schema::dropIfExists('kelompok');

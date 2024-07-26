@@ -98,7 +98,7 @@
         </FormField>
 
         <FormField label="Role">
-            <FormControl v-model="form.role" :options="selectOptions" optionValue="label" placeholder="Select an option"/>
+            <FormControl v-model="form.role" :options="selectOptions" optionValue="value" placeholder="Select an option"/>
             <p v-if="errors.role" class="text-red-500 text-sm mt-0">
                 {{ errors.role }}
             </p>

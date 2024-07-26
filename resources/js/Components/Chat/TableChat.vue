@@ -1,37 +1,46 @@
 <script setup>
-import { computed, ref } from 'vue'
-import { useMainStore } from '@/Stores/main'
-import { mdiEye } from '@mdi/js'
-import CardBoxModal from '@/Components/CardBoxModal.vue'
-import BaseLevel from '@/Components/BaseLevel.vue'
-import BaseButtons from '@/Components/BaseButtons.vue'
-import BaseButton from '@/Components/BaseButton.vue'
+import { computed, ref, onMounted } from 'vue';
+import axios from 'axios';
+import { mdiEye } from '@mdi/js';
+import CardBoxModal from '@/Components/CardBoxModal.vue';
+import BaseLevel from '@/Components/BaseLevel.vue';
+import BaseButtons from '@/Components/BaseButtons.vue';
+import BaseButton from '@/Components/BaseButton.vue';
 
-const mainStore = useMainStore()
+const isModalActive = ref(false);
+const selectedClient = ref(null);
+const perPage = ref(5);
+const currentPage = ref(0);
+const items = ref([]);
 
-const items = computed(() => mainStore.clients)
-
-const isModalActive = ref(false)
-const selectedClient = ref(null)
-
-const perPage = ref(5)
-const currentPage = ref(0)
+const fetchUsers = async () => {
+  try {
+    const response = await axios.get('/pesan-admin');
+    items.value = response.data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+  }
+};
 
 const itemsPaginated = computed(() =>
   items.value.slice(perPage.value * currentPage.value, perPage.value * (currentPage.value + 1))
-)
+);
 
-const numPages = computed(() => Math.ceil(items.value.length / perPage.value))
+const numPages = computed(() => Math.ceil(items.value.length / perPage.value));
 
-const currentPageHuman = computed(() => currentPage.value + 1)  
+const currentPageHuman = computed(() => currentPage.value + 1);
 
 const pagesList = computed(() => {
-  const pagesList = []
+  const pagesList = [];
   for (let i = 0; i < numPages.value; i++) {
-    pagesList.push(i)
+    pagesList.push(i);
   }
-  return pagesList
-})
+  return pagesList;
+});
+
+onMounted(() => {
+  fetchUsers();
+});
 </script>
 
 <template>
@@ -48,7 +57,7 @@ const pagesList = computed(() => {
     <tbody>
       <tr v-for="client in itemsPaginated" :key="client.id">
         <td data-label="Nama Mahasiswa">
-          {{ client.title }}
+          {{ client.name }} <!-- Update dengan nama sesuai dengan field yang ada di response -->
         </td>
         <td class="before:hidden lg:w-1 whitespace-nowrap">
           <BaseButtons type="justify-start lg:justify-end" no-wrap>

@@ -8,33 +8,35 @@
   <main class="flex flex-col items-center pb-8 w-full text-base bg-white rounded-none">
     <section class="flex flex-col self-start ml-5 text-xl">
       <h1 class="font-bold text-black">Profile</h1>
-      <h2 class="mt-9 font-semibold leading-[155%] text-neutral-900">{{ user ? user.mahasiswa.nama_mahasiswa : 'Loading...' }}</h2>
-      <p class="mt-2 text-xs leading-4 text-neutral-500">@{{ user ? user.email : 'Loading...' }}</p>
+      <h2 class="mt-9 font-semibold leading-[155%] text-neutral-900">{{ user ? user.mahasiswa?.nama_mahasiswa || 'N/A' : 'Loading...' }}</h2>
+      <p class="mt-2 text-xs leading-4 text-neutral-500">@{{ user ? user.email || 'N/A' : 'Loading...' }}</p>
     </section>
     <dl class="w-full mt-12 px-5">
       <div class="flex gap-2.5 justify-between max-w-full font-medium leading-[155%] text-neutral-900">
         <dt>Nama</dt>
-        <dd>{{ user ? user.mahasiswa.nama_mahasiswa : 'Loading...' }}</dd>
+        <dd>{{ user ? user.mahasiswa?.nama_mahasiswa || 'N/A' : 'Loading...' }}</dd>
       </div>
       <div class="flex gap-2.5 justify-between mt-4 max-w-full font-medium leading-[155%] text-neutral-900">
         <dt>Kelompok</dt>
-        <dd>{{ user ? user.mahasiswa.kelompok.nama_kelompok : 'Loading...' }}</dd>
+        <dd>{{ user ? user.mahasiswa?.kelompok?.nama_kelompok || 'N/A' : 'Loading...' }}</dd>
       </div>
       <div class="flex gap-2.5 justify-between mt-4 max-w-full font-medium leading-[155%] text-neutral-900">
         <dt>Program Studi</dt>
-        <dd>{{ user ? user.mahasiswa.prodi.nama_prodi : 'Loading...' }}</dd>
+        <dd>{{ user ? user.mahasiswa?.prodi?.nama_prodi || 'N/A' : 'Loading...' }}</dd>
       </div>
     </dl>
     <hr class="self-stretch mt-5 w-full border border-solid bg-neutral-900 bg-opacity-10 border-neutral-900 border-opacity-10 min-h-[1px]" />
     <nav class="w-full mt-5">
       <ul>
-        <li v-if="user && user.role == 'admin'" class="flex gap-2.5 justify-between px-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
+        <!-- Show Dashboard for Admin -->
+        <li v-if="user && user.role === 'admin'" class="flex gap-2.5 justify-between px-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
           <a href="/dashboard" class="flex items-center justify-between w-full">
             Dashboard
             <ChevronRightIcon class="w-5 h-5"/>
           </a>
         </li>
-        <li v-if="user && user.role !== 'admin'" class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
+        <!-- Show Profile Settings for Users -->
+        <li v-if="user && user.role === 'user'" class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
           <a href="/profile" class="flex items-center justify-between w-full">
             Profile Settings
             <ChevronRightIcon class="w-5 h-5"/>
@@ -52,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import axios from 'axios';
 import { router } from "@inertiajs/vue3";
 import { UserCircleIcon, ChevronRightIcon, XMarkIcon } from '@heroicons/vue/24/solid';
@@ -68,7 +70,7 @@ const fetchUserData = async () => {
   }
 };
 
-onMounted(() => {
+onBeforeMount(() => {
   fetchUserData();
 });
 

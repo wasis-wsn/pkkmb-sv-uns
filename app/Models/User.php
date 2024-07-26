@@ -26,7 +26,6 @@ class User extends Authenticatable
         'role',
         'mahasiswa_id',
         'unseen_messages',
-        'last_sender'
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -56,11 +55,7 @@ class User extends Authenticatable
         return $this->belongsTo(Mahasiswa::class);
     }
 
-    public function pesan(){
-        return $this->hasMany(Pesan::class);
-    }
-
-    public function unseen_messages(){
-        return $this->messages()->where('sender', 'customer')->where('is_seen', 0);
+    public function chat(){
+        return $this->hasMany(Chat::class);
     }
 }
