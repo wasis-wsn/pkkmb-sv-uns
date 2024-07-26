@@ -18,6 +18,10 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    mahasiswa: {
+        type: Object,
+        required: true,
+    },
 });
 
 const form = useForm({
@@ -151,7 +155,7 @@ const submitEmail = () => {
 
 // Telepon
 const formTelepon = useForm({
-    no_telp: "",
+    no_telp: props.mahasiswa.no_telp || "",
 });
 
 const resetTelepon = () => {

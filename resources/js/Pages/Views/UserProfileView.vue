@@ -39,18 +39,18 @@
                                         {{ user ? user.email : "Loading..." }}
                                     </h1>
                                     <h1 class="text-2xl">
-                                        {{                                         
-                                        user
+                                        {{
+                                            user
                                                 ? user.mahasiswa.no_telp
-                                                : "Loading..."  
-                                        }}                                   
+                                                : "Loading..."
+                                        }}
                                     </h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <FormEmail :skills="skills" />
+                <FormEmail :skills="skills" :mahasiswa="mahasiswa" />
                 <TableSkill :data="data" :skills="skills" />
                 <!-- <section>
                     <div class="flex flex-col items-center justify-center text-center">
@@ -81,6 +81,10 @@ defineProps({
     },
     skills: {
         type: Array,
+        required: true,
+    },
+    mahasiswa: {
+        type: Object,
         required: true,
     },
 });

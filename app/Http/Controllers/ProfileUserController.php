@@ -52,6 +52,7 @@ class ProfileUserController extends Controller
         return Inertia::render('Views/UserProfileView', [
             'user' => $user,
             'data' => $userSkills,
+            'mahasiswa' => $mahasiswa,
             'skills' => $skills,
         ]);
     }
