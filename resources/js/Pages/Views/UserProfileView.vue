@@ -10,7 +10,7 @@
                     main
                 />
                 <section
-                    class="flex flex-col items-start px-16 pt-14 pb-6 mt-3 rounded-3xl bg-slate-100 max-md:px-5 max-md:mt-10 border border-gray-300"
+                    class="flex flex-col items-start px-16 pt-14 pb-6 mt-3 rounded-3xl bg-slate-100 max-md:px-5 max-md:mt-10 border border-gray-300 mb-5 md:mb-0"
                 >
                     <div class="px-0.5 ml-20 max-md:ml-0">
                         <div class="flex gap-5 max-md:flex-col">

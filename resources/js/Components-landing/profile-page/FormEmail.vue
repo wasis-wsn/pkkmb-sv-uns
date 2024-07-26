@@ -166,9 +166,11 @@ const resetTelepon = () => {
 
 const validateformTelepon = () => {
     errors.value = {};
+    const phonePattern = /^[0-9]*$/;
     if (!formTelepon.no_telp) {
-        // Corrected validation field
-        errors.value.no_telp = "Email is required konzz.";
+        errors.value.no_telp = "Telepon is required.";
+    } else if (!phonePattern.test(formTelepon.no_telp)) {
+        errors.value.no_telp = "Nomor telepon harus terdiri dari angka saja.";
     }
     return Object.keys(errors.value).length === 0;
 };
@@ -398,6 +400,9 @@ const customFormFieldStyle = {
                     :icon="mdiMail"
                     name="no_telp"
                     required
+                    type="tel"
+                    pattern="[0-9]*"
+                    @input="validateformTelepon"
                 />
             </FormField>
             <p v-if="errors.no_telp" class="text-red-500 text-sm">

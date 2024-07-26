@@ -57,29 +57,6 @@ class ProfileUserController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the user's profile.
-     */
-    // Store Skill
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'deskripsi_skill' => 'required',
-    //         'photo_piagam' => 'required',
-    //         'skill_id' => 'required',
-    //     ]);
-
-    //     $mahasiswa = Auth::user()->mahasiswa;
-
-    //     $keterangan = new KeteranganSkill();
-    //     $keterangan->deskripsi_skill = $request->deskripsi_skill;
-    //     $keterangan->photo_piagam = $request->photo_piagam;
-    //     $keterangan->skill_id = $request->skill_id;
-    //     $keterangan->mahasiswa_id = $mahasiswa->id;
-    //     $keterangan->save();
-
-    //     return Redirect::route('profile')->with('success', 'Skill added successfully.');
-    // }
 
     // Store Email
     public function storeEmail(Request $request)
@@ -129,17 +106,6 @@ class ProfileUserController extends Controller
         }
     }
 
-
-
-    public function edit(Request $request): Response
-    {
-        return Inertia::render('Views/UserProfileView', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
-            'successMessage' => session('success'),
-            'errorMessage' => session('error'),
-        ]);
-    }
 
     /**
      * Update the user's profile information.
