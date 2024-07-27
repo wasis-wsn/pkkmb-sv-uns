@@ -12,6 +12,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/email', [ProfileUserController::class, 'storeEmail'])->name('profileEmail.store');
     Route::post('/profile/telepon', [ProfileUserController::class, 'storeTelepon'])->name('profileTelepon.store');
     Route::put('/profile/skill/{id}', [KeteranganController::class, 'updateUser'])->name('profileSkill.update');
+    Route::put('/profile/password', [ProfileUserController::class, 'updatePassword'])->name('profilePassword.update');
     Route::delete('/profile/skill/{id}', [KeteranganController::class, 'destroyUser'])->name('profileSkill.destroy');
     Route::get('/data-skill', [ProfileUserController::class, 'getSkillData']);
 });
