@@ -12,6 +12,7 @@ import {
     mdiClipboardText,
     mdiForum,
     mdiAccountDetails,
+    mdiAccountFileText,
 } from "@mdi/js";
 
 export default [
@@ -78,13 +79,13 @@ export default [
             },
             {
                 route: "skill",
-                label: "Skill",
+                label: "Daftar Skill",
                 icon: mdiBookOpenVariant,
             },
             {
                 route: "keterangan",
-                label: "Keterangan Skill",
-                icon: mdiBookOpenVariant,
+                label: "Skill Mahasiswa",
+                icon: mdiAccountFileText,
             },
             {
                 route: "mahasiswa",

@@ -16,6 +16,12 @@
     import BaseButton from "@/Components/BaseButton.vue";
     import BaseButtons from "@/Components/BaseButtons.vue";
 
+    const props = defineProps({
+        mahasiswa: {
+            type: Array,
+            required: true,
+        },
+    });
     const selectOptions = [{
             label: "Admin",
             value: "admin"
@@ -102,6 +108,16 @@
             <p v-if="errors.role" class="text-red-500 text-sm mt-0">
                 {{ errors.role }}
             </p>
+        </FormField>
+
+        <FormField label="Mahasiswa">
+            <FormControl
+                v-model.string="form.mahasiswa_id"
+                :options="mahasiswa"
+                optionLabel="nama_mahasiswa"
+                optionValue="id"
+                placeholder="Pilih Mahasiswa"
+            />
         </FormField>
 
         <template #footer>

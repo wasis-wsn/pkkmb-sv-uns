@@ -1,7 +1,10 @@
 <template>
     <div class="bg-white p-4 mt-8 rounded-lg shadow-md overflow-x-auto" data-aos="fade-down">
-        <h1 class="text-gray-600 text-lg text-left mb-4">
+        <h1 class="text-gray-600 text-lg text-left">
             Tolong untuk upload file tugas kalian disini sesuai dengan kelompok masing-masing.
+        </h1>
+        <h1 class="text-gray-600 text-lg text-left mb-4">
+            Upload File mu lagi jika ingin update/merubahnya.
         </h1>
         <!-- Upload form or uploaded files -->
         <div v-if="uploadedFiles.length === 0">

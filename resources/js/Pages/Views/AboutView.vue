@@ -172,39 +172,39 @@
   <div class="container mx-auto py-10">
     <h2 class="text-3xl font-bold text-center mb-6" data-aos="fade-up">Our Developers</h2>
     <div class="flex flex-wrap justify-center items-center text-center mx-auto">
-      <div
-        class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@assets/dev(ardya)/chamber.png" alt="Wasis Wicaksono"
+      <a href="https://www.instagram.com/wasis.wsn/"
+        class="cursor-pointer developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
+        <img src="@assets/dev/chamber.png" alt="Wasis Wicaksono"
           class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Wasis</div>
-      </div>
-      <div
-        class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@assets/dev(ardya)/raze.png" alt="Ardya Pusaka" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
+      </a>
+      <a href="https://www.instagram.com/ardyavnx/"
+        class="cursor-pointer developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
+        <img src="@assets/dev/raze.png" alt="Ardya Pusaka" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Ardya</div>
-      </div>
-      <div
-        class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@assets/dev(ardya)/sova.png" alt="Muhammad Raihan"
+      </a>
+      <a href="https://www.instagram.com/raihan.m26/"
+        class="cursor-pointer developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
+        <img src="@assets/dev/sova.png" alt="Muhammad Raihan"
           class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Raihan</div>
-      </div>
-      <div
-        class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@assets/dev(ardya)/reyna.png" alt="Michael Jamie" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
+      </a>
+      <a href="https://www.instagram.com/ini_mikhael/"
+        class="cursor-pointer developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
+        <img src="@assets/dev/reyna.png" alt="Michael Jamie" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Michael</div>
-      </div>
-      <div
-        class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@assets/dev(ardya)/chyper.png" alt="Muhamad Prayoga"
+      </a>
+      <a href="https://www.instagram.com/y.yoggaaa/"
+        class="cursor-pointer developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
+        <img src="@assets/dev/chyper.png" alt="Muhamad Prayoga"
           class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Yoga</div>
-      </div>
-      <div
-        class="developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
-        <img src="@assets/dev(ardya)/Sage.png" alt="Ariel Wage" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
+      </a>
+      <a href="https://www.instagram.com/ariel_wage_p/"
+        class="cursor-pointer developer m-4 flex flex-col items-center bg-gray-100 p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-40 h-40">
+        <img src="@assets/dev/Sage.png" alt="Ariel Wage" class="foto1 bg-gray-100 w-24 h-24 rounded-full" />
         <div class="nama text-lg font-medium">Ariel</div>
-      </div>
+      </a>
     </div>
   </div>
 </LayoutHeaderFooter>

@@ -75,9 +75,9 @@
 </template>
 
 <script setup>
-  import KelompokSectionView from "../../Components-landing/kelompok-page/KelompokSectionView.vue";
-  import UploadTugasView from "../../Components-landing/kelompok-page/UploadTugasView.vue";
-  import LayoutHeaderFooter from "../../Layouts/LayoutHeaderFooter.vue";
+  import KelompokSectionView from "@/Components-landing/kelompok-page/KelompokSectionView.vue";
+  import UploadTugasView from "@/Components-landing/kelompok-page/UploadTugasView.vue";
+  import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
 
   import AOS from "aos";
   import "aos/dist/aos.css";

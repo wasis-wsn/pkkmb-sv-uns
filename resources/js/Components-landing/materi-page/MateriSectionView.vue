@@ -57,9 +57,9 @@
             <div data-aos="fade-up" class="text-[16px] md:text-[20px]">
               <h3>{{ item.deskripsi_materi }}</h3>
               <ol class="list-decimal list-outside pl-5 space-y-4">
-                <li v-for="(paragraph, index) in splitParagraphs(item.isi_materi)" :key="index" class="formatted-text-materi text-justify">
+                <h3 v-for="(paragraph, index) in splitParagraphs(item.isi_materi)" :key="index" class="formatted-text-materi text-justify">
                   {{ paragraph }}
-                </li>
+                </h3>
               </ol>
             </div>
           </div>
@@ -98,7 +98,7 @@ const filteredMateri = ref([]);
 // Fetch materi data
 const getMateri = async () => {
   try {
-    const response = await axios.get('/materi/all');
+    const response = await axios.get('/data-materi');
     console.log('Materi data:', response.data.data); // Debugging line
     if (response.data.data.length > 0) {
       firstMateri.value = response.data.data[0];
@@ -136,7 +136,7 @@ onBeforeMount(() => {
   text-indent: -30px;
 }
 .formatted-text-materi {
-  display: block;
+  /* display: block; */
   margin-bottom: 10px;
   padding-left: 0px;
   text-indent: -25px;

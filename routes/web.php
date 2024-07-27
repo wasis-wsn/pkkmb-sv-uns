@@ -24,8 +24,6 @@ Route::get('/', function () {
 Route::get('/materi', function () {
     return Inertia::render('Views/MateriView');
 })->name('materi');
-// Add this route in web.php
-Route::get('/materi/all', [MateriController::class, 'getAllMateri'])->name('materi.all');
 
 Route::get('/kelompok', function () {
     return Inertia::render('Views/KelompokView');
@@ -39,12 +37,8 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
-// Route::get('/profile', function () {
-//     return Inertia::render('Views/UserProfileView');
-// })->name('profile');
-
 // Route untuk dashboard dan halaman terproteksi
-Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 
     Route::get('/dashboard', function () {
         return Inertia::render('DashboardView');

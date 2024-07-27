@@ -18,7 +18,11 @@
         type: Array,
         required: true,
     },
-});
+    mahasiswa: {
+        type: Array,
+        required: true,
+    },
+    });
 
 </script>
 
@@ -28,7 +32,7 @@
         <Head title="user" />
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiBallotOutline" title="Form User" main></SectionTitleLineWithButton>
-            <FormUser />
+            <FormUser :mahasiswa="mahasiswa" />
         </SectionMain>
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiTableBorder" title="User Data" main>

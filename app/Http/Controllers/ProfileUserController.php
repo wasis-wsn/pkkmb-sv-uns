@@ -42,6 +42,11 @@ class ProfileUserController extends Controller
     {
         $user = Auth::user();
         $mahasiswa = $user->mahasiswa;
+
+        if (!$mahasiswa) {
+            return Redirect::to('/');
+        }
+        
         $skills = Skill::all();
 
         // Fetch only the skills associated with the logged-in user
@@ -56,30 +61,6 @@ class ProfileUserController extends Controller
             'skills' => $skills,
         ]);
     }
-
-    /**
-     * Show the form for editing the user's profile.
-     */
-    // Store Skill
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'deskripsi_skill' => 'required',
-    //         'photo_piagam' => 'required',
-    //         'skill_id' => 'required',
-    //     ]);
-
-    //     $mahasiswa = Auth::user()->mahasiswa;
-
-    //     $keterangan = new KeteranganSkill();
-    //     $keterangan->deskripsi_skill = $request->deskripsi_skill;
-    //     $keterangan->photo_piagam = $request->photo_piagam;
-    //     $keterangan->skill_id = $request->skill_id;
-    //     $keterangan->mahasiswa_id = $mahasiswa->id;
-    //     $keterangan->save();
-
-    //     return Redirect::route('profile')->with('success', 'Skill added successfully.');
-    // }
 
     // Store Email
     public function storeEmail(Request $request)

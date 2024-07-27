@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
@@ -28,7 +29,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return Inertia::render('UserView', ['data' => $users]);
+        $mahasiswa = Mahasiswa::all();
+        return Inertia::render('UserView', ['data' => $users, 'mahasiswa' => $mahasiswa]);
     }
 
     public function userExport() 
@@ -37,25 +39,28 @@ class UserController extends Controller
     }
 
     public function userImport(Request $request)
-{
-    try {
-        // Validate the file
-        $request->validate([
-            'file_user' => 'required|file|mimes:xlsx,xls',
-        ]);
+    {
+        try {
+            // Validate the file
+            $request->validate([
+                'file_user' => 'required|file|mimes:xlsx,xls',
+            ]);
 
-        $file = $request->file('file_user');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('DataUser', $namaFile);
+            $file = $request->file('file_user');
+            $namaFile = $file->getClientOriginalName();
+            $file->move('DataUser', $namaFile);
 
-        // Import the data
-        Excel::import(new UserImport, public_path('/DataUser/'.$namaFile));
-        return redirect('/dashboard/user')->with('success', 'Data berhasil diimport');
-    } catch (\Exception $e) {
-        // Optionally, you can return the error message for debugging purposes
-        return redirect('/dashboard/user')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
+            // Import the data
+            Excel::import(new UserImport, public_path('/DataUser/'.$namaFile));
+                    // Run the command to hash passwords
+            \Artisan::call('users:hash-passwords');
+            return redirect('/dashboard/user')->with('success', 'Data berhasil diimport');
+        } catch (\Exception $e) {
+            // Optionally, you can return the error message for debugging purposes
+            return redirect('/dashboard/user')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
+        }
     }
-}   
+    
     /**
      * Handle an incoming registration request.
      *
@@ -67,17 +72,16 @@ class UserController extends Controller
             'username' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string',
-            'role' => 'required|string'
+            'role' => 'required|string',
+            'mahasiswa' => 'required|string'
         ]);
-
-        $mahasiswa = Auth::user();
 
         $user = User::create([
             'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
             'role' => $validatedData['role'],
-            'mahasiswa_id' => $mahasiswa ? $mahasiswa->id : null,
+            'mahasiswa_id' => $validatedData['mahasiswa'],
         ]);
 
         return redirect()->route('user');

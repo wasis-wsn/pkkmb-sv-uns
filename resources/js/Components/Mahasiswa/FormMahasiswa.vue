@@ -6,7 +6,6 @@ import FormField from "@/Components/FormField.vue";
 import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import BaseButtons from "@/Components/BaseButtons.vue";
-import FormFilePicker from "@/Components/FormFilePicker.vue";
 
 const props = defineProps({
     prodi: {
@@ -24,9 +23,6 @@ const form = useForm({
     no_telp: "",
     prodi_id: "",
     kelompok_id: "",
-    // nama_skill: "",
-    // deskripsi_skill: "",
-    // photo_piagam: null,
 });
 
 const errors = ref({});
@@ -47,9 +43,6 @@ const validateForm = () => {
     if (!form.kelompok_id) {
         errors.value.kelompok_id = "Kelompok is required.";
     }
-    // if (!form.photo_piagam) {
-    //     errors.value.photo_piagam = "Photo Piagam is required.";
-    // }
     return Object.keys(errors.value).length === 0;
 };
 
