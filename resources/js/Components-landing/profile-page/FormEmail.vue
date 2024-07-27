@@ -10,6 +10,7 @@ import BaseButtons from "@/Components/BaseButtons.vue";
 import BaseDivider from "@/Components/BaseDivider.vue";
 import { useForm, usePage } from "@inertiajs/vue3";
 import FormFilePicker from "@/Components/FormFilePicker.vue";
+import NotificationBar from "@/Components/NotificationBar.vue";
 
 // Form Deskripsi Skill
 // Definisi props
@@ -166,9 +167,11 @@ const resetTelepon = () => {
 
 const validateformTelepon = () => {
     errors.value = {};
+    const phonePattern = /^[0-9]*$/;
     if (!formTelepon.no_telp) {
-        // Corrected validation field
-        errors.value.no_telp = "Email is required konzz.";
+        errors.value.no_telp = "Telepon is required.";
+    } else if (!phonePattern.test(formTelepon.no_telp)) {
+        errors.value.no_telp = "Nomor telepon harus terdiri dari angka saja.";
     }
     return Object.keys(errors.value).length === 0;
 };
@@ -189,19 +192,90 @@ const submitTelepon = () => {
     }
 };
 
-const passwordForm = ref({
+// pASSWORD
+const userpW = usePage().props.auth.user;
+const notificationsOutline = ref(true);
+const notificationMessage = ref(null);
+const notificationType = ref("");
+const passwordForm = useForm({
     current_password: "",
     password: "",
     password_confirmation: "",
 });
 
-const submitProfile = () => {
-    // Logic to submit profile
+const validatePasswordForm = () => {
+    let isValid = true;
+
+    if (!passwordForm.current_password) {
+        handleErrorResponse("Current password is required.");
+        isValid = false;
+    }
+    if (!passwordForm.password) {
+        handleErrorResponse("New password is required.");
+        isValid = false;
+    } else if (passwordForm.password.length < 8) {
+        handleErrorResponse("New password must be at least 8 characters long.");
+        isValid = false;
+    }
+    if (!passwordForm.password_confirmation) {
+        handleErrorResponse("Password confirmation is required.");
+        isValid = false;
+    } else if (passwordForm.password !== passwordForm.password_confirmation) {
+        handleErrorResponse("Password confirmation does not match.");
+        isValid = false;
+    }
+    return isValid;
 };
 
 const submitPass = () => {
-    // Logic to submit password
+    if (validatePasswordForm()) {
+        passwordForm.put(route("profilePassword.update"), {
+            preserveScroll: true,
+            onSuccess: () =>
+                handleSuccessResponse("Password updated successfully."),
+            onError: (errors) => {
+                if (errors.current_password) {
+                    handleErrorResponse(errors.current_password);
+                } else {
+                    handleErrorResponse(
+                        "An error occurred while updating the password."
+                    );
+                }
+            },
+        });
+    }
 };
+
+const handleSuccessResponse = (message) => {
+    notificationMessage.value = message;
+    notificationType.value = "success";
+    setTimeout(dismissNotification, 3000);
+};
+
+const handleErrorResponse = (message) => {
+    notificationMessage.value = message;
+    notificationType.value = "danger";
+    setTimeout(dismissNotification, 3000);
+};
+
+const dismissNotification = () => {
+    notificationMessage.value = null;
+    notificationType.value = "";
+};
+
+const resetPass = () => {
+    passwordForm.reset();
+    dismissNotification();
+};
+
+onMounted(() => {
+    if (usePage().props.flash && usePage().props.flash.success) {
+        handleSuccessResponse(usePage().props.flash.success);
+    }
+    if (usePage().props.flash && usePage().props.flash.error) {
+        handleErrorResponse(usePage().props.flash.error);
+    }
+});
 
 const customCardBoxStyle = {
     backgroundColor: "#f1f5f9", // Warna latar belakang yang Anda inginkan
@@ -216,7 +290,29 @@ const customFormFieldStyle = {
 </script>
 
 <template>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8 max-md:mt-0">
+    <!-- Notification Bars -->
+    <div class="mt-2">
+        <NotificationBar
+            v-if="notificationMessage && notificationType === 'success'"
+            color="success"
+            :icon="mdiCheckCircle"
+            :outline="notificationsOutline"
+            @dismiss="dismissNotification"
+        >
+            {{ notificationMessage }}
+        </NotificationBar>
+
+        <NotificationBar
+            v-if="notificationMessage && notificationType === 'danger'"
+            color="danger"
+            :icon="mdiAlertCircle"
+            :outline="notificationsOutline"
+            @dismiss="dismissNotification"
+        >
+            {{ notificationMessage }}
+        </NotificationBar>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-5 max-md:mt-0">
         <CardBox
             :style="customCardBoxStyle"
             is-form
@@ -240,7 +336,7 @@ const customFormFieldStyle = {
             <FormField
                 :style="customFormFieldStyle"
                 label="New password"
-                help="Required. New password"
+                help="Required. New password (minimum 8 characters)"
             >
                 <FormControlProfile
                     v-model="passwordForm.password"
@@ -271,14 +367,14 @@ const customFormFieldStyle = {
                         type="submit"
                         color="success"
                         label="Submit"
-                        @click="submit"
+                        @click="submitPass"
                     />
                     <BaseButton
                         type="reset"
                         color="danger"
                         outline
                         label="Reset"
-                        @click="reset"
+                        @click="resetPass"
                     />
                 </BaseButtons>
             </template>
@@ -398,6 +494,9 @@ const customFormFieldStyle = {
                     :icon="mdiMail"
                     name="no_telp"
                     required
+                    type="tel"
+                    pattern="[0-9]*"
+                    @input="validateformTelepon"
                 />
             </FormField>
             <p v-if="errors.no_telp" class="text-red-500 text-sm">
