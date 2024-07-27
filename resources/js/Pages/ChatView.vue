@@ -7,6 +7,13 @@
     } from '@inertiajs/vue3'
     import TableChat from '@/Components/Chat/TableChat.vue'
     import FormChat from '@/Components/Chat/FormChat.vue'
+
+    const props = defineProps({
+        data: {
+            type: Array,
+            required: true,
+        },
+    });
 </script>
 
 <template>
@@ -15,7 +22,7 @@
         <div class="flex grid-cols-2 gap-4">
             <SectionMain class="flex">
                 <CardBox>
-                    <TableChat />
+                    <TableChat :data="data"/>
                 </CardBox>
             </SectionMain>
             <SectionMain class="flex-1">

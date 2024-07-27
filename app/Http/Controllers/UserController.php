@@ -73,7 +73,7 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string',
             'role' => 'required|string',
-            'mahasiswa' => 'required|string'
+            'mahasiswa' => 'nullable|string'
         ]);
 
         $user = User::create([
@@ -81,7 +81,7 @@ class UserController extends Controller
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
             'role' => $validatedData['role'],
-            'mahasiswa_id' => $validatedData['mahasiswa'],
+            'mahasiswa_id' => $validatedData['mahasiswa'] ?? null,
         ]);
 
         return redirect()->route('user');

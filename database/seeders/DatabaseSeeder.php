@@ -31,6 +31,8 @@ class DatabaseSeeder extends Seeder
             SponsorSeeder::class,
             FeedbackSeeder::class,
             MateriSeeder::class,
+            ChatSeeder::class,
+            MessageSeeder::class,
         ]);
     }
 }

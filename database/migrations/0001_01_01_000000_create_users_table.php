@@ -58,18 +58,18 @@ return new class extends Migration {
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->integer('unseen_messages')->nullable();
             $table->enum('last_sender', ['admin', 'user']);
+            $table->integer('unseen_messages')->nullable();
             $table->timestamps();
         });
 
         // Pesan Table
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('chat_id')->references('id')->on('chats')->onDelete('cascade');
             $table->enum('type',['text', 'file', 'image']);
             $table->text('message');
             $table->enum('sender', ['admin', 'user']);
-            $table->foreignId('chat_id')->references('id')->on('chats')->onDelete('cascade');
             $table->boolean('is_seen')->default(0);
             $table->timestamps();
         });
@@ -83,8 +83,6 @@ return new class extends Migration {
             $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->onDelete('cascade'); // Ubah nama tabel ke 'mahasiswas'
             $table->timestamps();
         });
-        
-
 
         // Galeri Table
         Schema::create('galeri', function (Blueprint $table) {

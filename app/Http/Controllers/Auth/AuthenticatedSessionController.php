@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Session;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -18,8 +19,31 @@ class AuthenticatedSessionController extends Controller
      */    
     public function getSessionData(Request $request)
     {
-        dd($request->session()->all());
+        $userId = Auth::id();
+        $session = Session::where('user_id', $userId)
+            ->orderBy('last_activity', 'desc')
+            ->first();
+    
+        if ($session) {
+            // Konversi Carbon object ke timestamp integer
+            $timestamp = $session->last_activity->timestamp;
+            
+            // Format last activity timestamp
+            $formattedLastActivity = date('d-m-Y', $timestamp);
+    
+            return response()->json([
+                'session' => [
+                    'last_activity' => $formattedLastActivity,
+                    'ip_address' => $session->ip_address,
+                ],
+            ]);
+        }
+    
+        return response()->json([
+            'session' => null,
+        ]);
     }
+    
 
     /**
      * Get Loggedin User.

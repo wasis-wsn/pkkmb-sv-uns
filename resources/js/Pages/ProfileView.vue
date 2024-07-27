@@ -80,6 +80,7 @@
           </template>
         </CardBox>
 
+        <!-- Password Form -->
         <CardBox is-form @submit.prevent="submitPass">
           <FormField label="Current password" help="Required. Your current password">
             <FormControl
@@ -94,7 +95,7 @@
 
           <BaseDivider />
 
-          <FormField label="New password" help="Required. New password">
+          <FormField label="New password" help="Required. New password (min 8 characters)">
             <FormControl
               v-model="passwordForm.password"
               :icon="mdiFormTextboxPassword"
@@ -150,7 +151,7 @@
 <script setup>
 import { Head, useForm, usePage } from '@inertiajs/vue3';
 import { ref, onMounted } from 'vue';
-import { mdiAccount, mdiMail, mdiAsterisk, mdiFormTextboxPassword, mdiInformation, mdiCheckCircle, mdiAlert, mdiAlertCircle, mdiContrastCircle } from '@mdi/js';
+import { mdiAccount, mdiMail, mdiAsterisk, mdiFormTextboxPassword, mdiInformation, mdiCheckCircle, mdiAlert, mdiAlertCircle } from '@mdi/js';
 import SectionMain from '@/Components/SectionMain.vue';
 import CardBox from '@/Components/CardBox.vue';
 import BaseDivider from '@/Components/BaseDivider.vue';
@@ -187,13 +188,13 @@ const form = useForm({
 const handleSuccessResponse = (message) => {
   notificationMessage.value = message;
   notificationType.value = 'success';
-  setTimeout(dismissNotification, 3000); // Menyembunyikan notifikasi setelah 3 detik
+  setTimeout(dismissNotification, 3000); // Hide notification after 3 seconds
 };
 
 const handleErrorResponse = (message) => {
   notificationMessage.value = message;
   notificationType.value = 'danger';
-  setTimeout(dismissNotification, 3000); // Menyembunyikan notifikasi setelah 3 detik
+  setTimeout(dismissNotification, 3000); // Hide notification after 3 seconds
 };
 
 const dismissNotification = () => {
@@ -209,11 +210,33 @@ const submitProfile = () => {
 };
 
 const submitPass = () => {
-  passwordForm.put(route('password.update'), {
+  if (passwordForm.current_password.length === 0) {
+    handleErrorResponse('Current password is required.');
+    return;
+  }
+
+  if (passwordForm.password.length < 8) {
+    handleErrorResponse('New password must be at least 8 characters long.');
+    return;
+  }
+
+  if (passwordForm.password !== passwordForm.password_confirmation) {
+    handleErrorResponse('Passwords do not match.');
+    return;
+  }
+
+  passwordForm.post(route('password.update'), {
     onSuccess: () => handleSuccessResponse('Password updated successfully.'),
-    onError: (errors) => handleErrorResponse(errors[0]),
+    onError: (errors) => {
+      if (errors.current_password) {
+        handleErrorResponse(errors.current_password);
+      } else {
+        handleErrorResponse(errors[0]);
+      }
+    },
   });
 };
+
 
 const submitDelete = () => {
   form.delete(route('profile.delete'), {

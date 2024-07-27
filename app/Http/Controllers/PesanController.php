@@ -2,33 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\ChatUpdate;
-use App\Events\MessageSent;
-use App\Models\Message;
 use App\Models\Chat;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
+use Ilmedova\Chattle\app\Events\ChatUpdate;
+use Ilmedova\Chattle\app\Events\SendMessage;
 
 class PesanController extends Controller
 {
-    public function adminMessages(Request $request)
+    public function adminMessages()
     {
         $chats = Chat::withCount('unseen_messages')->orderBy('unseen_messages_count', 'desc')->paginate(10);
-        return response()->json($chats, 200);
+        return Inertia::render('ChatView', [
+            'chats' => $chats
+        ]);
     }
 
-    public function createChat(Request $request)
+    public function postChats(Request $request)
     {
-        $user = Auth::user();
         $chat = Chat::create([
-            'user_id' => $user->id,
             'unseen_messages'   => 0,
             'last_sender'       => 'customer'
         ]);
         return response()->json($chat, 200);
     }
 
-    public function getChats(){
+    public function getChats()
+    {
         $chats = Chat::withCount('unseen_messages')->orderBy('unseen_messages_count', 'desc')->paginate(10);
         return response()->json($chats, 200);
     }
@@ -41,19 +43,14 @@ class PesanController extends Controller
             $message->save();
         }
         $chats = Chat::withCount('unseen_messages')->orderBy('unseen_messages_count', 'desc')->paginate(10);
-        event(new ChatUpdate($chats));
-        return response()->json($messages, 200);
+        return response()->json(['messages' => $messages, 'chats' => $chats], 200);
     }
 
     public function postMessage(Request $request)
     {
-        $request->validate([
-            'message' => 'required|string',
-            'sender'  => 'required|string'
-        ]);
-
         $message = Message::create([
-            'type'    => 'text',
+            'chat_id' => $request->chat_id,
+            'type'    => $request->type,
             'message' => $request->message,
             'is_seen' => 0,
             'sender'  => $request->sender
@@ -63,13 +60,14 @@ class PesanController extends Controller
             $chats = Chat::withCount('unseen_messages')->orderBy('unseen_messages_count', 'desc')->paginate(10);
             event(new ChatUpdate($chats));
         }
-        return response($message, 200);
+        return response()->json($message, 200);
     }
 
     public function destroy($id)
     {
-        Pesan::destroy($id);
+        Message::destroy($id);
         return response()->json(['message' => 'Message deleted successfully'], 200);
     }
 }
+
 
