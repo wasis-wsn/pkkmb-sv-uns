@@ -19,8 +19,12 @@ class MateriSeeder extends Seeder
         Materi::create([
             'user_id' => $user->id,
             'judul_materi' => 'BUKU IMPLEMENTASI NILAI ASKARA MUDA',
-            'deskripsi_materi' => 'Petunjuk Umum Implentasi Nilai :',
-            'isi_materi' => '1. Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.
+            'deskripsi_materi' => 'Hallo Vocazens! Materi ini berisi
+Buku Implementasi Nilai Askara Muda
+yang digunakan sebagai materi dalam kegiatan
+PKKMB SV UNS 2024.',
+            'isi_materi' => 'Petunjuk Umum Implentasi Nilai :
+            1. Askara Muda adalah sebutan untuk Mahasiswa Baru yang mengikuti PKKMB SV UNS Askara 2023.
 2. Seluruh Implementasi Nilai bersifat WAJIB.
 3. Implementasi nilai diberikan sebagai penunjang penanaman nilai-nilai dan visi misi dari PKKMB SV UNS 2023, yaitu Jiwa Berkarakter, Kreatifitas Tanpa Batas, Inovasi Mendunia.
 4. Implementasi nilai menjadi indikator kelulusan PKKMB SV UNS 2023 bagi mahasiswa baru. 
@@ -38,8 +42,11 @@ class MateriSeeder extends Seeder
         Materi::create([
             'user_id' => $user->id,
             'judul_materi' => 'TWIBBON',
-            'deskripsi_materi' => 'Nama Implementasi nilai : Twibbon “Digitalisasi Askara Muda”',
-            'isi_materi' => 'Kategori: Individu
+            'deskripsi_materi' => 'Hallo Vocazens! Materi yang pertama berisi
+Tugas Twibbon sebagai tugas dalam kegiatan 
+PKKMB SV UNS 2024',
+            'isi_materi' => 'Nama Implementasi nilai : Twibbon “Digitalisasi Askara Muda”
+            Kategori: Individu
 Ketentuan:
 • Teknis pembuatan
 1. Tema foto twibbon: "Kenal prodi".
@@ -71,15 +78,18 @@ Ketentuan:
 2. Meningkatkan rasa bangga dan cinta terhadap Sekolah Vokasi UNS.
 3. Menumbuhkan rasa percaya diri dalam menghadapi tantangan di masa depan sebagai Mahasiswa Vokasi.
 4. Meningkatkan kesadaran akan pentingnya keterampilan dan kompetensi yang relevan dengan bidang studi masing-masing prodi di Sekolah Vokasi UNS.
-Nara hubung:
-• https://wa.me/6285259320773(Rivan)
-• https://wa.me/6281329754510(Eunike)',
+• Nara hubung:
+ https://wa.me/6285259320773(Rivan)
+ https://wa.me/6281329754510(Eunike)',
         ]);
         Materi::create([
             'user_id' => $user->id,
             'judul_materi' => 'CO-CARD',
-            'deskripsi_materi' => 'Nama Implementasi Nilai : Co-Card “Digitalisasi Askara Muda”',
-            'isi_materi' => 'Kategori: Individu
+            'deskripsi_materi' => 'Hallo Vocazens! Materi yang kedua berisi
+Tugas Co-Card sebagai tugas dalam kegiatan
+PKKMB SV UNS 2024',
+            'isi_materi' => 'Nama Implementasi Nilai : Co-Card “Digitalisasi Askara Muda”
+            Kategori: Individu
 Ketentuan:
 Teknis pembuatan
 1. Askara Muda mengunduh template co-card melalui link berikut: uns.id/IMPLEMENTASINILAIASKARA2023
@@ -110,8 +120,11 @@ https://wa.me/6281329754510(Eunike)',
         Materi::create([
             'user_id' => $user->id,
             'judul_materi' => 'VIDEO BANGGA VOKASI',
-            'deskripsi_materi' => 'Nama Implementasi Nilai : "Video Bangga Vokasi"',
-            'isi_materi' => 'Kategori: Individu
+            'deskripsi_materi' => 'Hallo Vocazens! Materi yang ketiga berisi
+Tugas Video Bangga Vokasi sebagai tugas dalam kegiatan
+PKKMB SV UNS 2024',
+            'isi_materi' => 'Nama Implementasi Nilai : "Video Bangga Vokasi"
+            Kategori: Individu
 Ketentuan:
 • Teknis pembuatan
 1. Aksara Muda membuat video "Bangga Vokasi" di Tiktok yang berisi tentang:
@@ -146,8 +159,11 @@ https://wa.me/6281329754510 (Eunike',
         Materi::create([
             'user_id' => $user->id,
             'judul_materi' => 'RINGKASAN MATERI',
-            'deskripsi_materi' => 'Nama Implementasi Nilai : "Ringkasan Materi Askara Muda"',
-            'isi_materi' => 'Kategori: Individu
+            'deskripsi_materi' => 'Hallo Vocazens! Materi yang ketiga berisi
+Tugas Ringkasan Materi sebagai tugas dalam kegiatan
+PKKMB SV UNS 2024',
+            'isi_materi' => 'Nama Implementasi Nilai : "Ringkasan Materi Askara Muda"
+            Kategori: Individu
 Ketentuan:
 • Teknis pembuatan :
 1. Askara Muda merangkum pada setiap sesi materi yang telah didapatkan dari penjelasan pemateri di hari PKKMB SV 2023 berlangsung.
