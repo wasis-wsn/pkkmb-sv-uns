@@ -319,8 +319,9 @@ onMounted(() => {
   AOS.init();
   new Swiper(".swiper", {
     loop: true,
-    slidesPerView: 10,
-    spaceBetween: 5,
+    slidesPerView: 4,
+    spaceBetween: 4,
+    slidesPerGroup: 1,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,

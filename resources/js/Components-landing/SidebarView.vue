@@ -42,11 +42,13 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
 import { ChevronRightIcon } from '@heroicons/vue/24/solid';
 
 export default {
   name: 'DropdownView',
   components: {
+    RouterLink,
     ChevronRightIcon
   },
   props: {
