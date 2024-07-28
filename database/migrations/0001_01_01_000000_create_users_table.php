@@ -54,24 +54,29 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        // chats
-        Schema::create('chats', function (Blueprint $table) {
+        // chats room
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('last_sender', ['admin', 'user']);
-            $table->integer('unseen_messages')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('admin_id');
             $table->timestamps();
+            $table->integer('unseen_messages')->default(0);
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         // Pesan Table
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('chat_id')->references('id')->on('chats')->onDelete('cascade');
-            $table->enum('type',['text', 'file', 'image']);
+            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('user_id');
             $table->text('message');
-            $table->enum('sender', ['admin', 'user']);
-            $table->boolean('is_seen')->default(0);
+            $table->boolean('is_seen')->default(1);
             $table->timestamps();
+    
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
          // Keterangan Table

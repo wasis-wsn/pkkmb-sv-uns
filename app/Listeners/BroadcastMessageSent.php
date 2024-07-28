@@ -6,21 +6,20 @@ use App\Events\MessageSent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class BroadcastMessageSent
+class BroadcastMessageSent implements ShouldQueue
 {
-    /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-        //
-    }
+    use InteractsWithQueue;
 
     /**
-     * Handle the event.
+     * Boot the application services.
+     *
+     * @return void
      */
-    public function handle(MessageSent $event): void
+    public function boot()
     {
-        //
+        Broadcast::channel('chat.room.{roomId}', function ($user, $roomId) {
+            // Logic untuk memeriksa apakah user boleh masuk ke room
+            return $user->rooms->contains('id', $roomId);
+        });
     }
 }
