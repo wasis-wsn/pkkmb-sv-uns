@@ -1,5 +1,6 @@
 <template>
   <LayoutHeaderFooter>
+    
   <header class="flex gap-5 max-md:flex-col max-md:gap-0">
     <section data-aos="fade-right"
       class="flex flex-col flex-1 items-start pb-32 mt-16 ml-2 rounded-full border border-solid border-violet-300 border-opacity-50 max-md:max-w-full">

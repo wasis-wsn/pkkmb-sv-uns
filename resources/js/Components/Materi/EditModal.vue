@@ -82,7 +82,7 @@ const submit = () => {
                                     />
                                 </FormField>
                                 <FormField label="Deskripsi Materi">
-                                    <FormControl
+                                    <FormControl type="textarea"
                                         v-model="form.deskripsi_materi"
                                         placeholder=""
                                     />

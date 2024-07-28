@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Imports\UserImport;
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
+
 class UserController extends Controller
 {
     /**
@@ -33,7 +34,7 @@ class UserController extends Controller
         return Inertia::render('UserView', ['data' => $users, 'mahasiswa' => $mahasiswa]);
     }
 
-    public function userExport() 
+    public function userExport()
     {
         return Excel::download(new UserExport, 'user.xlsx');
     }
@@ -51,8 +52,8 @@ class UserController extends Controller
             $file->move('DataUser', $namaFile);
 
             // Import the data
-            Excel::import(new UserImport, public_path('/DataUser/'.$namaFile));
-                    // Run the command to hash passwords
+            Excel::import(new UserImport, public_path('/DataUser/' . $namaFile));
+            // Run the command to hash passwords
             \Artisan::call('users:hash-passwords');
             return redirect('/dashboard/user')->with('success', 'Data berhasil diimport');
         } catch (\Exception $e) {
@@ -60,7 +61,7 @@ class UserController extends Controller
             return redirect('/dashboard/user')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
         }
     }
-    
+
     /**
      * Handle an incoming registration request.
      *
@@ -73,15 +74,15 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string',
             'role' => 'required|string',
-            'mahasiswa' => 'nullable|string'
+            'mahasiswa_id' => 'nullable|integer|exists:mahasiswa,id'
         ]);
 
-        $user = User::create([
+        User::create([
             'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
             'role' => $validatedData['role'],
-            'mahasiswa_id' => $validatedData['mahasiswa'] ?? null,
+            'mahasiswa_id' => $validatedData['mahasiswa_id'] ?? null,
         ]);
 
         return redirect()->route('user');
