@@ -17,12 +17,6 @@
                                 <FormField label="Email">
                                     <FormControl v-model="form.email" :icon="mdiMail" />
                                 </FormField>
-                                <FormField label="Role">
-                                    <select v-model="form.role" class="bg-slate-900">
-                                        <option value="admin">Admin</option>
-                                        <option value="user">User</option>
-                                    </select>
-                                </FormField>
                             </div>
                         </div>
                     </div>

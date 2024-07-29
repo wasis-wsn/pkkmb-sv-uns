@@ -16,6 +16,10 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    keterangan: {
+        type: Array,
+        required: true,
+    },
     mahasiswa: {
         type: Object,
         required: true,
@@ -144,6 +148,7 @@ const closeEditModal = () => {
             :item="selectedItem"
             :show="showEditModal"
             :skill="skill"
+            :keterangan="keterangan"
             :mahasiswa="mahasiswa"
             @close="closeEditModal"
         />

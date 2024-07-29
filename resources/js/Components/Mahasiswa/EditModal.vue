@@ -32,7 +32,7 @@ const form = useForm({
     nama_mahasiswa: "",
     no_telp: "",
     nama_prodi: "",
-    kelompok_id: "",
+    nama_kelompok: "",
 });
 
 watch(
@@ -42,7 +42,7 @@ watch(
             form.nama_mahasiswa = newItem.nama_mahasiswa;
             form.no_telp = newItem.no_telp;
             form.nama_prodi = newItem.nama_prodi;
-            form.kelompok_id = newItem.kelompok_id;
+            form.nama_kelompok = newItem.nama_kelompok;
         }
     },
     { immediate: true }
@@ -74,7 +74,7 @@ const submit = () => {
             <span
                 class="hidden sm:inline-block sm:align-middle sm:h-screen"
                 aria-hidden="true"
-                >​</span
+                ></span
             >
             <div
                 class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
@@ -107,16 +107,16 @@ const submit = () => {
                                         v-model.string="form.nama_prodi"
                                         :options="prodi"
                                         optionLabel="nama_prodi"
-                                        optionValue="id"
+                                        optionValue="nama_prodi"
                                         placeholder="Pilih Prodi"
                                     />
                                 </FormField>
                                 <FormField label="Kelompok">
                                     <FormControl
-                                        v-model.string="form.kelompok_id"
+                                        v-model.string="form.nama_kelompok"
                                         :options="kelompok"
                                         optionLabel="nama_kelompok"
-                                        optionValue="id"
+                                        optionValue="nama_kelompok"
                                         placeholder="Pilih Kelompok"
                                     />
                                 </FormField>

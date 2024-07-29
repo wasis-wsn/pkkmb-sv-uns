@@ -53,7 +53,7 @@ async function submitForm(event) {
                             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                 <label for="" class="text-xl text-white">Upload Data User</label>
                                 <div class="mt-2">
-                                    <input type="file" name="file_user"  required />
+                                    <input type="file" name="file_user" required />
                                 </div>
                             </div>
                         </div>

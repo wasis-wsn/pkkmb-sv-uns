@@ -29,7 +29,7 @@ const form = useForm({
     email: "",
     password: "",
     role: "",
-    mahasiswa_id: "",
+    nama_mahasiswa: "",
 });
 
 const errors = ref({});
@@ -126,14 +126,14 @@ const reset = () => {
         </FormField>
 
         <FormField label="Mahasiswa">
-            <FormControl
-                v-model.string="form.nama_mahasiswa"
-                :options="mahasiswa"
-                optionLabel="nama_mahasiswa"
-                optionValue="nama_mahasiswa"
-                placeholder="Pilih Mahasiswa"
-            />
-        </FormField>
+      <FormControl
+        v-model="form.nama_mahasiswa"
+        :options="mahasiswa"
+        optionLabel="nama_mahasiswa"
+        optionValue="nama_mahasiswa"
+        placeholder="Pilih Mahasiswa"
+      />
+    </FormField>
 
         <template #footer>
             <BaseButtons>

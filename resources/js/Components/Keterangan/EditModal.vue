@@ -20,6 +20,10 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    keterangan: {
+        type: Array,
+        required: true,
+    },
     mahasiswa: {
         type: Object,
         required: true,
@@ -117,7 +121,7 @@ const submit = () => {
                                     <FormControl
                                         v-model="form.mahasiswa_id"
                                         :options="mahasiswaOptions"
-                                        optionLabel="nama"
+                                        optionLabel="nama_mahasiswa"
                                         optionValue="id"
                                         placeholder="Pilih Mahasiswa"
                                     />
