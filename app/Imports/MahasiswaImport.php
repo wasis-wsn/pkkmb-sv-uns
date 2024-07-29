@@ -17,8 +17,8 @@ class MahasiswaImport implements ToModel
         return new Mahasiswa([
             'nama_mahasiswa' => $row[0] ?? null,
             'no_telp' => $row[1] ?? null,
-            'prodi_id' => $row[2] ?? null,
-            'kelompok_id' => $row[3] ?? null,            
+            'nama_prodi' => $row[2] ?? null,
+            'nama_kelompok' => $row[3] ?? null,            
         ]);
     }
 }

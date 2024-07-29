@@ -112,10 +112,10 @@
 
         <FormField label="Mahasiswa">
             <FormControl
-                v-model.string="form.mahasiswa_id"
+                v-model.string="form.nama_mahasiswa"
                 :options="mahasiswa"
                 optionLabel="nama_mahasiswa"
-                optionValue="id"
+                optionValue="nama_mahasiswa"
                 placeholder="Pilih Mahasiswa"
             />
         </FormField>

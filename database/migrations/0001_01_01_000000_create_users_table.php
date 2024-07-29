@@ -13,14 +13,14 @@ return new class extends Migration {
         // Prodi Table
         Schema::create('prodi', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_prodi');
+            $table->string('nama_prodi')->unique();
             $table->timestamps();
         });
 
         // Kelompok Table
         Schema::create('kelompok', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kelompok');
+            $table->string('nama_kelompok')->unique();
             $table->timestamps();
         });
 
@@ -34,10 +34,12 @@ return new class extends Migration {
         // Mahasiswa Table
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_mahasiswa');
+            $table->string('nama_mahasiswa')->unique();
             $table->string('no_telp')->nullable();
-            $table->foreignId('prodi_id')->constrained('prodi')->onDelete('cascade');
-            $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
+            $table->string('nama_prodi'); // Tambahkan kolom nama_prodi
+            $table->string('nama_kelompok'); // Tambahkan kolom nama_kelompok
+            $table->foreign('nama_prodi')->references('nama_prodi')->on('prodi')->onDelete('cascade');
+            $table->foreign('nama_kelompok')->references('nama_kelompok')->on('kelompok')->onDelete('cascade');        
             $table->timestamps();
         });
 
@@ -48,12 +50,13 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->default('user');
-            $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswa')->onDelete('cascade');
+            $table->string('nama_mahasiswa')->nullable();
+            $table->foreign('nama_mahasiswa')->references('nama_mahasiswa')->on('mahasiswa')->onDelete('cascade');
             $table->integer('unseen_messages')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
-
+        
         // chats
         Schema::create('chats', function (Blueprint $table) {
             $table->id();

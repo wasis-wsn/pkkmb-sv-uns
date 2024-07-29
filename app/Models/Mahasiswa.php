@@ -15,18 +15,20 @@ class Mahasiswa extends Model
     protected $fillable = [
         'nama_mahasiswa',
         'no_telp',
-        'prodi_id',
-        'kelompok_id',
+        'nama_prodi',
+        'nama_kelompok',
     ];
+
     public function prodi()
     {
-        return $this->belongsTo(Prodi::class);
+        return $this->belongsTo(Prodi::class, 'nama_prodi', 'nama_prodi');
     }
 
     public function kelompok()
     {
-        return $this->belongsTo(Kelompok::class, 'kelompok_id');
+        return $this->belongsTo(Kelompok::class, 'nama_kelompok', 'nama_kelompok');
     }
+    
     public function keteranganSkills()
     {
         return $this->hasMany(KeteranganSkill::class);

@@ -17,8 +17,8 @@ class MahasiswaSeeder extends Seeder
         Mahasiswa::create([
             'nama_mahasiswa' => 'Muhammad Raihan',
             'no_telp' => '',
-            'prodi_id' => 1,
-            'kelompok_id' => 1,
+            'prodi_id' => '',
+            'kelompok_id' => '',
         ]);
     }
 }
