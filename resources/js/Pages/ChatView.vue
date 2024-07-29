@@ -75,8 +75,6 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue';
 import axios from 'axios';
-import Pusher from 'pusher-js';
-import Echo from 'laravel-echo';
 import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue';
 import CardBox from "@/Components/CardBox.vue";
 import { Head } from '@inertiajs/vue3';
@@ -136,48 +134,6 @@ const scrollToBottom = () => {
 onMounted(() => {
   fetchChats();
 });
-
-Pusher.logToConsole = true;
-
-const pusher = new Pusher('b4b96c0dca09620e3e04', {
-  cluster: 'ap1'
-});
-
-const channel = pusher.subscribe('chat.room');
-channel.bind('MessageSent', function(data) {
-  messages.value.push({
-    message: data.message,
-    user_id: data.user_id,
-    room_id: data.chatId,
-  });
-});
-
-// Define a callback for the subscription success event
-channel.bind('pusher:subscription_succeeded', function(data) {
-  console.log('Successfully subscribed to channel:', data.channel);
-  // You can perform additional actions here (e.g., fetch initial messages)
-});
-
-window.Pusher = Pusher;
-
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: import.meta.env.VITE_PUSHER_APP_KEY,
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
-
-    forceTLS: true   
-
-});
-
-window.Echo.channel('chat.room')
-    .listen('MessageSent', (data) => {
-        messages.value.push({
-            id: data.id,
-            message: data.message,
-            user_id: data.user_id,
-            room_id: data.room_id,        
-        });
-    });
 </script>
 
 <style scoped>
