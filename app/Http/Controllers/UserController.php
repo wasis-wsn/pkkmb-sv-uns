@@ -82,7 +82,7 @@ class UserController extends Controller
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
             'role' => $validatedData['role'],
-            'mahasiswa_id' => $validatedData['mahasiswa_id'] ?? null,
+            'nama_mahasiswa' => $validatedData['mahasiswa'] ?? null,
         ]);
 
         return redirect()->route('user');

@@ -21,8 +21,8 @@ const props = defineProps({
 const form = useForm({
     nama_mahasiswa: "",
     no_telp: "",
-    prodi_id: "",
-    kelompok_id: "",
+    nama_prodi: "",
+    nama_kelompok: "",
 });
 
 const errors = ref({});
@@ -37,11 +37,11 @@ const validateForm = () => {
     if (!form.no_telp) {
         errors.value.no_telp = "No Telp is required.";
     }
-    if (!form.prodi_id) {
-        errors.value.prodi_id = "Prodi is required.";
+    if (!form.nama_prodi) {
+        errors.value.nama_prodi = "Prodi is required.";
     }
-    if (!form.kelompok_id) {
-        errors.value.kelompok_id = "Kelompok is required.";
+    if (!form.nama_kelompok) {
+        errors.value.nama_kelompok = "Kelompok is required.";
     }
     return Object.keys(errors.value).length === 0;
 };
@@ -94,28 +94,28 @@ const reset = () => {
 
         <FormField label="Prodi">
             <FormControl
-                v-model.string="form.prodi_id"
+                v-model.string="form.nama_prodi"
                 :options="prodi"
                 optionLabel="nama_prodi"
-                optionValue="id"
+                optionValue="nama_prodi"
                 placeholder="Pilih Prodi"
             />
         </FormField>
-        <p v-if="errors.prodi_id" class="text-red-500 text-sm mb-3">
-            {{ errors.prodi_id }}
+        <p v-if="errors.nama_prodi" class="text-red-500 text-sm mb-3">
+            {{ errors.nama_prodi }}
         </p>
 
         <FormField label="Kelompok">
             <FormControl
-                v-model.string="form.kelompok_id"
+                v-model.string="form.nama_kelompok"
                 :options="kelompok"
                 optionLabel="nama_kelompok"
-                optionValue="id"
+                optionValue="nama_kelompok"
                 placeholder="Pilih Kelompok"
             />
         </FormField>
-        <p v-if="errors.kelompok_id" class="text-red-500 text-sm mb-3">
-            {{ errors.kelompok_id }}
+        <p v-if="errors.nama_kelompok" class="text-red-500 text-sm mb-3">
+            {{ errors.nama_kelompok }}
         </p>
 
         <!-- <FormField label="Nama Skill">

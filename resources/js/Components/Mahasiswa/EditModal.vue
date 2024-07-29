@@ -31,7 +31,7 @@ const form = useForm({
     _method: "PUT", // Add this line to force PUT method
     nama_mahasiswa: "",
     no_telp: "",
-    prodi_id: "",
+    nama_prodi: "",
     kelompok_id: "",
 });
 
@@ -41,7 +41,7 @@ watch(
         if (newItem) {
             form.nama_mahasiswa = newItem.nama_mahasiswa;
             form.no_telp = newItem.no_telp;
-            form.prodi_id = newItem.prodi_id;
+            form.nama_prodi = newItem.nama_prodi;
             form.kelompok_id = newItem.kelompok_id;
         }
     },
@@ -104,7 +104,7 @@ const submit = () => {
                                 </FormField>
                                 <FormField label="Prodi">
                                     <FormControl
-                                        v-model.string="form.prodi_id"
+                                        v-model.string="form.nama_prodi"
                                         :options="prodi"
                                         optionLabel="nama_prodi"
                                         optionValue="id"
