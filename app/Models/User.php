@@ -25,7 +25,6 @@ class User extends Authenticatable
         'password',
         'role',
         'nama_mahasiswa',
-        'room_id'
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -39,7 +38,7 @@ class User extends Authenticatable
 
     public function mahasiswa()
     {
-        return $this->belongsTo(Mahasiswa::class);
+        return $this->belongsTo(Mahasiswa::class,'nama_mahasiswa','nama_mahasiswa');
     }
 
     public function room()

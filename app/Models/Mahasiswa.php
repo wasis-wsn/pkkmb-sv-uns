@@ -29,6 +29,11 @@ class Mahasiswa extends Model
         return $this->belongsTo(Kelompok::class, 'nama_kelompok', 'nama_kelompok');
     }
     
+public function users()
+{
+    return $this->hasMany(User::class, 'nama_mahasiswa', 'nama_mahasiswa');
+}
+
     public function keteranganSkills()
     {
         return $this->hasMany(KeteranganSkill::class);

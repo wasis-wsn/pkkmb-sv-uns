@@ -75,6 +75,7 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue';
 import axios from 'axios';
+import Echo from 'laravel-echo';
 import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue';
 import CardBox from "@/Components/CardBox.vue";
 import { Head } from '@inertiajs/vue3';

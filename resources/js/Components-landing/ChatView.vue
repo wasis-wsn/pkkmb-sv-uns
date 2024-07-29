@@ -63,6 +63,7 @@
 <script setup>
 import { ref, watch, onMounted, nextTick } from 'vue';
 import axios from 'axios';
+import Echo from 'laravel-echo';
 
 import { XMarkIcon, PaperAirplaneIcon } from "@heroicons/vue/24/solid";
 

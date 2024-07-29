@@ -12,6 +12,19 @@ class UserExport implements FromCollection
     */
     public function collection()
     {
-        return User::all();
+        return User::select('username', 'email', 'role', 'nama_mahasiswa')->get();
+    }
+
+    /**
+     * @return array
+     */
+    public function headings(): array
+    {
+        return [
+            'Username',
+            'Email',
+            'Role',
+            'Nama Mahasiswa',
+        ];
     }
 }
