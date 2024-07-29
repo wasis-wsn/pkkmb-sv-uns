@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Chat;
-use App\Models\Mahasiswa;
 use Google\Service\DriveActivity\Upload;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,7 +25,7 @@ class User extends Authenticatable
         'password',
         'role',
         'mahasiswa_id',
-        'unseen_messages',
+        'room_id'
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -44,8 +42,13 @@ class User extends Authenticatable
         return $this->belongsTo(Mahasiswa::class);
     }
 
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
+
     public function chat(){
-        return $this->hasMany(Chat::class);
+        return $this->hasMany(Message::class);
     }
 
     public function upload()

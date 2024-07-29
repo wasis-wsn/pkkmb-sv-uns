@@ -40,20 +40,7 @@ return new class extends Migration {
             $table->foreignId('kelompok_id')->constrained('kelompok')->onDelete('cascade');
             $table->timestamps();
         });
-
-        // Users Table
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('role')->default('user');
-            $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswa')->onDelete('cascade');
-            $table->integer('unseen_messages')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
-        });
-
+        
         // chats room
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
@@ -64,6 +51,19 @@ return new class extends Migration {
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
+        // Users Table
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role')->default('user');
+            $table->foreignId('mahasiswa_id')->nullable()->constrained('mahasiswa')->onDelete('cascade');
+            $table->foreignId('room_id')->nullable()->constrained('room')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
         });
 
         // Pesan Table
@@ -176,7 +176,7 @@ return new class extends Migration {
     {
         // Hapus tabel yang memiliki foreign key yang merujuk ke tabel users
         Schema::dropIfExists('messages');
-        Schema::dropIfExists('chats');
+        Schema::dropIfExists('rooms');
         
         Schema::dropIfExists('galeri');
         Schema::dropIfExists('hima');

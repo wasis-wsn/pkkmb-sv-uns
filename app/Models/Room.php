@@ -27,9 +27,4 @@ class Room extends Authenticatable
     {
         return $this->belongsTo(User::class, 'admin_id');
     }
-
-    public function messages()
-    {
-        return $this->hasMany(Message::class);
-    }
 }

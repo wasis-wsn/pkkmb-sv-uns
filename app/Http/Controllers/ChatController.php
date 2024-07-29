@@ -62,42 +62,37 @@ class ChatController extends Controller
     public function postMessage(Request $request)
     {
         $request->validate([
-            'room_id' => 'nullable|exists:rooms,id', // Validate that room_id exists
+            'room_id' => 'nullable|exists:rooms,id', // Validate that room_id exists if provided
             'message' => 'required|string',
         ]);
     
         $user = $request->user();
         $roomId = $request->input('room_id');
-    
-        if ($user->role === 'admin') {
-            // Jika admin, cari room berdasarkan room_id
+        
+        // Jika room_id diberikan, cari room berdasarkan room_id
+        if ($roomId) {
             $room = Room::find($roomId);
     
-            // Jika tidak ada room, buat room baru
+            // Jika tidak ada room dengan ID tersebut, buat room baru
             if (!$room) {
                 $room = Room::create([
-                    'user_id' => null, // Admin tidak terkait dengan user_id
-                    'admin_id' => $user->id, // ID admin sebagai admin_id
+                    'user_id' => $user->id,
+                    'admin_id' => $this->getDefaultAdminId(),
                     'unseen_messages' => 0,
                 ]);
             }
         } else {
-            // Jika bukan admin, cari room milik user
-            $room = Room::where('user_id', $user->id)->where('id', $roomId)->first();
-    
-            if (!$room) {
-                // Jika tidak ada room, buat room baru
-                $room = Room::create([
-                    'user_id' => $user->id,
-                    'admin_id' => $this->getDefaultAdminId(), // Mengatur admin_id dengan ID admin default
-                    'unseen_messages' => 0,
-                ]);
-            }
+            // Jika tidak ada room_id, buat room baru
+            $room = Room::create([
+                'user_id' => $user->id,
+                'admin_id' => $this->getDefaultAdminId(),
+                'unseen_messages' => 0,
+            ]);
         }
     
         // Simpan pesan ke dalam room
         $message = Message::create([
-            'room_id' => $room->id,
+            'room_id' => $room->id, // Pastikan room ada
             'user_id' => $user->id,
             'message' => $request->input('message'),
         ]);
@@ -109,21 +104,30 @@ class ChatController extends Controller
     
         // Update unseen_messages untuk room
         $room->increment('unseen_messages');
-
-        event(new MessageSent($message));
-        
-        return response()->json(['message' => 'Message sent!']);
-    }
     
-    /**
-     * Mengambil ID admin default
-     *
-     * @return int
-     */
+        // Trigger event
+        event(new MessageSent($message));
+    
+        return response()->json(['message' => 'Message sent!']);
+    }    
+    
+    public function createRoom(Request $request)
+    {
+        $user = $request->user();
+
+        $room = Room::create([
+            'user_id' => $user->id,
+            'admin_id' => $this->getDefaultAdminId(),
+            'unseen_messages' => 0,
+        ]);
+
+        return response()->json(['room_id' => $room->id]);
+    }
+
+        
     protected function getDefaultAdminId()
     {
         return User::where('role', 'admin')->first()->id;
-    }
-    
+    }   
 
 }

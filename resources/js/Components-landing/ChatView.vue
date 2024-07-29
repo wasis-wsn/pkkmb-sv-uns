@@ -118,20 +118,28 @@ const fetchMessages = async (roomId) => {
 };
 
 const sendMessage = async () => {
-  if (!newMessage.value.trim() || !chatId.value) return;
+  if (!newMessage.value.trim()) return; // Jangan kirim pesan jika pesan kosong
 
   try {
+    // Jika chatId tidak ada, buat room baru di backend
+    if (!chatId.value) {
+      const response = await axios.post('/rooms', {
+      });
+      chatId.value = response.data.room_id; // Set chatId ke ID room yang baru dibuat
+    }
+
+    // Kirim pesan ke room yang ada
     await axios.post('/messages', {
       room_id: chatId.value,
       message: newMessage.value,
     });
     newMessage.value = '';
-    await fetchMessages(chatId.value);
-     // Refresh messages after posting
+    await fetchMessages(chatId.value); // Refresh pesan setelah mengirim
   } catch (error) {
     console.error('Error sending message:', error);
   }
 };
+
 
 const scrollToBottom = () => {
   if (messagesContainer.value) {

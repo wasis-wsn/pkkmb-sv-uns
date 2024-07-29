@@ -53,10 +53,6 @@ const validateForm = () => {
     if (!form.role) {
         errors.value.role = "role is required.";
     }
-
-    if (form.role === "user" && !form.mahasiswa_id) {
-        errors.value.mahasiswa_id = "Mahasiswa is required.";
-    }
     return Object.keys(errors.value).length === 0;
 };
 
