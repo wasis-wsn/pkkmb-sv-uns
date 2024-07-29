@@ -19,8 +19,7 @@ class UserImport implements ToModel
             'email' => $row[1] ?? null,
             'password' => $row[2] ?? null,
             'role' => $row[3] ?? null,
-            'mahasiswa_id' => $row[4] ?? null,
-            'unseen_messages' => $row[5] ?? null,
+            'nama_mahasiswa' => $row[4] ?? null,
         ]);
     }
 }

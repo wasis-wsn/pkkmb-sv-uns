@@ -74,7 +74,7 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string',
             'role' => 'required|string',
-            'mahasiswa_id' => 'nullable|integer|exists:mahasiswa,id'
+            'nama_mahasiswa' => 'nullable|string|exists:mahasiswa,nama_mahasiswa'
         ]);
 
         User::create([
@@ -82,8 +82,7 @@ class UserController extends Controller
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
             'role' => $validatedData['role'],
-            'nama_mahasiswa' => $validatedData['mahasiswa'] ?? null,
-        ]);
+'nama_mahasiswa' => $request->input('nama_mahasiswa'),        ]);
 
         return redirect()->route('user');
     }
@@ -98,8 +97,8 @@ class UserController extends Controller
 
         $dataToUpdate = [];
 
-        if ($request->filled('name')) {
-            $dataToUpdate['name'] = $request['name'];
+        if ($request->filled('username')) {
+            $dataToUpdate['username'] = $request['username'];
         }
 
         if ($request->filled('email')) {

@@ -43,6 +43,20 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        
+        // Users Table
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role')->default('user');
+            $table->string('nama_mahasiswa')->nullable();
+            $table->foreign('nama_mahasiswa')->references('nama_mahasiswa')->on('mahasiswa')->onDelete('cascade');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+        
         // chats room
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
@@ -54,21 +68,6 @@ return new class extends Migration {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
         });
-
-        // Users Table
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('role')->default('user');
-            $table->string('nama_mahasiswa')->nullable();
-            $table->foreign('nama_mahasiswa')->references('nama_mahasiswa')->on('mahasiswa')->onDelete('cascade');
-            $table->foreignId('room_id')->nullable()->constrained('room')->onDelete('cascade');
-            $table->rememberToken();
-            $table->timestamps();
-        });
-
         // Pesan Table
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
