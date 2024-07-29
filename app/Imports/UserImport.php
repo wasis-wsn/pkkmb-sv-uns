@@ -8,17 +8,17 @@ use Maatwebsite\Excel\Concerns\ToModel;
 class UserImport implements ToModel
 {
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
         return new User([
-            'username' => $row[0] ?? null,
-            'email' => $row[1] ?? null,
-            'password' => $row[2] ?? null,
-            'role' => $row[3] ?? null,
+            'username' => $row[0],
+            'email' => $row[1],
+            'password' => bcrypt($row[2]), // Encrypt password here if needed
+            'role' => $row[3],
             'nama_mahasiswa' => $row[4] ?? null,
         ]);
     }
