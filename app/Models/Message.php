@@ -3,43 +3,30 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Message extends Model
+class Message extends Authenticatable
 {
     use HasFactory;
 
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-
     protected $table = 'messages';
-    protected $guarded = ['id'];
+    protected $primaryKey = 'id';
+
     protected $fillable = [
-        'chat_id', 'type', 'message', 'is_seen', 'sender'
+        'room_id',
+        'user_id',
+        'message',
+        'is_seen'
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | RELATIONS
-    |--------------------------------------------------------------------------
-    */
-
-    /**
-     * Get the chat that the message belongs to
-     */
-    public function chat()
+    public function room()
     {
-        return $this->belongsTo(Chat::class, 'chat_id');
+        return $this->belongsTo(Room::class);
     }
 
-    /**
-     * Get the sender of the message
-     */
-    public function sender()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'sender_id');
+        return $this->belongsTo(User::class);
     }
 }
