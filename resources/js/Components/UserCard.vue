@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { format } from "date-fns"; // Import date-fns for date formatting
 import { usePage } from "@inertiajs/vue3";
 import { mdiCheckDecagram } from "@mdi/js";
 import BaseLevel from "@/Components/BaseLevel.vue";
@@ -8,7 +7,6 @@ import UserAvatarCurrentUser from "@/Components/UserAvatarCurrentUser.vue";
 import CardBox from "@/Components/CardBox.vue";
 import FormCheckRadio from "@/Components/FormCheckRadio.vue";
 import PillTag from "@/Components/PillTag.vue";
-import { format } from "date-fns";
 
 const { props } = usePage();
 const user = props.auth.user;

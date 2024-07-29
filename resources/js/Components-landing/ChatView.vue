@@ -160,8 +160,6 @@ watch(() => props.isOpen, (newValue) => {
 onMounted(() => {
   fetchChats();
 });
-
-
 </script>
 
 
