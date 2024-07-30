@@ -143,7 +143,8 @@ const submitEmail = () => {
         showAlert.value = false;
         formEmail.post(route("profileEmail.store"), {
             onSuccess: () => {
-                resetEmail();
+                handleSuccessResponse("Email berhasil di update."),
+                    resetEmail();
             },
             onError: (errors) => {
                 console.log(errors);
@@ -181,7 +182,8 @@ const submitTelepon = () => {
         showAlert.value = false;
         formTelepon.post(route("profileTelepon.store"), {
             onSuccess: () => {
-                resetTelepon();
+                handleSuccessResponse("Nomor Telepon berhasil di update."),
+                    resetTelepon();
             },
             onError: (errors) => {
                 console.log(errors);

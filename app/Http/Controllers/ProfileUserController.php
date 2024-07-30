@@ -81,35 +81,34 @@ class ProfileUserController extends Controller
 
     // Store Telepon
     public function storeTelepon(Request $request)
-    {
-        $request->validate([
-            'no_telp' => 'required|string|max:15', // Adjust the validation rules as needed
-        ]);
+{
+    $request->validate([
+        'no_telp' => 'required|string|max:15',
+    ]);
 
-        // Get the currently authenticated user
-        $user = Auth::user();
+    $user = Auth::user();
 
-        // Check if the user has a linked mahasiswa
-        if ($user->mahasiswa_id) {
-            // Find the mahasiswa record
-            $mahasiswa = Mahasiswa::find($user->mahasiswa_id);
+    if ($user->nama_mahasiswa) {
+        $mahasiswa = Mahasiswa::where('nama_mahasiswa', $user->nama_mahasiswa)->first();
 
-            // Update the no_telp field
-            if ($mahasiswa) {
-                $mahasiswa->no_telp = $request->no_telp;
-                $mahasiswa->save();
-
+        if ($mahasiswa) {
+            $mahasiswa->no_telp = $request->no_telp;
+            if ($mahasiswa->save()) {
                 return redirect()->route('profile')
                     ->with('success', 'Nomor telepon updated successfully');
             } else {
                 return redirect()->route('profile')
-                    ->with('error', 'Mahasiswa not found');
+                    ->with('error', 'Failed to save data');
             }
         } else {
             return redirect()->route('profile')
-                ->with('error', 'No associated mahasiswa found');
+                ->with('error', 'Mahasiswa not found');
         }
+    } else {
+        return redirect()->route('profile')
+            ->with('error', 'No associated mahasiswa found');
     }
+}
 
     /**
      * Update the user's profile information.
