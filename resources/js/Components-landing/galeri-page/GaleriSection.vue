@@ -1,59 +1,74 @@
 <template>
     <section class="galeri-page">
         <div class="galeri w-full bg-slate-100 pb-5 px-4" data-aos="fade-up">
-            <header class="text-center py-10">
-                <h1
-                    class="text-3xl font-bold inline-block border-b-4 border-[#F67366]"
-                    data-aos="fade-up"
-                >
-                    DOKUMENTASI PKKMB SV UNS 2024
-                </h1>
-                <p
-                    class="text-lg mt-4 container mx-auto px-4"
-                    data-aos="fade-up"
-                >
-                    Halo, Vocazens! Selamat datang di galeri dokumentasi
-                    kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru
-                    (PKKMB) Sekolah Vokasi Universitas Sebelas Maret tahun 2024.
-                    Galeri ini menyajikan berbagai momen berharga dan kenangan
-                    tak terlupakan dari setiap acara yang diadakan selama PKKMB.
-                    Selamat menikmati galeri PKKMB SV UNS 2024!
-                </p>
-            </header>
-
-            <!-- Galeri Start -->
-            <div class="container lg:px-8 md:px-6 sm:px-6 mx-auto">
-                <div class="galeri" data-aos="fade-up">
-                    <div
-                        class="grid grid-rows-2 min-[320px]:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-lg"
+            <div
+                v-if="dokumentasi.length > 0"
+                class="container lg:px-8 md:px-6 sm:px-6 mx-auto"
+            >
+                <header class="text-center py-10">
+                    <h1
+                        class="text-3xl font-bold inline-block border-b-4 border-[#F67366]"
+                        data-aos="fade-up"
                     >
+                        DOKUMENTASI PKKMB SV UNS 2024
+                    </h1>
+                    <p
+                        class="text-lg mt-4 container mx-auto px-4"
+                        data-aos="fade-up"
+                    >
+                        Halo, Vocazens! Selamat datang di galeri dokumentasi
+                        kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru
+                        (PKKMB) Sekolah Vokasi Universitas Sebelas Maret tahun
+                        2024. Galeri ini menyajikan berbagai momen berharga dan
+                        kenangan tak terlupakan dari setiap acara yang diadakan
+                        selama PKKMB. Selamat menikmati galeri PKKMB SV UNS
+                        2024!
+                    </p>
+                </header>
+
+                <!-- Galeri Start -->
+                <div class="container lg:px-8 md:px-6 sm:px-6 mx-auto">
+                    <div class="galeri" data-aos="fade-up">
                         <div
-                            v-for="(image, index) in dokumentasi"
-                            :key="'dokumentasi-' + index"
-                            :class="getGridClass(index)"
+                            class="grid grid-rows-2 min-[320px]:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-lg"
                         >
-                            <img
-                                :src="'/storage/galeri/' + image.photo_galeri"
-                                :alt="'Image ' + (index + 1)"
-                                class="image rounded-3xl shadow-lg"
-                            />
+                            <div
+                                v-for="(image, index) in dokumentasi"
+                                :key="'dokumentasi-' + index"
+                                :class="getGridClass(index)"
+                            >
+                                <img
+                                    :src="
+                                        '/storage/galeri/' + image.photo_galeri
+                                    "
+                                    :alt="'Image ' + (index + 1)"
+                                    class="image rounded-3xl shadow-lg"
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div
-                    class="download-button text-center mt-4 sm:mt-4 md:mt-7 lg:mt-6 xl:mt-4"
-                    data-aos="fade-up"
-                >
-                    <button
-                        class="button-biru justify-center items-center font-bold text-[24px] px-12 pt-4 pb-4 text-white whitespace-nowrap bg-slate-700 rounded-[20px] max-md:px-7"
+                    <div
+                        class="download-button text-center mt-4 sm:mt-4 md:mt-7 lg:mt-6 xl:mt-4"
+                        data-aos="fade-up"
                     >
-                        <a href="https://bit.ly/FotoAskara2022" target="_blank"
-                            >DOWNLOAD DISINI!</a
+                        <button
+                            class="button-biru justify-center items-center font-bold text-[24px] px-12 pt-4 pb-4 text-white whitespace-nowrap bg-slate-700 rounded-[20px] max-md:px-7"
                         >
-                    </button>
+                            <a
+                                href="https://bit.ly/FotoAskara2022"
+                                target="_blank"
+                                >DOWNLOAD DISINI!</a
+                            >
+                        </button>
+                    </div>
                 </div>
+                <!-- Galeri Ends -->
             </div>
-            <!-- Galeri Ends -->
+            <div v-else class="text-center py-20" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-600">
+                    DOKUMENTASI PKKMB SV UNS 2024 COMING SOON...
+                </h2>
+            </div>
         </div>
     </section>
 </template>
