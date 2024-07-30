@@ -99,34 +99,44 @@
     };
 
     const handleFiles = (files) => {
-        for (let i = 0; i < files.length; i++) {
-            const file = files[i];
-            const fileType = file.type;
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const fileType = file.type;
+        const fileSize = file.size;
 
-            if (['image/jpeg', 'image/png', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(fileType)) {
-                uploadedFiles.value.push(file);
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    previewFiles.value.push({
-                        name: file.name,
-                        url: fileType.startsWith('image/') ? e.target.result : '',
-                        type: fileType
-                    });
-                };
-                if (fileType.startsWith('image/')) {
-                    reader.readAsDataURL(file);
-                } else {
-                    previewFiles.value.push({
-                        name: file.name,
-                        url: '',
-                        type: fileType
-                    });
-                }
-            } else {
-                alert(`File ${file.name} is not a supported type. It will be skipped.`);
-            }
+        // Batasi ukuran file maksimal 5MB
+        const maxSize = 5 * 1024 * 1024; // 5MB dalam byte
+
+        if (fileSize > maxSize) {
+            alert(`File ${file.name} terlalu besar. Ukuran maksimal adalah 5MB.`);
+            continue;
         }
-    };
+
+        if (['image/jpeg', 'image/png', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(fileType)) {
+            uploadedFiles.value.push(file);
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewFiles.value.push({
+                    name: file.name,
+                    url: fileType.startsWith('image/') ? e.target.result : '',
+                    type: fileType
+                });
+            };
+            if (fileType.startsWith('image/')) {
+                reader.readAsDataURL(file);
+            } else {
+                previewFiles.value.push({
+                    name: file.name,
+                    url: '',
+                    type: fileType
+                });
+            }
+        } else {
+            alert(`File ${file.name} tidak didukung. File ini akan diabaikan.`);
+        }
+    }
+};
+
 
     const removeFile = (index) => {
         uploadedFiles.value.splice(index, 1);
