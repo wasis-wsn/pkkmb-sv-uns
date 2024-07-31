@@ -87,6 +87,12 @@ defineProps({
         type: Object,
         required: true,
     },
+    mustVerifyEmail: {
+        type: Boolean,
+    },
+    status: {
+        type: String,
+    },
 });
 
 const user = ref(null);

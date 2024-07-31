@@ -23,6 +23,12 @@ const props = defineProps({
         type: Object,
         required: true,
     },
+    mustVerifyEmail: {
+        type: Boolean,
+    },
+    status: {
+        type: String,
+    },
 });
 
 const form = useForm({
@@ -465,6 +471,26 @@ const customFormFieldStyle = {
             <p v-if="errors.email" class="text-red-500 text-sm">
                 {{ errors.email }}
             </p>
+            <div v-if="mustVerifyEmail && user.email_verified_at === null">
+                <p class="text-sm mt-2 text-gray-800">
+                    Your email address is unverified.
+                    <Link
+                        :href="route('verification.send')"
+                        method="post"
+                        as="button"
+                        class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                        Click here to re-send the verification email.
+                    </Link>
+                </p>
+
+                <div
+                    v-show="status === 'verification-link-sent'"
+                    class="mt-2 font-medium text-sm text-green-600"
+                >
+                    A new verification link has been sent to your email address.
+                </div>
+            </div>
             <template #footer>
                 <BaseButtons>
                     <BaseButton

@@ -4,7 +4,6 @@ import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ZiggyVue } from "ziggy-js";
-import { InertiaProgress } from "@inertiajs/progress";
 
 const appName =
     window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
