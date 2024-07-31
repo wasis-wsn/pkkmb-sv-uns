@@ -149,7 +149,8 @@ const submitEmail = () => {
         showAlert.value = false;
         formEmail.post(route("profileEmail.store"), {
             onSuccess: () => {
-                resetEmail();
+                handleSuccessResponse("Email berhasil di update."),
+                    resetEmail();
             },
             onError: (errors) => {
                 console.log(errors);
@@ -187,7 +188,8 @@ const submitTelepon = () => {
         showAlert.value = false;
         formTelepon.post(route("profileTelepon.store"), {
             onSuccess: () => {
-                resetTelepon();
+                handleSuccessResponse("Nomor Telepon berhasil di update."),
+                    resetTelepon();
             },
             onError: (errors) => {
                 console.log(errors);
@@ -327,7 +329,7 @@ const customFormFieldStyle = {
             <FormField
                 :style="customFormFieldStyle"
                 label="Current password"
-                help="Required. Your current password"
+                help="Required. Kata sandi Anda saat ini"
             >
                 <FormControlProfile
                     v-model="passwordForm.current_password"
@@ -342,7 +344,7 @@ const customFormFieldStyle = {
             <FormField
                 :style="customFormFieldStyle"
                 label="New password"
-                help="Required. New password (minimum 8 characters)"
+                help="Required. Password baru (Minimal 8 karakter)"
             >
                 <FormControlProfile
                     v-model="passwordForm.password"
@@ -356,7 +358,7 @@ const customFormFieldStyle = {
             <FormField
                 :style="customFormFieldStyle"
                 label="Confirm password"
-                help="Required. New password one more time"
+                help="Requires. Kata sandi baru sekali lagi"
             >
                 <FormControlProfile
                     v-model="passwordForm.password_confirmation"
