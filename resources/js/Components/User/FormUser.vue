@@ -118,8 +118,8 @@
         </FormField>
         <template #footer>
             <BaseButtons>
-                <BaseButton type="submit" color="info" label="Submit" @click="submit" />
-                <BaseButton type="reset" color="info" @click="reset" outline label="Reset" />
+                <BaseButton type="submit" color="success" label="Submit" @click="submit" />
+                <BaseButton type="reset" color="danger" @click="reset" outline label="Reset" />
             </BaseButtons>
         </template>
     </CardBox>

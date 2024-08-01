@@ -10,8 +10,9 @@
             <div class="flex justify-center mb-4">
               <textarea 
                 v-model="feedback" 
-                placeholder="Berikan feedback Anda" 
-                rows="6" 
+                @input="handleInput" 
+                placeholder="Satu kata untuk PKKMB SV UNS 2024" 
+                rows="1" 
                 class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               ></textarea>
             </div>
@@ -33,7 +34,24 @@ import WordCloudSection from './WordCloudSection.vue';
 const feedback = ref('');
 const wordCloudData = ref([]);
 
+const validateSingleWord = (input) => {
+  // Check if input is a single word and has no spaces
+  const trimmed = input.trim();
+  return trimmed.length > 0 && !/\s/.test(trimmed);
+};
+
+const handleInput = (event) => {
+  const input = event.target.value;
+  // Remove all spaces from input
+  feedback.value = input.replace(/\s+/g, '');
+};
+
 const submitFeedback = async () => {
+  if (!validateSingleWord(feedback.value)) {
+    alert('Harap masukkan hanya satu kata tanpa spasi.');
+    return;
+  }
+
   try {
     await axios.post('/api/feedback', { feedback: feedback.value });
     feedback.value = '';

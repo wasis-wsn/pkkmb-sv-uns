@@ -33,25 +33,25 @@
                 <!-- Show Dashboard for Admin -->
                 <li v-if="user && user.role === 'admin'"
                     class="flex gap-2.5 justify-between px-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
-                    <button href="/dashboard" class="flex items-center justify-between w-full">
+                    <a href="/dashboard" class="flex items-center justify-between w-full">
                         Dashboard
                         <ChevronRightIcon class="w-5 h-5" />
-                    </button>
+                    </a>
                 </li>
                 <!-- Show Profile Settings for Users -->
                 <li v-if="user && user.role === 'user'"
                     class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
-                    <button href="/profile" class="flex items-center justify-between w-full">
+                    <a href="/profile" class="flex items-center justify-between w-full">
                         Profile Settings
                         <ChevronRightIcon class="w-5 h-5" />
-                    </button>
+                    </a>
                 </li>
                 <li
                     class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-red-600 leading-[155%] max-w-[375px]">
-                    <button @click="logout" class=" flex items-center justify-between w-full">
+                    <a @click="logout" class=" flex items-center justify-between w-full">
                         Log out
                         <ChevronRightIcon class="w-5 h-5" />
-                    </button>
+                    </a>
                 </li>
             </ul>
         </nav>
