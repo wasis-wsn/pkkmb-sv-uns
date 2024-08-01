@@ -56,7 +56,6 @@ class ProfileUserController extends Controller
             ->get();
 
         return Inertia::render('Views/UserProfileView', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
             'user' => $user,
             'data' => $userSkills,

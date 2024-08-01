@@ -34,25 +34,25 @@ class MahasiswaController extends Controller
     }
 
     public function mahasiswaImport(Request $request)
-{
-    try {
-        // Validate the file
-        $request->validate([
-            'file_mahasiswa' => 'required|file|mimes:xlsx,xls',
-        ]);
+    {
+        try {
+            // Validate the file
+            $request->validate([
+                'file_mahasiswa' => 'required|file|mimes:xlsx,xls',
+            ]);
 
-        $file = $request->file('file_mahasiswa');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('DataMahasiswa', $namaFile);
+            $file = $request->file('file_mahasiswa');
+            $namaFile = $file->getClientOriginalName();
+            $file->move('DataMahasiswa', $namaFile);
 
-        // Import the data
-        Excel::import(new MahasiswaImport, public_path('/DataMahasiswa/'.$namaFile));
-        return redirect('/dashboard/mahasiswa')->with('success', 'Data berhasil diimport');
-    } catch (\Exception $e) {
-        // Optionally, you can return the error message for debugging purposes
-        return redirect('/dashboard/mahasiswa')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
+            // Import the data
+            Excel::import(new MahasiswaImport, public_path('/DataMahasiswa/'.$namaFile));
+            return redirect('/dashboard/mahasiswa')->with('success', 'Data berhasil diimport');
+        } catch (\Exception $e) {
+            // Optionally, you can return the error message for debugging purposes
+            return redirect('/dashboard/mahasiswa')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
+        }
     }
-}
 
 
     public function index()
