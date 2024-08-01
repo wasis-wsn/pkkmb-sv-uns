@@ -52,7 +52,8 @@ class MahasiswaController extends Controller
         // Optionally, you can return the error message for debugging purposes
         return redirect('/dashboard/mahasiswa')->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
     }
-}   
+}
+
 
     public function index()
     {
