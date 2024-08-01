@@ -48,7 +48,7 @@
                 </li>
                 <li
                     class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-red-600 leading-[155%] max-w-[375px]">
-                    <a @click="logout" class=" flex items-center justify-between w-full">
+                    <a @click="logout" class="cursor-pointer flex items-center justify-between w-full">
                         Log out
                         <ChevronRightIcon class="w-5 h-5" />
                     </a>

@@ -10,37 +10,40 @@
       </div>
 
       <!-- Daftar Pesan -->
-      <div class="flex flex-col gap-3 mt-3 px-4 main-container" ref="messagesContainer">
-        <div v-for="message in messages" :key="message.id" class="flex items-start mb-4">
-          <!-- Conditional styling for user messages -->
-          <div v-if="message.user_role === 'user'" class="flex items-start ml-auto">
-            <div class="mr-4">
-              <p class="font-semibold text-gray-800 text-right">{{ message.sender_name }}</p>
-              <p class="text-gray-600 text-right">{{ message.message }}</p>
-            </div>
-            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-gray-200">
-              <!-- User icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-          </div>
+<div class="flex flex-col gap-3 mt-3 px-4 main-container" ref="messagesContainer">
+  <div v-for="message in messages" :key="message.id" class="flex items-start">
+<!-- Pesan pengguna -->
+<div v-if="message.user_role === 'user'" class="flex items-start ml-auto message-container">
+  <div class="user-message">
+    <p class="font-semibold text-gray-800">{{ message.sender_name }}</p>
+    <p class="text-gray-600">{{ message.message }}</p>
+  </div>
+  <div class="message-icon">
+    <!-- Ikon pengguna -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+  </div>
+</div>
 
-          <!-- Conditional styling for admin messages -->
-          <div v-else class="flex items-start mr-auto">
-            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-gray-200">
-              <!-- Admin icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-            <div class="ml-4">
-              <p class="font-semibold text-gray-800 text-left">{{ message.sender_name }}</p>
-              <p class="text-gray-600 text-left">{{ message.message }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- Pesan admin -->
+<div v-else class="flex items-start mr-auto message-container">
+  <div class="message-icon">
+    <!-- Ikon admin -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+  </div>
+  <div class="admin-message">
+    <p class="font-semibold text-gray-800">{{ message.sender_name }}</p>
+    <p class="text-gray-600">{{ message.message }}</p>
+  </div>
+</div>
+
+  </div>
+</div>
 
       <!-- Input untuk pesan -->
       <div class="flex justify-between items-center px-4 py-2 bg-gray-50 rounded-b-xl">
@@ -63,6 +66,7 @@
 <script setup>
 import { ref, watch, onMounted, nextTick } from 'vue';
 import axios from 'axios';
+import Echo from 'laravel-echo';
 
 import { XMarkIcon, PaperAirplaneIcon } from "@heroicons/vue/24/solid";
 
@@ -141,6 +145,7 @@ const sendMessage = async () => {
 
 const scrollToBottom = () => {
   if (messagesContainer.value) {
+    // Scroll ke bawah hanya jika terdapat konten yang lebih dari container
     messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
   }
 };
@@ -151,29 +156,94 @@ watch(() => props.isOpen, (newValue) => {
     fetchChats(); // Fetch chats when chat opens
   } else {
     nextTick(() => {
-    scrollToBottom();
-  });
+      scrollToBottom();
+    });
   }
 }, { immediate: true });
 
+// Listen for new messages
+const listenForMessages = () => {
+  window.Echo.channel(`chat.${chatId.value}`)
+    .listen('MessageSent', (event) => {
+      messages.value.push(event.message);
+      scrollToBottom();
+    });
+};
+
 onMounted(() => {
   fetchChats();
+  if (chatId.value) {
+    listenForMessages();
+  }
+});
+
+watch(() => chatId.value, (newChatId) => {
+  if (newChatId) {
+    listenForMessages();
+  }
 });
 </script>
 
 
 
 <style scoped>
+section {
+  max-width: 300px; /* Lebar maksimum untuk section chat */
+  width: 100%; /* Lebar section mengikuti lebar kontainer parent */
+  margin: 0 auto; /* Tengah-kan section pada halaman */
+  box-sizing: border-box; /* Sertakan padding dalam perhitungan lebar */
+}
+
 /* Container chat utama */
 .main-container {
   height: 400px; /* Atur tinggi maksimum container chat */
   overflow-y: auto; /* Aktifkan scroll vertical jika konten lebih dari container */
+  padding: 10px; /* Tambahkan padding jika diperlukan */
 }
 
-/* Atur lebar maksimum dan responsif untuk main container */
-@media (max-width: 970px) {
-  .main-container {
-    max-width: 100%; /* Maksimalkan lebar container untuk layar kecil */
-  }
+/* Gaya untuk pesan pengguna */
+.user-message {
+  max-width: 70%; /* Lebar maksimum bubble chat pengguna */
+  word-wrap: break-word; /* Membungkus kata yang terlalu panjang */
+  background-color: #e1ffc7; /* Warna latar belakang untuk pesan pengguna */
+  border-radius: 8px; /* Sudut melengkung pada pesan pengguna */
+  padding: 8px; /* Jarak dalam pesan pengguna */
+  margin-left: auto; /* Mengatur pesan pengguna ke sebelah kanan */
+  text-align: right; /* Teks rata kanan untuk pesan pengguna */
+  overflow-wrap: break-word; /* Membungkus teks yang terlalu panjang */
+  white-space: pre-wrap; /* Membungkus teks dengan spasi dan baris baru */
 }
+
+/* Gaya untuk pesan admin */
+.admin-message {
+  max-width: 70%; /* Lebar maksimum bubble chat admin */
+  word-wrap: break-word; /* Membungkus kata yang terlalu panjang */
+  background-color: #f1f0f0; /* Warna latar belakang untuk pesan admin */
+  border-radius: 8px; /* Sudut melengkung pada pesan admin */
+  padding: 8px; /* Jarak dalam pesan admin */
+  margin-right: auto; /* Mengatur pesan admin ke sebelah kiri */
+  text-align: left; /* Teks rata kiri untuk pesan admin */
+  overflow-wrap: break-word; /* Membungkus teks yang terlalu panjang */
+  white-space: pre-wrap; /* Membungkus teks dengan spasi dan baris baru */
+}
+
+/* Gaya untuk wadah pesan */
+.message-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem; /* Jarak antara pesan */
+}
+
+/* Ikon pesan */
+.message-icon {
+  width: 36px; /* Ukuran ikon */
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #d1d1d1;
+  margin: 0 0.5rem; /* Jarak antara ikon dan pesan */
+}
+
 </style>

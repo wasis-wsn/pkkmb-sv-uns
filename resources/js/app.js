@@ -6,6 +6,7 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ZiggyVue } from "ziggy-js";
 import { InertiaProgress } from "@inertiajs/progress";
 import './bootstrap'
+import './echo';
 
 const appName =
     window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
