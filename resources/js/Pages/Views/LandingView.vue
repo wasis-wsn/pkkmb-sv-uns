@@ -270,8 +270,6 @@
       </div>
     </section>
     <FormFeedback />
-    <div class="slider-acara">
-      <section class="acara" id="acara">
         <div class="background">
           <div class="mb-3 text-center">
             <h1
@@ -281,11 +279,9 @@
               SPONSORED BY :
             </h1>
             <SponsorSection />
-          </div>
           <HimaSection />
+          </div>
         </div>
-      </section>
-    </div>
   </div>
 </LayoutHeaderFooter>
 </template>
@@ -295,8 +291,6 @@ import { onMounted } from 'vue';
 import { ClipboardIcon, UserGroupIcon } from "@heroicons/vue/24/solid";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
 import VidioSection from "@/Components-landing/landing-page/VidioSection.vue";
 import SponsorSection from "@/Components-landing/landing-page/SponsorSection.vue";
 import HimaSection from "@/Components-landing/landing-page/HimaSection.vue";
@@ -317,43 +311,7 @@ const components = {
 onMounted(() => {
   document.title = "PKKMB SV UNS";
   AOS.init();
-  new Swiper(".swiper", {
-    loop: true,
-    slidesPerView: 4,
-    spaceBetween: 4,
-    slidesPerGroup: 1,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: false,
-    },
-    breakpoints: {
-      300: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      480: {
-        slidesPerView: 4,
-        spaceBetween: 10,
-      },
-      768: {
-        slidesPerView: 5,
-        spaceBetween: 10,
-      },
-      1024: {
-        slidesPerView: 6,
-        spaceBetween: 10,
-      },
-      1280: {
-        slidesPerView: 7,
-        spaceBetween: 10,
-      },
-    },
   });
-});
 </script>
 
 <style scoped>
