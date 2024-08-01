@@ -95,7 +95,7 @@
           <template #footer>
             <BaseButtons>
               <BaseButton color="info" type="submit" label="Submit" />
-              <BaseButton color="info" label="Options" outline />
+              <BaseButton color="info" label="Reset" outline />
             </BaseButtons>
           </template>
         </CardBox>
@@ -140,7 +140,7 @@
           <template #footer>
             <BaseButtons>
               <BaseButton type="submit" color="info" label="Submit" />
-              <BaseButton color="info" label="Options" outline />
+              <BaseButton color="info" label="Reset" outline />
             </BaseButtons>
           </template>
         </CardBox>
@@ -160,7 +160,7 @@
         <template #footer>
           <BaseButtons>
             <BaseButton type="submit" color="danger" label="Submit" />
-            <BaseButton color="danger" label="Options" outline />
+            <BaseButton color="danger" label="Reset" outline />
           </BaseButtons>
         </template>
       </CardBox>
