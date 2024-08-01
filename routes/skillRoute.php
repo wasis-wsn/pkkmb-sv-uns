@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\skillController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
