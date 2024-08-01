@@ -25,16 +25,16 @@
         </main>
 
 
-        <Link href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">HOME
+        <Link href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">BERANDA
         </Link>
         <Link href="/materi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">
-        MATERIALS</Link>
+        MATERI</Link>
         <Link href="/kelompok" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">
-        GROUPS</Link>
+        KELOMPOK</Link>
         <Link href="/galeri" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">
-        GALLERY</Link>
+        GALERI</Link>
         <Link href="/tentang" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">
-        ABOUT</Link>
+        TENTANG</Link>
 
         <!-- untuk user -->
         <Link href="/profile" v-if="user && user.role === 'user'"

@@ -10,7 +10,7 @@
             <h1 class="font-bold text-black">Profile</h1>
             <h2 class="mt-9 font-semibold leading-[155%] text-neutral-900">
                 {{ user ? user.mahasiswa?.nama_mahasiswa || 'N/A' : 'Loading...' }}</h2>
-            <p class="mt-2 text-xs leading-4 text-neutral-500">@{{ user ? user.email || 'N/A' : 'Loading...' }}</p>
+            <p class="mt-2 text-xs leading-4 text-neutral-500">@{{ user ? user.username || 'N/A' : 'Loading...' }}</p>
         </section>
         <dl v-if="user && user.role === 'user'" class="w-full mt-12 px-5 space-y-2">
             <div class="flex flex-wrap justify-between font-medium leading-[155%] text-neutral-900">
@@ -33,25 +33,25 @@
                 <!-- Show Dashboard for Admin -->
                 <li v-if="user && user.role === 'admin'"
                     class="flex gap-2.5 justify-between px-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
-                    <a href="/dashboard" class="flex items-center justify-between w-full">
+                    <button href="/dashboard" class="flex items-center justify-between w-full">
                         Dashboard
                         <ChevronRightIcon class="w-5 h-5" />
-                    </a>
+                    </button>
                 </li>
                 <!-- Show Profile Settings for Users -->
                 <li v-if="user && user.role === 'user'"
                     class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-blue-600 leading-[155%] max-w-[375px]">
-                    <a href="/profile" class="flex items-center justify-between w-full">
+                    <button href="/profile" class="flex items-center justify-between w-full">
                         Profile Settings
                         <ChevronRightIcon class="w-5 h-5" />
-                    </a>
+                    </button>
                 </li>
                 <li
                     class="flex gap-2.5 justify-between px-5 mt-5 w-full font-medium text-red-600 leading-[155%] max-w-[375px]">
-                    <a href="" @click="logout" class="flex items-center justify-between w-full">
+                    <button @click="logout" class=" flex items-center justify-between w-full">
                         Log out
                         <ChevronRightIcon class="w-5 h-5" />
-                    </a>
+                    </button>
                 </li>
             </ul>
         </nav>
@@ -61,7 +61,7 @@
 <script setup>
     import {
         ref,
-        onBeforeMount
+        onBeforeMount,
     } from 'vue';
     import axios from 'axios';
     import {
@@ -88,9 +88,15 @@
         fetchUserData();
     });
 
-    const logout = () => {
-        router.post(route("logout"));
+    const logout = async () => {
+    try {
+        await router.post(route("logout"));
+        // Redirect or handle successful logout
+    } catch (error) {
+        console.error('Error logging out:', error);
+        // Optionally handle errors
     }
+}
 
 </script>
 
