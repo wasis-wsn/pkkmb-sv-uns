@@ -130,17 +130,16 @@ const scrollToBottom = () => {
 
 // Listen for new messages
 const listenForMessages = () => {
-  if (window.Echo) {
-    window.Echo.channel(`chat.${chatId.value}`)
+  if (window.Echo && chatId.value) {
+    window.Echo.channel(`room.${chatId.value}`)
       .listen('MessageSent', (event) => {
         messages.value.push(event.message);
         scrollToBottom();
       });
   } else {
-    console.error('Echo is not defined.');
+    console.error('Echo or chatId is not defined.');
   }
 };
-
 
 onMounted(() => {
   fetchChats();
