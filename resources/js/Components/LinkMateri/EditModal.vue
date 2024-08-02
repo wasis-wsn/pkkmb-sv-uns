@@ -10,38 +10,27 @@ const props = defineProps({
     show: Boolean,
 });
 
-const selectOptions = [
-    {
-        label: "COMING SOON PKKMB SV UNS 2024",
-        value: "COMING SOON PKKMB SV UNS 2024",
-    },
-    {
-        label: "AFTER MOVIE PKKMB SV UNS 2024",
-        value: "AFTER MOVIE PKKMB SV UNS 2024",
-    },
-];
-
 const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    judul_youtube: "",
-    link_youtube: "",
+    judul_file: "",
+    link_drive: ""
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.judul_youtube = newItem.judul_youtube;
-            form.link_youtube = newItem.link_youtube;
+            form.judul_file = newItem.judul_file;
+            form.link_drive = newItem.link_drive;
         }
     },
     { immediate: true }
 );
 
 const submit = () => {
-    form.post(route("youtube.update", props.item.id), {
+    form.post(route("linkmateri.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -79,20 +68,17 @@ const submit = () => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Youtube
+                                Edit Link Materi
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Nama Vidio Youtube" help="">
+                                <FormField label="Judul File">
                                     <FormControl
-                                        v-model="form.judul_youtube"
-                                        :options="selectOptions"
-                                        optionValue="value"
-                                        placeholder="Select an option"
+                                        v-model="form.judul_file"
                                     />
                                 </FormField>
-                                <FormField label="Link Youtube">
+                                <FormField label="Link Google Drive">
                                     <FormControl
-                                        v-model="form.link_youtube"
+                                        v-model="form.link_drive"
                                         placeholder=""
                                     />
                                 </FormField>

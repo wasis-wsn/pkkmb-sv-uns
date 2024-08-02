@@ -95,10 +95,22 @@ export default [
         ],
     },
     {
-        route: "materi",
         label: "Materi",
-        icon: mdiClipboardText,
+        icon: mdiViewList,
+        menu: [
+            {
+                route: "materi",
+                label: "Materi",
+                icon: mdiClipboardText,
+            },
+            {
+                route: "linkmateri",
+                label: "Link Materi",
+                icon: mdiClipboardText,
+            },
+        ]
     },
+    
     {
         route: "chat",
         label: "Chat",
