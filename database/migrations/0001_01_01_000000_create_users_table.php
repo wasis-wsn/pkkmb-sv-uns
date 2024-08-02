@@ -135,6 +135,13 @@ return new class extends Migration {
             $table->string('link_youtube');
             $table->timestamps();
         });
+        Schema::create('link_materi', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('judul_file');
+            $table->string('link_drive');
+            $table->timestamps();
+        });
 
         // Materi Table
         Schema::create('materi', function (Blueprint $table) {
@@ -185,6 +192,7 @@ return new class extends Migration {
         Schema::dropIfExists('sponsor');
         Schema::dropIfExists('dokumentasi');
         Schema::dropIfExists('youtube');
+        Schema::dropIfExists('link_materi');
         Schema::dropIfExists('materi');
         Schema::dropIfExists('sessions');
     
