@@ -10,32 +10,35 @@
                     main
                 />
                 <section
-                    class="flex flex-col items-start px-16 pt-14 pb-6 mt-3 rounded-3xl bg-slate-100 max-md:px-5 max-md:mt-10 border border-gray-300 mb-5 md:mb-0"
+                    class="flex flex-col items-center px-16 pt-6 pb-6 mt-3 rounded-3xl bg-slate-100 max-md:px-5 max-md:mt-10 border border-gray-300 mb-5 md:mb-0"
                 >
-                    <div class="px-0.5 ml-20 max-md:ml-0">
-                        <div class="flex gap-5 max-md:flex-col">
-                            <div class="flex flex-col w-6/12 max-md:w-full">
+                    <div class="px-0.5 max-md:ml-0">
+                        <div class="flex justify-center gap-5 max-md:flex-col">
+                            <div
+                                class="flex flex-col my-auto w-6/12 max-md:w-full"
+                            >
                                 <img
                                     loading="lazy"
                                     src="../../../assets/Ellipse 19.png"
                                     alt="Profile picture"
-                                    class="w-full rounded-full aspect-square max-md:mt-10 border border-gray-800"
+                                    class="w-full rounded-full my-auto aspect-square max-md:mt-10 border border-gray-800"
                                 />
                             </div>
                             <div
                                 class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full"
                             >
                                 <div
-                                    class="flex flex-col self-stretch my-auto font-bold text-center text-black max-md:mt-10"
+                                    class="flex flex-col my-auto self-stretch font-bold text-black max-md:mt-10"
                                 >
-                                    <h3 class="text-6xl max-md:text-4xl">
+                                    <h3 class="text-4xl max-md:text-2xl">
+                                        Hallo,
                                         {{
                                             user
                                                 ? user.mahasiswa.nama_mahasiswa
                                                 : "Loading..."
-                                        }}
+                                        }}!
                                     </h3>
-                                    <h1 class="text-2xl">
+                                    <h1 class="text-2xl mt-2">
                                         {{ user ? user.email : "Loading..." }}
                                     </h1>
                                     <h1 class="text-2xl">
