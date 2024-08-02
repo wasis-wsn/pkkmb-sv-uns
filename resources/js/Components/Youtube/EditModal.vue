@@ -10,12 +10,23 @@ const props = defineProps({
     show: Boolean,
 });
 
+const selectOptions = [
+    {
+        label: "COMING SOON PKKMB SV UNS 2024",
+        value: "COMING SOON PKKMB SV UNS 2024",
+    },
+    {
+        label: "AFTER MOVIE PKKMB SV UNS 2024",
+        value: "AFTER MOVIE PKKMB SV UNS 2024",
+    },
+];
+
 const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
     judul_youtube: "",
-    link_youtube: ""
+    link_youtube: "",
 });
 
 watch(
@@ -71,9 +82,12 @@ const submit = () => {
                                 Edit Youtube
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Judul Youtube">
+                                <FormField label="Nama Vidio Youtube" help="">
                                     <FormControl
                                         v-model="form.judul_youtube"
+                                        :options="selectOptions"
+                                        optionValue="value"
+                                        placeholder="Select an option"
                                     />
                                 </FormField>
                                 <FormField label="Link Youtube">

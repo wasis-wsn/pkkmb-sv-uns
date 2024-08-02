@@ -1,25 +1,36 @@
 <script setup>
-    import CardBox from '@/Components/CardBox.vue'
-    import FormField from '@/Components/FormField.vue'
-    import FormControl from '@/Components/FormControl.vue'
-    import BaseButton from '@/Components/BaseButton.vue'
-    import BaseButtons from '@/Components/BaseButtons.vue'
-    import { ref, computed } from "vue";
-    import { useForm } from "@inertiajs/vue3";
-    
-    const form = useForm({
-        judul_youtube: "",
-        link_youtube: "",
-    });
+import CardBox from "@/Components/CardBox.vue";
+import FormField from "@/Components/FormField.vue";
+import FormControl from "@/Components/FormControl.vue";
+import BaseButton from "@/Components/BaseButton.vue";
+import BaseButtons from "@/Components/BaseButtons.vue";
+import { ref, computed } from "vue";
+import { useForm } from "@inertiajs/vue3";
 
-    const errors = ref({});
-    const showAlert = ref(false);
+const form = useForm({
+    judul_youtube: "",
+    link_youtube: "",
+});
 
-    const isFormValid = computed(() => {
-        return form.judul_youtube && form.link_youtube;
-    });
+const errors = ref({});
+const showAlert = ref(false);
 
-    const validateForm = () => {
+const selectOptions = [
+    {
+        label: "COMING SOON PKKMB SV UNS 2024",
+        value: "COMING SOON PKKMB SV UNS 2024",
+    },
+    {
+        label: "AFTER MOVIE PKKMB SV UNS 2024",
+        value: "AFTER MOVIE PKKMB SV UNS 2024",
+    },
+];
+
+const isFormValid = computed(() => {
+    return form.judul_youtube && form.link_youtube;
+});
+
+const validateForm = () => {
     errors.value = {};
     if (!form.judul_youtube) {
         errors.value.judul_youtube = "Judul Youtube is required.";
@@ -51,23 +62,45 @@ const reset = () => {
     errors.value = {};
     showAlert.value = false;
 };
-
 </script>
 <template>
     <CardBox form @submit.prevent="submit">
         <FormField label="Nama Vidio Youtube" help="">
-            <FormControl v-model="form.judul_youtube" type="text" placeholder="Judul vidio youtube" />
+            <FormControl
+                v-model="form.judul_youtube"
+                :options="selectOptions"
+                optionValue="value"
+                placeholder="Select an option"
+            />
+            <p v-if="errors.judul_youtube" class="text-red-500 text-sm mt-0">
+                {{ errors.judul_youtube }}
+            </p>
         </FormField>
         <FormField label="Link Youtube" help="">
-            <FormControl v-model="form.link_youtube" type="text" placeholder="Masukkan link disini" />
+            <FormControl
+                v-model="form.link_youtube"
+                type="text"
+                placeholder="Masukkan link disini"
+            />
             <p v-if="errors.link_youtube" class="text-red-500 text-sm mt-1">
                 {{ errors.link_youtube }}
             </p>
         </FormField>
         <template #footer>
             <BaseButtons>
-                <BaseButton type="submit" color="success" label="Submit" @click="submit" />
-                <BaseButton type="reset" color="danger" outline label="Reset" @click="reset"/>
+                <BaseButton
+                    type="submit"
+                    color="success"
+                    label="Submit"
+                    @click="submit"
+                />
+                <BaseButton
+                    type="reset"
+                    color="danger"
+                    outline
+                    label="Reset"
+                    @click="reset"
+                />
             </BaseButtons>
         </template>
     </CardBox>
