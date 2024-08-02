@@ -13,7 +13,7 @@ class ChatController extends Controller
     public function getChats(Request $request)
     {
         $user = $request->user();
-
+    
         // Jika admin, ambil semua room dengan unseen_messages > 0
         if ($user->role === 'admin') {
             $rooms = Room::where('unseen_messages', '>', 0)
@@ -22,14 +22,9 @@ class ChatController extends Controller
         } else {
             // Jika bukan admin, hanya ambil room milik user
             $rooms = Room::where('user_id', $user->id)
+                ->where('unseen_messages', '>', 0)
                 ->with('user') // Pastikan model Room memiliki relasi dengan User
                 ->get();
-
-            // Hitung unseen_messages untuk setiap room
-            foreach ($rooms as $room) {
-                $room->unseen_messages = $this->countUnseenMessages($room->id, $user->id);
-                $room->save();
-            }
         }
         return response()->json($rooms);
     }
@@ -44,7 +39,7 @@ class ChatController extends Controller
             $messages = Message::select('messages.*', 'users.role as user_role', 'users.username as sender_name')
                 ->join('users', 'messages.user_id', '=', 'users.id')
                 ->where('messages.room_id', $roomId)
-                ->orderBy('messages.created_at', 'asc')
+                ->orderBy('messages.created_at', 'asc') // Urutkan berdasarkan waktu pembuatan
                 ->get();
         } else {
             // Jika bukan admin, hanya ambil pesan dari room yang milik user
@@ -58,11 +53,8 @@ class ChatController extends Controller
             $messages = Message::select('messages.*', 'users.role as user_role', 'users.username as sender_name')
                 ->join('users', 'messages.user_id', '=', 'users.id')
                 ->where('messages.room_id', $roomId)
-                ->orderBy('messages.created_at', 'asc')
+                ->orderBy('messages.created_at', 'asc') // Urutkan berdasarkan waktu pembuatan
                 ->get();
-            
-            // Mark messages as seen for the current user
-            $this->markMessagesAsSeen($roomId, $user->id);
         }
         return response()->json($messages);
     }     
@@ -70,7 +62,7 @@ class ChatController extends Controller
     public function postMessage(Request $request)
     {
         $request->validate([
-            'room_id' => 'nullable|exists:rooms,id',
+            'room_id' => 'nullable|exists:rooms,id', // Validate that room_id exists if provided
             'message' => 'required|string',
         ]);
     
@@ -80,27 +72,11 @@ class ChatController extends Controller
         // Jika room_id diberikan, cari room berdasarkan room_id
         if ($roomId) {
             $room = Room::find($roomId);
-    
-            // Jika tidak ada room dengan ID tersebut, buat room baru
-            if (!$room) {
-                $room = Room::create([
-                    'user_id' => $user->id,
-                    'admin_id' => $this->getDefaultAdminId(),
-                    'unseen_messages' => 0,
-                ]);
-            }
-        } else {
-            // Jika tidak ada room_id, buat room baru
-            $room = Room::create([
-                'user_id' => $user->id,
-                'admin_id' => $this->getDefaultAdminId(),
-                'unseen_messages' => 0,
-            ]);
         }
     
         // Simpan pesan ke dalam room
         $message = Message::create([
-            'room_id' => $room->id,
+            'room_id' => $room->id, // Pastikan room ada
             'user_id' => $user->id,
             'message' => $request->input('message'),
         ]);
@@ -109,15 +85,37 @@ class ChatController extends Controller
         Message::where('room_id', $room->id)
             ->where('user_id', '!=', $user->id)
             ->update(['is_seen' => 0]);
-
-        // Update unseen_messages untuk room
-        // $room->unseen_messages = $this->countUnseenMessages($room->id, $user->id);
-        // $room->save();
     
-        // Trigger event
+        // Perbarui jumlah unseen_messages di room
+        $this->updateRoomUnseenMessages($room->id);
+    
+        // Trigger event dengan data yang diperlukan
         broadcast(new MessageSent($message));
     
         return response()->json(['message' => 'Message sent!']);
+    }
+
+    public function updateRoomUnseenMessages($roomId)
+    {
+        // Cari room berdasarkan room_id
+        $room = Room::find($roomId);
+
+        if (!$room) {
+            return response()->json(['message' => 'Room not found'], 404);
+        }
+
+        $user = auth()->user(); // Ambil pengguna yang sedang login
+
+        // Hitung jumlah pesan dengan is_seen = 1 di room untuk pengguna lain
+        $unseenMessagesCount = Message::where('room_id', $roomId)
+            ->where('is_seen', 1)
+            ->where('user_id', $user->id)
+            ->count();
+
+        // Perbarui unseen_messages di room
+        $room->update(['unseen_messages' => $unseenMessagesCount]);
+
+        return response()->json(['message' => 'Room unseen messages updated successfully!']);
     }
     
     public function createRoom(Request $request)
@@ -133,32 +131,10 @@ class ChatController extends Controller
         return response()->json(['room_id' => $room->id]);
     }
 
+        
     protected function getDefaultAdminId()
     {
         return User::where('role', 'admin')->first()->id;
-    }
-    
-    // Menghitung jumlah pesan yang belum dilihat oleh pengguna lain
-    protected function countUnseenMessages($roomId, $userId)
-    {
-        return Message::where('room_id', $roomId)
-            ->where('user_id', '!=', $userId)
-            ->where('is_seen', 1)
-            ->count();
-    }
+    }   
 
-    // Menandai pesan sebagai sudah dilihat
-    protected function markMessagesAsSeen($roomId, $userId)
-    {
-        Message::where('room_id', $roomId)
-            ->where('user_id', '!=', $userId)
-            ->update(['is_seen' => 0]);
-
-        // Update unseen_messages untuk room
-        $room = Room::find($roomId);
-        if ($room) {
-            $room->unseen_messages = $this->countUnseenMessages($roomId, $userId);
-            $room->save();
-        }
-    }
 }
