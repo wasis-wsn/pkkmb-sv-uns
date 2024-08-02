@@ -77,3 +77,4 @@ require __DIR__ . '/uploadRoute.php';
 require __DIR__ . '/keteranganRoute.php';
 require __DIR__ . '/profileUserRoute.php';
 require __DIR__ . '/pesanRoute.php';
+require __DIR__ . '/linkMateriRoute.php';
