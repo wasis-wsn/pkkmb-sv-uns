@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MateriController;
-use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KelompokController;
-use App\Http\Controllers\ProdiController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MahasiswaController;
 
 // Route untuk landing page
 Route::get('/', function () {
@@ -40,10 +41,7 @@ Route::get('/tentang', function () {
 // Route untuk dashboard dan halaman terproteksi
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('DashboardView');
-    })->name('dashboard');
-
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/chat', function () {
         return Inertia::render('ChatView');
     })->name('chat');
