@@ -66,7 +66,6 @@
 <script setup>
 import { ref, watch, onMounted, nextTick } from 'vue';
 import axios from 'axios';
-import Echo from 'laravel-echo';
 
 import { XMarkIcon, PaperAirplaneIcon } from "@heroicons/vue/24/solid";
 
@@ -99,8 +98,6 @@ const fetchChats = async () => {
     if (chats.value.length > 0) {
       chatId.value = chats.value[0].id;
       await fetchMessages(chatId.value);
-      await nextTick(); // Wait for DOM update
-      scrollToBottom();
     }
   } catch (error) {
     console.error('Error fetching chats:', error);
@@ -144,10 +141,12 @@ const sendMessage = async () => {
 
 
 const scrollToBottom = () => {
-  if (messagesContainer.value) {
-    // Scroll ke bawah hanya jika terdapat konten yang lebih dari container
-    messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
-  }
+  nextTick(() => {
+    const container = messagesContainer.value; // Use ref here
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
+  });
 };
 
 // Watch for chat open state to fetch messages and scroll to bottom
@@ -163,11 +162,15 @@ watch(() => props.isOpen, (newValue) => {
 
 // Listen for new messages
 const listenForMessages = () => {
-  window.Echo.channel(`chat.${chatId.value}`)
-    .listen('MessageSent', (event) => {
-      messages.value.push(event.message);
-      scrollToBottom();
-    });
+  if (window.Echo && chatId.value) {
+    window.Echo.channel(`room.${chatId.value}`)
+      .listen('MessageSent', (event) => {
+        messages.value.push(event.message);
+        scrollToBottom();
+      });
+  } else {
+    console.error('Echo or chatId is not defined.');
+  }
 };
 
 onMounted(() => {

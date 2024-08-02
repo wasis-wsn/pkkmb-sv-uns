@@ -106,10 +106,10 @@ class ChatController extends Controller
         $room->increment('unseen_messages');
     
         // Trigger event
-        event(new MessageSent($message));
+        broadcast(new MessageSent($message));
     
         return response()->json(['message' => 'Message sent!']);
-    }    
+    }
     
     public function createRoom(Request $request)
     {

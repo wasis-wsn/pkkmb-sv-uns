@@ -1,3 +1,4 @@
+import './bootstrap';
 import { createPinia } from "pinia";
 import { useDarkModeStore } from "@/Stores/darkMode.js";
 import { createApp, h } from "vue";
@@ -5,11 +6,10 @@ import { createInertiaApp } from "@inertiajs/vue3";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ZiggyVue } from "ziggy-js";
 import { InertiaProgress } from "@inertiajs/progress";
-import './bootstrap'
-import './echo';
+
 
 const appName =
-    window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
+    window.document.getElementsByTagName("title")[0]?.innerText || "PKKMB-SV-UNS";
 
 const pinia = createPinia();
 
