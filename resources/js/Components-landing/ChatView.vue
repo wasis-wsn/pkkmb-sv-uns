@@ -28,7 +28,7 @@
 </div>
 
 <!-- Pesan admin -->
-<div v-else class="flex items-start mr-auto message-container">
+<div v-if="message.user_role === 'admin'" class="flex items-start mr-auto message-container">
   <div class="message-icon">
     <!-- Ikon admin -->
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
@@ -54,7 +54,7 @@
           placeholder="Ketik pesan Anda..."
           class="flex-grow px-3 py-1.5 rounded-lg bg-stone-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
         />
-        <button @click="sendMessage">
+        <button @click="sendMessage" :disabled="isSending">
           <PaperAirplaneIcon class="h-6 w-6 cursor-pointer text-gray-500 hover:text-gray-700" />
         </button>
       </div>
@@ -90,6 +90,7 @@ const messages = ref([]);
 const chats = ref([]);
 const chatId = ref(null);
 const messagesContainer = ref(null);
+const isSending = ref(false);
 
 const fetchChats = async () => {
   try {
@@ -126,7 +127,7 @@ const sendMessage = async () => {
       });
       chatId.value = response.data.room_id; // Set chatId ke ID room yang baru dibuat
     }
-
+    isSending.value = true;
     // Kirim pesan ke room yang ada
     await axios.post('/messages', {
       room_id: chatId.value,
@@ -136,6 +137,8 @@ const sendMessage = async () => {
     await fetchMessages(chatId.value); // Refresh pesan setelah mengirim
   } catch (error) {
     console.error('Error sending message:', error);
+  } finally {
+    isSending.value = false; // Re-enable sending
   }
 };
 
@@ -166,7 +169,7 @@ const listenForMessages = () => {
     window.Echo.channel(`room.${chatId.value}`)
       .listen('MessageSent', (event) => {
         messages.value.push(event.message);
-        scrollToBottom();
+        fetchChats();
       });
   } else {
     console.error('Echo or chatId is not defined.');

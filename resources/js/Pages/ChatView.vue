@@ -42,7 +42,7 @@
               </div>
 
               <!-- Conditional styling for user messages -->
-              <div v-else class="flex items-start mr-auto">
+              <div v-if="message.user_role === 'user'" class="flex items-start mr-auto">
                 <div class="message-icon">
                   <!-- Ikon user -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
@@ -60,7 +60,7 @@
           <div class="mt-4 flex items-center">
             <input type="hidden" v-model="chatId">
             <input type="text" v-model="newMessage" class="flex-grow p-2 border border-gray-300 rounded-lg mr-2 text-black" placeholder="Enter your message here">
-            <button class="chat-send-btn bg-teal-500 text-white p-2 rounded-lg hover:bg-teal-400" type="submit">Send</button>
+            <button class="chat-send-btn bg-teal-500 text-white p-2 rounded-lg hover:bg-teal-400" :disabled="isSending" type="submit">Send</button>
           </div>
         </form>
       </div>
@@ -78,6 +78,7 @@ const messages = ref([]);
 const newMessage = ref('');
 const chatId = ref(null);
 const messagesContainer = ref(null);
+const isSending = ref(false);
 
 const fetchChats = async () => {
   try {
@@ -105,9 +106,10 @@ const fetchMessages = async (id) => {
 };
 
 const sendMessage = async () => {
-  if (!newMessage.value.trim() || !chatId.value) return;
+  if (!newMessage.value.trim() || !chatId.value || isSending.value) return;
 
   try {
+    isSending.value = true;
     await axios.post('/messages', {
       room_id: chatId.value,
       message: newMessage.value,
@@ -116,6 +118,8 @@ const sendMessage = async () => {
     await fetchMessages(chatId.value); // Refresh messages
   } catch (error) {
     console.error('Error sending message:', error);
+  } finally {
+    isSending.value = false; // Re-enable sending
   }
 };
 
@@ -134,7 +138,7 @@ const listenForMessages = () => {
     window.Echo.channel(`room.${chatId.value}`)
       .listen('MessageSent', (event) => {
         messages.value.push(event.message);
-        scrollToBottom();
+        fetchChats();
       });
   } else {
     console.error('Echo or chatId is not defined.');
