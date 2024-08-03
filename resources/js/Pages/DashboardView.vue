@@ -11,6 +11,8 @@ import {
     mdiChartPie,
     mdiSchool,
     mdiAccountMultipleOutline,
+    mdiAccountSchool,
+    mdiWeightLifter,
 } from "@mdi/js";
 import * as chartConfig from "@/Components/Charts/chart.config.js";
 import LineChart from "@/Components/Charts/LineChart.vue";
@@ -66,7 +68,7 @@ onMounted(() => {
                     trend="12%"
                     trend-type="up"
                     color="text-orange-500"
-                    :icon="mdiAccountGroup"
+                    :icon="mdiAccountSchool"
                     :number="mahasiswa?.length || 0"
                     label="Mahasiswa"
                 />
@@ -74,23 +76,23 @@ onMounted(() => {
                     trend="Overflow"
                     trend-type="alert"
                     color="text-red-500"
-                    :icon="mdiChartTimelineVariant"
+                    :icon="mdiSchool"
                     :number="prodi?.length || 0"
                     label="Program Studi"
                 />
                 <CardBoxWidget
                     trend="Overflow"
                     trend-type="alert"
-                    color="text-red-500"
-                    :icon="mdiChartTimelineVariant"
+                    color="text-yellow-500"
+                    :icon="mdiAccountGroup"
                     :number="kelompok?.length || 0"
                     label="Kelompok Mahasiswa"
                 />
                 <CardBoxWidget
                     trend="Overflow"
                     trend-type="alert"
-                    color="text-red-500"
-                    :icon="mdiChartTimelineVariant"
+                    color="text-green-500"
+                    :icon="mdiWeightLifter"
                     :number="skills?.length || 0"
                     label="Skill Mahasiswa"
                 />
