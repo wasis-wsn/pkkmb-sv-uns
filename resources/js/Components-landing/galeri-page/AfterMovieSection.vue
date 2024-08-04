@@ -61,31 +61,37 @@ const fetchYoutube = async () => {
     try {
         const response = await axios.get("/data-youtube");
         afterMovie.value = response.data.data
-            .filter(
-                (item) => item.judul_youtube === "AFTER MOVIE PKKMB SV UNS 2024"
-            )
-            .map((item) => ({
+            .filter(item => item.judul_youtube === "AFTER MOVIE PKKMB SV UNS 2024")
+            .map(item => ({
                 title: item.judul_youtube,
                 videoSrc: getEmbedUrl(item.link_youtube),
-            }));
+            }))
+            .filter(item => item.videoSrc); // Ensure videoSrc is not empty
     } catch (error) {
         console.error("Failed to fetch data:", error);
     }
 };
 
+
 const getEmbedUrl = (url) => {
     let videoId;
-    if (url.includes("youtube.com")) {
-        videoId = url.split("v=")[1];
-        const ampersandPosition = videoId.indexOf("&");
-        if (ampersandPosition !== -1) {
-            videoId = videoId.substring(0, ampersandPosition);
-        }
-    } else if (url.includes("youtu.be")) {
-        videoId = url.split("/").pop().split("?")[0];
+    const urlObj = new URL(url);
+    
+    if (urlObj.hostname === "www.youtube.com") {
+        const params = new URLSearchParams(urlObj.search);
+        videoId = params.get("v");
+    } else if (urlObj.hostname === "youtu.be") {
+        videoId = urlObj.pathname.split("/").pop();
     }
+    
+    if (!videoId) {
+        console.error("Invalid YouTube URL:", url);
+        return "";
+    }
+    
     return `https://www.youtube.com/embed/${videoId}`;
 };
+
 
 onMounted(() => {
     document.title = "PKKMB SV UNS - GALERI";

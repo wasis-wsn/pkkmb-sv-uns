@@ -10,13 +10,13 @@
         class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl"
         data-aos="fade-up"
       >
-        {{ movie.title }}
+        Askara Muda 2024!
       </h1>
       <p
         class="self-stretch mt-9 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
         data-aos="fade-up"
       >
-        "{{ movie.deskripsi }}"
+        "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia"
       </p>
       <div class="video-container">
         <iframe
@@ -32,28 +32,56 @@
     </section>
   </div>
 </template>
-<script>
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-export default {
-  name: "VidioSection",
-  data() {
-    return {
-      comingSoon: [
-        {
-          title: "Askara Muda 2024!",
-          deskripsi: "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia",
-          videoSrc: "https://www.youtube.com/embed/ySsWXVGp7_o?si=X1SEIQDeQYOS4lZN",
-        },
-      ],
-    };
-  },
-  mounted() {
+<script setup>
+import { ref, onMounted } from 'vue';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import axios from "axios";
+
+const comingSoon = ref([]);
+
+const fetchYoutube = async () => {
+    try {
+        const response = await axios.get("/data-youtube");
+        comingSoon.value = response.data.data
+            .filter(item => item.judul_youtube === "COMING SOON PKKMB SV UNS 2024")
+            .map(item => ({
+                title: item.judul_youtube,
+                videoSrc: getEmbedUrl(item.link_youtube),
+            }))
+            .filter(item => item.videoSrc); // Ensure videoSrc is not empty
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+    }
+};
+
+
+const getEmbedUrl = (url) => {
+    let videoId;
+    const urlObj = new URL(url);
+    
+    if (urlObj.hostname === "www.youtube.com") {
+        const params = new URLSearchParams(urlObj.search);
+        videoId = params.get("v");
+    } else if (urlObj.hostname === "youtu.be") {
+        videoId = urlObj.pathname.split("/").pop();
+    }
+    
+    if (!videoId) {
+        console.error("Invalid YouTube URL:", url);
+        return "";
+    }
+    
+    return `https://www.youtube.com/embed/${videoId}`;
+};
+
+
+onMounted(() => {
     document.title = "PKKMB SV UNS";
     AOS.init();
-  },
-};
+    fetchYoutube();
+});
 </script>
 
 <style scoped>
