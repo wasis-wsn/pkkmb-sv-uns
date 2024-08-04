@@ -20,18 +20,18 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'username' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin'),
+            'password' => Hash::make('vokasisukses'),
             'role' => 'admin',
         ]);
         $this->call([
-            ProdiSeeder::class,
-            KelompokSeeder::class,
+            // ProdiSeeder::class,
+            // KelompokSeeder::class,
             // MahasiswaSeeder::class,
-            DokumentasiSeeder::class,
-            SponsorSeeder::class,
-            FeedbackSeeder::class,
-            MateriSeeder::class,
-            LinkMateriSeeder::class,
+            // DokumentasiSeeder::class,
+            // SponsorSeeder::class,
+            // FeedbackSeeder::class,
+            // MateriSeeder::class,
+            // LinkMateriSeeder::class,
         ]);
     }
 }
