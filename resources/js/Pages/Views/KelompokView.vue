@@ -48,7 +48,7 @@
   </div>
   <div class="flex flex-col bg-white">
     <section
-      class="flex justify-center items-center px-16 py-10 -mt-1 w-full bg-slate-100 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+      class="flex justify-center items-center px-16 py-10 mt-0 w-full bg-slate-100 max-md:px-5 max-md:mt-0 max-md:max-w-full">
       <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full"
         data-aos="fade-down">
         <h2
