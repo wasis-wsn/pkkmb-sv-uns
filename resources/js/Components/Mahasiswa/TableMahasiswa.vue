@@ -2,8 +2,8 @@
     <CardBox>
         <div class="overflow">
             <div class="search-form flex items-center gap-2 mb-4 my-2">
-                <FormField >
-                    <FormControl v-model="searchQuery" placeholder="Cari nama" />
+                <FormField>
+                    <FormControl v-model="searchQuery" placeholder="Cari disini" @input="handleSearch" />
                     <FormControl v-model.string="selectedKelompok" :options="kelompok" optionLabel="nama_kelompok"
                         optionValue="nama_kelompok" placeholder="Select All" @change="handleSearch" />
                 </FormField>
@@ -11,7 +11,7 @@
             <table class="min-w-full divide-y mx-auto">
                 <thead>
                     <tr>
-                        <th colspan="8">
+                        <th colspan="10">
                             <BaseButton :icon="mdiDownload" @click="exportData" color="success" label="Export" />
                             <BaseButton :icon="mdiUpload" color="info" @click="importData" class="mx-4"
                                 label="Import" />
@@ -31,6 +31,9 @@
                             Kelompok
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Skills
+                        </th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Actions
                         </th>
                     </tr>
@@ -48,6 +51,13 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ item.kelompok?.nama_kelompok }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <ul>
+                                <li v-for="skill in item.keterangan_skills" :key="skill.id">
+                                    <strong>{{ skill.skill.nama_skill }}:</strong> {{ skill.deskripsi_skill }}
+                                </li>
+                            </ul>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
@@ -85,7 +95,6 @@ import Swal from "sweetalert2";
 import EditModal from "@/Components/Mahasiswa/EditModal.vue";
 import ImportModal from "@/Components/Mahasiswa/ImportModal.vue";
 import { Inertia } from "@inertiajs/inertia";
-import { RiEqualizerLine } from "@remixicon/vue";
 
 const props = defineProps({
     data: {
@@ -181,7 +190,11 @@ const filteredUsers = computed(() => {
         result = result.filter(user =>
             user.nama_mahasiswa.toLowerCase().includes(lowercasedQuery) ||
             user.prodi?.nama_prodi.toLowerCase().includes(lowercasedQuery) ||
-            user.kelompok?.nama_kelompok.toLowerCase().includes(lowercasedQuery)
+            user.kelompok?.nama_kelompok.toLowerCase().includes(lowercasedQuery) ||
+            user.keterangan_skills.some(skill =>
+                skill.skill.nama_skill.toLowerCase().includes(lowercasedQuery) ||
+                skill.deskripsi_skill.toLowerCase().includes(lowercasedQuery)
+            )
         );
     }
     return result.filter(filterByKelompok);

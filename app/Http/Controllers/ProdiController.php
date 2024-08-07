@@ -11,13 +11,13 @@ class ProdiController extends Controller
 {
     public function getAllProdi()
     {
-        $prodis = Prodi::all();
+        $prodis = Prodi::orderBy('nama_prodi')->get();
         return response()->json(['data' => $prodis], 200);
     }
 
     public function index()
     {
-        $prodis = Prodi::all();
+        $prodis = Prodi::orderBy('nama_prodi')->get();
         return Inertia::render('ProdiView', ['data' => $prodis]);
     }
 

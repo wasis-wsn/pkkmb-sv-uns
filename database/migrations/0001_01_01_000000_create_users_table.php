@@ -34,7 +34,7 @@ return new class extends Migration {
         // Mahasiswa Table
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_mahasiswa')->unique();
+            $table->string('nama_mahasiswa');
             $table->string('no_telp')->nullable();
             $table->string('nama_prodi'); // Tambahkan kolom nama_prodi
             $table->string('nama_kelompok'); // Tambahkan kolom nama_kelompok

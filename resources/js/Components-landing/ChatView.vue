@@ -163,7 +163,9 @@ const listenForMessages = () => {
     window.Echo.channel(`room.${chatId.value}`)
       .listen('MessageSent', (event) => {
         messages.value.push(event.message);
+        fetchMessages(chatId.value);
       });
+      
   } else {
     console.error('Echo or chatId is not defined.');
   }

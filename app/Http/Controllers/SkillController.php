@@ -11,13 +11,13 @@ class SkillController extends Controller
 {
     public function getAllSkill()
     {
-        $skills = Skill::all();
+        $skills = Skill::orderBy('nama_skill')->get();
         return response()->json(['data' => $skills], 200);
     }
 
     public function index()
     {
-        $skills = Skill::all();
+        $skills = Skill::orderBy('nama_skill')->get();
         return Inertia::render('SkillView', ['data' => $skills]);
     }
 

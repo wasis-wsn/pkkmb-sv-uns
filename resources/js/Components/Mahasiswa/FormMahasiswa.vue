@@ -34,9 +34,6 @@ const validateForm = () => {
     if (!form.nama_mahasiswa) {
         errors.value.nama_mahasiswa = "Nama Mahasiswa is required.";
     }
-    if (!form.no_telp) {
-        errors.value.no_telp = "No Telp is required.";
-    }
     if (!form.nama_prodi) {
         errors.value.nama_prodi = "Prodi is required.";
     }

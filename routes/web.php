@@ -38,6 +38,10 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});
+
 // Route untuk dashboard dan halaman terproteksi
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 

@@ -11,13 +11,13 @@ class KelompokController extends Controller
 {
     public function getAllKelompok()
     {
-        $kelompoks = Kelompok::all();
+        $kelompoks = Kelompok::orderBy('nama_kelompok')->get();
         return response()->json(['data' => $kelompoks], 200);
     }
 
     public function index()
     {
-        $kelompoks = Kelompok::all();
+        $kelompoks = Kelompok::orderBy('nama_kelompok')->get();
         return Inertia::render('KelompokView', ['data' => $kelompoks]);
     }
 

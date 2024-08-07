@@ -18,13 +18,14 @@ class MahasiswaController extends Controller
 {
     public function getAllMahasiswa()
     {
-        $mahasiswa = Mahasiswa::with('prodi', 'kelompok')->get();
-        $prodi = Prodi::all();
-        $kelompok = Kelompok::all();
+        $mahasiswa = Mahasiswa::with(['prodi', 'kelompok', 'keteranganSkills.skill'])
+        ->join('kelompok', 'mahasiswa.nama_kelompok', '=', 'kelompok.nama_kelompok')
+        ->select('mahasiswa.*')
+        ->orderBy('kelompok.nama_kelompok')
+        ->get();
+
         return response()->json([
             'data' => $mahasiswa,
-            'prodi' => $prodi,
-            'kelompok' => $kelompok
         ], 200);
     }
 
@@ -57,9 +58,14 @@ class MahasiswaController extends Controller
 
     public function index()
     {
-        $mahasiswas = Mahasiswa::with('prodi', 'kelompok')->get();
-        $prodi = Prodi::all();
-        $kelompok = Kelompok::all();
+        $mahasiswas = Mahasiswa::with(['prodi', 'kelompok', 'keteranganSkills.skill'])
+        ->join('kelompok', 'mahasiswa.nama_kelompok', '=', 'kelompok.nama_kelompok')
+        ->select('mahasiswa.*')
+        ->orderBy('kelompok.nama_kelompok')
+        ->get();
+
+        $prodi = Prodi::orderBy('nama_prodi')->get();
+        $kelompok = Kelompok::orderBy('nama_kelompok')->get();
         return Inertia::render('MahasiswaView', [
             'data' => $mahasiswas,
             'prodi' => $prodi,
@@ -72,7 +78,7 @@ class MahasiswaController extends Controller
         try {
             $validated = $request->validate([
                 'nama_mahasiswa' => 'required|string|max:255',
-                'no_telp' => 'required|string|max:15',
+                'no_telp' => 'nullable|string|max:15',
                 'nama_prodi' => 'required|exists:prodi,nama_prodi',
                 'nama_kelompok' => 'required|exists:kelompok,nama_kelompok',
             ]);
@@ -80,7 +86,7 @@ class MahasiswaController extends Controller
 
             Mahasiswa::create([
                 'nama_mahasiswa' => $validated['nama_mahasiswa'],
-                'no_telp' => $validated['no_telp'],
+                'no_telp' => $validated['no_telp'] ?? null,
                 'nama_prodi' => $validated['nama_prodi'],
                 'nama_kelompok' => $validated['nama_kelompok'],
             ]);
