@@ -46,8 +46,9 @@
                     class="shrink-0 bg-red-300 bg-opacity-20 h-[200px] rounded-[100px] w-[5px]"></div>
             </div>
         </div>
+        <!-- Buku Panduan -->
         <div>
-            <section class="flex gap-5 self-center mt-[45px] max-md:flex-wrap max-md:mt-10" data-aos="fade-up">
+            <section v-if="bukuPanduan && bukuPanduan.length" class="flex gap-5 self-center mt-[45px] max-md:flex-wrap max-md:mt-10" data-aos="fade-up">
                 <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
                     <h2
                         class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[340px] max-md:w-full">
@@ -66,7 +67,8 @@
                     </div>
                 </div>
             </section>
-            <section v-for="item in bukuPanduan" :key="item.id"
+            <div v-if="bukuPanduan && bukuPanduan.length" v-for="item in bukuPanduan" :key="item.id">
+            <section 
                 class="flex gap-5 self-center mt-[50px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
                 data-aos="fade-up">
                 <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
@@ -84,9 +86,17 @@
             <img loading="lazy" src="@assets/Materi/twibbon.png" alt="Decorative gradient"
                 class=" mt-[-50px] left-0 z-0 w-full h-auto max-w-full max-h-full" />
         </div>
+            <div v-else class="text-center py-20">
+                <h2 class="text-3xl font-bold text-gray-600">
+                    BUKU PANDUAN COMING SOON...
+                </h2>
+            </div>
+        </div>
+
+        <BukuImplementasiView />
         <MateriSectionView />
-        <!-- DOWNLOAD -->
-        <section v-if="linkMateri"
+        <!-- DOWNLOAD Materi-->
+        <section v-if="linkMateri && linkMateri.link_drive"
             class="flex gap-5 self-center mt-[100px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
             data-aos="fade-up">
             <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
@@ -101,21 +111,24 @@
                 </div>
             </div>
         </section>
+        <section v-else class="text-center py-20">
+            <h2 class="text-3xl font-bold text-gray-600">
+                DOWNLOAD MATERI COMING SOON...
+            </h2>
+        </section>
     </LayoutHeaderFooter>
 </template>
 
 <script setup>
-    import {
-        ref,
-        onMounted,
-    } from 'vue';
+    import { ref, onMounted } from 'vue';
     import axios from 'axios';
     import "aos/dist/aos.css";
     import MateriSectionView from "@/Components-landing/materi-page/MateriSectionView.vue";
+    import BukuImplementasiView from "@/Components-landing/materi-page/BukuImplementasiView.vue";
     import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
 
     const bukuPanduan = ref(null);
-    const linkMateri = ref([]);
+    const linkMateri = ref(null);
 
     // Fetch materi data
     const getLink = async () => {
@@ -133,10 +146,4 @@
     onMounted(() => {
         getLink();
     });
-
 </script>
-
-<!-- <style scoped>
-  @import '../css/pages/materiview.css';
-  @import '../css/pages/_button.css';
-</style> -->
