@@ -97,21 +97,21 @@ const fetchChats = async () => {
     const response = await axios.get('/chats');
     chats.value = response.data;
     if (chats.value.length > 0) {
-      chatId.value = chats.value[0].id;
-      await fetchMessages(chatId.value);
+      chatId.value = chats.value[0].id; // Set default chat ID
     }
   } catch (error) {
     console.error('Error fetching chats:', error);
   }
 };
 
-const fetchMessages = async (roomId) => {
+const fetchMessages = async (id) => {
+  console.log('Fetching messages for chat ID:', id); // Debugging line
+  chatId.value = id; // Set selected chat ID
   try {
-    const response = await axios.get(`/messages/${roomId}`);
+    const response = await axios.get(`/messages/${id}`);
     messages.value = response.data;
     await nextTick(); // Wait for DOM update
     scrollToBottom();
- // Scroll to bottom after messages are updated
   } catch (error) {
     console.error('Error fetching messages:', error);
   }
@@ -154,13 +154,7 @@ const scrollToBottom = () => {
 
 // Watch for chat open state to fetch messages and scroll to bottom
 watch(() => props.isOpen, (newValue) => {
-  if (newValue) {
-    fetchChats(); // Fetch chats when chat opens
-  } else {
-    nextTick(() => {
-      scrollToBottom();
-    });
-  }
+  fetchMessages(chatId.value);
 }, { immediate: true });
 
 // Listen for new messages
@@ -169,7 +163,6 @@ const listenForMessages = () => {
     window.Echo.channel(`room.${chatId.value}`)
       .listen('MessageSent', (event) => {
         messages.value.push(event.message);
-        fetchChats();
       });
   } else {
     console.error('Echo or chatId is not defined.');

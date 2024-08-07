@@ -86,14 +86,15 @@ const fetchChats = async () => {
     chats.value = response.data;
     if (chats.value.length > 0) {
       chatId.value = chats.value[0].id; // Set default chat ID
-      await fetchMessages(chatId.value);
     }
   } catch (error) {
     console.error('Error fetching chats:', error);
   }
 };
 
+
 const fetchMessages = async (id) => {
+  console.log('Fetching messages for chat ID:', id); // Debugging line
   chatId.value = id; // Set selected chat ID
   try {
     const response = await axios.get(`/messages/${id}`);
@@ -105,6 +106,7 @@ const fetchMessages = async (id) => {
   }
 };
 
+
 const sendMessage = async () => {
   if (!newMessage.value.trim() || !chatId.value || isSending.value) return;
 
@@ -115,13 +117,14 @@ const sendMessage = async () => {
       message: newMessage.value,
     });
     newMessage.value = ''; // Clear input field
-    await fetchMessages(chatId.value); // Refresh messages
+    await fetchMessages(chatId.value); // Refresh messages for the current chat room
   } catch (error) {
     console.error('Error sending message:', error);
   } finally {
     isSending.value = false; // Re-enable sending
   }
 };
+
 
 const scrollToBottom = () => {
   nextTick(() => {
@@ -138,7 +141,6 @@ const listenForMessages = () => {
     window.Echo.channel(`room.${chatId.value}`)
       .listen('MessageSent', (event) => {
         messages.value.push(event.message);
-        fetchChats();
       });
   } else {
     console.error('Echo or chatId is not defined.');
@@ -157,6 +159,7 @@ watch(() => chatId.value, (newChatId) => {
     listenForMessages();
   }
 });
+
 </script>
 
 <style scoped>
