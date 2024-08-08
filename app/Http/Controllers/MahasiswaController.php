@@ -24,8 +24,10 @@ class MahasiswaController extends Controller
         ->orderBy('kelompok.nama_kelompok')
         ->get();
 
+        $kelompok = Kelompok::orderBy('nama_kelompok')->get();
         return response()->json([
             'data' => $mahasiswa,
+            'kelompok' => $kelompok
         ], 200);
     }
 
