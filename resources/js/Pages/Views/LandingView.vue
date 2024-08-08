@@ -186,12 +186,12 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 1</h3>
                 </div>
-                <p class="mt-10 text-2xl font-bold text-neutral-600">Opening Ceremony.</p>
+                <p class="mt-10 text-2xl font-bold text-neutral-600">PKKMB UNS.</p>
                 <p class="mt-5 text-lg text-neutral-600">
-                  Pada hari pertama, secara garis besar akan diisi dengan sesi pemaparan
-                  materi. Acara ini mencakup talkshow dengan materi tentang entrepreneur
-                  dan talkshow dengan materi tentang cara bertahan hidup di kehidupan
-                  kampus.
+                  Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) 
+                  di Universitas Sebelas Maret merupakan program pemberian 
+                  informasi akademik dan kegiatan kemahasiswaan, 
+                  serta berisikan materi yang disesuaikan dengan era saat ini.
                 </p>
               </div>
             </div>
@@ -228,11 +228,11 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 2</h3>
                 </div>
-                <p class="mt-10 text-2xl font-bold text-neutral-600">Prodi's Time</p>
+                <p class="mt-10 text-2xl font-bold text-neutral-600">PKKMB SV UNS.</p>
                 <p class="mt-5 text-lg text-neutral-600">
-                  Dalam kegiatan PKKMB (Pengenalan Kehidupan Kampus bagi Mahasiswa Baru)
-                  Prodi's Time adalah sesi khusus yang diadakan untuk memperkenalkan
-                  mahasiswa baru kepada program studi (prodi) yang kalian pilih.
+                  PKKMB SV UNS Merupakan program yang diperuntukan untuk mahasiswa 
+                  baru Universitas Sebelas Maret sebagai perkenalan awal lingkungan 
+                  Sekolah Vokasi serta kegiatan untuk apresiasi mahasiswa baru.
                 </p>
               </div>
             </div>
@@ -250,10 +250,10 @@
                   </div>
                   <h3 class="text-4xl font-black text-red-400">Day 3</h3>
                 </div>
-                <p class="mt-10 text-2xl font-bold text-neutral-600">Closing Ceremony</p>
+                <p class="mt-10 text-2xl font-bold text-neutral-600">Prodi’s Time.</p>
                 <p class="mt-5 text-lg text-neutral-600">
-                  Di pagi hari, kita akan melakukan sesi Mind Mapping, dan pada siang
-                  harinya dilanjutkan dengan apresiasi Mahasiswa Baru.
+                  Masa Orientasi Program Studi (Prodi’s Time) adalah perkenalan awal 
+                  program studi serta penjelasan mengenai sistem akademik di masing-masing prodi.
                 </p>
               </div>
             </div>

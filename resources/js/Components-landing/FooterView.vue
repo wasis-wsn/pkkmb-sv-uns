@@ -63,7 +63,7 @@
                       class="shrink-0 self-start w-5 aspect-square"
                       alt=""
                     />
-                    <div class="flex-auto">pkkmbsekolahvokasiuns@gmail.com</div>
+                    <div class="flex-auto">pkkmbsvuns2024@gmail.com</div>
                   </div>
                   <div class="flex gap-1 mt-2">
                     <img
@@ -74,10 +74,10 @@
                     />
                     <div class="flex-auto underline">
                       <a
-                        href="https://chat.whatsapp.com/Fr3bT6kNhUo0Lcvescpi5y"
+                        href="http://wa.me/6289512537245"
                         target="_blank"
                       >
-                      0812-3456-7890(PUBIT)</a
+                      Hubungi Admin</a
                       >
                     </div>
                   </div>

@@ -16,7 +16,7 @@
         class="self-stretch mt-9 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
         data-aos="fade-up"
       >
-        "Jiwa Berkarakter, Kreativitas Tanpa Batas, Inovasi Mendunia"
+        "Cipta Generasi, Kembangkan Potensi, Laksana Gentari"
       </p>
       <div class="video-container">
         <iframe
