@@ -6,7 +6,7 @@
                 <img :src="'/storage/hima/' + slide.logo_hima" class="object-cover" />
             </div>
         </div>
-        <div class="swiper-pagination"></div>
+        <!-- <div class="swiper-pagination"></div> -->
     </div>
 </template>
 <script setup>
