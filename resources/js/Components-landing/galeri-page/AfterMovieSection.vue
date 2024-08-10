@@ -60,17 +60,24 @@ const afterMovie = ref([]);
 const fetchYoutube = async () => {
     try {
         const response = await axios.get("/data-youtube");
-        afterMovie.value = response.data.data
-            .filter(item => item.judul_youtube === "AFTER MOVIE PKKMB SV UNS 2024")
-            .map(item => ({
-                title: item.judul_youtube,
-                videoSrc: getEmbedUrl(item.link_youtube),
-            }))
-            .filter(item => item.videoSrc); // Ensure videoSrc is not empty
+        // Ambil data kedua jika ada
+        const data = response.data.data;
+
+        // Pastikan data ke-2 ada sebelum diakses
+        if (data.length > 1) {
+            const secondItem = data[1];
+            afterMovie.value = [{
+                title: secondItem.judul_youtube,
+                videoSrc: getEmbedUrl(secondItem.link_youtube),
+            }];
+        } else {
+            afterMovie.value = []; // Jika tidak ada data kedua, kosongkan
+        }
     } catch (error) {
         console.error("Failed to fetch data:", error);
     }
 };
+
 
 
 const getEmbedUrl = (url) => {
