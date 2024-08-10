@@ -31,6 +31,13 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        // Link Table
+        Schema::create('link_selection', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_link');
+            $table->timestamps();
+        });
+
         // Mahasiswa Table
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
@@ -41,6 +48,7 @@ return new class extends Migration {
             $table->string('nama_kelompok'); // Tambahkan kolom nama_kelompok
             $table->foreign('nama_prodi')->references('nama_prodi')->on('prodi')->onDelete('cascade');
             $table->foreign('nama_kelompok')->references('nama_kelompok')->on('kelompok')->onDelete('cascade');
+            $table->foreign('nama_kelompok')->references('nama_kelompok')->on('kelompok')->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -50,7 +58,7 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            $table->string('email')->unique()->nullable();
+            $table->string('email')->nullable()->unique();
             $table->string('password');
             $table->string('role')->default('user');
             $table->string('nama_mahasiswa')->nullable();

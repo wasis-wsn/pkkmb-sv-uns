@@ -44,18 +44,23 @@ const comingSoon = ref([]);
 const fetchYoutube = async () => {
     try {
         const response = await axios.get("/data-youtube");
-        comingSoon.value = response.data.data
-            .filter(item => item.judul_youtube === "COMING SOON PKKMB SV UNS 2024")
-            .map(item => ({
-                title: item.judul_youtube,
-                videoSrc: getEmbedUrl(item.link_youtube),
-            }))
-            .filter(item => item.videoSrc); // Ensure videoSrc is not empty
+        // Ambil data pertama jika ada
+        const data = response.data.data;
+
+        // Pastikan data pertama ada sebelum diakses
+        if (data.length > 0) {
+            const firstItem = data[0];
+            comingSoon.value = [{
+                title: firstItem.judul_youtube,
+                videoSrc: getEmbedUrl(firstItem.link_youtube),
+            }];
+        } else {
+          comingSoon.value = []; // Jika tidak ada data, kosongkan
+        }
     } catch (error) {
         console.error("Failed to fetch data:", error);
     }
 };
-
 
 const getEmbedUrl = (url) => {
     let videoId;
