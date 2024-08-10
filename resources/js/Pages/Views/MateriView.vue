@@ -135,7 +135,7 @@
         </section>
         <section v-else class="text-center py-20">
             <h2 class="text-3xl font-bold text-gray-600">
-                DOWNLOAD MATERI COMING SOON...
+                PENUGASAN SUSULAN COMING SOON...
             </h2>
         </section>
     </div>
