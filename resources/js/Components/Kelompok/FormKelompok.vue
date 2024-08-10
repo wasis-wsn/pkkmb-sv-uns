@@ -7,21 +7,32 @@ import FormControl from '@/Components/FormControl.vue';
 import BaseButton from '@/Components/BaseButton.vue';
 import BaseButtons from '@/Components/BaseButtons.vue';
 
+const props = defineProps({
+    gardana: {
+        type: Array,
+        required: true
+    }
+});
+
 const form = useForm({
-    nama_kelompok: ''
+    nama_kelompok: "",
+    gardana_id: "",
 });
 
 const errors = ref({});
 const showAlert = ref(false);
 
 const isFormValid = computed(() => {
-    return form.nama_kelompok;
+    return form.nama_kelompok && form.gardana_id;
 });
 
 const validateForm = () => {
     errors.value = {};
     if (!form.nama_kelompok) {
         errors.value.nama_kelompok = 'Nama Kelompok is required.';
+    }
+    if (!form.gardana_id) {
+        errors.value.gardana_id = 'Gardana is required.';
     }
     return Object.keys(errors.value).length === 0;
 };
@@ -54,9 +65,23 @@ const reset = () => {
         <FormField label="Nama Kelompok">
             <FormControl v-model="form.nama_kelompok" placeholder="Masukkan nama Kelompok" />
         </FormField>
-            <p v-if="errors.nama_kelompok" class="text-red-500 text-sm">
-                {{ errors.nama_kelompok }}
-            </p>
+        <p v-if="errors.nama_kelompok" class="text-red-500 text-sm">
+            {{ errors.nama_kelompok }}
+        </p>
+
+        <FormField label="Gardana">
+            <FormControl
+                v-model="form.gardana_id"
+                :options="gardana"
+                optionLabel="nama_gardana"
+                optionValue="id"
+                placeholder="Pilih Gardana"
+            />
+        </FormField>
+        <p v-if="errors.gardana_id" class="text-red-500 text-sm">
+            {{ errors.gardana_id }}
+        </p>
+
         <template #footer>
             <BaseButtons>
                 <BaseButton type="submit" color="success" label="Submit" @click="submit"/>

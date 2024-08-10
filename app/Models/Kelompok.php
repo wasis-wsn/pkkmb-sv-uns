@@ -14,10 +14,16 @@ class Kelompok extends Model
 
     protected $fillable = [
         'nama_kelompok',
+        'gardana_id'
     ];
 
     public function mahasiswa()
     {
         return $this->hasMany(Mahasiswa::class);
+    }
+
+    public function gardanas()
+    {
+        return $this->belongsTo(Gardana::class);
     }
 }

@@ -47,7 +47,7 @@ export default [
         icon: mdiViewList,
         menu: [
             {
-                route: "dokumentasi", // Jika tidak ada route maka akan dianggap sebagai label nanti di ubah cok ke route
+                route: "dokumentasi",
                 label: "Dokumentasi",
                 icon: mdiSquareEditOutline,
             },
@@ -64,7 +64,7 @@ export default [
         ],
     },
     {
-        label: "Kelompok",
+        label: "Group",
         icon: mdiViewList,
         menu: [
             {
@@ -77,6 +77,12 @@ export default [
                 label: "Prodi",
                 icon: mdiSquareEditOutline,
             },
+        ],
+    },
+    {
+        label: "Skill",
+        icon: mdiViewList,
+        menu: [
             {
                 route: "skill",
                 label: "Daftar Skill",
@@ -87,9 +93,20 @@ export default [
                 label: "Skill Mahasiswa",
                 icon: mdiAccountFileText,
             },
+        ],
+    },
+    {
+        label: "Peserta",
+        icon: mdiViewList,
+        menu: [
             {
                 route: "mahasiswa",
                 label: "Mahasiswa",
+                icon: mdiAccount,
+            },
+            {
+                route: "gardana",
+                label: "Gardana",
                 icon: mdiAccount,
             },
         ],

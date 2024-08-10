@@ -4,40 +4,40 @@ import { useForm } from "@inertiajs/vue3";
 import FormField from "@/Components/FormField.vue";
 import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
-import { mdiAccount } from "@mdi/js";
+import { mdiAccount, mdiPhone } from "@mdi/js";
 
 const props = defineProps({
-    gardana: {
-        type: Array,
-        required: true
+    item: {
+        type: Object,
+        required: true,
     },
-    item: Object,
-    show: Boolean,
+    show: {
+        type: Boolean,
+        required: true,
+    },
 });
 
 const emit = defineEmits(["close"]);
 
 const form = useForm({
     _method: "PUT", // Add this line to force PUT method
-    nama_kelompok: "",
-    gardana_id: "",
+    nama_gardana: "",
+    link_wa: "",
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_kelompok = newItem.nama_kelompok;
-        }
-        if (newItem) {
-            form.gardana_id = newItem.gardana_id;
+            form.nama_gardana = newItem.nama_gardana;
+            form.link_wa = newItem.link_wa;
         }
     },
     { immediate: true }
 );
 
 const submit = () => {
-    form.post(route("kelompok.update", props.item.id), {
+    form.post(route("gardana.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -62,7 +62,7 @@ const submit = () => {
             <span
                 class="hidden sm:inline-block sm:align-middle sm:h-screen"
                 aria-hidden="true"
-                >​</span
+                ></span
             >
             <div
                 class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
@@ -75,24 +75,22 @@ const submit = () => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Kelompok
+                                Edit Gardana
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Nama Kelompok">
+                                <FormField label="Nama Gardana">
                                     <FormControl
-                                        v-model="form.nama_kelompok"
+                                        v-model="form.nama_gardana"
                                         :icon="mdiAccount"
                                     />
                                 </FormField>
-                                <FormField label="Gardana">
+                                <FormField label="Link WA">
                                     <FormControl
-                                        v-model="form.gardana_id"
-                                        :options="gardana"
-                                        optionLabel="nama_gardana"
-                                        optionValue="id"
-                                        placeholder="Pilih Gardana"
+                                        v-model="form.link_wa"
+                                        :icon="mdiPhone"
                                     />
                                 </FormField>
+
                             </div>
                         </div>
                     </div>

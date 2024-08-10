@@ -82,3 +82,4 @@ require __DIR__ . '/keteranganRoute.php';
 require __DIR__ . '/profileUserRoute.php';
 require __DIR__ . '/pesanRoute.php';
 require __DIR__ . '/linkMateriRoute.php';
+require __DIR__ . '/GardanaRoute.php';
