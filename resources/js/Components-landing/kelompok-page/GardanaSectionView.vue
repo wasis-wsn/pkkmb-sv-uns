@@ -8,37 +8,40 @@
             </div>
             <div class="relative cursor-pointer">
                 <RiEqualizerLine class="h-5 w-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2" />
-                <select v-model="selectedKelompok" @change="handleSearch"
+                <select v-model="selectedGardana" @change="handleSearch"
                     class="cursor-pointer block appearance-none w-full bg-white border border-gray-300 rounded-lg shadow-md py-2 pl-3 pr-10 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                     <option value="">Select All</option>
-                    <option v-for="kel in kelompokList" :key="kel.id" :value="kel.nama_kelompok">{{ kel.nama_kelompok }}</option>
+                    <option v-for="gardana in totalUsers" :key="gardana.id" :value="gardana.nama_gardana">{{ gardana.nama_gardana }}</option>
                 </select>
             </div>
-            <div v-if="downloadKelompok && downloadKelompok.link_drive">
-                <button class="cursor-pointer w-full bg-white border border-gray-300 rounded-lg shadow-md py-2 pl-3 pr-3 sm:text-sm">
-                        <a class="text-[15px] justify-center" :href="downloadKelompok.link_drive" target="_blank">
-                            Download
-                        </a>
-                    </button>
-            </div>
-                    
-
         </form>
 
         <!-- Table displaying users -->
         <table class="group-table w-full border-collapse">
             <thead>
                 <tr class="bg-blue-100">
-                    <th class="py-2 px-4 text-center border">Nama</th>
-                    <th class="py-2 px-4 text-center border">Prodi</th>
+                    <th class="py-2 px-4 text-center border">Gardana</th>
+                    <th class="py-2 px-4 text-center border">WhatsApp</th>
                     <th class="py-2 px-4 text-center border">Kelompok</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="user in paginatedUsers" :key="user.id" class="border-b">
-                    <td class="py-2 px-4 text-center">{{ user.nama_mahasiswa }}</td>
-                    <td class="py-2 px-4 text-center">{{ user.prodi.nama_prodi }}</td>
-                    <td class="py-2 px-4 text-center">{{ user.kelompok.nama_kelompok }}</td>
+                    <td class="py-2 px-4 text-center">{{ user.nama_gardana }}</td>
+                    <td class="py-2 px-4 text-center">
+                        <a :href="'http://wa.me/' + user.link_wa" target="_blank" rel="noopener noreferrer">
+                            <button class="whatsapp-button px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 focus:outline-none">
+                                Chat via WhatsApp
+                            </button>
+                        </a>
+                    </td>
+                    <td class="py-2 px-4 text-center">
+                        <ul>
+                            <li v-for="kelompok in user.kelompok" :key="kelompok.id">
+                                {{ kelompok.nama_kelompok }}
+                            </li>
+                        </ul>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -60,32 +63,23 @@ import { RiEqualizerLine } from "@remixicon/vue";
 import axios from 'axios';
 
 const searchQuery = ref('');
-const selectedKelompok = ref('');
+const selectedGardana = ref('');
 const currentPage = ref(1);
 const itemsPerPage = 20;
 const totalUsers = ref([]);
-const kelompokList = ref([]);
+const gardanaList = ref([]);
 
 const handleSearch = () => {
     currentPage.value = 1;
 };
-const downloadKelompok = ref(null);
-const fetchKelompok = async () => {
+
+const fetchGardana = async () => {
     try {
-        const response = await axios.get('data-mahasiswa');
+        const response = await axios.get('data-gardana');
         console.log('Response:', response.data);
         totalUsers.value = response.data.data;
-        kelompokList.value = response.data.kelompok;
     } catch (error) {
-        console.error('Error fetching users:', error);
-    }
-};
-
-const filterByKelompok = (user) => {
-    if (!selectedKelompok.value) {
-        return true;
-    } else {
-        return user.kelompok.nama_kelompok === selectedKelompok.value;
+        console.error('Error fetching data:', error);
     }
 };
 
@@ -94,12 +88,14 @@ const filteredUsers = computed(() => {
     if (searchQuery.value) {
         const lowercasedQuery = searchQuery.value.toLowerCase();
         result = result.filter(user =>
-            user.nama_mahasiswa.toLowerCase().includes(lowercasedQuery) ||
-            user.prodi.nama_prodi.toLowerCase().includes(lowercasedQuery) ||
-            user.kelompok.nama_kelompok.toLowerCase().includes(lowercasedQuery)
+            user.nama_gardana.toLowerCase().includes(lowercasedQuery) ||
+            user.kelompok.some(kelompok => kelompok.nama_kelompok.toLowerCase().includes(lowercasedQuery))
         );
     }
-    return result.filter(filterByKelompok);
+    if (selectedGardana.value) {
+        result = result.filter(user => user.nama_gardana === selectedGardana.value);
+    }
+    return result;
 });
 
 const paginatedUsers = computed(() => {
@@ -122,43 +118,30 @@ const nextPage = () => {
     }
 };
 
-const getLink = async () => {
-        try {
-            const response = await axios.get('/data-linkmateri');
-            console.log('Link Materi data:', response.data.data); // Debugging line
-            if (response.data.data.length > 0) {
-               downloadKelompok.value = response.data.data[3]; // Sisanya
-            }
-        } catch (error) {
-            console.error('Error fetching link:', error);
-        }
-    };
-
 onMounted(() => {
-    fetchKelompok();
-    getLink();
+    fetchGardana();
 });
 </script>
 
 <style>
-  .group-table th,
-  .group-table td {
+.group-table th,
+.group-table td {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 150px;
-  }
+}
 
-  @media (max-width: 390px) {
+@media (max-width: 390px) {
     .group-table th,
     .group-table td {
-      max-width: 100px;
+        max-width: 100px;
     }
-  }
+}
 
-  .search-input:focus+label {
+.search-input:focus+label {
     top: 1px;
     font-size: 12px;
     color: #333;
-  }
+}
 </style>

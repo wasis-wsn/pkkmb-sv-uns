@@ -7,22 +7,9 @@ import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
 import BaseButtons from "@/Components/BaseButtons.vue";
 
-const props = defineProps({
-    prodi: {
-        type: Array,
-        required: true,
-    },
-    kelompok: {
-        type: Array,
-        required: true,
-    },
-});
-
 const form = useForm({
-    nama_mahasiswa: "",
-    no_telp: "",
-    nama_prodi: "",
-    nama_kelompok: "",
+    nama_gardana: "",
+    link_wa: "",
 });
 
 const errors = ref({});
@@ -31,14 +18,11 @@ const emit = defineEmits(["close"]);
 
 const validateForm = () => {
     errors.value = {};
-    if (!form.nama_mahasiswa) {
-        errors.value.nama_mahasiswa = "Nama Mahasiswa is required.";
+    if (!form.nama_gardana) {
+        errors.value.nama_gardana = "Nama Gardana is required.";
     }
-    if (!form.nama_prodi) {
-        errors.value.nama_prodi = "Prodi is required.";
-    }
-    if (!form.nama_kelompok) {
-        errors.value.nama_kelompok = "Kelompok is required.";
+    if (!form.link_wa) {
+        errors.value.link_wa = "Link Whatsapp is required.";
     }
     return Object.keys(errors.value).length === 0;
 };
@@ -46,7 +30,7 @@ const validateForm = () => {
 const submit = () => {
     if (validateForm()) {
         showAlert.value = false;
-        form.post(route("mahasiswa.store"), {
+        form.post(route("gardana.store"), {
             onSuccess: () => {
                 reset();
             },
@@ -64,55 +48,28 @@ const reset = () => {
     errors.value = {};
     showAlert.value = false;
 };
-
 </script>
 
 <template>
     <CardBox @submit.prevent="submit">
-        <FormField label="Nama Mahasiswa">
+        <FormField label="Nama Gardana">
             <FormControl
-                v-model="form.nama_mahasiswa"
-                placeholder="Masukkan nama mahasiswa"
+                v-model="form.nama_gardana"
+                placeholder="Masukkan nama gardana"
             />
         </FormField>
-        <p v-if="errors.nama_mahasiswa" class="text-red-500 text-sm mb-3">
-            {{ errors.nama_mahasiswa }}
+        <p v-if="errors.nama_gardana" class="text-red-500 text-sm mb-3">
+            {{ errors.nama_gardana }}
         </p>
 
-        <FormField label="No Telp">
+        <FormField label="Link WA">
             <FormControl
-                v-model="form.no_telp"
-                placeholder="Masukkan no telp"
+                v-model="form.link_wa"
+                placeholder="Masukkan link WA"
             />
         </FormField>
-        <p v-if="errors.no_telp" class="text-red-500 text-sm mb-3">
-            {{ errors.no_telp }}
-        </p>
-
-        <FormField label="Prodi">
-            <FormControl
-                v-model.string="form.nama_prodi"
-                :options="prodi"
-                optionLabel="nama_prodi"
-                optionValue="nama_prodi"
-                placeholder="Pilih Prodi"
-            />
-        </FormField>
-        <p v-if="errors.nama_prodi" class="text-red-500 text-sm mb-3">
-            {{ errors.nama_prodi }}
-        </p>
-
-        <FormField label="Kelompok">
-            <FormControl
-                v-model.string="form.nama_kelompok"
-                :options="kelompok"
-                optionLabel="nama_kelompok"
-                optionValue="nama_kelompok"
-                placeholder="Pilih Kelompok"
-            />
-        </FormField>
-        <p v-if="errors.nama_kelompok" class="text-red-500 text-sm mb-3">
-            {{ errors.nama_kelompok }}
+        <p v-if="errors.link_wa" class="text-red-500 text-sm mb-3">
+            {{ errors.link_wa }}
         </p>
 
         <template #footer>
