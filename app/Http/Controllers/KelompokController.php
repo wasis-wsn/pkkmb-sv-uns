@@ -13,7 +13,7 @@ class KelompokController extends Controller
     public function getAllKelompok()
     {
         $kelompoks = Kelompok::orderBy('nama_kelompok')->get();
-        $gardana = Gardana::orderBy('nama_gardana')->get(); // Fix the method call
+        $gardana = Gardana::orderBy('nama_gardana')->get();
         return response()->json([
             'data' => $kelompoks,
             'gardana' => $gardana        
@@ -23,7 +23,7 @@ class KelompokController extends Controller
     public function index()
     {
         $kelompoks = Kelompok::orderBy('nama_kelompok')->get();
-        $gardana = Gardana::orderBy('nama_gardana')->get(); // Fix the method call
+        $gardana = Gardana::orderBy('nama_gardana')->get();
         return Inertia::render('KelompokView', [
             'data' => $kelompoks,
             'gardana' => $gardana

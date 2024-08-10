@@ -30,7 +30,7 @@ return new class extends Migration {
             $table->id();
             $table->string('nama_kelompok')->unique();
             $table->unsignedBigInteger('gardana_id');
-            $table->foreign('gardana_id')->references('id')->on('gardana')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('gardana_id')->references('id')->on('gardana');
             $table->timestamps();
         });
 
@@ -45,12 +45,12 @@ return new class extends Migration {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
             $table->index('nama_mahasiswa');
-            $table->string('nama_mahasiswa'); // Add unique index here
+            $table->string('nama_mahasiswa');
             $table->string('no_telp')->nullable();
-            $table->string('nama_prodi'); // Tambahkan kolom nama_prodi
-            $table->string('nama_kelompok'); // Tambahkan kolom nama_kelompok
-            $table->foreign('nama_prodi')->references('nama_prodi')->on('prodi')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('nama_kelompok')->references('nama_kelompok')->on('kelompok')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('nama_prodi');
+            $table->string('nama_kelompok');
+            $table->foreign('nama_prodi')->references('nama_prodi')->on('prodi')->onUpdate('cascade');
+            $table->foreign('nama_kelompok')->references('nama_kelompok')->on('kelompok')->onUpdate('cascade');
             $table->timestamps();
         });
 
@@ -64,7 +64,7 @@ return new class extends Migration {
             $table->string('password');
             $table->string('role')->default('user');
             $table->string('nama_mahasiswa')->nullable();
-            $table->foreign('nama_mahasiswa')->references('nama_mahasiswa')->on('mahasiswa')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('nama_mahasiswa')->references('nama_mahasiswa')->on('mahasiswa')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -77,8 +77,8 @@ return new class extends Migration {
             $table->timestamps();
             $table->integer('unseen_messages')->default(0);
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('admin_id')->references('id')->on('users');
         });
 
         // Pesan Table
@@ -90,24 +90,24 @@ return new class extends Migration {
             $table->boolean('is_seen')->default(1);
             $table->timestamps();
 
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         // Keterangan Table
         Schema::create('keterangan', function (Blueprint $table) {
             $table->id();
             $table->text('deskripsi_skill');
-            $table->string('photo_piagam')->nullable(); 
-            $table->foreignId('skill_id')->constrained('skill')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('photo_piagam')->nullable();
+            $table->foreignId('skill_id')->constrained('skill');
+            $table->foreignId('mahasiswa_id')->constrained('mahasiswa');
             $table->timestamps();
         });
 
         // Galeri Table
         Schema::create('galeri', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('photo_galeri');
             $table->timestamps();
         });
@@ -115,7 +115,7 @@ return new class extends Migration {
         // Hima Table
         Schema::create('hima', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('nama_hima');
             $table->string('logo_hima');
             $table->timestamps();
@@ -124,7 +124,7 @@ return new class extends Migration {
         // Sponsor Table
         Schema::create('sponsor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('nama_sponsor');
             $table->string('logo_sponsor');
             $table->timestamps();
@@ -133,7 +133,7 @@ return new class extends Migration {
         // Dokumentasi Table
         Schema::create('dokumentasi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('photo_dokum');
             $table->string('judul_dokum');
             $table->text('deskripsi_dokum');
@@ -143,7 +143,7 @@ return new class extends Migration {
         // Youtube Table
         Schema::create('youtube', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('judul_youtube');
             $table->string('link_youtube');
             $table->timestamps();
@@ -152,7 +152,7 @@ return new class extends Migration {
         // Link Materi Table
         Schema::create('link_materi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('judul_file');
             $table->string('link_drive');
             $table->timestamps();
@@ -161,7 +161,7 @@ return new class extends Migration {
         // Materi Table
         Schema::create('materi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('judul_materi');
             $table->text('deskripsi_materi');
             $table->text('isi_materi');

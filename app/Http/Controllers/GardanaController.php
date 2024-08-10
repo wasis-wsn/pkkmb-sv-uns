@@ -29,6 +29,7 @@ class GardanaController extends Controller
         ->orderBy('nama_gardana')
         ->get();
         
+        
         return Inertia::render('GardanaView', [
             'data' => $gardana,
         ]);
@@ -54,7 +55,7 @@ class GardanaController extends Controller
         }
     }
     
-    public function update(Request $request, Gardana $gardana)
+    public function update(Request $request, Gardana $id)
     {
         $validated = $request->validate([
             'nama_gardana' => 'nullable|string|max:255',
@@ -71,15 +72,14 @@ class GardanaController extends Controller
             $dataToUpdate['link_wa'] = $validated['link_wa'];
         }
 
-        $gardana->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('gardana');
     }
 
-    public function destroy(Gardana $gardana)
+    public function destroy($id)
     {
-        $gardana->delete();
-
+        Gardana::destroy($id);
         return redirect()->route('gardana');
     }
 }
