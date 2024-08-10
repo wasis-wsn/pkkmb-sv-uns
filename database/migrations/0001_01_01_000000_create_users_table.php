@@ -34,21 +34,23 @@ return new class extends Migration {
         // Mahasiswa Table
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_mahasiswa');
+            $table->index('nama_mahasiswa');
+            $table->string('nama_mahasiswa'); // Add unique index here
             $table->string('no_telp')->nullable();
             $table->string('nama_prodi'); // Tambahkan kolom nama_prodi
             $table->string('nama_kelompok'); // Tambahkan kolom nama_kelompok
             $table->foreign('nama_prodi')->references('nama_prodi')->on('prodi')->onDelete('cascade');
-            $table->foreign('nama_kelompok')->references('nama_kelompok')->on('kelompok')->onDelete('cascade');        
+            $table->foreign('nama_kelompok')->references('nama_kelompok')->on('kelompok')->onDelete('cascade');
             $table->timestamps();
         });
 
-        
+
+
         // Users Table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('password');
             $table->string('role')->default('user');
             $table->string('nama_mahasiswa')->nullable();
@@ -56,7 +58,7 @@ return new class extends Migration {
             $table->rememberToken();
             $table->timestamps();
         });
-        
+
         // chats room
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
@@ -76,13 +78,13 @@ return new class extends Migration {
             $table->text('message');
             $table->boolean('is_seen')->default(1);
             $table->timestamps();
-    
+
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-         // Keterangan Table
-         Schema::create('keterangan', function (Blueprint $table) {
+        // Keterangan Table
+        Schema::create('keterangan', function (Blueprint $table) {
             $table->id();
             $table->text('deskripsi_skill');
             $table->string('photo_piagam')->nullable(); // Perbaikan di sini
@@ -186,7 +188,7 @@ return new class extends Migration {
         // Hapus tabel yang memiliki foreign key yang merujuk ke tabel users
         Schema::dropIfExists('messages');
         Schema::dropIfExists('rooms');
-        
+
         Schema::dropIfExists('galeri');
         Schema::dropIfExists('hima');
         Schema::dropIfExists('sponsor');
@@ -195,10 +197,10 @@ return new class extends Migration {
         Schema::dropIfExists('link_materi');
         Schema::dropIfExists('materi');
         Schema::dropIfExists('sessions');
-    
+
         // Hapus tabel users setelah tabel yang bergantung dihapus
         Schema::dropIfExists('users');
-        
+
         // Hapus tabel yang bergantung pada tabel users
         Schema::dropIfExists('keterangan');
         Schema::dropIfExists('mahasiswa');
@@ -207,5 +209,5 @@ return new class extends Migration {
         Schema::dropIfExists('skill');
         Schema::dropIfExists('feedback');
         Schema::dropIfExists('password_reset_tokens');
-    }    
+    }
 };
