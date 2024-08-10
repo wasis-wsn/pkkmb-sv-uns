@@ -14,6 +14,15 @@
                     <option v-for="kel in kelompokList" :key="kel.id" :value="kel.nama_kelompok">{{ kel.nama_kelompok }}</option>
                 </select>
             </div>
+            <div v-if="downloadKelompok && downloadKelompok.link_drive">
+                <button class="cursor-pointer w-full bg-white border border-gray-300 rounded-lg shadow-md py-2 pl-3 pr-3 sm:text-sm">
+                        <a class="text-[15px] justify-center" :href="downloadKelompok.link_drive" target="_blank">
+                            Download
+                        </a>
+                    </button>
+            </div>
+                    
+
         </form>
 
         <!-- Table displaying users -->
@@ -60,7 +69,7 @@ const kelompokList = ref([]);
 const handleSearch = () => {
     currentPage.value = 1;
 };
-
+const downloadKelompok = ref(null);
 const fetchKelompok = async () => {
     try {
         const response = await axios.get('data-mahasiswa');
@@ -113,8 +122,21 @@ const nextPage = () => {
     }
 };
 
+const getLink = async () => {
+        try {
+            const response = await axios.get('/data-linkmateri');
+            console.log('Link Materi data:', response.data.data); // Debugging line
+            if (response.data.data.length > 0) {
+               downloadKelompok.value = response.data.data[3]; // Sisanya
+            }
+        } catch (error) {
+            console.error('Error fetching link:', error);
+        }
+    };
+
 onMounted(() => {
     fetchKelompok();
+    getLink();
 });
 </script>
 

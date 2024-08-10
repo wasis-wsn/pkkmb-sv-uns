@@ -48,7 +48,7 @@
         </div>
         <!-- Buku Panduan -->
         <div>
-            <section v-if="bukuPanduan && bukuPanduan.length" class="flex gap-5 self-center mt-[45px] max-md:flex-wrap max-md:mt-10" data-aos="fade-up">
+            <section v-if="bukuPanduan && bukuPanduan.link_drive" class="flex gap-5 self-center mt-[45px] max-md:flex-wrap max-md:mt-10" data-aos="fade-up">
                 <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
                     <h2
                         class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[340px] max-md:w-full">
@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </section>
-            <div v-if="bukuPanduan && bukuPanduan.length" v-for="item in bukuPanduan" :key="item.id">
+            <div v-if="bukuPanduan && bukuPanduan.link_drive">
             <section 
                 class="flex gap-5 self-center mt-[50px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
                 data-aos="fade-up">
@@ -76,7 +76,7 @@
                         <p class="text-2xl font-bold mb-4 text-[24px] md:text-[30px]">Download Panduan</p>
                         <button
                             class="button-biru justify-center items-center font-bold px-10 pt-1.5 pb-2 text-white whitespace-nowrap rounded-[15px] max-md:px-5">
-                            <a class="text-[20px]" :href="item.link_drive" target="_blank">
+                            <a class="text-[20px]" :href="bukuPanduan.link_drive" target="_blank">
                                 Disini!
                             </a>
                         </button>
@@ -96,12 +96,13 @@
         <BukuImplementasiView />
         <MateriSectionView />
         <!-- DOWNLOAD Materi-->
+        <div class="flex flex-row justify-center">
         <section v-if="linkMateri && linkMateri.link_drive"
-            class="flex gap-5 self-center mt-[100px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
+            class="flex basis-1/2 gap-5 self-center mt-[100px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
             data-aos="fade-up">
             <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
                 <div class="text-center">
-                    <p class="text-2xl font-bold mb-4 text-[24px] md:text-[30px]">Download Materi</p>
+                    <p class="text-2xl font-bold mb-4 text-[24px] md:text-[30px]">Download Penugasan</p>
                     <button
                         class="button-biru justify-center items-center font-bold px-10 pt-1.5 pb-2 text-white whitespace-nowrap rounded-[15px] max-md:px-5">
                         <a class="text-[20px]" :href="linkMateri.link_drive" target="_blank">
@@ -116,6 +117,28 @@
                 DOWNLOAD MATERI COMING SOON...
             </h2>
         </section>
+        <!-- PENUGASAN SUSULAN -->
+        <section v-if="penugasanSusulan && penugasanSusulan.link_drive"
+            class="flex basis-1/2 gap-5 self-center mt-[100px] mb-[150px] max-md:flex-wrap max-sm:flex-wrap max-md:mt-10"
+            data-aos="fade-up">
+            <div class="flex flex-col grow shrink-0 self-start px-5 text-center basis-0 w-fit max-md:max-w-full">
+                <div class="text-center">
+                    <p class="text-2xl font-bold mb-4 text-[24px] md:text-[30px]">Download Penugasan Susulan</p>
+                    <button
+                        class="button-biru justify-center items-center font-bold px-10 pt-1.5 pb-2 text-white whitespace-nowrap rounded-[15px] max-md:px-5">
+                        <a class="text-[20px]" :href="penugasanSusulan.link_drive" target="_blank">
+                            Disini!
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section v-else class="text-center py-20">
+            <h2 class="text-3xl font-bold text-gray-600">
+                DOWNLOAD MATERI COMING SOON...
+            </h2>
+        </section>
+    </div>
     </LayoutHeaderFooter>
 </template>
 
@@ -129,6 +152,7 @@
 
     const bukuPanduan = ref(null);
     const linkMateri = ref(null);
+    const penugasanSusulan = ref(null);
 
     // Fetch materi data
     const getLink = async () => {
@@ -136,8 +160,9 @@
             const response = await axios.get('/data-linkmateri');
             console.log('Link Materi data:', response.data.data); // Debugging line
             if (response.data.data.length > 0) {
-                linkMateri.value = response.data.data[0];
-                bukuPanduan.value = response.data.data.slice(1); // Sisanya
+                linkMateri.value = response.data.data[1];
+                bukuPanduan.value = response.data.data[0]; // Sisanya
+                penugasanSusulan.value = response.data.data[2]; // Sisanya
             }
         } catch (error) {
             console.error('Error fetching link:', error);
