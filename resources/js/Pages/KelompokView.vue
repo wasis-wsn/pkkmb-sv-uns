@@ -18,6 +18,10 @@
         type: Array,
         required: true,
     },
+    gardana: {
+        type: Array,
+        required: true,
+    },
 });
 
 </script>
@@ -29,13 +33,13 @@
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiBallotOutline" title="Form Kelompok" main>
             </SectionTitleLineWithButton>
-            <FormKelompok />
+            <FormKelompok :gardana="gardana" />
         </SectionMain>
         <SectionMain>
             <SectionTitleLineWithButton :icon="mdiTableBorder" title="Daftar Kelompok" main>
             </SectionTitleLineWithButton>
             <CardBox>
-                <TableKelompok :data="data"/>
+                <TableKelompok :data="data" :gardana="gardana"/>
             </CardBox>
         </SectionMain>
     </LayoutAuthenticated>

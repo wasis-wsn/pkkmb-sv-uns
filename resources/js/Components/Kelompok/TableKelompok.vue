@@ -12,6 +12,10 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    gardana: {
+        type: Array,
+        required: true
+    },
 });
 
 const showEditModal = ref(false);
@@ -108,6 +112,7 @@ const closeEditModal = () => {
             :item="selectedItem"
             :show="showEditModal"
             @close="closeEditModal"
+            :gardana="gardana"
         />
     </CardBox>
 </template>

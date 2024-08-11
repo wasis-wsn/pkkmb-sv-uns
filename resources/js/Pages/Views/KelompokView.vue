@@ -62,6 +62,7 @@
         </p>
 
         <KelompokSectionView/>
+        <GardanaSectionView/>
         <h2
           class="flex flex-col self-center max-w-full text-3xl font-bold capitalize text-neutral-900 w-[350px] max-md:w-full text-center mt-10">
           <span class="max-md:max-w-full">PENGUMPULAN TUGAS <br> PKKMB SV UNS 2024</span>
@@ -75,6 +76,7 @@
 </template>
 
 <script setup>
+  import GardanaSectionView from "@/Components-landing/kelompok-page/GardanaSectionView.vue";
   import KelompokSectionView from "@/Components-landing/kelompok-page/KelompokSectionView.vue";
   import UploadTugasView from "@/Components-landing/kelompok-page/UploadTugasView.vue";
   import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
