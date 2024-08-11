@@ -19,9 +19,9 @@
                             >
                                 <img
                                     loading="lazy"
-                                    src="../../../assets/Ellipse 19.png"
+                                    src="../../../assets/profile-user.png"
                                     alt="Profile picture"
-                                    class="w-full rounded-full my-auto aspect-square max-md:mt-10 border border-gray-800"
+                                    class="w-1/2 rounded-full mx-auto my-auto aspect-square max-md:mt-10 border border-gray-800"
                                 />
                             </div>
                             <div
