@@ -62,10 +62,10 @@ const reset = () => {
             {{ errors.nama_gardana }}
         </p>
 
-        <FormField label="Link WA">
+        <FormField label="No WhatsApp">
             <FormControl
                 v-model="form.link_wa"
-                placeholder="Masukkan link WA"
+                placeholder="Masukkan link WA dengan menggunakan "
             />
         </FormField>
         <p v-if="errors.link_wa" class="text-red-500 text-sm mb-3">

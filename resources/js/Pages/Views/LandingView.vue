@@ -279,7 +279,13 @@
               SPONSORED BY :
             </h1>
             <SponsorSection />
-          <HimaSection />
+            <h1
+              class="text-3xl text-white font-bold inline-block border-b-4 border-[#F67366] mt-5"
+              data-aos="fade-up"
+            >
+              MEDIA PARTNER :
+            </h1>
+            <HimaSection />
           </div>
         </div>
   </div>

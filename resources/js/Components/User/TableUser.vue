@@ -49,6 +49,11 @@
                         <th
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
+                            Nama Mahasiswa
+                        </th>
+                        <th
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
                             Role
                         </th>
                         <th
@@ -65,6 +70,9 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ item.email }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ item.nama_mahasiswa }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ item.role }}
@@ -232,7 +240,6 @@ const filteredUsers = computed(() => {
         result = result.filter(
             (user) =>
                 user.username.toLowerCase().includes(lowercasedQuery) ||
-                user.email.toLowerCase().includes(lowercasedQuery) ||
                 user.role.toLowerCase().includes(lowercasedQuery)
         );
     }
