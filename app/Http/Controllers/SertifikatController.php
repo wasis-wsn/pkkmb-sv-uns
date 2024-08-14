@@ -28,17 +28,18 @@ class SertifikatController extends Controller
         $mahasiswa = Mahasiswa::where('nama_kelompok', $namaKelompok)->get();
 
         foreach ($mahasiswa as $mhs) {
+            if (Sertifikat::where('nama_mahasiswa', $mhs->nama_mahasiswa)->exists()) {
+                continue;
+            }
             $pdf = Pdf::loadView('sertifikat.template', ['mahasiswa' => $mhs]);
-            $filename = 'sertifikat_' . Str::slug($mhs->nama_mahasiswa) . '.pdf';
-
-            // Simpan PDF ke storage
+            $filename = 'sertifikat_' . str_replace(' ', '_', $mhs->nama_mahasiswa) . '.pdf';
             $pdf->save(storage_path("app/public/sertifikat/{$filename}"));
-
             Sertifikat::create([
                 'nama_mahasiswa' => $mhs->nama_mahasiswa,
                 'nama_file' => $filename,
             ]);
         }
+
 
         return response()->json(['message' => 'Sertifikat berhasil dibuat']);
     }

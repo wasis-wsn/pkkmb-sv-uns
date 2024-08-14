@@ -7,6 +7,8 @@ import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
 import { Head } from "@inertiajs/vue3";
 import { useForm } from "@inertiajs/vue3";
+import FormField from "@/Components/FormField.vue";
+import FormControl from "@/Components/FormControl.vue";
 
 const props = defineProps({
     kelompok: {
@@ -52,25 +54,15 @@ const generateSertifikat = () => {
             <CardBox>
                 <form @submit.prevent="generateSertifikat">
                     <div class="mb-4">
-                        <label
-                            for="kelompok"
-                            class="block text-sm font-medium text-gray-700"
-                            >Pilih Kelompok</label
-                        >
-                        <select
-                            id="kelompok"
-                            v-model="form.nama_kelompok"
-                            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                        >
-                            <option value="">Pilih Kelompok</option>
-                            <option
-                                v-for="k in kelompok"
-                                :key="k.nama_kelompok"
-                                :value="k.nama_kelompok"
-                            >
-                                {{ k.nama_kelompok }}
-                            </option>
-                        </select>
+                        <FormField label="Kelompok">
+                            <FormControl
+                                v-model.string="form.nama_kelompok"
+                                :options="kelompok"
+                                optionLabel="nama_kelompok"
+                                optionValue="nama_kelompok"
+                                placeholder="Pilih Kelompok"
+                            />
+                        </FormField>
                     </div>
                     <button
                         type="submit"
