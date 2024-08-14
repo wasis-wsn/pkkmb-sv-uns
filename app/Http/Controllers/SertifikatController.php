@@ -33,6 +33,7 @@ class SertifikatController extends Controller
             }
             $pdf = Pdf::loadView('sertifikat.template', ['mahasiswa' => $mhs]);
             $filename = 'sertifikat_' . str_replace(' ', '_', $mhs->nama_mahasiswa) . '.pdf';
+            $pdf->setPaper([0, 0, 580, 750], 'landscape');
             $pdf->save(storage_path("app/public/sertifikat/{$filename}"));
             Sertifikat::create([
                 'nama_mahasiswa' => $mhs->nama_mahasiswa,
