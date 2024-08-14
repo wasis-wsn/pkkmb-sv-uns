@@ -13,12 +13,12 @@
         Askara Muda 2024!
       </h1>
       <p
-        class="self-stretch mt-9 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
+        class="self-stretch mt-5 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
         data-aos="fade-up"
       >
         "Cipta Generasi, Kembangkan Potensi, Laksana Gentari"
       </p>
-      <div class="video-container">
+      <div class="video-container mt-5">
         <iframe
           loading="lazy"
           alt="Coming Soon PKKMB SV UNS 2024"

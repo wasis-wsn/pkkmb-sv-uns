@@ -156,7 +156,7 @@
 
     <section class="flex justify-center items-center px-16 py-20 bg-white max-md:px-5">
       <div
-        class="flex flex-col mt-20 w-full max-w-[1151px] max-md:mt-10 max-md:max-w-full"
+        class="flex flex-col w-full max-w-[1151px] max-md:max-w-full"
       >
         <h1
           class="self-center text-5xl font-semibold text-center capitalize leading-[69px] text-neutral-900 max-md:text-4xl"
