@@ -55,6 +55,7 @@
                 </section>
                 <FormEmail :skills="skills" :mahasiswa="mahasiswa" />
                 <TableSkill :data="data" :skills="skills" />
+                <SertifButton />
                 <!-- <section>
                     <div class="flex flex-col items-center justify-center text-center">
                         <h3 class="text-2xl text-center font-bold text-black">Sertifikat PKKMB</h3>
@@ -75,6 +76,7 @@ import SectionMain from "@/Components/SectionMain.vue";
 import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
 import FormEmail from "@/Components-landing/profile-page/FormEmail.vue";
 import TableSkill from "@/Components-landing/profile-page/TableSkill.vue";
+import SertifButton from "@/Components-landing/profile-page/SertifButton.vue";
 import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
 
 defineProps({
