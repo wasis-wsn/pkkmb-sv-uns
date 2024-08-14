@@ -68,7 +68,7 @@ return new class extends Migration {
             $table->rememberToken();
             $table->timestamps();
         });
-        
+
         // Chats Room
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
@@ -191,6 +191,16 @@ return new class extends Migration {
             $table->text('feedback');
             $table->timestamps();
         });
+
+        // Sertifikat Table
+        Schema::create('sertifikat_mahasiswa', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_mahasiswa');
+            $table->string('nama_file');
+            $table->timestamps();
+
+            $table->foreign('nama_mahasiswa')->references('nama_mahasiswa')->on('mahasiswa')->onDelete('cascade');
+        });
     }
 
     /**
@@ -210,10 +220,10 @@ return new class extends Migration {
         Schema::dropIfExists('materi');
         Schema::dropIfExists('gardana');
         Schema::dropIfExists('sessions');
-    
+
         // Drop users table after dependent tables are dropped
         Schema::dropIfExists('users');
-        
+
         // Drop tables that are dependent on users
         Schema::dropIfExists('keterangan');
         Schema::dropIfExists('mahasiswa');
