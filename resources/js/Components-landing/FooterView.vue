@@ -96,7 +96,7 @@
                     <a href="https://www.instagram.com/pkkmbsvuns" target="_blank" class="social-icon">
                       <RiInstagramLine size="36px" color="black" />
                     </a>
-                    <a href="https://www.youtube.com/@pkkmbsvuns6317" target="_blank" class="social-icon">
+                    <a href="https://www.youtube.com/@pkkmbsvuns" target="_blank" class="social-icon">
                       <RiYoutubeFill size="36px" color="black" />
                     </a>
                   </div>
