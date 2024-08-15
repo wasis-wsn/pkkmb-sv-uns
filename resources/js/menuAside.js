@@ -109,6 +109,11 @@ export default [
                 label: "Gardana",
                 icon: mdiAccount,
             },
+            {
+                route: "sertifikat",
+                label: "Sertifikat",
+                icon: mdiAccount,
+            },
         ],
     },
     {
@@ -125,9 +130,9 @@ export default [
                 label: "Link Materi",
                 icon: mdiClipboardText,
             },
-        ]
+        ],
     },
-    
+
     {
         route: "chat",
         label: "Chat",

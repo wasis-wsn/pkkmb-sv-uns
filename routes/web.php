@@ -64,6 +64,12 @@ Route::get('/ui', function () {
     return Inertia::render('UiView');
 })->name('ui');
 
+
+Route::get('/sertif', function () {
+    return view('sertif');
+});
+
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/galeriRoute.php';
 require __DIR__ . '/kelompokRoute.php';
@@ -83,3 +89,4 @@ require __DIR__ . '/profileUserRoute.php';
 require __DIR__ . '/pesanRoute.php';
 require __DIR__ . '/linkMateriRoute.php';
 require __DIR__ . '/GardanaRoute.php';
+require __DIR__ . '/sertifikatRoute.php';
