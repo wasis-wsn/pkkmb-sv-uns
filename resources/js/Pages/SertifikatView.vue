@@ -8,6 +8,8 @@ import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.
 import { Head } from "@inertiajs/vue3";
 import { useForm } from "@inertiajs/vue3";
 import FormField from "@/Components/FormField.vue";
+import Swal from "sweetalert2";
+
 import FormControl from "@/Components/FormControl.vue";
 
 const props = defineProps({
@@ -30,7 +32,11 @@ const generateSertifikat = () => {
     form.post(route("sertifikat.generate"), {
         preserveScroll: true,
         onSuccess: () => {
-            alert("Sertifikat berhasil dibuat");
+            Swal.fire(
+                "Berhasil!",
+                "Sertifikat Mahasiswa Berhasil dibuat!.",
+                "success"
+            );
             form.reset();
         },
         onError: (errors) => {

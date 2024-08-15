@@ -13,6 +13,12 @@ use App\Http\Controllers\Controller;
 
 class SertifikatController extends Controller
 {
+
+    public function getAllSertifikat()
+    {
+        $sertifikat = Sertifikat::all();
+        return response()->json(['data' => $sertifikat], 200);
+    }
     public function index()
     {
         $kelompok = Kelompok::all();
@@ -41,7 +47,6 @@ class SertifikatController extends Controller
             ]);
         }
 
-
-        return response()->json(['message' => 'Sertifikat berhasil dibuat']);
+        return redirect()->route('sertifikat');
     }
 }

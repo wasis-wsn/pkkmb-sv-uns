@@ -10,4 +10,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/sertifikat/download/{filename}', [SertifikatController::class, 'downloadSertifikat'])->name('sertifikat.download');
 });
 
+Route::get('/data-sertifkat', [SertifikatController::class, 'getAllSertifikat']);
+
+
 require __DIR__ . '/auth.php';
