@@ -52,9 +52,6 @@
         if (!form.username) {
             errors.value.username = "username is required.";
         }
-        if (!form.email) {
-            errors.value.email = "Email is required.";
-        }
         if (!form.password) {
             errors.value.password = "Password is required.";
         }
@@ -113,8 +110,7 @@
         </FormField>
 
         <FormField label="Mahasiswa">
-            <FormControl v-model="form.nama_mahasiswa" :options="mahasiswa" optionLabel="nama_mahasiswa"
-                optionValue="nama_mahasiswa" placeholder="Pilih Mahasiswa" />
+            <FormControl v-model="form.nama_mahasiswa" placeholder="Masukkan Nama Mahasiswa" />
         </FormField>
         <template #footer>
             <BaseButtons>

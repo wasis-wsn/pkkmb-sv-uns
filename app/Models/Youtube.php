@@ -16,6 +16,7 @@ class Youtube extends Model
         'user_id',
         'judul_youtube',
         'link_youtube',
+        'deskripsi_youtube',
     ];
 
     public function user()

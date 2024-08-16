@@ -109,11 +109,11 @@ export default [
                 label: "Gardana",
                 icon: mdiAccount,
             },
-            {
-                route: "sertifikat",
-                label: "Sertifikat",
-                icon: mdiAccount,
-            },
+            // {
+            //     route: "sertifikat",
+            //     label: "Sertifikat",
+            //     icon: mdiAccount,
+            // },
         ],
     },
     {

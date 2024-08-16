@@ -11,13 +11,13 @@ class YoutubeController extends Controller
 {
     public function getAllYoutube()
     {
-        $youtubes = Youtube::all();
+        $youtubes = Youtube::orderBy('created_at', 'desc')->get();
         return response()->json(['data' => $youtubes], 200);
     }
 
     public function index()
     {
-        $youtubes = Youtube::all();
+        $youtubes = Youtube::orderBy('created_at', 'desc')->get();
         return Inertia::render('YoutubeView', ['data' => $youtubes]);
     }
 
@@ -27,6 +27,7 @@ class YoutubeController extends Controller
             $validated = $request->validate([
                 'judul_youtube' => 'required|string|max:255',
                 'link_youtube' => 'required|string',
+                'deskripsi_youtube' => 'required|string',
             ]);
 
             $user = Auth::user();
@@ -34,7 +35,8 @@ class YoutubeController extends Controller
             Youtube::create([
                 'user_id' => $user->id,
                 'judul_youtube' => $validated['judul_youtube'],
-                'link_youtube' => $validated['link_youtube']
+                'link_youtube' => $validated['link_youtube'],
+                'deskripsi_youtube' => $validated['deskripsi_youtube']
             ]);
 
             return redirect()->route('youtube');
@@ -48,6 +50,7 @@ class YoutubeController extends Controller
         $validated = $request->validate([
             'judul_youtube' => 'nullable|string|max:255',
             'link_youtube' => 'nullable|string',
+            'deskripsi_youtube' => 'required|string',
         ]);
 
         $dataToUpdate = [];
@@ -58,6 +61,10 @@ class YoutubeController extends Controller
 
         if ($request->filled('link_youtube')) {
             $dataToUpdate['link_youtube'] = $validated['link_youtube'];
+        }
+        
+        if ($request->filled('deskripsi_youtube')) {
+            $dataToUpdate['deskripsi_youtube'] = $validated['deskripsi_youtube'];
         }
 
         $id->update($dataToUpdate);

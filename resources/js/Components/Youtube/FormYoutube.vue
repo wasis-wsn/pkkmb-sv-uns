@@ -10,24 +10,14 @@ import { useForm } from "@inertiajs/vue3";
 const form = useForm({
     judul_youtube: "",
     link_youtube: "",
+    deskripsi_youtube: "",
 });
 
 const errors = ref({});
 const showAlert = ref(false);
 
-const selectOptions = [
-    {
-        label: "COMING SOON PKKMB SV UNS 2024",
-        value: "COMING SOON PKKMB SV UNS 2024",
-    },
-    {
-        label: "AFTER MOVIE PKKMB SV UNS 2024",
-        value: "AFTER MOVIE PKKMB SV UNS 2024",
-    },
-];
-
 const isFormValid = computed(() => {
-    return form.judul_youtube && form.link_youtube;
+    return form.judul_youtube && form.link_youtube && form.deskripsi_youtube;
 });
 
 const validateForm = () => {
@@ -37,6 +27,9 @@ const validateForm = () => {
     }
     if (!form.link_youtube) {
         errors.value.link_youtube = "link Youtube is required.";
+    }
+    if (!form.deskripsi_youtube) {
+        errors.value.deskripsi_youtube = "Deskripsi Youtube is required.";
     }
     return Object.keys(errors.value).length === 0;
 };
@@ -68,9 +61,8 @@ const reset = () => {
         <FormField label="Nama Vidio Youtube" help="">
             <FormControl
                 v-model="form.judul_youtube"
-                :options="selectOptions"
-                optionValue="value"
-                placeholder="Select an option"
+                type="text"
+                placeholder="Masukkan judul video"
             />
             <p v-if="errors.judul_youtube" class="text-red-500 text-sm mt-0">
                 {{ errors.judul_youtube }}
@@ -84,6 +76,16 @@ const reset = () => {
             />
             <p v-if="errors.link_youtube" class="text-red-500 text-sm mt-1">
                 {{ errors.link_youtube }}
+            </p>
+        </FormField>
+        <FormField label="Deskripsi Youtube" help="">
+            <FormControl
+                v-model="form.deskripsi_youtube"
+                type="text"
+                placeholder="Masukkan deskripsi disini"
+            />
+            <p v-if="errors.deskripsi_youtube" class="text-red-500 text-sm mt-1">
+                {{ errors.deskripsi_youtube }}
             </p>
         </FormField>
         <template #footer>
