@@ -4,7 +4,7 @@ import { useForm } from "@inertiajs/vue3";
 import FormField from "@/Components/FormField.vue";
 import FormControl from "@/Components/FormControl.vue";
 import BaseButton from "@/Components/BaseButton.vue";
-import { mdiAccount } from "@mdi/js";
+import { mdiHelpCircle } from "@mdi/js"; // Ikon untuk FAQ
 
 const props = defineProps({
     item: Object,
@@ -14,22 +14,24 @@ const props = defineProps({
 const emit = defineEmits(["close"]);
 
 const form = useForm({
-    _method: "PUT", // Add this line to force PUT method
-    nama_skill: "",
+    _method: "PUT", // Untuk metode PUT
+    pertanyaan: "",
+    jawaban: "",
 });
 
 watch(
     () => props.item,
     (newItem) => {
         if (newItem) {
-            form.nama_skill = newItem.nama_skill;
+            form.pertanyaan = newItem.pertanyaan;
+            form.jawaban = newItem.jawaban;
         }
     },
     { immediate: true }
 );
 
 const submit = () => {
-    form.post(route("skill.update", props.item.id), {
+    form.post(route("faq.update", props.item.id), {
         preserveState: true,
         preserveScroll: true,
         forceFormData: true,
@@ -67,13 +69,20 @@ const submit = () => {
                             <h3
                                 class="text-lg leading-6 font-medium text-gray-900"
                             >
-                                Edit Skill
+                                Edit FAQ
                             </h3>
                             <div class="mt-2">
-                                <FormField label="Nama Skill">
+                                <FormField label="Pertanyaan">
                                     <FormControl
-                                        v-model="form.nama_skill"
-                                        :icon="mdiAccount"
+                                        v-model="form.pertanyaan"
+                                        :icon="mdiHelpCircle"
+                                    />
+                                </FormField>
+                                <FormField label="Jawaban" class="mt-4">
+                                    <FormControl
+                                        v-model="form.jawaban"
+                                        :icon="mdiHelpCircle"
+                                        textarea
                                     />
                                 </FormField>
                             </div>

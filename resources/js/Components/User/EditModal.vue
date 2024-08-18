@@ -52,8 +52,6 @@ const form = useForm({
     _method: 'PUT', // Add this line to force PUT method
     username: '',
     email: '',
-    password: '',
-    role: '',
     nama_mahasiswa: '',
 });
 
@@ -63,8 +61,6 @@ watch(
         if (newItem) {
             form.username = newItem.username;
             form.email = newItem.email;
-            form.password = newItem.password;
-            form.role = newItem.role;
             form.role = newItem.nama_mahasiswa;
         }
     },
