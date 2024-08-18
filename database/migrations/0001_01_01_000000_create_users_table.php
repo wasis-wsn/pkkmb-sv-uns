@@ -155,6 +155,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained('users');
             $table->string('judul_youtube');
             $table->string('link_youtube');
+            $table->text('deskripsi_youtube');
             $table->timestamps();
         });
 

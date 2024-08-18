@@ -1,35 +1,47 @@
 <template>
-  <div class="flex justify-center items-center">
+  <div v-if="comingSoon.length > 0">
     <section
-      v-for="(movie, index) in comingSoon"
-      :key="'comingSoon' + index"
-      data-aos="fade-up"
-      class="flex justify-center flex-col items-center font-bold text-center leading-[150%] max-w-[900px] pb-10 pl-5 pr-5"
+        v-for="(movie, index) in comingSoon"
+        :key="'coming-' + index"
+        class="flex flex-col items-center px-5 py-5 font-bold capitalize text-neutral-900"
+        data-aos="fade-up"
     >
-      <h1
+        <h1
         class="text-6xl text-red-400 capitalize max-md:max-w-full max-md:text-4xl"
         data-aos="fade-up"
       >
         Askara Muda 2024!
       </h1>
       <p
-        class="self-stretch mt-5 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full"
+        class="self-stretch mt-5 w-full text-3xl text-zinc-800 max-md:mt-10 max-md:max-w-full text-center"
         data-aos="fade-up"
       >
         "Cipta Generasi, Kembangkan Potensi, Laksana Gentari"
       </p>
-      <div class="video-container mt-5">
-        <iframe
-          loading="lazy"
-          alt="Coming Soon PKKMB SV UNS 2024"
-          class="rounded-3xl w-full max-w-4xl"
-          :src="movie.videoSrc"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <div
+      class="video-container mt-5 w-full sm:w-2/3 md:w-2/3 xl:w-2/3 lg:w-2/3"
+      data-aos="fade-up"
+        >
+      <div
+    class="relative overflow-hidden"
+    style="padding-top: 56.25%"
+      >
+    <iframe
+        class="absolute top-0 left-0 w-full h-full rounded-3xl"
+        :src="movie.videoSrc"
+        title="Teaser PKKMB SV UNS 2024"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+    ></iframe>
       </div>
+        </div>
     </section>
+      </div>
+      <div v-else class="text-center py-20">
+    <h2 class="text-3xl font-bold text-gray-600">
+        TEASER COMING SOON...
+    </h2>
   </div>
 </template>
 
@@ -88,20 +100,3 @@ onMounted(() => {
     fetchYoutube();
 });
 </script>
-
-<style scoped>
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  overflow: hidden;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>

@@ -2,13 +2,13 @@
   <Head title="Login" />
   <div>
     <nav class="sticky top-0 flex flex-col md:flex-row gap-5 justify-between items-center px-8 py-4 bg-white bg-opacity-90 z-10">
-      <div class="flex items-center gap-2 pr-1.5 font-bold text-center text-black bg-white bg-opacity-0 leading-[150%]">
+      <Link href="/" class="flex items-center gap-2 pr-1.5 font-bold text-center text-black bg-white bg-opacity-0 leading-[150%]">
         <img loading="lazy" src="@assets/logo.png" alt="Askara logo" class="shrink-0 aspect-[1.08] w-[89px]" />
         <div class="flex flex-col self-start mt-5">
           <h1 class="text-3xl">A S K A R A</h1>
           <p class="mt-2.5 text-xs">PKKMB SEKOLAH VOKASI 2024</p>
         </div>
-      </div>
+      </Link>
       <div class="flex gap-5 items-center text-xl text-right text-gray-600 tracking-[2px]">
         <a href="http://wa.me/6289512537245">Hubungi Admin</a>
         <a href="/">
@@ -25,7 +25,7 @@
           <section class="flex flex-col w-[44%] max-md:ml-0 max-md:w-full">
             <div class="flex flex-col self-stretch my-auto font-bold max-md:mt-10 max-md:max-w-full">
               <h2 class="self-center text-5xl text-black max-md:text-4xl">
-                Halo Vocazens!
+                Halo Askara Muda!
               </h2>
               <form @submit.prevent="submit">
                 <div class="mt-20 text-2xl text-neutral-400 max-md:mt-10 max-md:max-w-full">

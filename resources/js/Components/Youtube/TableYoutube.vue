@@ -79,6 +79,11 @@ const closeEditModal = () => {
                     >
                         link Youtube
                     </th>
+                    <th
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Deskripsi Youtube
+                    </th>
                 </tr>
             </thead>
             <tbody class="bg-dark divide-y">
@@ -88,6 +93,9 @@ const closeEditModal = () => {
                     </td>
                     <td class="px-6 py-4">
                         {{ item.link_youtube }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ item.deskripsi_youtube }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <BaseButton

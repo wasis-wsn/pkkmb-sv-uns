@@ -55,8 +55,8 @@
                 </section>
                 <FormEmail :skills="skills" :mahasiswa="mahasiswa" />
                 <TableSkill :data="data" :skills="skills" />
-                <SertifButton />
-                <!-- <section>
+                <!-- <SertifButton />
+                <section>
                     <div class="flex flex-col items-center justify-center text-center">
                         <h3 class="text-2xl text-center font-bold text-black">Sertifikat PKKMB</h3>
                         <BaseButton type="download" color="info" label="Download" class="mt-6 mb-8" />

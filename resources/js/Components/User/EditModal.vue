@@ -17,6 +17,9 @@
                                 <FormField label="Email">
                                     <FormControl v-model="form.email" :icon="mdiMail" />
                                 </FormField>
+                                <FormField label="Nama Mahasiswa">
+                                    <FormControl v-model="form.nama_mahasiswa" :icon="mdiAccount" />
+                                </FormField>
                             </div>
                         </div>
                     </div>
@@ -51,9 +54,10 @@ const form = useForm({
     email: '',
     password: '',
     role: '',
+    nama_mahasiswa: '',
 });
 
-watch(
+watch(  
     () => props.item,
     (newItem) => {
         if (newItem) {
@@ -61,6 +65,7 @@ watch(
             form.email = newItem.email;
             form.password = newItem.password;
             form.role = newItem.role;
+            form.role = newItem.nama_mahasiswa;
         }
     },
     { immediate: true }
