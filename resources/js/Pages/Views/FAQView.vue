@@ -17,7 +17,7 @@
             <button @click="toggleFaq(index)"
               class="w-full text-left p-4 bg-white rounded-lg shadow-md hover:shadow-lg focus:outline-none">
               <div class="flex justify-between items-center">
-                <span class="font-semibold">{{ faq.question }}</span>
+                <span class="font-semibold">{{ faq.pertanyaan }}</span>
                 <svg v-if="faq.open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -32,7 +32,7 @@
             </button>
             <transition name="faq">
               <div v-if="faq.open" class="p-4 bg-gray-50 rounded-b-lg shadow-md">
-                <p class="text-gray-700">{{ faq.answer }}</p>
+                <p class="text-gray-700">{{ faq.jawaban }}</p>
               </div>
             </transition>
           </div>
@@ -43,26 +43,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import LayoutHeaderFooter from "@/Layouts/LayoutHeaderFooter.vue";
-import { onMounted } from 'vue';
 
-// Daftar FAQ
-const faqs = ref([
-  { question: 'Apa itu PKKMB?', answer: 'PKKMB adalah Pengenalan Kehidupan Kampus bagi Mahasiswa Baru...', open: false },
-  { question: 'Kapan PKKMB berlangsung?', answer: 'PKKMB biasanya dilaksanakan pada minggu pertama perkuliahan...', open: false },
-  { question: 'Apakah PKKMB wajib diikuti?', answer: 'Ya, PKKMB adalah kegiatan wajib bagi semua mahasiswa baru...', open: false },
-]);
+const faqs = ref([]);
+
+const fetchFaqs = async () => {
+  try {
+    const response = await axios.get('/data-faqs'); // Endpoint untuk getAllFAQ
+    faqs.value = response.data.data;
+  } catch (error) {
+    console.error('Error fetching FAQs:', error);
+  }
+};
 
 const toggleFaq = (index) => {
   faqs.value[index].open = !faqs.value[index].open;
 };
 
-// Inisialisasi AOS
 onMounted(() => {
-  AOS.init();
+  fetchFaqs();
 });
 </script>
 
@@ -73,14 +74,14 @@ onMounted(() => {
 }
 
 .faq-enter-from, .faq-leave-to {
-  max-height: 0;
   opacity: 0;
+  max-height: 0;
   overflow: hidden;
 }
 
 .faq-enter-to, .faq-leave-from {
-  height: 200px;
   opacity: 1;
+  max-height: 500px; /* Bisa disesuaikan tergantung seberapa panjang jawaban FAQ */
 }
 
 .faq-item {

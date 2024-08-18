@@ -8,6 +8,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/dashboard/faq/{id}', [FAQController::class, 'update'])->name('faq.update');
     Route::delete('/dashboard/faq/{id}', [FAQController::class, 'destroy'])->name('faq.destroy');
 });
-Route::get('/data-faq', [FAQController::class, 'getAllFAQ']);
+Route::get('/data-faqs', [FAQController::class, 'getAllFAQ']);
 
 require __DIR__ . '/auth.php';
