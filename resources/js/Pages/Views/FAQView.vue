@@ -17,7 +17,7 @@
             <button @click="toggleFaq(index)"
               class="w-full text-left p-4 bg-white rounded-lg shadow-md hover:shadow-lg focus:outline-none">
               <div class="flex justify-between items-center">
-                <span class="font-semibold">{{ faq.pertanyaan }}</span>
+                <span class="font-semibold">Q : {{ faq.pertanyaan }}</span>
                 <svg v-if="faq.open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -32,7 +32,7 @@
             </button>
             <transition name="faq">
               <div v-if="faq.open" class="p-4 bg-gray-50 rounded-b-lg shadow-md">
-                <p class="text-gray-700">{{ faq.jawaban }}</p>
+                <p class="text-gray-700">A : {{ faq.jawaban }}</p>
               </div>
             </transition>
           </div>
@@ -75,13 +75,11 @@ onMounted(() => {
 
 .faq-enter-from, .faq-leave-to {
   opacity: 0;
-  max-height: 0;
   overflow: hidden;
 }
 
 .faq-enter-to, .faq-leave-from {
   opacity: 1;
-  max-height: 500px; /* Bisa disesuaikan tergantung seberapa panjang jawaban FAQ */
 }
 
 .faq-item {

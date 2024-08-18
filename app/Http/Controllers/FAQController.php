@@ -41,7 +41,7 @@ class FAQController extends Controller
         }
     }
 
-    public function update(Request $request, FAQ $faq)
+    public function update(Request $request, FAQ $id)
     {
         $validated = $request->validate([
             'pertanyaan' => 'nullable|string|max:255',
@@ -58,7 +58,7 @@ class FAQController extends Controller
             $dataToUpdate['jawaban'] = $validated['jawaban'];
         }
 
-        $faq->update($dataToUpdate);
+        $id->update($dataToUpdate);
 
         return redirect()->route('faq');
     }

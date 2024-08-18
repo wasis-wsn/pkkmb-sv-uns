@@ -35,6 +35,8 @@
         GALERI</Link>
         <Link href="/tentang" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">
         TENTANG</Link>
+        <Link href="/FAQ" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="closeDropdown">
+        FAQs</Link>
 
         <!-- untuk user -->
         <Link href="/profile" v-if="user && user.role === 'user'"

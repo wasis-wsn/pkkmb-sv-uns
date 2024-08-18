@@ -40,6 +40,7 @@
                   <Link href="/kelompok" class="mt-2.5 cursor-pointer" @click="openMenu">Kelompok</Link>
                   <Link href="/galeri" class="mt-2.5 cursor-pointer" @click="openMenu">Galeri</Link>
                   <Link href="/tentang" class="mt-2.5 cursor-pointer" @click="openMenu">Tentang</Link>
+                  <Link href="/FAQ" class="mt-2.5 cursor-pointer" @click="openMenu">FAQs</Link>
                 </div>
                 <div
                   class="flex flex-col mt-1.5 text-sm font-medium text-white"
