@@ -24,6 +24,8 @@
             </Link>
             <Link href="/tentang" class="nav-link" :class="{ 'active': isActive('/tentang') }" @click="openMenu">TENTANG
             </Link>
+            <Link href="/FAQ" class="nav-link" :class="{ 'active': isActive('/FAQ') }" @click="openMenu">FAQ
+            </Link>
         </nav>
 
         <!-- Right Section: Login and Profile -->

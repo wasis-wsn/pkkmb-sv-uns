@@ -13,6 +13,7 @@ import {
     mdiForum,
     mdiAccountDetails,
     mdiAccountFileText,
+    mdiFrequentlyAskedQuestions
 } from "@mdi/js";
 
 export default [
@@ -137,6 +138,12 @@ export default [
         route: "chat",
         label: "Chat",
         icon: mdiForum,
+    },
+
+    {
+        route: "faq",
+        label: "FAQ",
+        icon: mdiFrequentlyAskedQuestions,
     },
     {
         label: "Dropdown",

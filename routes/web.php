@@ -38,6 +38,10 @@ Route::get('/tentang', function () {
     return Inertia::render('Views/AboutView');
 })->name('tentang');
 
+Route::get('/FAQ', function () {
+    return Inertia::render('Views/FAQView');
+})->name('faq');
+
 Route::get('/foo', function () {
     Artisan::call('storage:link');
 });
@@ -90,3 +94,4 @@ require __DIR__ . '/pesanRoute.php';
 require __DIR__ . '/linkMateriRoute.php';
 require __DIR__ . '/GardanaRoute.php';
 require __DIR__ . '/sertifikatRoute.php';
+require __DIR__ . '/faqRoute.php';

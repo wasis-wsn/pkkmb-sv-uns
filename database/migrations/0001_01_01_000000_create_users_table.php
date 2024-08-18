@@ -104,6 +104,15 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        // FAQ Table
+        Schema::create('faq', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('pertanyaan');
+            $table->text('jawaban');
+            $table->timestamps();
+        });
+
         // Galeri Table
         Schema::create('galeri', function (Blueprint $table) {
             $table->id();
