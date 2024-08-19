@@ -83,10 +83,10 @@ const closeEditModal = () => {
             </thead>
             <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4">
                         {{ item.nama_skill }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4">
                         <BaseButton
                             :icon="mdiPencil"
                             color="warning"

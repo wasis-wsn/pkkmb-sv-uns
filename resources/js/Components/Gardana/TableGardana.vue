@@ -34,20 +34,20 @@
                 </thead>
                 <tbody class="bg-dark divide-y">
                     <tr v-for="item in paginatedGardana" :key="item.id">
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.nama_gardana }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.link_wa }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             <ul>
                                 <li v-for="kelompok in item.kelompok" :key="kelompok.id">
                                     {{ kelompok.nama_kelompok }}
                                 </li>
                             </ul>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
                             <BaseButton :icon="mdiDelete" color="danger" @click="confirmDelete(item.id)" />
                         </td>

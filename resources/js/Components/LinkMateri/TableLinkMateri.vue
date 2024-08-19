@@ -79,13 +79,13 @@ const closeEditModal = () => {
           </thead>
           <tbody class="bg-dark divide-y">
               <tr v-for="item in data" :key="item.id">
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="px-6 py-4">
                       {{ item.judul_file }}
                   </td>
                   <td class="px-6 py-4">
                       {{ item.link_drive }}
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
+                  <td class="px-6 py-4">
                       <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
                       <BaseButton :icon="mdiDelete" color="danger" @click="confirmDelete(item.id)" />
                   </td>

@@ -77,17 +77,17 @@ const closeEditModal = () => {
             </thead>
             <tbody class="bg-dark divide-y ">
                 <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <td class="px-6 py-4 text-center">
                         {{ item.nama_hima }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap flex justify-center">
+                    <td class="px-6 py-4 flex justify-center">
                         <img
                             :src="`/storage/hima/${item.logo_hima}`"
                             alt="Dokumen"
                             class="w-40 h-40 object-cover text-center"
                         />
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <td class="px-6 py-4 text-center">
                         <BaseButton
                             :icon="mdiPencil"
                             color="warning"
