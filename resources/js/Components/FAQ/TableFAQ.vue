@@ -28,7 +28,7 @@
                     <td class="px-6 py-4 ">
                         {{ item.jawaban }}
                     </td>
-                    <td class="px-6 py-4 ">
+                    <td class="px-6 py-4 whitespace-nowrap">
                         <BaseButton
                             :icon="mdiPencil"
                             color="warning"

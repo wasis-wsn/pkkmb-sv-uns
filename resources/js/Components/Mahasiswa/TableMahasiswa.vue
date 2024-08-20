@@ -49,7 +49,7 @@
                         <td class="px-6 py-4">
                             {{ item.prodi?.nama_prodi }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 whitespace-nowrap">
                             {{ item.kelompok?.nama_kelompok }}
                         </td>
                         <td class="px-6 py-4">
@@ -59,7 +59,7 @@
                                 </li>
                             </ul>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 whitespace-nowrap">
                             <BaseButton :icon="mdiPencil" color="warning" @click="editData(item)" class="mx-4" />
                             <BaseButton :icon="mdiDelete" color="danger" @click="confirmDelete(item.id)" />
                         </td>

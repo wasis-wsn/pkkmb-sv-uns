@@ -126,7 +126,7 @@ const closeEditModal = () => {
                             class="w-20 h-20 object-cover mx-auto"
                         />
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 whitespace-nowrap">
                         <BaseButton
                             :icon="mdiPencil"
                             color="warning"
