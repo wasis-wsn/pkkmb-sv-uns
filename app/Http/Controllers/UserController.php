@@ -96,7 +96,6 @@ class UserController extends Controller
         $request->validate([
             'username' => 'required|string',
             'email' => 'nullable|string|lowercase|email|max:255|unique:users,email,' . $id->id,
-            'role' => 'required|string'
         ]);
 
         $dataToUpdate = [];
@@ -107,10 +106,6 @@ class UserController extends Controller
 
         if ($request->filled('email')) {
             $dataToUpdate['email'] = $request['email'];
-        }
-
-        if ($request->filled('role')) {
-            $dataToUpdate['role'] = $request['role'];
         }
 
         $id->update($dataToUpdate);
@@ -162,20 +157,10 @@ class UserController extends Controller
         }
 
         // Redirect ke halaman user dengan pesan flash
-        // return redirect()->route('user')->with('flash', [
-        //     'message' => "Berhasil menambahkan $berhasil mahasiswa sebagai user. Gagal: $gagal",
-        // ]);
-
-        // Ambil data user terbaru
-        $users = User::all();
-
-        return Inertia::render('UserView', [
-            'data' => $users,
-            'mahasiswa' => $mahasiswas,
-            'flash' => [
-                'message' => "Berhasil menambahkan $berhasil mahasiswa sebagai user. Gagal: $gagal",
-            ],
+        return redirect()->route('user')->with('flash', [
+            'message' => "Berhasil menambahkan $berhasil mahasiswa sebagai user. Gagal: $gagal",
         ]);
+
     }
 
 }

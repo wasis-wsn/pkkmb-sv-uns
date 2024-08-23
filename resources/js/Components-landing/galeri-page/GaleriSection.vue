@@ -16,7 +16,7 @@
                         class="text-lg mt-4 container mx-auto px-4"
                         data-aos="fade-up"
                     >
-                        Halo, Vocazens! Selamat datang di galeri dokumentasi
+                        Halo, Askara Muda! Selamat datang di galeri dokumentasi
                         kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru
                         (PKKMB) Sekolah Vokasi Universitas Sebelas Maret tahun
                         2024. Galeri ini menyajikan berbagai momen berharga dan
@@ -55,7 +55,7 @@
                             class="button-biru justify-center items-center font-bold text-[24px] px-12 pt-4 pb-4 text-white whitespace-nowrap bg-slate-700 rounded-[20px] max-md:px-7"
                         >
                             <a
-                                href="https://bit.ly/FotoAskara2022"
+                                href="https://drive.google.com/drive/folders/10PXNdd1sE844HjMwzVZgK5mBS24YOn9S?usp=sharing"
                                 target="_blank"
                                 >DOWNLOAD DISINI!</a
                             >

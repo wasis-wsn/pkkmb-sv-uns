@@ -81,6 +81,21 @@ class ChatController extends Controller
             'message' => $request->input('message'),
         ]);
     
+        // Cek apakah ini adalah pesan pertama di room ini
+        $messageCount = Message::where('room_id', $room->id)->count();
+    
+        if ($messageCount == 1) {
+            // Kirim pesan otomatis dari admin
+            $adminMessage = Message::create([
+                'room_id' => $room->id,
+                'user_id' => $this->getDefaultAdminId(),
+                'message' => "Selamat Datang di Website PKKMB SV UNS 2024 ada yang bisa dibantu? jika anda sudah mengirimkan pesan mohon menunggu dijawab oleh admin ya... Terima kasih.",
+            ]);
+            
+            // Trigger event dengan data yang diperlukan untuk pesan admin
+            broadcast(new MessageSent($adminMessage));
+        }
+    
         // Set is_seen menjadi 0 untuk pesan yang dikirim ke room oleh user lain
         Message::where('room_id', $room->id)
             ->where('user_id', '!=', $user->id)
@@ -94,7 +109,7 @@ class ChatController extends Controller
     
         return response()->json(['message' => 'Message sent!']);
     }
-
+    
     public function updateRoomUnseenMessages($roomId)
     {
         // Cari room berdasarkan room_id
