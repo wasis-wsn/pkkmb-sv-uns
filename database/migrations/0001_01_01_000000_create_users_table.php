@@ -55,7 +55,6 @@ return new class extends Migration {
         });
 
 
-
         // Users Table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
