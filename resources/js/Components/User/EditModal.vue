@@ -17,9 +17,6 @@
                                 <FormField label="Email">
                                     <FormControl v-model="form.email" :icon="mdiMail" />
                                 </FormField>
-                                <FormField label="Nama Mahasiswa">
-                                    <FormControl v-model="form.nama_mahasiswa" :icon="mdiAccount" />
-                                </FormField>
                             </div>
                         </div>
                     </div>
@@ -52,7 +49,6 @@ const form = useForm({
     _method: 'PUT', // Add this line to force PUT method
     username: '',
     email: '',
-    nama_mahasiswa: '',
 });
 
 watch(  
@@ -61,7 +57,6 @@ watch(
         if (newItem) {
             form.username = newItem.username;
             form.email = newItem.email;
-            form.role = newItem.nama_mahasiswa;
         }
     },
     { immediate: true }

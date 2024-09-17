@@ -103,7 +103,7 @@ const closeEditModal = () => {
                     >
                         {{ item.deskripsi_dokum }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center w-1/6">
+                    <td class="px-6 py-4 text-center w-1/6">
                         <img
                             :src="`/storage/galeri/${item.photo_dokum}`"
                             alt="Dokumen"

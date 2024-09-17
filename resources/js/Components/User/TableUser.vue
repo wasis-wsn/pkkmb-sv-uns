@@ -65,19 +65,19 @@
                 </thead>
                 <tbody class="bg-dark divide-y">
                     <tr v-for="item in paginatedUsers" :key="item.id">
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.username }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.email }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.nama_mahasiswa }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.role }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             <BaseButton
                                 :icon="mdiPencil"
                                 color="warning"

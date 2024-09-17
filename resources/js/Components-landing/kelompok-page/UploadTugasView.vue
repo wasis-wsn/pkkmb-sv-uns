@@ -23,7 +23,7 @@
             <div class="left-7 flex w-full pt-5">
                 <p class="font-normal font text-sm text-left text-gray-500">
                     Accepted File Types : <br>
-                    JPEG, PNG, PDF, DOC, and ZIP
+                    PDF & DOC
                 </p>
             </div>
         </div>
@@ -157,7 +157,7 @@
         });
 
         try {
-            const response = await axios.post('/upload', formData, {
+            const response = await axios.post('upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

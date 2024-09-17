@@ -110,16 +110,16 @@ const closeEditModal = () => {
             </thead>
             <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4">
                         {{ item.skill.nama_skill }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4">
                         {{ item.deskripsi_skill }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4">
                         {{ item.mahasiswa.nama_mahasiswa }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center w-1/6">
+                    <td class="px-6 py-4 text-center w-1/6">
                         <img
                             :src="`/storage/piagam/${item.photo_piagam}`"
                             alt="Dokumen"

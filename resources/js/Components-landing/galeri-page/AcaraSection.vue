@@ -10,7 +10,7 @@
                         DOKUMENTASI ACARA
                     </h1>
                     <p class="text-lg mt-4" data-aos="fade-up">
-                        Hallo Vocazens!, Bagian ini khusus berisi highlight
+                        Hallo Askara Muda!, Bagian ini khusus berisi highlight
                         foto-foto dari setiap acara yang diadakan, menampilkan
                         berbagai kegiatan penting dan menarik yang telah kita
                         jalani bersama.

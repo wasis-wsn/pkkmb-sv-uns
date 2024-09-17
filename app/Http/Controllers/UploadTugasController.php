@@ -13,7 +13,7 @@ class UploadTugasController extends Controller
     {
         // Validasi input
         $request->validate([
-            'files.*' => 'required|file', // Validasi untuk file
+            'files.*' => 'required|file|mimes:pdf,doc,docx', // Validasi untuk file
         ]);
 
         $user = Auth::user(); // Dapatkan pengguna yang sedang login

@@ -88,13 +88,13 @@ const closeEditModal = () => {
             </thead>
             <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4">
                         {{ item.judul_youtube }}
                     </td>
                     <td class="px-6 py-4">
                         {{ item.link_youtube }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 ">
                         {{ item.deskripsi_youtube }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">

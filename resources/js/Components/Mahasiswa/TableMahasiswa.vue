@@ -40,19 +40,19 @@
                 </thead>
                 <tbody class="bg-dark divide-y">
                     <tr v-for="item in paginatedUsers" :key="item.id">
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.nama_mahasiswa }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.no_telp }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             {{ item.prodi?.nama_prodi }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ item.kelompok?.nama_kelompok }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                             <ul>
                                 <li v-for="skill in item.keterangan_skills" :key="skill.id">
                                     <strong>{{ skill.skill.nama_skill }}:</strong> {{ skill.deskripsi_skill }}

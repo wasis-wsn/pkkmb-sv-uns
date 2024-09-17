@@ -22,10 +22,10 @@
             </thead>
             <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 ">
                         {{ item.pertanyaan }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 ">
                         {{ item.jawaban }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">

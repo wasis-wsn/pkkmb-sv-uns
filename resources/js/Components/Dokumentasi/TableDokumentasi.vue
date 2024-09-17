@@ -83,14 +83,14 @@ const closeEditModal = () => {
             </thead>
             <tbody class="bg-dark divide-y">
                 <tr v-for="item in data" :key="item.id">
-                    <td class="px-6 py-4 whitespace-nowrap text-center w-1/6">
+                    <td class="px-6 py-4 text-center w-1/6">
                         <img
                             :src="`/storage/galeri/${item.photo_galeri}`"
                             alt="Foto Galeri"
                             class="w-20 h-20 object-cover mx-auto"
                         />
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center w-1/6">
+                    <td class="px-6 py-4 text-center w-1/6">
                         <BaseButton
                             :icon="mdiPencil"
                             color="warning"
