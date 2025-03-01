@@ -1,0 +1,68 @@
+.container {
+    text-align: center;
+}
+
+.section .icon, .section .text {
+    flex: 1;
+}
+
+#section1 .text {
+    order: 1;
+    padding-right: 10px; /* Mengurangi jarak */
+}
+
+#section1 .icon {
+    order: 2;
+    padding-left: 10px; /* Mengurangi jarak */
+}
+
+#section2 .icon {
+    order: 1;
+    padding-right: 10px; /* Mengurangi jarak */
+}
+
+#section2 .text {
+    order: 2;
+    padding-left: 10px; /* Mengurangi jarak */
+}
+
+#section3 .text {
+    order: 1;
+    padding-right: 10px; /* Mengurangi jarak */
+}
+
+#section3 .icon {
+    order: 2;
+    padding-left: 10px; /* Mengurangi jarak */
+}
+
+#section4 .icon {
+    order: 1;
+    padding-right: 10px; /* Mengurangi jarak */
+}
+
+#section4 .text {
+    order: 2;
+    padding-left: 10px; /* Mengurangi jarak */
+}
+
+/* Optional: Additional styling for better appearance */
+.section img {
+    max-width: 80%;
+    height: auto;
+}
+
+.section .text h2 {
+    margin-top: 0;
+}
+
+.section .text p {
+    margin-bottom: 0;
+}
+.icon {
+    flex: 0 0 25%; /* Ikon menempati 25% dari lebar kolom */
+}
+.icon img {
+    width: 100%; /* Gambar mengisi seluruh lebar ikon */
+    height: auto; /* Tinggi gambar disesuaikan secara otomatis */
+}

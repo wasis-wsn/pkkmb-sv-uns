@@ -1,42 +1,57 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+  "name": "pkkmbsvuns",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@chenfengyuan/vue-carousel": "^2.0.0",
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@heroicons/vue": "^2.1.4",
+    "@remixicon/vue": "^4.2.0",
+    "aos": "^2.3.4",
+    "core-js": "^3.8.3",
+    "lucide-vue-next": "^0.407.0",
+    "remixicon": "^4.3.0",
+    "serve": "^14.2.3",
+    "swiper": "^11.1.4",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.13",
+    "vuetify": "^3.6.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "devDependencies": {
-        "@inertiajs/vue3": "^1.0.0",
-        "@mdi/js": "^7.4.47",
-        "@tailwindcss/forms": "^0.5.3",
-        "@tailwindcss/line-clamp": "^0.4.4",
-        "@vitejs/plugin-vue": "^5.0.0",
-        "autoprefixer": "^10.4.12",
-        "axios": "^1.6.4",
-        "chart.js": "^4.4.3",
-        "laravel-echo": "^1.16.1",
-        "laravel-vite-plugin": "^1.0",
-        "numeral": "^2.0.6",
-        "pinia": "^2.1.7",
-        "postcss": "^8.4.31",
-        "pusher-js": "^8.4.0-rc2",
-        "tailwindcss": "^3.2.1",
-        "vite": "^5.0",
-        "vue": "^3.4.0"
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
     },
-    "dependencies": {
-        "@heroicons/vue": "^2.1.5",
-        "@inertiajs/inertia": "^0.11.1",
-        "@inertiajs/inertia-vue3": "^0.6.0",
-        "@inertiajs/progress": "^0.1.2",
-        "@remixicon/vue": "^4.2.0",
-        "aos": "^2.3.4",
-        "composer": "^4.1.0",
-        "remixicon": "^4.3.0",
-        "sweetalert2": "^11.6.13",
-        "swiper": "^11.1.5",
-        "vue-router": "^4.0.13",
-        "wordcloud": "^1.2.2",
-        "ziggy-js": "^2.2.1"
-    }
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }
