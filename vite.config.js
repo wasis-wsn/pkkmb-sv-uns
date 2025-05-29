@@ -6,7 +6,7 @@ import path from 'path'
 export default defineConfig({
     server: {
         cors: true,
-        https: false,
+        https: true,
         host: 'pkkmb.kodesora.my.id',
         // port: 5173,
     },
