@@ -5,12 +5,16 @@ import path from 'path'
 
 export default defineConfig({
     server: {
-        cors: true,
         https: true,
         host: 'pkkmb.kodesora.my.id',
-        // port: 5173,
+        hmr: {
+            host: 'pkkmb.kodesora.my.id',
+            protocol: 'wss'
+        }
     },
-    base: '/build/',
+    base: process.env.NODE_ENV === 'production' 
+    ? 'https://pkkmb.kodesora.my.id/build/' 
+    : '/build/',
     plugins: [
         laravel({
             input: 'resources/js/app.js',
