@@ -62,8 +62,7 @@ return new class extends Migration {
             $table->string('email')->nullable()->unique();
             $table->string('password');
             $table->string('role')->default('user');
-            $table->string('nama_mahasiswa')->nullable();
-            $table->unsignedBigInteger('mahasiswa_id')->nullable();
+            $table->string('nama_mahasiswa')->nullable()->unique();
             $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa')->onUpdate('cascade')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
@@ -205,7 +204,7 @@ return new class extends Migration {
         // Sertifikat Table
         Schema::create('sertifikat_mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_mahasiswa');
+            $table->string('nama_mahasiswa')->unique();
             $table->string('nama_file');
             $table->timestamps();
 
