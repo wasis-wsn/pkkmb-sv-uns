@@ -4,6 +4,12 @@ import vue from '@vitejs/plugin-vue';
 import path from 'path'
 
 export default defineConfig({
+    server: {
+        cors: true,
+        https: false,
+        host: 'pkkmb.kodesora.my.id',
+        // port: 5173,
+    },
     base: '/build/',
     plugins: [
         laravel({
