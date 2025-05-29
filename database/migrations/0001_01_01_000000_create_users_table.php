@@ -63,6 +63,7 @@ return new class extends Migration {
             $table->string('password');
             $table->string('role')->default('user');
             $table->string('nama_mahasiswa')->nullable()->unique();
+            $table->unsignedBigInteger('mahasiswa_id')->nullable();
             $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa')->onUpdate('cascade')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
