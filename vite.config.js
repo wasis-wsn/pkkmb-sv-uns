@@ -9,6 +9,7 @@ export default defineConfig({
         host: 'localhost',
         port: 5173,
     },
+    base: 'https://pkkmb.kodesora.my.id/',
     plugins: [
         laravel({
             input: 'resources/js/app.js',
