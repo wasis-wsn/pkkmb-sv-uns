@@ -6,10 +6,10 @@ import path from 'path'
 export default defineConfig({
     server: {
         https: true,
-        host: 'localhost',
+        host: 'https://pkkmb.kodesora.my.id',
         port: 5173,
     },
-    base: 'https://pkkmb.kodesora.my.id/',
+    base: '/build/',
     plugins: [
         laravel({
             input: 'resources/js/app.js',
